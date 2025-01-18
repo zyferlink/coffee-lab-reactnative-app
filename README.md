@@ -3,111 +3,185 @@ CoffeeLab by Nova <br>
 ♨ [ ʀᴇᴀᴄᴛ ɴᴀᴛɪᴠᴇ ᴘʀᴏᴊᴇᴄᴛ ] ♨
 </h1>
 
-## Stage 01: Initialize Project  
+## Stage 02: Project Setup  
 **Log:** January 18, 2025  
 
-This is the first step in setting up your React Native project. In this stage, you'll initialize the project, set up dependencies, and run your app on an Android emulator or physical device.
-
-<br/>
-
-## Step by Step Process
-
-### Step 1: Create a New Application  
-If you have previously installed `react-native-cli`, remove it as it may cause issues:
-
-```bash
-npm uninstall -g react-native-cli @react-native-community/cli
-```
-
-Use the React Native Community CLI to create a new project:
-
-```bash
-npx @react-native-community/cli init CoffeeLab --version 0.75.0
-```
-
-**Note:**  
-If you have issues with iOS, reinstall dependencies by running the following commands:
-
-1. Navigate to the iOS folder:
-   ```bash
-   cd ios
-   ```
-
-2. Install Bundler:
-   ```bash
-   bundle install
-   ```
-
-3. Install iOS dependencies with CocoaPods:
-   ```bash
-   bundle exec pod install
-   ```
-
-#
-### Step 2: Start Metro  
-Metro is the JavaScript bundler for React Native. Start it by running the following from your project folder:
-
-```bash
-npm start
-```
-
-**Note:**  
-Metro is similar to web bundlers like Vite and webpack but designed for React Native. It uses Babel to transform JSX into JavaScript that can be executed.
-
-#
-### Step 3: Run Your Application  
-Keep Metro Bundler running in its own terminal. Then, open a new terminal in your project folder and run:
-
-```bash
-npm run android
-```
-
-Your app should appear in the Android emulator if everything is set up properly.
-
-You can also run the app directly from Android Studio.
-
-#### Running on a Physical Device
-
-1. **Enable Debugging over USB**  
-Most Android devices only install apps from Google Play by default. To install your app during development, enable USB Debugging.
-
-   - Go to **Settings → About phone → Software information**, and tap **Build number** seven times to enable **Developer options**.
-   - Then, go to **Settings → Developer options** and enable **USB debugging**.
-
-2. **Connect Your Device via USB**  
-Plug your Android device into your development machine. Check if the device is connected by running:
-
-```bash
-adb devices
-```
-
-The output should list your device (either physical or emulator).
-
-3. **Run the App**  
-To install and launch the app on your device, run:
-
-```bash
-npm run android
-```
-
-#
-### Step 4: Modify Your App  
-Now that your app is running, you can make changes.
-
-1. Open `App.tsx` in your text editor and modify the code.
-2. Press **R** twice or open the Dev Menu (Ctrl + M) and select **Reload** to see your changes.
+In this stage, we'll configure the project by modifying key files, installing necessary dependencies, and preparing the app for development.
 
 ---
 
-<br/>
+## Step by Step Process
 
-**Congratulations!**  
-You’ve successfully run and modified your first React Native app!
+#### Change 1: Update `AndroidManifest.xml`  
+👉 [View the `AndroidManifest.xml` code here](./android/app/src/main/AndroidManifest.xml)  
+
+Add the following line to lock the screen orientation to `portrait`:
+
+```xml
+<activity
+    android:name=".MainActivity"
+    android:label="@string/app_name"
+
+    ... add this line->
+    android:screenOrientation="portrait" 
+
+```
+
+---
+
+### Step 2: Install Dependencies  
+
+#### 2.1 React Navigation  
+Updated documentation: [React Navigation - Getting Started](https://reactnavigation.org/docs/getting-started/)  
+
+Install the core React Navigation package:  
+```bash
+npm install @react-navigation/native
+```
+
+React Navigation uses other libraries like `react-native-screens` and `react-native-safe-area-context`. Install them:  
+```bash
+npm install react-native-screens react-native-safe-area-context
+```
+
+**Note:**  
+Warnings related to peer dependencies are common and can be ignored if your app builds successfully.  
+
+For iOS development, install the CocoaPods dependencies:  
+```bash
+npx pod-install ios
+```
+
+#### Android-specific Configuration: ♨ 
+In `MainActivity.kt` or `MainActivity.java` (under `android/app/src/main/java/<your package name>/`), add the following code:  
+
+```kotlin
+import android.os.Bundle // <-this
+
+class MainActivity: ReactActivity() {
+
+   //this override function
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(null)
+    }
+
+}
+```
+
+This prevents crashes related to inconsistent View state persistence.
+
+---
+
+#### 2.2 Native Stack Navigator  
+Updated documentation: [React Navigation - Native Stack Navigator](https://reactnavigation.org/docs/native-stack-navigator/)  
+
+Install the native stack navigator:  
+```bash
+npm install @react-navigation/native-stack
+```
+
+---
+
+#### 2.3 Bottom Tabs Navigator  
+Updated documentation: [React Navigation - Bottom Tabs Navigator](https://reactnavigation.org/docs/bottom-tab-navigator/)  
+
+Install the bottom tabs navigator:  
+```bash
+npm install @react-navigation/bottom-tabs
+```
+
+---
+
+#### 2.4 Linear Gradient  
+Updated documentation: [React Native Linear Gradient](https://www.npmjs.com/package/react-native-linear-gradient)  
+
+Install the linear gradient library:  
+```bash
+npm i react-native-linear-gradient
+```
+
+---
+
+#### 2.5 Blur View  
+Updated documentation: [React Native Blur](https://www.npmjs.com/package/@react-native-community/blur)  
+
+Install the blur view library:  
+```bash
+npm i @react-native-community/blur
+```
+
+---
+
+#### 2.6 Lottie Animations  
+Updated documentation: [Lottie React Native](https://www.npmjs.com/package/lottie-react-native)  
+
+Install the Lottie animation library:  
+```bash
+npm i lottie-react-native
+```
+
+---
+
+#### 2.7 Vector Icons  
+Updated documentation: [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)  
+
+Install the vector icons library:  
+```bash
+npm i react-native-vector-icons
+```
+Also install TypeScript types (for TypeScript projects):  
+```bash
+npm i --save-dev @types/react-native-vector-icons
+```
+
+---
+
+#### 2.8 Zustand (State Management)  
+Updated documentation: [Zustand](https://www.npmjs.com/package/zustand)  
+
+Install Zustand for state management:  
+```bash
+npm i zustand
+```
+
+---
+
+#### 2.9 Immer (Immutable State)  
+Updated documentation: [Immer](https://www.npmjs.com/package/immer)  
+
+Install Immer for immutable state handling:  
+```bash
+npm i immer
+```
+
+---
+
+#### 2.10 Async Storage  
+Updated documentation: [React Native Async Storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)  
+
+Install Async Storage:  
+```bash
+npm i @react-native-async-storage/async-storage
+```
+
+To clean and rebuild the project for Android, run:  
+```bash
+cd android
+./gradlew clean
+cd ..
+npx react-native run-android
+```
+
+---
+
+### Screenshot  
+
 <p align="center" >  
 <img src="./_archive/screenshots/screenshot-1.png" width=200>
-</p>
+</p>  
 
-#
-See you in the next step for the development process! 🚀
-#
+---
+**See you in the next step for the development process! 🚀** 
+ 
+---
 
