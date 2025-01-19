@@ -4,85 +4,82 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 06: Screens, Stack and Tab Navigators  
+## Stage 07: Building Zustand Store  
 **Log:** January 19, 2025  
 
-This stage involves setting up Stack and Tab Navigators in your React Native app for navigating between different screens.
+In this stage, you'll set up the Zustand store for state management in your React Native app.
 
 ---
 
-## Step by Step Process
+## Step-by-Step Process
 
-#### Step 1: Clear App.tsx
+#### Step 1: Create Store File
 
-1. Delete everything from `App.tsx`:  
-   - [App.tsx](./App.tsx)
-
-2. Type `rnfes` for start impl. (this requires the ES7+ React/Redux/React-Native snippets plugin).
+1. Inside `src/store/`, create a file named `store.ts`
 
 ---
 
-#### Step 2: Create Screens
+#### Step 2: Implement the Store
 
-1. Inside `src/screens/`, create the following six screens and initialize them with `rnfes`:
+1. Implement the store feature in `store.ts`:
 
-   - CartScreen
-   - DetailScreen
-   - FavoriteScreen
-   - HomeScreen
-   - OrderHistoryScreen
-   - PaymentScreen
+   - [store.ts](./src/store/store.ts)
 
-   <p align="left">  
-   <img src="./_archive/screenshots/screens.png">
-   </p>  
+   **Code Implementation**:
 
----
+   ```js
+   import { create } from "zustand";
+   import { produce } from "immer";
+   import { persist, createJSONStorage } from 'zustand/middleware';
+   import AsyncStorage, { AsyncStorageStatic } from '@react-native-async-storage/async-storage';
 
-#### Step 3: Create Tab Navigator
+   import CoffeeData from "../data/CoffeeData";
+   import BeansData from "../data/BeansData";
 
-1. Inside `src/navigator/`, create a file named `TabNavigator.tsx` and implement the following code:
+   export const useStore = create(
+       persist(
+           (set, get) => ({
+               CoffeeList: CoffeeData,
+               BeanList: BeansData,
+               CartPrice: 0,
+               FavoriteList: [],
+               CartList: [],
+               OrderHistoryList: [],
+           }),
+           {
+               name: "coffee-lab-app",
+               storage: createJSONStorage(() => AsyncStorage),
+           },
+       ),
+   );
+   ```
 
-   - [TabNavigator.tsx](./src/navigators/TabNavigator.tsx)
+   **Highlights**:
 
-   **Highlights**  
-   **Tab Navigator Creation:**
-   - A bottom tab navigator (`createBottomTabNavigator`) is created with the `Tab` constant.  
+   ### Imports:
+   - **`zustand`**: A state management library for React and React Native. The `create` function is used to define a store that holds the app's state.
+   - **`immer`**: A library for handling immutable state updates. It's imported here but not directly used in the code provided.
+   - **`zustand/middleware`**: Provides middleware for state persistence. Specifically, **`persist`** is used to persist the state, and **`createJSONStorage`** allows using a custom storage mechanism (in this case, `AsyncStorage`).
+   - **`AsyncStorage`**: A simple, asynchronous, persistent storage system for React Native. It's used to save the app's state between sessions.
+   - **`CoffeeData` and `BeansData`**: Static data imported from local files that represent coffee and beans information. These serve as the initial values in the store.
 
-   **Reusable Icon Renderer:**
-   - `getTabIcon` dynamically generates a `CustomIcon` with:
-     - Icon color based on focus state (focused: `COLORS.primaryOrangeHex`, not focused: `COLORS.primaryLightGreyHex`).
-     - Adjustable size and icon name.
+   ### Store (`useStore`):
+   This defines a state store using **`zustand`** with the following properties:
+   - `CoffeeList` and `BeanList`: Initial data imported from **`CoffeeData`** and **`BeansData`** respectively.
+   - `CartPrice`: Tracks the total price of items in the cart.
+   - `FavoriteList`: Holds the user's favorite coffee items.
+   - `CartList`: Stores the list of items currently in the user's cart.
+   - `OrderHistoryList`: Keeps the list of past orders.
 
-   **Tab Navigator Configuration:**
-   - Shared options for `Tab.Navigator`:
-     - Hides headers (`headerShown: false`).
-     - Hides the tab bar on keyboard open (`tabBarHideOnKeyboard: true`).
-     - Displays only icons (no labels) and uses custom styles.
-     - Adds a blurred background with `BlurView`.
-
-   **Tab Screens:**
-   - Four tabs (Home, Cart, Favorite, History) each with:
-     - A screen component (e.g., `HomeScreen`).
-     - A custom tab icon via `getTabIcon`.
-
-   **Tab Bar Customization:**
-   - Custom `tabBarStyles` for height, transparency, and spacing.
-   - `BlurView` covers the entire tab bar for a seamless background effect.
-
----
-
-#### Step 4: Implement Navigation
-
-1. Import the required screens and `TabNavigator` into `App.tsx` and implement the navigation:
-
-   - [App.tsx](./App.tsx)
+   ### Persistence:
+   - The store is configured to persist its state using **`AsyncStorage`**, meaning that the data is saved across app sessions and restored when the app is restarted.
+   - The persistence is handled by **`persist`** middleware with `AsyncStorage` as the storage engine.
 
 ---
 
 ### Final Steps
 
-After setting up the navigators, ensure the app is functioning as expected by cleaning and rebuilding the project:
+After setting up the store, ensure the app is functioning as expected by cleaning and rebuilding the project:
 
 1. Run the following commands:
 
@@ -95,16 +92,13 @@ After setting up the navigators, ensure the app is functioning as expected by cl
 
 ---
 
-### Screenshot  
-
-<p align="center" >  
-<img src="./_archive/screenshots/screenshot-navigator.png" width=200>
-</p>  
-
+### Screenshot : Latest 
+<p align="center">  
+<img src="./_archive/screenshots/screenshot-navigator.png" width=200>  
+</p>
 
 ---
 
-**That's all for this stage!**  
-Check that everything is working smoothly before proceeding to the next step. 🚀
+**See you in the next step for the development process! 🚀**
 
 ---
