@@ -4,7 +4,7 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 06: Stack and Tab Navigators  
+## Stage 06: Screens, Stack and Tab Navigators  
 **Log:** January 19, 2025  
 
 This stage involves setting up Stack and Tab Navigators in your React Native app for navigating between different screens.
@@ -43,7 +43,7 @@ This stage involves setting up Stack and Tab Navigators in your React Native app
 
 1. Inside `src/navigator/`, create a file named `TabNavigator.tsx` and implement the following code:
 
-   - [TabNavigator.tsx](./src/navigator/TabNavigator.tsx)
+   - [TabNavigator.tsx](./src/navigators/TabNavigator.tsx)
 
    **Highlights**  
    **Tab Navigator Creation:**
