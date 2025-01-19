@@ -4,59 +4,85 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 05: Custom Icon Setup  
+## Stage 06: Stack and Tab Navigators  
 **Log:** January 19, 2025  
 
-This stage sets up custom icons using IcoMoon, allowing you to use personalized icons in your project.
+This stage involves setting up Stack and Tab Navigators in your React Native app for navigating between different screens.
 
 ---
 
 ## Step by Step Process
 
-#### Step 1: Create a Custom Icon Component
+#### Step 1: Clear App.tsx
 
-1. Inside the `src/components` directory, create a file named `CustomIcon.ts`.
-2. Implement the following code in the file:
+1. Delete everything from `App.tsx`:  
+   - [App.tsx](./App.tsx)
 
-   ```js
-   import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
-   import icoMoonConfig from '../../selection.json';
-   export default createIconSetFromIcoMoon(icoMoonConfig);
-   ```
-
-3. Reference: [CustomIcon.ts](./src/components/CustomIcon.ts)  
-
-This allows you to use custom icons based on your IcoMoon configuration.
+2. Type `rnfes` for start impl. (this requires the ES7+ React/Redux/React-Native snippets plugin).
 
 ---
 
-#### Step 2: Using the Custom Icon Component
+#### Step 2: Create Screens
 
-You can now use the custom icon component like this:
+1. Inside `src/screens/`, create the following six screens and initialize them with `rnfes`:
 
-```jsx
-<CustomIcon name="search" size={24} />
-```
+   - CartScreen
+   - DetailScreen
+   - FavoriteScreen
+   - HomeScreen
+   - OrderHistoryScreen
+   - PaymentScreen
 
-4. Test it by adding the component in [App.tsx](./App.tsx):
+   <p align="left">  
+   <img src="./_archive/screenshots/screens.png">
+   </p>  
 
-Example code in `App.tsx`:
+---
 
-```jsx
-<Section title="Step One">
-    <CustomIcon name="search" size={24} />
-    Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-    screen and then come back to see your edits.
-</Section>
-```
+#### Step 3: Create Tab Navigator
 
-Feel free to try out different icons or configurations.
+1. Inside `src/navigator/`, create a file named `TabNavigator.tsx` and implement the following code:
+
+   - [TabNavigator.tsx](./src/navigator/TabNavigator.tsx)
+
+   **Highlights**  
+   **Tab Navigator Creation:**
+   - A bottom tab navigator (`createBottomTabNavigator`) is created with the `Tab` constant.  
+
+   **Reusable Icon Renderer:**
+   - `getTabIcon` dynamically generates a `CustomIcon` with:
+     - Icon color based on focus state (focused: `COLORS.primaryOrangeHex`, not focused: `COLORS.primaryLightGreyHex`).
+     - Adjustable size and icon name.
+
+   **Tab Navigator Configuration:**
+   - Shared options for `Tab.Navigator`:
+     - Hides headers (`headerShown: false`).
+     - Hides the tab bar on keyboard open (`tabBarHideOnKeyboard: true`).
+     - Displays only icons (no labels) and uses custom styles.
+     - Adds a blurred background with `BlurView`.
+
+   **Tab Screens:**
+   - Four tabs (Home, Cart, Favorite, History) each with:
+     - A screen component (e.g., `HomeScreen`).
+     - A custom tab icon via `getTabIcon`.
+
+   **Tab Bar Customization:**
+   - Custom `tabBarStyles` for height, transparency, and spacing.
+   - `BlurView` covers the entire tab bar for a seamless background effect.
+
+---
+
+#### Step 4: Implement Navigation
+
+1. Import the required screens and `TabNavigator` into `App.tsx` and implement the navigation:
+
+   - [App.tsx](./App.tsx)
 
 ---
 
 ### Final Steps
 
-After adding and testing the custom icon, ensure the app is functioning as expected by cleaning and rebuilding the project:
+After setting up the navigators, ensure the app is functioning as expected by cleaning and rebuilding the project:
 
 1. Run the following commands:
 
@@ -72,7 +98,7 @@ After adding and testing the custom icon, ensure the app is functioning as expec
 ### Screenshot  
 
 <p align="center" >  
-<img src="./_archive/screenshots/screenshot-with-custom-icon.png" width=200>
+<img src="./_archive/screenshots/screenshot-navigator.png" width=200>
 </p>  
 
 
