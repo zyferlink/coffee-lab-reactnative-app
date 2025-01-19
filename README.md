@@ -3,55 +3,54 @@ CoffeeLab by Nova <br>
 ♨ [ ʀᴇᴀᴄᴛ ɴᴀᴛɪᴠᴇ ᴘʀᴏᴊᴇᴄᴛ ] ♨
 </h1>
 
-## Stage 03: Asset Allocation  
-**Log:** January 18, 2025  
+## Stage 04: Data, Theme, and Structural Setup  
+**Log:** January 19, 2025  
 
-In this stage, we will allocate assets such as images, fonts, and animations into the project. We will also configure the project to link those assets correctly.
+This stage focuses on setting up the data sources, theme configuration, and folder structure for the project.
 
 ---
 
 ## Step by Step Process
 
-#### Step 1: Create Asset Folders and Allocate Assets
+#### Step 1: Data Sources
 
-1. Create a `src` folder in the root directory.
-2. Inside `src`, create an `assets` folder, and store project images and fonts. <br/>
-   👉 [View the `assets` folder](./src/assets/)  
-3. Inside `src`, create another folder named `lottie` , and store animation JSON files. <br/>
-   👉 [View the `lottie` folder](./src/lottie/)  
-4. Add a `selection.json` file to the root directory for configuration. <br/>
-   👉 [View the `selection.json` ](./selection.json)  
+1. Inside the `src` directory, create a folder named `data`  
+2. Allocate the data sources for the project:
+
+   - [CoffeeData.ts](./src/data/CoffeeData.ts)  
+   - [BeansData.ts](./src/data/BeansData.ts)
 
 ---
 
-#### Step 2: Configure React Native to Use Assets
+#### Step 2: Theme Configuration
 
-1. Create a `react-native.config.js` file in the root directory with the following content:
+1. Inside the `src` directory, create a folder named `theme`.  
+2. Configure the theme settings for the project:
 
-   ```js
-   module.exports = {
-       project: {
-           ios: {},
-           android: {},
-       },
-       assets: ['./src/assets'],
-   };
-   ```
-
-2. To export the assets to both Android and iOS, run the following command:  
-   ```bash
-   npx react-native-asset
-   ```
+   - [theme.ts](./src/theme/theme.ts)
 
 ---
 
-![Asset Allocation](./_archive/screenshots/asset_allocation.png)
+#### Step 3: Folder Structure
+
+1. Inside the `src` directory, create the following folders:  
+
+   - `components` : for reusable UI components
+   - `navigators` : for managing app navigation
+   - `store` : for state management library
+   - `screens` : for app screens and views
+
+   Example folder structure:  
+   <p align="left">  
+   <img src="./_archive/screenshots/structure.png">  
+   </p>
 
 ---
 
 ### Final Steps
 
-After allocating the assets, ensure the app is still working as expected by cleaning and rebuilding the project:
+After setting up the data, theme, and folder structure, ensure the app is working as expected by cleaning and rebuilding the project:
+
 
 1. Run the following commands:
 
