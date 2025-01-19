@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,12 +24,13 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import CustomIcon from './src/components/CustomIcon';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -76,10 +77,30 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+
+          <View style={styles.centerContent}>
+            <Section title="">
+              <Text style={styles.highlight}>
+                & Welcome to  {"\n"}
+              </Text>
+              <Text style={styles.sectionTitle}>
+                CoffeeLab
+              </Text>
+              <CustomIcon
+                name="like"
+                size={32}
+              />
+              {"\n"}
+            </Section>
+          </View>
+
           <Section title="Step One">
+            <CustomIcon name="search" size={24} />
+
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
+
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -97,6 +118,10 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  centerContent: {
+    justifyContent: 'center', // Centers vertically
+    alignItems: 'center', // Centers horizontally
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
