@@ -3,54 +3,60 @@ CoffeeLab by Nova <br>
 ♨ [ ʀᴇᴀᴄᴛ ɴᴀᴛɪᴠᴇ ᴘʀᴏᴊᴇᴄᴛ ] ♨
 </h1>
 
-## Stage 04: Data, Theme, and Structural Setup  
+
+## Stage 05: Custom Icon Setup  
 **Log:** January 19, 2025  
 
-This stage focuses on setting up the data sources, theme configuration, and folder structure for the project.
+This stage sets up custom icons using IcoMoon, allowing you to use personalized icons in your project.
 
 ---
 
 ## Step by Step Process
 
-#### Step 1: Data Sources
+#### Step 1: Create a Custom Icon Component
 
-1. Inside the `src` directory, create a folder named `data`  
-2. Allocate the data sources for the project:
+1. Inside the `src/components` directory, create a file named `CustomIcon.ts`.
+2. Implement the following code in the file:
 
-   - [CoffeeData.ts](./src/data/CoffeeData.ts)  
-   - [BeansData.ts](./src/data/BeansData.ts)
+   ```js
+   import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+   import icoMoonConfig from '../../selection.json';
+   export default createIconSetFromIcoMoon(icoMoonConfig);
+   ```
 
----
+3. Reference: [CustomIcon.ts](./src/components/CustomIcon.ts)  
 
-#### Step 2: Theme Configuration
-
-1. Inside the `src` directory, create a folder named `theme`.  
-2. Configure the theme settings for the project:
-
-   - [theme.ts](./src/theme/theme.ts)
+This allows you to use custom icons based on your IcoMoon configuration.
 
 ---
 
-#### Step 3: Folder Structure
+#### Step 2: Using the Custom Icon Component
 
-1. Inside the `src` directory, create the following folders:  
+You can now use the custom icon component like this:
 
-   - `components` : for reusable UI components
-   - `navigators` : for managing app navigation
-   - `store` : for state management library
-   - `screens` : for app screens and views
+```jsx
+<CustomIcon name="search" size={24} />
+```
 
-   Example folder structure:  
-   <p align="left">  
-   <img src="./_archive/screenshots/structure.png">  
-   </p>
+4. Test it by adding the component in [App.tsx](./App.tsx):
+
+Example code in `App.tsx`:
+
+```jsx
+<Section title="Step One">
+    <CustomIcon name="search" size={24} />
+    Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+    screen and then come back to see your edits.
+</Section>
+```
+
+Feel free to try out different icons or configurations.
 
 ---
 
 ### Final Steps
 
-After setting up the data, theme, and folder structure, ensure the app is working as expected by cleaning and rebuilding the project:
-
+After adding and testing the custom icon, ensure the app is functioning as expected by cleaning and rebuilding the project:
 
 1. Run the following commands:
 
@@ -66,11 +72,13 @@ After setting up the data, theme, and folder structure, ensure the app is workin
 ### Screenshot  
 
 <p align="center" >  
-<img src="./_archive/screenshots/screenshot-1.png" width=200>
+<img src="./_archive/screenshots/screenshot-with-custom-icon.png" width=200>
 </p>  
 
----
-**See you in the next step for the development process! 🚀** 
 
 ---
 
+**That's all for this stage!**  
+Check that everything is working smoothly before proceeding to the next step. 🚀
+
+---
