@@ -18,11 +18,21 @@ const getCategoriesFromList = (coffeeList: any[]) => {
   return categories;
 };
 
+const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
+  if (seletedCategory == "All") return coffeeList;
+
+  const sortedList = coffeeList.filter(
+    (coffeeCategory: any) => coffeeCategory.name == seletedCategory
+  )
+  return sortedList;
+}
+
 const HomeScreen = () => {
 
   const coffeeList = useStore((state: any) => state.CoffeeList);
   const beanList = useStore((state: any) => state.beanList);
 
+  const [searchText, setSearchText] = useState(undefined);
   const [categories, setCategories] = useState(
     getCategoriesFromList(coffeeList)
   );
@@ -30,8 +40,9 @@ const HomeScreen = () => {
     index: 0,
     category: categories[0],
   });
-  const [searchText, setSearchText] = useState(undefined);
-  const [sortedCoffee, setSortedCoffee] = useState(undefined);
+  const [sortedCoffee, setSortedCoffee] = useState(
+    getSortedCoffeeList(categoryIndex.category, coffeeList)
+  );
 
 
   return (
