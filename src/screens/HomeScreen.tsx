@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import { useStore } from '../store/store'
+import { ScreenContainer } from 'react-native-screens';
+import { COLORS } from '../theme/theme';
 
 const getCategoriesFromList = (coffeeList: any[]) => {
   const categoryCounts: Record<string, number> = {};
@@ -44,14 +47,24 @@ const HomeScreen = () => {
     getSortedCoffeeList(categoryIndex.category, coffeeList)
   );
 
+  const tabBarHeight = useBottomTabBarHeight();
+
 
   return (
-    <View>
-      <Text style={{ color: "black" }}>HomeScreen</Text>
+    <View
+    style={styles.ScreenContainer}>
+      <StatusBar 
+      backgroundColor={COLORS.primaryBlackHex}
+      />
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  ScreenContainer: {
+    flex: 1,
+    backgroundColor: COLORS.primaryBlackHex,
+  }
+})
 
 export default HomeScreen
