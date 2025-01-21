@@ -75,7 +75,9 @@ const HomeScreen = () => {
         <View
           style={styles.inputContainer}>
           <TouchableOpacity
-            onPress={() => { }}>
+            onPress={() => {
+
+            }}>
             <CustomIcon
               name="search"
               size={FONT_SIZE.size18}
@@ -95,6 +97,47 @@ const HomeScreen = () => {
             style={styles.textInputContainer}
           />
         </View>
+        {/*CATEGORY SCROLLER*/}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.categoryScrollViewContentContainer}>
+          {
+            categories.map((category, index) => (
+              <View
+                key={index.toString()}
+                style={styles.categoryScrollViewContainer}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setCategoryIndex({
+                      index: index,
+                      category: categories[index]
+                    });
+                    setSortedCoffee([
+                      ...getSortedCoffeeList(categories[index], coffeeList),
+                    ]);
+                  }}
+                  style={styles.categoryScrollViewItem}>
+                  <Text
+                    style={[
+                      styles.categoryText,
+                      categoryIndex.index == index ? { color: COLORS.primaryOrange } : {},
+                    ]}>
+                    {category}
+                  </Text>
+                  {categoryIndex.index == index
+                    ? <View
+                      style={styles.activeCategory}>
+
+                    </View>
+                    : <>
+                    </>
+                  }
+                </TouchableOpacity>
+              </View>
+            ))
+          }
+        </ScrollView>
       </ScrollView>
     </View>
   )
@@ -123,7 +166,6 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     marginHorizontal: SPACING.space20,
-
   },
   textInputContainer: {
     flex: 1,
@@ -131,6 +173,29 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.poppinsMedium,
     fontSize: FONT_SIZE.size14,
     color: COLORS.primaryWhite,
+  },
+  categoryScrollViewContentContainer: {
+    paddingHorizontal: SPACING.space20,
+    marginBottom: SPACING.space20,
+  },
+  categoryScrollViewContainer: {
+    paddingHorizontal: SPACING.space15,
+  },
+  categoryScrollViewItem: {
+    alignItems: "center",
+  },
+  categoryText: {
+    fontSize: FONT_SIZE.size16,
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    color: COLORS.primaryLightGrey,
+    marginBottom: SPACING.space4,
+  },
+  activeCategory: {
+    height: SPACING.space10,
+    width: SPACING.space10,
+    borderRadius: BORDER_RADIUS.radius10,
+    backgroundColor: COLORS.primaryOrange,
+
   }
 
 })
