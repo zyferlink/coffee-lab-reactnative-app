@@ -33,6 +33,8 @@ const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
 
 const HomeScreen = () => {
 
+  const tabBarHeight = useBottomTabBarHeight();
+
   const coffeeList = useStore((state: any) => state.CoffeeList);
   const beanList = useStore((state: any) => state.beanList);
 
@@ -48,7 +50,15 @@ const HomeScreen = () => {
     getSortedCoffeeList(categoryIndex.category, coffeeList)
   );
 
-  const tabBarHeight = useBottomTabBarHeight();
+  const handleCategoryChange = (index: number) => {
+    setCategoryIndex({
+      index: index,
+      category: categories[index]
+    });
+    setSortedCoffee([
+      ...getSortedCoffeeList(categories[index], coffeeList),
+    ]);
+  }
 
 
   return (
@@ -60,88 +70,108 @@ const HomeScreen = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
+
         {/*APP HEADER*/}
-        <HeaderBar
-          title={"Header"}
-        />
+        <HeaderBar title={"Header"} />
+
         {/*TITLE TEXT*/}
-        <Text
-          style={styles.titleText}>
+        <Text style={styles.titleText}>
           Find the bean
           {"\n"}
           coffee for you
         </Text>
+
         {/*SEARCH INPUT*/}
-        <View
-          style={styles.inputContainer}>
-          <TouchableOpacity
-            onPress={() => {
+        <SearchInput
+          searchText={searchText}
+          setSearchText={setSearchText}
+        />
 
-            }}>
-            <CustomIcon
-              name="search"
-              size={FONT_SIZE.size18}
-              color={
-                searchText.length > 0
-                  ? COLORS.primaryOrange
-                  : COLORS.primaryLightGrey
-              }
-              style={styles.inputIcon}
-            />
-          </TouchableOpacity>
-          <TextInput
-            placeholder={"Find your Coffee..."}
-            value={searchText}
-            onChangeText={text => setSearchText(text)}
-            placeholderTextColor={COLORS.primaryLightGrey}
-            style={styles.textInputContainer}
-          />
-        </View>
         {/*CATEGORY SCROLLER*/}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.categoryScrollViewContentContainer}>
-          {
-            categories.map((category, index) => (
-              <View
-                key={index.toString()}
-                style={styles.categoryScrollViewContainer}>
-                <TouchableOpacity
-                  onPress={() => {
-                    setCategoryIndex({
-                      index: index,
-                      category: categories[index]
-                    });
-                    setSortedCoffee([
-                      ...getSortedCoffeeList(categories[index], coffeeList),
-                    ]);
-                  }}
-                  style={styles.categoryScrollViewItem}>
-                  <Text
-                    style={[
-                      styles.categoryText,
-                      categoryIndex.index == index ? { color: COLORS.primaryOrange } : {},
-                    ]}>
-                    {category}
-                  </Text>
-                  {categoryIndex.index == index
-                    ? <View
-                      style={styles.activeCategory}>
+        <CategoryScroller
+          categories={categories}
+          categoryIndex={categoryIndex.index}
+          onCategoryChange={handleCategoryChange}
+        />
 
-                    </View>
-                    : <>
-                    </>
-                  }
-                </TouchableOpacity>
-              </View>
-            ))
-          }
-        </ScrollView>
       </ScrollView>
     </View>
   )
 }
+
+// Component :  SearchInput
+const SearchInput = (
+  { searchText, setSearchText }:
+    { searchText: string; setSearchText: (text: string) => void; }
+) => {
+  return (
+    <View
+      style={styles.inputContainer}>
+      <TouchableOpacity
+        onPress={() => {
+        }}>
+        <CustomIcon
+          name="search"
+          size={FONT_SIZE.size18}
+          color={
+            searchText.length > 0
+              ? COLORS.primaryOrange
+              : COLORS.primaryLightGrey
+          }
+          style={styles.inputIcon}
+        />
+      </TouchableOpacity>
+      <TextInput
+        placeholder={"Find your Coffee..."}
+        value={searchText}
+        onChangeText={text => setSearchText(text)}
+        placeholderTextColor={COLORS.primaryLightGrey}
+        style={styles.textInputContainer}
+      />
+    </View>
+  );
+};
+
+// Component :  CategoryScroller
+const CategoryScroller = (
+  { categories, categoryIndex, onCategoryChange }:
+    {
+      categories: any[];
+      categoryIndex: number;
+      onCategoryChange: (index: number) => void;
+    }
+) => {
+  return (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.categoryScrollViewContentContainer}>
+      {
+        categories.map((category, index) => (
+          <View
+            key={index.toString()}
+            style={styles.categoryScrollViewContainer}>
+            <TouchableOpacity
+              onPress={() => onCategoryChange(index)}
+              style={styles.categoryScrollViewItem}>
+              <Text
+                style={[
+                  styles.categoryText,
+                  categoryIndex == index ? { color: COLORS.primaryOrange } : {},
+                ]}>
+                {category}
+              </Text>
+              {categoryIndex == index
+                ? <View style={styles.activeCategory} />
+                : <></>
+              }
+            </TouchableOpacity>
+          </View>
+        ))
+      }
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   screenContainer: {
@@ -155,11 +185,11 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.size28,
     fontFamily: FONT_FAMILY.poppinsSemiBold,
     color: COLORS.primaryWhite,
-    paddingLeft: SPACING.space30,
+    paddingLeft: SPACING.space24,
   },
   inputContainer: {
     flexDirection: "row",
-    margin: SPACING.space30,
+    margin: SPACING.space24,
     borderRadius: BORDER_RADIUS.radius20,
     backgroundColor: COLORS.primaryDarkGrey,
     alignItems: "center",
