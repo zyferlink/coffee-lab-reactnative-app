@@ -35,37 +35,31 @@ const HomeScreen = () => {
   return (
     <View
       style={styles.screenContainer}>
-      {/*STATUS BAR*/}
+      {/*status-bar*/}
       <StatusBar backgroundColor={COLORS.primaryBlack} />
-      
-      {/*SCROLLABLE CONTENT*/}
+      {/*scrollable-content*/}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
-
-        {/*HEADER BAR*/}
+        {/*header-bar*/}
         <HeaderBar title={"Header"} />
-
-        {/*TITLE TEXT*/}
+        {/*title-text*/}
         <Text style={styles.titleText}>
           Find the bean
           {"\n"}
           coffee for you
         </Text>
-
-        {/*SEARCH INPUT*/}
+        {/*search-input*/}
         <SearchInput
           searchText={searchText}
           setSearchText={setSearchText}
         />
-
-        {/*CATEGORY SCROLLER*/}
+        {/*category-scroller*/}
         <CategoryScroller
           categories={categories}
           categoryIndex={categoryIndex.index}
           onCategoryChange={handleCategoryChange}
         />
-
       </ScrollView>
     </View>
   )
