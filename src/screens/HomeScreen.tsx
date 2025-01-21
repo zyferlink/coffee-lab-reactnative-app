@@ -1,43 +1,15 @@
-import React, { useState } from 'react'
 import { ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-
+import React, { useState } from 'react'
 import { useStore } from '../store/store'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 
-const getCategoriesFromList = (coffeeList: any[]) => {
-  const categoryCounts: Record<string, number> = {};
-
-  coffeeList.forEach((item) => {
-    if (!categoryCounts[item.name]) {
-      categoryCounts[item.name] = 0;
-    } else {
-      categoryCounts[item.name]++;
-    }
-  });
-  // Create categories list with "All" at the start
-  const categories = ["All", ...Object.keys(categoryCounts)];
-  return categories;
-};
-
-const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
-  if (seletedCategory == "All") return coffeeList;
-
-  const sortedList = coffeeList.filter(
-    (coffeeCategory: any) => coffeeCategory.name == seletedCategory
-  )
-  return sortedList;
-}
-
 const HomeScreen = () => {
-
   const tabBarHeight = useBottomTabBarHeight();
-
   const coffeeList = useStore((state: any) => state.CoffeeList);
   const beanList = useStore((state: any) => state.beanList);
-
   const [searchText, setSearchText] = useState("");
   const [categories, setCategories] = useState(
     getCategoriesFromList(coffeeList)
@@ -60,18 +32,18 @@ const HomeScreen = () => {
     ]);
   }
 
-
   return (
     <View
       style={styles.screenContainer}>
-      <StatusBar
-        backgroundColor={COLORS.primaryBlack}
-      />
+      {/*STATUS BAR*/}
+      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      
+      {/*SCROLLABLE CONTENT*/}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
 
-        {/*APP HEADER*/}
+        {/*HEADER BAR*/}
         <HeaderBar title={"Header"} />
 
         {/*TITLE TEXT*/}
@@ -99,7 +71,34 @@ const HomeScreen = () => {
   )
 }
 
-// Component :  SearchInput
+// UTILITY FUNCTIONS
+// ->
+const getCategoriesFromList = (coffeeList: any[]) => {
+  const categoryCounts: Record<string, number> = {};
+
+  coffeeList.forEach((item) => {
+    if (!categoryCounts[item.name]) {
+      categoryCounts[item.name] = 0;
+    } else {
+      categoryCounts[item.name]++;
+    }
+  });
+  // Create categories list with "All" at the start
+  const categories = ["All", ...Object.keys(categoryCounts)];
+  return categories;
+};
+
+const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
+  if (seletedCategory == "All") return coffeeList;
+
+  const sortedList = coffeeList.filter(
+    (coffeeCategory: any) => coffeeCategory.name == seletedCategory
+  )
+  return sortedList;
+}
+
+// COMPONENTS
+// ->
 const SearchInput = (
   { searchText, setSearchText }:
     { searchText: string; setSearchText: (text: string) => void; }
@@ -132,7 +131,6 @@ const SearchInput = (
   );
 };
 
-// Component :  CategoryScroller
 const CategoryScroller = (
   { categories, categoryIndex, onCategoryChange }:
     {
@@ -173,6 +171,8 @@ const CategoryScroller = (
   );
 };
 
+// STYLES
+// ->
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
