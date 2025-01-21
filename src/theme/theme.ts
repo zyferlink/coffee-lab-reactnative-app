@@ -1,35 +1,35 @@
 interface Spacing {
-    space_2: number;
-    space_4: number;
-    space_8: number;
-    space_10: number;
-    space_12: number;
-    space_15: number;
-    space_16: number;
-    space_18: number;
-    space_20: number;
-    space_24: number;
-    space_28: number;
-    space_30: number;
-    space_32: number;
-    space_36: number;
+    space2: number;
+    space4: number;
+    space8: number;
+    space10: number;
+    space12: number;
+    space15: number;
+    space16: number;
+    space18: number;
+    space20: number;
+    space24: number;
+    space28: number;
+    space30: number;
+    space32: number;
+    space36: number;
   }
   
   export const SPACING: Spacing = {
-    space_2: 2,
-    space_4: 4,
-    space_8: 8,
-    space_10: 10,
-    space_12: 12,
-    space_15: 15,
-    space_16: 16,
-    space_18: 18,
-    space_20: 20,
-    space_24: 24,
-    space_28: 28,
-    space_30: 30,
-    space_32: 32,
-    space_36: 36,
+    space2: 2,
+    space4: 4,
+    space8: 8,
+    space10: 10,
+    space12: 12,
+    space15: 15,
+    space16: 16,
+    space18: 18,
+    space20: 20,
+    space24: 24,
+    space28: 28,
+    space30: 30,
+    space32: 32,
+    space36: 36,
   };
   
   interface Color {
@@ -63,69 +63,69 @@ interface Spacing {
   };
   
   interface FontFamily {
-    poppins_black: string;
-    poppins_bold: string;
-    poppins_extrabold: string;
-    poppins_extralight: string;
-    poppins_light: string;
-    poppins_medium: string;
-    poppins_regular: string;
-    poppins_semibold: string;
-    poppins_thin: string;
+    poppinsBlack: string;
+    poppinsBold: string;
+    poppinsExtraBold: string;
+    poppinsExtraLight: string;
+    poppinsLight: string;
+    poppinsMedium: string;
+    poppinsRegular: string;
+    poppinsSemiBold: string;
+    poppinsThin: string;
   }
   
   export const FONTFAMILY: FontFamily = {
-    poppins_black: 'Poppins-Black',
-    poppins_bold: 'Poppins-Bold',
-    poppins_extrabold: 'Poppins-ExtraBold',
-    poppins_extralight: 'Poppins-ExtraLight',
-    poppins_light: 'Poppins-Light',
-    poppins_medium: 'Poppins-Medium',
-    poppins_regular: 'Poppins-Regular',
-    poppins_semibold: 'Poppins-SemiBold',
-    poppins_thin: 'Poppins-Thin',
+    poppinsBlack: 'Poppins-Black',
+    poppinsBold: 'Poppins-Bold',
+    poppinsExtraBold: 'Poppins-ExtraBold',
+    poppinsExtraLight: 'Poppins-ExtraLight',
+    poppinsLight: 'Poppins-Light',
+    poppinsMedium: 'Poppins-Medium',
+    poppinsRegular: 'Poppins-Regular',
+    poppinsSemiBold: 'Poppins-SemiBold',
+    poppinsThin: 'Poppins-Thin',
   };
   
   interface FontSize {
-    size_8: number;
-    size_10: number;
-    size_12: number;
-    size_14: number;
-    size_16: number;
-    size_18: number;
-    size_20: number;
-    size_24: number;
-    size_28: number;
-    size_30: number;
+    size8: number;
+    size10: number;
+    size12: number;
+    size14: number;
+    size16: number;
+    size18: number;
+    size20: number;
+    size24: number;
+    size28: number;
+    size30: number;
   }
   
   export const FONTSIZE: FontSize = {
-    size_8: 8,
-    size_10: 10,
-    size_12: 12,
-    size_14: 14,
-    size_16: 16,
-    size_18: 18,
-    size_20: 20,
-    size_24: 24,
-    size_28: 28,
-    size_30: 30,
+    size8: 8,
+    size10: 10,
+    size12: 12,
+    size14: 14,
+    size16: 16,
+    size18: 18,
+    size20: 20,
+    size24: 24,
+    size28: 28,
+    size30: 30,
   };
   
   interface BorderRadius {
-    radius_4: number;
-    radius_8: number;
-    radius_10: number;
-    radius_15: number;
-    radius_20: number;
-    radius_25: number;
+    radius4: number;
+    radius8: number;
+    radius10: number;
+    radius15: number;
+    radius20: number;
+    radius25: number;
   }
   
   export const BORDERRADIUS: BorderRadius = {
-    radius_4: 4,
-    radius_8: 8,
-    radius_10: 10,
-    radius_15: 15,
-    radius_20: 20,
-    radius_25: 25,
+    radius4: 4,
+    radius8: 8,
+    radius10: 10,
+    radius15: 15,
+    radius20: 20,
+    radius25: 25,
   };
