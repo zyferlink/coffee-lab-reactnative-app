@@ -1,4 +1,4 @@
-import { Animated, FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Animated, Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
 import { useStore } from '../store/store'
@@ -6,6 +6,8 @@ import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const HomeScreen = () => {
   const listRef: any = useRef<FlatList>();
@@ -79,12 +81,14 @@ const HomeScreen = () => {
         <SearchInput
           searchText={searchText}
           setSearchText={setSearchText}
+          onSearchCoffee={search => searchCoffee(search)}
+          onResetSearch={resetSearchCoffee}
         />
         {/* Category Scroller */}
         <CategoryScroller
           categories={categories}
           categoryIndex={categoryIndex.index}
-          onCategoryChange={handleCategoryChange}
+          onCategoryChange={index => handleCategoryChange(index)}
         />
         {/* Coffee Flatlist */}
         <FlatList
@@ -113,6 +117,11 @@ const HomeScreen = () => {
               </TouchableOpacity>
             );
           }}
+          ListEmptyComponent={
+            <View style={styles.emptyListContainer}>
+              <Text style={styles.categoryText}>No Coffee Available!</Text>
+            </View>
+          }
         />
         {/* Title Text */}
         <Text style={styles.coffeeBeansTitle}>
@@ -197,15 +206,19 @@ const scrollToTopWithAnimation = (listRef: React.RefObject<any>) => {
 // COMPONENTS
 // ->
 const SearchInput = (
-  { searchText, setSearchText }:
-    { searchText: string; setSearchText: (text: string) => void; }
+  { searchText, setSearchText, onSearchCoffee, onResetSearch }:
+    {
+      searchText: string;
+      setSearchText: (text: string) => void;
+      onSearchCoffee: (text: string) => void;
+      onResetSearch: () => void;
+    }
 ) => {
   return (
     <View
       style={styles.inputContainer}>
       <TouchableOpacity
-        onPress={() => {
-        }}>
+        onPress={() => onSearchCoffee(searchText)}>
         <CustomIcon
           name="search"
           size={FONT_SIZE.size18}
@@ -220,13 +233,17 @@ const SearchInput = (
       <TextInput
         placeholder={"Find your Coffee..."}
         value={searchText}
-        onChangeText={text => setSearchText(text)}
+        onChangeText={text => {
+          setSearchText(text);
+          onSearchCoffee(searchText);
+        }}
         placeholderTextColor={COLORS.primaryLightGrey}
         style={styles.textInputContainer}
       />
       {
         searchText.length > 0
-          ? (<TouchableOpacity>
+          ? (<TouchableOpacity
+            onPress={() => onResetSearch()}>
             <CustomIcon
               style={styles.inputIcon}
               name="close"
@@ -346,7 +363,13 @@ const styles = StyleSheet.create({
     marginTop: SPACING.space20,
     fontFamily: FONT_FAMILY.poppinsMedium,
     color: COLORS.primaryLightGrey,
-  }
+  },
+  emptyListContainer: {
+    width: SCREEN_WIDTH - SPACING.space30 * 2,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: SPACING.space36 * 3,
+  },
 })
 
 export default HomeScreen
