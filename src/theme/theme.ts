@@ -33,33 +33,33 @@ interface Spacing {
   };
   
   interface Color {
-    primaryRedHex: string;
-    primaryOrangeHex: string;
-    primaryBlackHex: string;
-    primaryDarkGreyHex: string;
-    secondaryDarkGreyHex: string;
-    primaryGreyHex: string;
-    secondaryGreyHex: string;
-    primaryLightGreyHex: string;
-    secondaryLightGreyHex: string;
-    primaryWhiteHex: string;
-    primaryBlackRGBA: string;
-    secondaryBlackRGBA: string;
+    primaryRed: string;
+    primaryOrange: string;
+    primaryBlack: string;
+    primaryDarkGrey: string;
+    secondaryDarkGrey: string;
+    primaryGrey: string;
+    secondaryGrey: string;
+    primaryLightGrey: string;
+    secondaryLightGrey: string;
+    primaryWhite: string;
+    primaryBlackTransparent: string;
+    secondaryBlackTransparent: string;
   }
   
   export const COLORS: Color = {
-    primaryRedHex: '#DC3535',
-    primaryOrangeHex: '#D17842',
-    primaryBlackHex: '#0C0F14',
-    primaryDarkGreyHex: '#141921',
-    secondaryDarkGreyHex: '#21262E',
-    primaryGreyHex: '#252A32',
-    secondaryGreyHex: '#252A32',
-    primaryLightGreyHex: '#52555A',
-    secondaryLightGreyHex: '#AEAEAE',
-    primaryWhiteHex: '#FFFFFF',
-    primaryBlackRGBA: 'rgba(12,15,20,0.5)',
-    secondaryBlackRGBA: 'rgba(0,0,0,0.7)',
+    primaryRed: '#DC3535',
+    primaryOrange: '#D17842',
+    primaryBlack: '#0C0F14',
+    primaryDarkGrey: '#141921',
+    secondaryDarkGrey: '#21262E',
+    primaryGrey: '#252A32',
+    secondaryGrey: '#252A32',
+    primaryLightGrey: '#52555A',
+    secondaryLightGrey: '#AEAEAE',
+    primaryWhite: '#FFFFFF',
+    primaryBlackTransparent: 'rgba(12,15,20,0.5)',
+    secondaryBlackTransparent: 'rgba(0,0,0,0.7)',
   };
   
   interface FontFamily {
