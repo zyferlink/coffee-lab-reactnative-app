@@ -25,10 +25,7 @@ const HomeScreen = () => {
   );
 
   const handleCategoryChange = (index: number) => {
-    listRef?.current?.scrollToOffset({
-      animated: true,
-      offset: 0,
-    })
+    scrollToTopWithAnimation(listRef);
     setCategoryIndex({
       index: index,
       category: categories[index]
@@ -37,6 +34,29 @@ const HomeScreen = () => {
       ...getSortedCoffeeList(categories[index], coffeeList),
     ]);
   }
+
+  const searchCoffee = (search: string) => {
+    if (search != "") {
+      scrollToTopWithAnimation(listRef);
+    }
+    setCategoryIndex({
+      index: 0, category: categories[0]
+    });
+    setSortedCoffee([
+      ...coffeeList.filter((item: any) =>
+        item.name.toLowerCase().includes(search.toLowerCase()),
+      ),
+    ]);
+  };
+
+  const resetSearchCoffee = () => {
+    scrollToTopWithAnimation(listRef);
+    setCategoryIndex({
+      index: 0, category: categories[0]
+    });
+    setSortedCoffee([...coffeeList]);
+    setSearchText("");
+  };
 
   return (
     <View
@@ -156,6 +176,24 @@ const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
   return sortedList;
 }
 
+const scrollToTopWithAnimation = (listRef: React.RefObject<any>) => {
+  if (listRef?.current) {
+    const scrollValue = new Animated.Value(0);
+
+    Animated.timing(scrollValue, {
+      toValue: 0,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+
+    listRef.current.scrollToOffset({
+      animated: true,
+      offset: 0,
+    });
+  }
+};
+
+
 // COMPONENTS
 // ->
 const SearchInput = (
@@ -188,15 +226,15 @@ const SearchInput = (
       />
       {
         searchText.length > 0
-        ? (<TouchableOpacity>
-          <CustomIcon 
-          style={styles.inputIcon}
-          name="close"
-          size={FONT_SIZE.size16}
-          color={COLORS.primaryLightGrey}/>
+          ? (<TouchableOpacity>
+            <CustomIcon
+              style={styles.inputIcon}
+              name="close"
+              size={FONT_SIZE.size16}
+              color={COLORS.primaryLightGrey} />
 
-        </TouchableOpacity>) 
-        : (<></>)
+          </TouchableOpacity>)
+          : (<></>)
       }
     </View>
   );
