@@ -74,7 +74,7 @@ interface Spacing {
     poppinsThin: string;
   }
   
-  export const FONTFAMILY: FontFamily = {
+  export const FONT_FAMILY: FontFamily = {
     poppinsBlack: 'Poppins-Black',
     poppinsBold: 'Poppins-Bold',
     poppinsExtraBold: 'Poppins-ExtraBold',
@@ -99,7 +99,7 @@ interface Spacing {
     size30: number;
   }
   
-  export const FONTSIZE: FontSize = {
+  export const FONT_SIZE: FontSize = {
     size8: 8,
     size10: 10,
     size12: 12,
@@ -121,7 +121,7 @@ interface Spacing {
     radius25: number;
   }
   
-  export const BORDERRADIUS: BorderRadius = {
+  export const BORDER_RADIUS: BorderRadius = {
     radius4: 4,
     radius8: 8,
     radius10: 10,
