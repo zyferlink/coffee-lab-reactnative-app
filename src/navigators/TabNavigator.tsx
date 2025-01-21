@@ -17,7 +17,7 @@ function getTabIcon(iconName: string, focused: boolean, size: number) {
         name={iconName}
         size={size}
         color={focused ?
-            COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
+            COLORS.primaryOrange : COLORS.primaryLightGrey
         }
     />);
 }
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     tabBarStyles: {
         height: 70,
         position: "absolute",
-        backgroundColor: COLORS.primaryBlackRGBA,
+        backgroundColor: COLORS.primaryBlackTransparent,
         borderTopWidth: 0,
         elevation: 0,
         borderTopColor: 'transparent',

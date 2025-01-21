@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import { useStore } from '../store/store'
-import { ScreenContainer } from 'react-native-screens';
-import { COLORS } from '../theme/theme';
+import { COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import HeaderBar from '../components/HeaderBar';
 
 const getCategoriesFromList = (coffeeList: any[]) => {
   const categoryCounts: Record<string, number> = {};
@@ -52,18 +52,43 @@ const HomeScreen = () => {
 
   return (
     <View
-    style={styles.ScreenContainer}>
-      <StatusBar 
-      backgroundColor={COLORS.primaryBlackHex}
+      style={styles.screenContainer}>
+      <StatusBar
+        backgroundColor={COLORS.primaryBlack}
       />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollViewFlex}>
+        {/*APP HEADER*/}
+        <HeaderBar
+        title={"Header"}
+        />
+        {/*TITLE TEXT*/}
+        <Text
+        style={styles.titleText}>
+          Find the bean
+          {"\n"}
+          coffee for you
+        </Text>
+
+      </ScrollView>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  ScreenContainer: {
+  screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlackHex,
+    backgroundColor: COLORS.primaryBlack,
+  },
+  scrollViewFlex: {
+    flexGrow: 1,
+  },
+  titleText:{
+    fontSize: FONT_SIZE.size28,
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    color: COLORS.primaryWhite,
+    paddingLeft: SPACING.space30,
   }
 })
 
