@@ -16,7 +16,9 @@ This stage focuses on creating the `HomeScreen` and its related components, util
 
 ---
 
-## Step byStep Process
+<br/>
+
+## Step by Step Process
 
 #### **Task 1: Initial Implementation of Home Screen**  
 - This screen will serve as the main entry point for users, showcasing categories, coffee items, and a search bar.  
@@ -107,13 +109,19 @@ This stage focuses on creating the `HomeScreen` and its related components, util
 
 <br/>
 
-<h2 align="center" >  
+
+
+<h2 align="center" > 
+ —–— ◇ —–—  <br/>
 ꜱᴄʀᴇᴇɴꜱʜᴏᴛꜱ 
 </h2> 
 
 <p align="center">  
 <img src="./_archive/screenshots/screenshot-1-home.png" width=250>  
-<img src="./_archive/screenshots/screenshot-2-items.png" width=250>  
+<img src="./_archive/screenshots/screenshot-2-items.png" width=250>
+</p>
+
+<p align="center">  
 <img src="./_archive/screenshots/screenshot-3-search.png" width=250>  
 <img src="./_archive/screenshots/screenshot-4-category.png" width=250>  
 </p>  
@@ -122,8 +130,8 @@ This stage focuses on creating the `HomeScreen` and its related components, util
 
 ---
 
-<h3 align="center" >  
+<h4 align="center" >  
 See you in the next step for the development process! 🚀
-</h3> 
+</h4> 
 
 ---
