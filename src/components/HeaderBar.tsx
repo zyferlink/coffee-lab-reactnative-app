@@ -13,13 +13,13 @@ const HeaderBar: React.FC<HeaderBarProps> =
         return (
             <View
                 style={styles.headerContainer}>
-                <GradientBackgroundIcon 
-                name="menu"
-                color={COLORS.primaryLightGrey}
-                size={FONT_SIZE.size12}
+                <GradientBackgroundIcon
+                    name="menu"
+                    color={COLORS.primaryLightGrey}
+                    size={FONT_SIZE.size12}
                 />
                 <Text
-                    style={styles.headerContainer}>
+                    style={styles.headerText}>
                     {title}
                 </Text>
                 <ProfilePicture />
@@ -29,16 +29,16 @@ const HeaderBar: React.FC<HeaderBarProps> =
 
 const styles = StyleSheet.create({
     headerContainer: {
-        padding: SPACING.space30,
+        paddingHorizontal: SPACING.space24,
+        paddingVertical: SPACING.space16,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-
     },
     headerText: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
-        fontSize: FONT_SIZE.size20,
-        color: COLORS.primaryWhite,
+        fontFamily: FONT_FAMILY.poppinsLight,
+        fontSize: FONT_SIZE.size24,
+        color: COLORS.primaryLightGrey,
     }
 })
 

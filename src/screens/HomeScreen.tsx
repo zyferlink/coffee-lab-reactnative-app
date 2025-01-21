@@ -70,10 +70,10 @@ const HomeScreen = ({navigation}: any) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
         {/* Header Bar */}
-        <HeaderBar title={"Header"} />
+        <HeaderBar title={"CoffeeLab"} />
         {/* Title Text */}
         <Text style={styles.titleText}>
-          Find the bean
+          Find the best
           {"\n"}
           coffee for you
         </Text>
@@ -315,11 +315,12 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.size28,
     fontFamily: FONT_FAMILY.poppinsSemiBold,
     color: COLORS.primaryWhite,
-    paddingLeft: SPACING.space24,
+    paddingStart: SPACING.space24,
   },
   inputContainer: {
     flexDirection: "row",
-    margin: SPACING.space24,
+    marginHorizontal: SPACING.space24,
+    marginVertical: SPACING.space16,
     borderRadius: BORDER_RADIUS.radius20,
     backgroundColor: COLORS.primaryDarkGrey,
     alignItems: "center",
@@ -336,10 +337,11 @@ const styles = StyleSheet.create({
   },
   categoryScrollViewContentContainer: {
     paddingHorizontal: SPACING.space20,
-    marginBottom: SPACING.space20,
+    marginBottom: SPACING.space2,
+    marginTop: SPACING.space10,
   },
   categoryScrollViewContainer: {
-    paddingHorizontal: SPACING.space15,
+    paddingHorizontal: SPACING.space10,
   },
   categoryScrollViewItem: {
     alignItems: "center",
@@ -351,8 +353,8 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.space4,
   },
   activeCategory: {
-    height: SPACING.space10,
-    width: SPACING.space10,
+    height: SPACING.space4,
+    width: SPACING.space16,
     borderRadius: BORDER_RADIUS.radius10,
     backgroundColor: COLORS.primaryOrange,
   },
@@ -362,9 +364,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.space30,
   },
   coffeeBeansTitle: {
-    fontSize: FONT_SIZE.size18,
+    fontSize: FONT_SIZE.size20,
     marginLeft: SPACING.space30,
-    marginTop: SPACING.space20,
+    marginTop: SPACING.space8,
     fontFamily: FONT_FAMILY.poppinsMedium,
     color: COLORS.primaryLightGrey,
   },

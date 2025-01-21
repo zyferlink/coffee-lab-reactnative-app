@@ -91,7 +91,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
 
 const styles = StyleSheet.create({
     cardLinearGradientContainer: {
-        padding: SPACING.space15,
+        padding: SPACING.space16,
         borderRadius: BORDER_RADIUS.radius25,
     },
     cardImageBackground: {
