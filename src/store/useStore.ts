@@ -5,7 +5,10 @@ import AsyncStorage, { AsyncStorageStatic } from '@react-native-async-storage/as
 
 import COFFEE_COLLECTION from "../data/coffeeCollection";
 import BEANS_COLLECTION from "../data/beansCollection";
-import { addToCart, calculateCartPrice, decrementCartItemQuantiy, incrementCartItemQuantiy } from "./util/cartActions";
+import {
+    addToCart, addToOrderHistoryFromCart, calculateCartPrice,
+    decrementCartItemQuantiy, incrementCartItemQuantiy
+} from "./util/cartActions";
 import { addToFavoriteList, deleteFromFavoriteList } from "./util/favoriteActions";
 
 export const useStore = create(
@@ -28,6 +31,9 @@ export const useStore = create(
 
             decrementCartItemQuantiy: (id: string, size: string) =>
                 set(produce((state) => decrementCartItemQuantiy(state, id, size))),
+
+            addToOrderHistoryFromCart: () =>
+                set(produce((state) => addToOrderHistoryFromCart(state))),
 
             addToFavoriteList: (id: string, type: string) =>
                 set(produce((state) => addToFavoriteList(state, type, id))),

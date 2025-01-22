@@ -37,7 +37,7 @@ export const calculateCartPrice = (state: any) => {
         parseFloat(state.cartList[index].prices[priceIndex].price) *
         state.cartList[index].prices[priceIndex].quantity;
     }
-    state.cartList[index].ItemPrice = price.toFixed(2).toString();
+    state.cartList[index].itemPrice = price.toFixed(2).toString();
     totalPrice += price;
   }
   state.cartPrice = totalPrice.toFixed(2).toString();
@@ -73,7 +73,7 @@ export const decrementCartItemQuantiy = (state: any, id: string, size: string) =
               state.cartList[index].prices.splice(priceIndex, 1);
             }
           }
-          else{
+          else {
             if (state.cartList[index].prices[priceIndex] > 1) {
               state.cartList[index].prices[priceIndex].quantity--;
             } else {
@@ -81,10 +81,39 @@ export const decrementCartItemQuantiy = (state: any, id: string, size: string) =
             }
           }
           break;
-
         }
       }
 
     }
   }
+};
+
+export const addToOrderHistoryFromCart = (state: any) => {
+  let totalPrice = state.cartList.reduce(
+    (accumulator: number, currentValue: any) =>
+      accumulator + parseFloat(currentValue.itemPrice),
+    0,
+  );
+
+  if (state.orderHistoryList.length > 0) {
+    state.orderHistoryList.unshift({
+      orderDate:
+        new Date().toDateString() +
+        " " +
+        new Date().toLocaleTimeString(),
+      cartList: state.cartList,
+      cartListPrice: totalPrice.toFixed(2).toString(),
+    })
+  } else {
+    state.orderHistoryList.push({
+      orderDate:
+        new Date().toDateString() +
+        " " +
+        new Date().toLocaleTimeString(),
+      cartList: state.cartList,
+      cartListPrice: totalPrice.toFixed(2).toString(),
+    })
+  }
+  state.cartList = [];
+
 };
