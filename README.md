@@ -62,10 +62,11 @@ Develop a reusable footer component to show prices and navigation buttons.
 - Implement all remaining UI elements and logic within `DetailScreen`.  
 - **Path:** [DetailScreen.tsx](./src/screens/DetailScreen.tsx)  
 
----
+
 <br/>
 
-#
+---
+
 #### Final Steps  
 
 1. Ensure the app works correctly by cleaning and rebuilding the project:
@@ -87,9 +88,9 @@ Develop a reusable footer component to show prices and navigation buttons.
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-5-coffee.jpg" width=190>  
-<img src="./_archive/screenshots/screenshot-6-bean.jpg" width=190>
-<img src="./_archive/screenshots/screenshot-7-coffee-like.jpg" width=190>
+<img src="./_archive/screenshots/screenshot-5-coffee.jpg" width=200>  
+<img src="./_archive/screenshots/screenshot-6-bean.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-7-coffee-like.jpg" width=200>
 </p>
 
 <p align="center"> 
