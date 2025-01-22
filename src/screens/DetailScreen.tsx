@@ -3,9 +3,12 @@ import React, { useState } from 'react'
 import { useStore } from '../store/useStore'
 import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
+import PaymentFooter from '../components/PaymentFooter';
 
 const DetailScreen = ({ navigation, route }: any) => {
+  const addToCart = useStore((state: any) => state.addToCart);
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
   const selectedItem = useStore((state: any) =>
@@ -17,11 +20,36 @@ const DetailScreen = ({ navigation, route }: any) => {
 
   const backHandler = () => {
     navigation.pop();
-  }
+  };
 
   const toggleFavorite = (favorite: boolean, id: string, type: string) => {
     favorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
-  }
+  };
+
+  const addToCartHandler = ({
+    id,
+    index,
+    name,
+    type,
+    roasted,
+    imagelink_square,
+    special_ingredient,
+    price,
+  }: any) => {
+    addToCart({
+      id,
+      index,
+      name,
+      type,
+      roasted,
+      imagelink_square,
+      special_ingredient,
+      prices: [{ ...price, quantity: 1 }],
+    });
+    calculateCartPrice();
+    navigation.navigate("Tab", { screen: "Cart" });
+
+  };  
 
   return (
     <View style={styles.screenContainer}>
@@ -110,6 +138,23 @@ const DetailScreen = ({ navigation, route }: any) => {
           </View>
         </View>
 
+        <PaymentFooter
+          price={price}
+          buttonTitle={"Add to Cart"}
+          buttonPressHandler={() => {
+            addToCartHandler({
+              id: selectedItem.id,
+              index: selectedItem.index,
+              name: selectedItem.name,
+              type: selectedItem.type,
+              roasted: selectedItem.roasted,
+              imagelink_square: selectedItem.imagelink_square,
+              special_ingredient: selectedItem.special_ingredient,
+              price: price,
+            });
+          }}
+        />
+
       </ScrollView>
     </View>
   )
@@ -122,6 +167,7 @@ const styles = StyleSheet.create({
   },
   scrollViewFlex: {
     flexGrow: 1,
+    justifyContent: "space-between",
   },
   footerInfoArea: {
     padding: SPACING.space20,
