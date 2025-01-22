@@ -1,4 +1,4 @@
-const CoffeeData = [
+const COFFEE_COLLECTION = [
     {
       id: 'C1',
       name: 'Americano',
@@ -360,4 +360,4 @@ const CoffeeData = [
       index: 17,
     },
   ];
-  export default CoffeeData;
+  export default COFFEE_COLLECTION;

@@ -1,4 +1,4 @@
-const BeansData = [
+const BEANS_COLLECTION = [
     {
       id: 'B1',
       name: 'Robusta Beans',
@@ -80,4 +80,4 @@ const BeansData = [
       index: 3,
     },
   ];
-  export default BeansData;
+  export default BEANS_COLLECTION;
