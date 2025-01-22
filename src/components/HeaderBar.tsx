@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontFamily: FONT_FAMILY.poppinsLight,
         fontSize: FONT_SIZE.size24,
-        color: COLORS.primaryLightGrey,
+        color: COLORS.secondaryLightGrey,
     }
 })
 
