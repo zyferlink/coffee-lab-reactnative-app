@@ -144,7 +144,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
 const styles = StyleSheet.create({
   itemBackgroundImage: {
     width: "100%",
-    aspectRatio: 20 / 25,
+    aspectRatio: 21 / 25,
     justifyContent: "space-between",
   },
   headerBarContainerWithBack: {
