@@ -43,7 +43,6 @@ export const calculateCartPrice = (state: any) => {
   state.cartPrice = totalPrice.toFixed(2).toString();
 };
 
-
 export const incrementCartItemQuantiy = (state: any, id: string, size: string) => {
   for (let index = 0; index < state.cartList.length; index++) {
     if (state.cartList[index].id == id) {
@@ -53,6 +52,36 @@ export const incrementCartItemQuantiy = (state: any, id: string, size: string) =
 
           state.cartList[index].prices[priceIndex].quantity++;
           break;
+        }
+      }
+
+    }
+  }
+};
+
+export const decrementCartItemQuantiy = (state: any, id: string, size: string) => {
+  for (let index = 0; index < state.cartList.length; index++) {
+    if (state.cartList[index].id == id) {
+
+      for (let priceIndex = 0; priceIndex < state.cartList[index].prices.length; priceIndex++) {
+        if (state.cartList[index].prices[priceIndex].size == size) {
+
+          if (state.cartList[index].prices.length > 1) {
+            if (state.cartList[index].prices[priceIndex] > 1) {
+              state.cartList[index].prices[priceIndex].quantity--;
+            } else {
+              state.cartList[index].prices.splice(priceIndex, 1);
+            }
+          }
+          else{
+            if (state.cartList[index].prices[priceIndex] > 1) {
+              state.cartList[index].prices[priceIndex].quantity--;
+            } else {
+              state.cartList.splice(index, 1);
+            }
+          }
+          break;
+
         }
       }
 
