@@ -1,7 +1,8 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import CustomIcon from './CustomIcon';
 
 interface ImageBackdropInfoProps {
   id: string;
@@ -36,9 +37,11 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
 }) => {
   return (
     <View>
+      {/* Background Image */}
       <ImageBackground
         source={imageLinkPortrait}
         style={styles.itemBackgroundImage}>
+        {/* Top App Bar */}
         {enableBackHandler ? (
           <View style={styles.headerBarContainerWithBack}>
             <TouchableOpacity
@@ -68,10 +71,50 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
             </TouchableOpacity>
           </View>
         )}
-
+        {/* Header Container */}
         <View
-        style={styles.infoHeaderContainer}>
+          style={styles.infoHeaderOuterContainer}>
+          <View style={styles.infoHeaderInnerContainer}>
+            {/* Header Container Row 1 */}
+            <View style={styles.infoHeaderContainerRow}>
+              {/* Header Title */}
+              <View>
+                <Text style={styles.itemTitleText}>
+                  {name}
+                </Text>
+                <Text style={styles.itemSubtitleText}>
+                  {specialIngredients}
+                </Text>
+              </View>
+              {/* Header Property Container */}
+              <View style={styles.itemPropertiesContainer}>
+                <View style={styles.propertyFirst}>
+                  <CustomIcon
+                    name={type == "Bean" ? "bean" : "beans"}
+                    size={type == "Bean" ? FONT_SIZE.size18 : FONT_SIZE.size24}
+                    color={COLORS.primaryOrange}
+                  />
+                  <Text
+                    style={[styles.propertyFirstText,
+                    { marginTop: type == "Bean" ? SPACING.space8 : 0 }]}>
+                    {type}
+                  </Text>
+                </View>
+                <View style={styles.propertyFirst}>
+                  <CustomIcon
+                    name={type == "Bean" ? "location" : "drop"}
+                    size={FONT_SIZE.size16}
+                    color={COLORS.primaryOrange}
+                  />
+                  <Text style={styles.propertyFirstText}>
+                    {ingredients}
+                  </Text>
+                </View>
+              </View>
+            </View>
 
+
+          </View>
         </View>
       </ImageBackground>
     </View>
@@ -96,9 +139,51 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
   },
-  infoHeaderContainer: {
-    
-  }
+  infoHeaderOuterContainer: {
+    paddingVertical: SPACING.space24,
+    paddingHorizontal: SPACING.space30,
+    backgroundColor: COLORS.primaryBlackTransparent,
+    borderTopLeftRadius: BORDER_RADIUS.radius20 * 2,
+    borderTopRightRadius: BORDER_RADIUS.radius20 * 2,
+  },
+  infoHeaderInnerContainer: {
+    justifyContent: "space-between",
+    gap: SPACING.space15,
+  },
+  infoHeaderContainerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  itemTitleText: {
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontSize: FONT_SIZE.size24,
+    color: COLORS.primaryWhite,
+  },
+  itemSubtitleText: {
+    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontSize: FONT_SIZE.size12,
+    color: COLORS.primaryWhite,
+  },
+  itemPropertiesContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: SPACING.space20,
+  },
+  propertyFirst: {
+    height: 55,
+    width: 55,
+    justifyContent: "center",
+    borderRadius: BORDER_RADIUS.radius15,
+    alignItems: "center",
+    backgroundColor: COLORS.primaryBlack,
+  },
+  propertyFirstText: {
+    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontSize: FONT_SIZE.size12,
+    color: COLORS.primaryWhite,
+  },
+  ratingContainer:{},
 })
 
 export default ImageBackdropInfo;
