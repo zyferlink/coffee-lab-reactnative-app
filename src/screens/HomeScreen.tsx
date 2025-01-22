@@ -1,7 +1,7 @@
 import { Animated, Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
-import { useStore } from '../store/store'
+import { useStore } from '../store/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
@@ -12,8 +12,8 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 const HomeScreen = ({navigation}: any) => {
   const listRef: any = useRef<FlatList>();
   const tabBarHeight = useBottomTabBarHeight();
-  const coffeeList = useStore((state: any) => state.CoffeeList);
-  const beanList = useStore((state: any) => state.BeanList);
+  const coffeeList = useStore((state: any) => state.coffeeList);
+  const beanList = useStore((state: any) => state.beanList);
   const [searchText, setSearchText] = useState("");
   const [categories, setCategories] = useState(
     getCategoriesFromList(coffeeList)
