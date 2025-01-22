@@ -9,7 +9,7 @@ import CoffeeCard from '../components/CoffeeCard';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-const HomeScreen = ({navigation}: any) => {
+const HomeScreen = ({ navigation }: any) => {
   const listRef: any = useRef<FlatList>();
   const tabBarHeight = useBottomTabBarHeight();
   const coffeeList = useStore((state: any) => state.coffeeList);
@@ -101,8 +101,12 @@ const HomeScreen = ({navigation}: any) => {
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                onPress={() => { 
-                  navigation.push("Details");
+                onPress={() => {
+                  navigation.push("Details", {
+                    index: item.index,
+                    id: item.id,
+                    type: item.type,
+                  });
                 }}>
                 <CoffeeCard
                   id={item.id}
@@ -139,8 +143,12 @@ const HomeScreen = ({navigation}: any) => {
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                onPress={() => { 
-                  navigation.push("Details");
+                onPress={() => {
+                  navigation.push("Details", {
+                    index: item.index,
+                    id: item.id,
+                    type: item.type,
+                  });
                 }}>
                 <CoffeeCard
                   id={item.id}
