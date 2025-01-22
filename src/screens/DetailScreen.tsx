@@ -32,8 +32,8 @@ const DetailScreen = ({ navigation, route }: any) => {
     name,
     type,
     roasted,
-    imagelink_square,
-    special_ingredient,
+    imageLinkSquare,
+    specialIngredient,
     price,
   }: any) => {
     addToCart({
@@ -42,13 +42,12 @@ const DetailScreen = ({ navigation, route }: any) => {
       name,
       type,
       roasted,
-      imagelink_square,
-      special_ingredient,
+      imageLinkSquare,
+      specialIngredient,
       prices: [{ ...price, quantity: 1 }],
     });
     calculateCartPrice();
     navigation.navigate("Tab", { screen: "Cart" });
-
   };  
 
   return (
@@ -148,8 +147,8 @@ const DetailScreen = ({ navigation, route }: any) => {
               name: selectedItem.name,
               type: selectedItem.type,
               roasted: selectedItem.roasted,
-              imagelink_square: selectedItem.imagelink_square,
-              special_ingredient: selectedItem.special_ingredient,
+              imagelinkSquare: selectedItem.imagelink_square,
+              specialIngredient: selectedItem.special_ingredient,
               price: price,
             });
           }}
