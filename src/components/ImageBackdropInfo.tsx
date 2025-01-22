@@ -27,7 +27,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
   ingredients,
   specialIngredients,
   averageRating,
-  ratingCount: string,
+  ratingCount,
   roasted,
   favorite,
   toggleFavorite,
@@ -106,13 +106,33 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                     size={FONT_SIZE.size16}
                     color={COLORS.primaryOrange}
                   />
-                  <Text style={styles.propertyFirstText}>
+                  <Text style={styles.propertyLastText}>
                     {ingredients}
                   </Text>
                 </View>
               </View>
             </View>
-
+            {/* Header Container Row 2 */}
+            <View style={styles.infoHeaderContainerRow}>
+              <View style={styles.ratingContainer}>
+                <CustomIcon
+                  name={"star"}
+                  size={FONT_SIZE.size20}
+                  color={COLORS.primaryOrange}
+                />
+                <Text style={styles.ratingText}>
+                  {averageRating}
+                </Text>
+                <Text style={styles.ratingCountText}>
+                  ({ratingCount})
+                </Text>
+              </View>
+              <View style={styles.roastedContainer}>
+                <Text style={styles.roastedText}>
+                  {roasted}
+                </Text>
+              </View>
+            </View>
 
           </View>
         </View>
@@ -183,7 +203,40 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
   },
-  ratingContainer:{},
+  propertyLastText: {
+    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontSize: FONT_SIZE.size12,
+    color: COLORS.primaryWhite,
+    marginTop: SPACING.space4,
+  },
+  ratingContainer: {
+    flexDirection: "row",
+    gap: SPACING.space10,
+    alignItems: "center",
+  },
+  ratingText: {
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontSize: FONT_SIZE.size18,
+    color: COLORS.primaryWhite,
+  },
+  ratingCountText: {
+    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontSize: FONT_SIZE.size12,
+    color: COLORS.primaryWhite,
+  },
+  roastedContainer: {
+    height: 55,
+    width: 130,
+    justifyContent: "center",
+    borderRadius: BORDER_RADIUS.radius15,
+    alignItems: "center",
+    backgroundColor: COLORS.primaryBlack,
+  },
+  roastedText: {
+    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontSize: FONT_SIZE.size12,
+    color: COLORS.primaryWhite,
+  },
 })
 
 export default ImageBackdropInfo;
