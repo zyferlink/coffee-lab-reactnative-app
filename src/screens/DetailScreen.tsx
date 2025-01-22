@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../store/useStore'
 import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
@@ -26,16 +26,16 @@ const DetailScreen = ({ navigation, route }: any) => {
     favorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
 
-  const addToCartHandler = ({
-    id,
-    index,
-    name,
-    type,
-    roasted,
-    imageLinkSquare,
-    specialIngredient,
-    price,
-  }: any) => {
+  const addToCartHandler = (
+    id: string,
+    index: any,
+    name: string,
+    type: string,
+    roasted: string,
+    imageLinkSquare: ImageProps,
+    specialIngredient: string,
+    price:any,
+  ) => {
     addToCart({
       id,
       index,
@@ -49,6 +49,7 @@ const DetailScreen = ({ navigation, route }: any) => {
     calculateCartPrice();
     navigation.navigate("Tab", { screen: "Cart" });
   };  
+  
 
   return (
     <View style={styles.screenContainer}>
@@ -141,16 +142,16 @@ const DetailScreen = ({ navigation, route }: any) => {
           price={price}
           buttonTitle={"Add to Cart"}
           buttonPressHandler={() => {
-            addToCartHandler({
-              id: selectedItem.id,
-              index: selectedItem.index,
-              name: selectedItem.name,
-              type: selectedItem.type,
-              roasted: selectedItem.roasted,
-              imagelinkSquare: selectedItem.imagelink_square,
-              specialIngredient: selectedItem.special_ingredient,
-              price: price,
-            });
+            addToCartHandler(
+              selectedItem.id,
+              selectedItem.index,
+              selectedItem.name,
+              selectedItem.type,
+              selectedItem.roasted,
+              selectedItem.imagelink_square,
+              selectedItem.special_ingredient,
+              price,
+            );
           }}
         />
 
