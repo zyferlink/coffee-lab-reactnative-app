@@ -4,10 +4,11 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 09: Implement Custom Hook | useStore  
+## Stage 10: Implement Detail Screen  
 **Log:** January 22, 2025  
 
-This stage focuses on building a custom `useStore` hook for centralized state management using Zustand, with actions for cart and favorites.  
+This stage focuses on creating and integrating the `DetailScreen` with required UI components and navigation parameters.  
+
 
 <p align="center">  
 · • —–—–—– ٠ ✦ ٠ —–—–—– • ·
@@ -17,32 +18,51 @@ This stage focuses on building a custom `useStore` hook for centralized state ma
 
 ## Step by Step Process
 
-#### Task 1: Create `useStore`  
-- Define the useStore custom hook to simplify state access and updates
-- Path (./src/store/useStore.ts)  
+### Task 1: Initial Implementation of `DetailScreen` 
+Set up the basic structure for the detail screen file.  
+- **Path:** [DetailScreen.tsx](./src/screens/DetailScreen.tsx)  
 
 #
-#### Task 2: Implement Cart Actions  
-- **File:** [cartActions.ts](./src/store/util/cartActions.ts)  
-- Add functions for cart management:  
-  - Add/remove items.  
-  - Calculate total price.  
+### Task 2: Add Navigation Log  
+Add a log to verify route parameters are received correctly when navigating to the screen.  
+Note:  
+add a log to check screen retrieves params correctly:  
+```ts
+navigation.push("Details", {  
+  index: item.index,  
+  id: item.id,  
+  type: item.type,  
+});  
+``` 
+
+Log Example:  
+```ts
+const DetailScreen = ({ navigation, route }: any) => {  
+  console.log("route params : ", route.params);  
+  ...
+}  
+```  
 
 #
-#### Task 3: Implement Favorite Actions  
-- **File:** [favoriteActions.ts](./src/store/util/favoriteActions.ts)  
-- Add functions for managing favorite items:  
-  - Toggle favorite status.  
+### Task 3: Create `ImageBackdropInfo` Component  
+Create a reusable component for displaying an image and info in the header.
+- **Path:** [ImageBackdropInfo.tsx](./src/components/ImageBackdropInfo.tsx)  
 
 #
-#### Task 4: Integrate Cart and Favorite Actions into `useStore`  
-- **File:** [useStore.ts](./src/store/useStore.ts)  
-- Enhance the useStore hook by incorporating the cart and favorite action logic.
-- Features to implement:
-  - addToCart, removeFromCart, calculateTotalPrice from cartActions.
-  - toggleFavorite from favoriteActions.
-  - Ensure these actions update the app’s state via Zustand’s set function.
+### Task 4: Create `PaymentFooter` Component  
+Develop a reusable footer component to show prices and navigation buttons.
+- **Path:** [PaymentFooter.tsx](./src/components/PaymentFooter.tsx)  
 
+#
+### Task 5: Integrate Components into `DetailScreen`  
+- Add `ImageBackdropInfo` for the header view and `PaymentFooter` for footer navigation.  
+
+#
+### Task 6: Finalize UI and Functional Components  
+- Implement all remaining UI elements and logic within `DetailScreen`.  
+- **Path:** [DetailScreen.tsx](./src/screens/DetailScreen.tsx)  
+
+---
 <br/>
 
 #
@@ -67,13 +87,20 @@ This stage focuses on building a custom `useStore` hook for centralized state ma
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-1-home.png" width=250>  
-<img src="./_archive/screenshots/screenshot-2-items.png" width=250>
+<img src="./_archive/screenshots/screenshot-5-coffee.jpg" width=190>  
+<img src="./_archive/screenshots/screenshot-6-bean.jpg" width=190>
+<img src="./_archive/screenshots/screenshot-7-coffee-like.jpg" width=190>
+</p>
+
+<p align="center"> 
+ —–— ◇ —–— 
 </p>
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-3-search.png" width=250>  
-<img src="./_archive/screenshots/screenshot-4-category.png" width=250>  
+<img src="./_archive/screenshots/screenshot-1-home.png" width=150>  
+<img src="./_archive/screenshots/screenshot-2-items.png" width=150>
+<img src="./_archive/screenshots/screenshot-3-search.png" width=150>  
+<img src="./_archive/screenshots/screenshot-4-category.png" width=150>  
 </p>  
 
 <br/>
