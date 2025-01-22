@@ -42,3 +42,20 @@ export const calculateCartPrice = (state: any) => {
   }
   state.cartPrice = totalPrice.toFixed(2).toString();
 };
+
+
+export const incrementCartItemQuantiy = (state: any, id: string, size: string) => {
+  for (let index = 0; index < state.cartList.length; index++) {
+    if (state.cartList[index].id == id) {
+
+      for (let priceIndex = 0; priceIndex < state.cartList[index].prices.length; priceIndex++) {
+        if (state.cartList[index].prices[priceIndex].size == size) {
+
+          state.cartList[index].prices[priceIndex].quantity++;
+          break;
+        }
+      }
+
+    }
+  }
+};
