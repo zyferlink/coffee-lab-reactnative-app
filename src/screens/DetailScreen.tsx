@@ -1,7 +1,7 @@
-import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import React, { useState } from 'react'
 import { useStore } from '../store/useStore'
-import { COLORS } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 
 const DetailScreen = ({ navigation, route }: any) => {
@@ -11,6 +11,9 @@ const DetailScreen = ({ navigation, route }: any) => {
   const selectedItem = useStore((state: any) =>
     route.params.type == "Coffee" ? state.coffeeList : state.beanList,
   )[route.params.index];
+
+  const [fullDescription, setFullDescription] = useState(true);
+  const [price, setPrice] = useState(selectedItem.prices[0])
 
   const backHandler = () => {
     navigation.pop();
@@ -28,8 +31,7 @@ const DetailScreen = ({ navigation, route }: any) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
-        {/* Background Image */}
-        
+        {/* Background Image & Header */}
         <ImageBackdropInfo
           id={selectedItem.id}
           name={selectedItem.name}
@@ -45,6 +47,69 @@ const DetailScreen = ({ navigation, route }: any) => {
           enableBackHandler={true}
           backHandler={backHandler}
         />
+        {/* Footer Area */}
+        <View style={styles.footerInfoArea}>
+          {/* Description Area */}
+          <Text style={styles.infoTitle}>
+            Description
+          </Text>
+          {
+            fullDescription ?
+              (<TouchableWithoutFeedback
+                onPress={() => {
+                  setFullDescription(previousValue => !previousValue)
+                }}>
+                <Text style={styles.descriptionText}>
+                  {selectedItem.description}
+                </Text>
+              </TouchableWithoutFeedback>
+              )
+              :
+              (<TouchableWithoutFeedback
+                onPress={() => {
+                  setFullDescription(previousValue => !previousValue)
+                }}>
+                <Text style={styles.descriptionText} numberOfLines={3}>
+                  {selectedItem.description}
+                </Text>
+              </TouchableWithoutFeedback>
+              )
+          }
+          {/* Sizes Area */}
+          <Text style={styles.infoTitle}>
+            Size
+          </Text>
+          <View style={styles.sizeOuterContainer}>
+            {
+              selectedItem.prices.map((priceItem: any) => (
+                <TouchableOpacity
+                  key={priceItem.size}
+                  onPress={() => {
+                    setPrice(priceItem)
+                  }}
+                  style={[styles.sizeBox,
+                  {
+                    borderColor: priceItem.size == price.size
+                      ? COLORS.primaryOrange : COLORS.primaryLightGrey
+                  }]}>
+                  <Text
+                    style={[styles.sizeText,
+                    {
+                      fontSize:
+                        selectedItem.type == "Bean"
+                          ? FONT_SIZE.size14 : FONT_SIZE.size16,
+                      color:
+                        priceItem.size == price.size
+                          ? COLORS.primaryOrange : COLORS.primaryWhite
+                    }]}>
+                    {priceItem.size}
+                  </Text>
+                </TouchableOpacity>
+              ))
+            }
+          </View>
+        </View>
+
       </ScrollView>
     </View>
   )
@@ -57,6 +122,40 @@ const styles = StyleSheet.create({
   },
   scrollViewFlex: {
     flexGrow: 1,
+  },
+  footerInfoArea: {
+    padding: SPACING.space20,
+  },
+  infoTitle: {
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontSize: FONT_SIZE.size18,
+    color: COLORS.primaryWhite,
+    marginBottom: SPACING.space10,
+  },
+  descriptionText: {
+    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontSize: FONT_SIZE.size14,
+    color: COLORS.primaryWhite,
+    letterSpacing: 0.5,
+    marginBottom: SPACING.space30,
+  },
+  sizeOuterContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: SPACING.space10,
+  },
+  sizeBox: {
+    flex: 1,
+    height: 48,
+    backgroundColor: COLORS.primaryDarkGrey,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: BORDER_RADIUS.radius10,
+    borderWidth: 2,
+  },
+  sizeText: {
+    fontFamily: FONT_FAMILY.poppinsMedium,
   },
 })
 
