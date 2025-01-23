@@ -77,19 +77,18 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                 </Text>
                 {/* Add Button */}
                 <TouchableOpacity
-                onPress={() => {
-                    onPressHandler({
-                        id,
-                        index,
-                        name,
-                        type,
-                        roasted,
-                        imageLinkSquare,
-                        specialIngredient,
-                        averageRating,
-                        prices:[{...price, quantity:1}],
-                    });
-                }}>
+                    onPress={() => {
+                        onPressHandler(
+                            id,
+                            index,
+                            name,
+                            type,
+                            roasted,
+                            imageLinkSquare,
+                            specialIngredient,
+                            price,
+                        );
+                    }}>
                     <BackgroundIcon
                         name={"add"}
                         color={COLORS.primaryWhite}

@@ -1,4 +1,4 @@
-import { Animated, Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import { Animated, Dimensions, FlatList, ImageProps, ScrollView, StatusBar, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
 import { useStore } from '../store/useStore'
@@ -65,25 +65,25 @@ const HomeScreen = ({ navigation }: any) => {
   };
 
 
-  const coffeeCardAddToCartHandler = ({
-    id,
-    index,
-    name,
-    type,
-    roasted,
-    imagelink_square,
-    special_ingredient,
-    prices,
-  }: any) => {
+  const coffeeCardAddToCartHandler = (
+    id: string,
+    index: any,
+    name: string,
+    type: string,
+    roasted: string,
+    imageLinkSquare: ImageProps,
+    specialIngredient: string,
+    price: any,
+  ) => {
     addToCart({
       id,
       index,
       name,
       type,
       roasted,
-      imagelink_square,
-      special_ingredient,
-      prices,
+      imageLinkSquare,
+      specialIngredient,
+      prices: [{ ...price, quantity: 1 }],
     });
     calculateCartPrice();
     ToastAndroid.showWithGravity(
@@ -151,7 +151,25 @@ const HomeScreen = ({ navigation }: any) => {
                   specialIngredient={item.special_ingredient}
                   averageRating={item.average_rating}
                   price={item.prices[2]}
-                  onPressHandler={coffeeCardAddToCartHandler}
+                  onPressHandler={(
+                    id: string,
+                    index: any,
+                    name: string,
+                    type: string,
+                    roasted: string,
+                    imageLinkSquare: ImageProps,
+                    specialIngredient: string,
+                    price: any,
+                  ) => coffeeCardAddToCartHandler(
+                    id,
+                    index,
+                    name,
+                    type,
+                    roasted,
+                    imageLinkSquare,
+                    specialIngredient,
+                    price,
+                  )}
                 />
               </TouchableOpacity>
             );
@@ -193,7 +211,25 @@ const HomeScreen = ({ navigation }: any) => {
                   specialIngredient={item.special_ingredient}
                   averageRating={item.average_rating}
                   price={item.prices[2]}
-                  onPressHandler={coffeeCardAddToCartHandler}
+                  onPressHandler={(
+                    id: string,
+                    index: any,
+                    name: string,
+                    type: string,
+                    roasted: string,
+                    imageLinkSquare: ImageProps,
+                    specialIngredient: string,
+                    price: any,
+                  ) => coffeeCardAddToCartHandler(
+                    id,
+                    index,
+                    name,
+                    type,
+                    roasted,
+                    imageLinkSquare,
+                    specialIngredient,
+                    price,
+                  )}
                 />
               </TouchableOpacity>
             );
