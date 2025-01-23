@@ -4,10 +4,11 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 12: Implement Favorite Screen  
+## Stage 13: Implement Payment Screen  
 **Log:** January 23, 2025  
 
-This stage focuses on creating and integrating the `FavoriteScreen` with all necessary components and functionality.  
+This stage focuses on setting up the `PaymentScreen` along with its associated components and functionalities.  
+
 
 
 
@@ -19,19 +20,23 @@ This stage focuses on creating and integrating the `FavoriteScreen` with all nec
 
 ## Step by Step Process
 
-### Task 1: Initialize `FavoriteScreen`  
-Set up the initial UI and functionality for the `FavoriteScreen`.  
-- **Path:** [FavoriteScreen.tsx](./src/screens/FavoriteScreen.tsx)  
+### Task 1: Initialize `PaymentScreen`  
+Create the initial UI and implement the basic functionality for the `PaymentScreen`. 
 
 #
-### Task 2: Implement `FavoriteItemCard` Component  
-Create a reusable `FavoriteItemCard` component for displaying favorite items on the screen.  
-- **Path:** [FavoriteItemCard.tsx](./src/components/FavoriteItemCard.tsx)  
+### Task 2: Implement `PaymentMethod` Component  
+Develop a reusable `PaymentMethod` component for selecting payment options on the `PaymentScreen`.  
+- **Path:** [PaymentMethod.tsx](./src/components/PaymentMethod.tsx)  
 
 #
-### Task 3: Complete `FavoriteScreen` Implementation  
-Add all UI elements and functionality to fully implement the `FavoriteScreen`.  
-- **Path:** [FavoriteScreen.tsx](./src/screens/FavoriteScreen.tsx)  
+### Task 3: Implement `PopUpAnimation` Component  
+Create a `PopUpAnimation` component for smooth transitions or notifications on the `PaymentScreen`.  
+- **Path:** [PopUpAnimation.tsx](./src/components/PopUpAnimation.tsx)  
+
+#
+### Task 4: Complete `PaymentScreen` Implementation  
+Finalize the UI and integrate all functional components to fully implement the `PaymentScreen`.  
+- **Path:** [PaymentScreen.tsx](./src/screens/PaymentScreen.tsx)   
 
 <br/>
 
@@ -58,8 +63,9 @@ Add all UI elements and functionality to fully implement the `FavoriteScreen`.
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-6-fav-1.png" width=200>  
-<img src="./_archive/screenshots/screenshot-7-fav-2.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-5.jpg" width=200>  
+<img src="./_archive/screenshots/screenshot-6.png" width=200>
+<img src="./_archive/screenshots/screenshot-7.png" width=200>
 </p>
 
 <p align="center"> 
@@ -68,9 +74,9 @@ Add all UI elements and functionality to fully implement the `FavoriteScreen`.
 
 <p align="center">  
 <img src="./_archive/screenshots/screenshot-1-home.png" width=150>  
-<img src="./_archive/screenshots/screenshot-3-coffee.jpg" width=150>
-<img src="./_archive/screenshots/screenshot-4-cart-1.jpg" width=150>  
-<img src="./_archive/screenshots/screenshot-5-cart-2.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-2.jpg" width=150>
+<img src="./_archive/screenshots/screenshot-3.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-4.jpg" width=150>  
 </p>  
 
 <br/>

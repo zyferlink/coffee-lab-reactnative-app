@@ -145,7 +145,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
                         Card Holder Name
                       </Text>
                       <Text style={styles.creditCardName}>
-                        Nova Vortex
+                        Shavinda Nova
                       </Text>
                     </View>
                     {/* Credit Card Expiry Info */}
