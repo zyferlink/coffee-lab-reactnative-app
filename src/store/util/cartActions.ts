@@ -67,14 +67,14 @@ export const decrementCartItemQuantiy = (state: any, id: string, size: string) =
         if (state.cartList[index].prices[priceIndex].size == size) {
 
           if (state.cartList[index].prices.length > 1) {
-            if (state.cartList[index].prices[priceIndex] > 1) {
+            if (state.cartList[index].prices[priceIndex].quantity > 1) {
               state.cartList[index].prices[priceIndex].quantity--;
             } else {
               state.cartList[index].prices.splice(priceIndex, 1);
             }
           }
           else {
-            if (state.cartList[index].prices[priceIndex] > 1) {
+            if (state.cartList[index].prices[priceIndex].quantity > 1) {
               state.cartList[index].prices[priceIndex].quantity--;
             } else {
               state.cartList.splice(index, 1);
