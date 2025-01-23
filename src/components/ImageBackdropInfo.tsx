@@ -9,7 +9,7 @@ interface ImageBackdropInfoProps {
   name: string;
   type: string;
   ingredients: string;
-  specialIngredients: string;
+  specialIngredient: string;
   averageRating: number;
   ratingCount: string;
   roasted: string;
@@ -25,7 +25,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
   name,
   type,
   ingredients,
-  specialIngredients,
+  specialIngredient,
   averageRating,
   ratingCount,
   roasted,
@@ -83,7 +83,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   {name}
                 </Text>
                 <Text style={styles.itemSubtitleText}>
-                  {specialIngredients}
+                  {specialIngredient}
                 </Text>
               </View>
               {/* Header Property Container */}

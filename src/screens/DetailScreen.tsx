@@ -65,7 +65,7 @@ const DetailScreen = ({ navigation, route }: any) => {
           name={selectedItem.name}
           type={selectedItem.type}
           ingredients={selectedItem.ingredients}
-          specialIngredients={selectedItem.special_ingredient}
+          specialIngredient={selectedItem.special_ingredient}
           averageRating={selectedItem.average_rating}
           ratingCount={selectedItem.ratings_count}
           roasted={selectedItem.roasted}
