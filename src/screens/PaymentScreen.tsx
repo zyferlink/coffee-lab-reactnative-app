@@ -7,6 +7,7 @@ import PaymentFooter from '../components/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../store/useStore';
+import PopUpAnimation from '../components/PopUpAnimation';
 
 const paymentList = [
   {
@@ -59,7 +60,10 @@ const PaymentScreen = ({ navigation, route }: any) => {
       <StatusBar backgroundColor={COLORS.primaryBlack} />
       {/* Success Animation */}
       {showSuccessAnimation ?
-        <></>
+        <PopUpAnimation
+        style={styles.lottieAnimation}
+        source={require("../lottie/successful.json")}
+        />
         : <></>}
       {/* Scrollable Content */}
       <ScrollView
@@ -186,6 +190,9 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: COLORS.primaryBlack,
+  },
+  lottieAnimation:{
+    flex: 1,
   },
   scrollViewFlex: {
     flexGrow: 1,
