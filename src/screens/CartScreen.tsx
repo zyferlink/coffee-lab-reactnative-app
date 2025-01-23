@@ -13,6 +13,9 @@ const CartScreen = ({ navigation, route }: any) => {
 
   const cartList = useStore((state: any) => state.cartList);
   const cartPrice = useStore((state: any) => state.cartPrice);
+  const calculateCartPrice = useStore(
+    (state: any) => state.calculateCartPrice
+  );
   const incrementCartItemQuantiy = useStore(
     (state: any) => state.incrementCartItemQuantiy
   );
@@ -25,7 +28,18 @@ const CartScreen = ({ navigation, route }: any) => {
 
   const buttonPressHandler = () => {
     navigation.push("Payments");
-  }
+  };
+
+  const incrementItemQuantiyHandler = (id: string, size: string) => {
+    incrementCartItemQuantiy(id, size);
+    calculateCartPrice();
+  };
+
+  const decrementItemQuantiyHandler = (id: string, size: string) => {
+    decrementCartItemQuantiy(id, size);
+    calculateCartPrice();
+
+  };
 
   return (
     <View style={styles.screenContainer}>
@@ -49,7 +63,15 @@ const CartScreen = ({ navigation, route }: any) => {
                 {cartList.map((item: any) => (
                   <TouchableOpacity
                     key={item.id}
-                    onPress={() => { }}>
+                    onPress={() => {
+                      navigation.push("Details",
+                        {
+                          index: item.index,
+                          id: item.id,
+                          type: item.type,
+                        }
+                      );
+                    }}>
                     <CartItem
                       id={item.id}
                       index={item.index}
@@ -59,8 +81,8 @@ const CartScreen = ({ navigation, route }: any) => {
                       imageLinkSquare={item.imageLinkSquare}
                       specialIngredient={item.specialIngredient}
                       prices={item.prices}
-                      incrementQuantityHandler={() => { }}
-                      decrementQuantityHandler={() => { }}
+                      incrementQuantityHandler={incrementItemQuantiyHandler}
+                      decrementQuantityHandler={decrementItemQuantiyHandler}
                     />
                   </TouchableOpacity>
                 ))}
