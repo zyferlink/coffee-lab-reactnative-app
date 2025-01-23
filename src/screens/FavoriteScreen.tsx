@@ -14,7 +14,6 @@ const FavoriteScreen = ({ navigation, route }: any) => {
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
-
   const toggleFavorite = (favorite: boolean, id: string, type: string) => {
     favorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
@@ -33,7 +32,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
             style={styles.itemContainer}>
             {/* Header Bar */}
             <HeaderBar title={"Favorites"} />
-            {/* Cart Items */}
+            {/* Favorite Items */}
             {favoriteList.length == 0 ?
               (<EmptyListAnimation title={"No Favorites"} />)
               :
@@ -69,8 +68,6 @@ const FavoriteScreen = ({ navigation, route }: any) => {
               </View>
               )}
           </View>
-
-
         </View>
 
       </ScrollView>
@@ -99,4 +96,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default FavoriteScreen
+export default FavoriteScreen;

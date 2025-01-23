@@ -4,10 +4,11 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 11: Implement Cart Screen  
+## Stage 12: Implement Favorite Screen  
 **Log:** January 23, 2025  
 
-This stage focuses on adding cart functionality and implementing the `CartScreen`. 
+This stage focuses on creating and integrating the `FavoriteScreen` with all necessary components and functionality.  
+
 
 
 <p align="center">  
@@ -18,55 +19,19 @@ This stage focuses on adding cart functionality and implementing the `CartScreen
 
 ## Step by Step Process
 
-### Task 1: Add "Add to Cart" Functionality  
-Implement logic for adding items to the cart via buttons in `HomeScreen`.  
-- **Path:** [HomeScreen.tsx](./src/screens/HomeScreen.tsx)  
+### Task 1: Initialize `FavoriteScreen`  
+Set up the initial UI and functionality for the `FavoriteScreen`.  
+- **Path:** [FavoriteScreen.tsx](./src/screens/FavoriteScreen.tsx)  
 
 #
-### Task 2: Log Cart Parameters  
-Log cart parameters to verify that items are correctly added to the cart.  
-
-```ts
-addToCart({  
-  id,  
-  index,  
-  name,  
-  type,  
-  roasted,  
-  imageLinkSquare,  
-  specialIngredient,  
-  prices: [{ ...price, quantity: 1 }],  
-});  
-calculateCartPrice();  
-navigation.navigate("Tab", { screen: "Cart" });  
-``` 
-
-Log Example in `CartScreen`:  
-
-```tsx
-const CartScreen = () => {  
-  const cartList = useStore((state: any) => state.cartList);  
-  console.log("CartList size: ", cartList.length);  
-  console.log("CartList >>>>", cartList);  
-  ...
-};  
-```  
+### Task 2: Implement `FavoriteItemCard` Component  
+Create a reusable `FavoriteItemCard` component for displaying favorite items on the screen.  
+- **Path:** [FavoriteItemCard.tsx](./src/components/FavoriteItemCard.tsx)  
 
 #
-### Task 3: Update `useStore` with Cart Actions  
-Add cart action functions to `cartActions` and integrate them into the `useStore` hook.  
-- **Path (cart actions):** [cartActions.ts](./src/store/util/cartActions.ts)  
-- **Path (store hook):** [useStore.ts](./src/store/useStore.ts)  
-
-#
-### Task 4: Apply Components to `CartScreen`  
-Integrate reusable components like `CartItem` and `PaymentFooter` into `CartScreen`.  
-
-#
-### Task 5: Finalize UI and Functional Components  
-Implement all required UI and functionality for the `CartScreen`.  
-- **Path:** [CartScreen.tsx](./src/screens/CartScreen.tsx)  
-
+### Task 3: Complete `FavoriteScreen` Implementation  
+Add all UI elements and functionality to fully implement the `FavoriteScreen`.  
+- **Path:** [FavoriteScreen.tsx](./src/screens/FavoriteScreen.tsx)  
 
 <br/>
 
@@ -93,9 +58,8 @@ Implement all required UI and functionality for the `CartScreen`.
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-5-cart-empty.png" width=200>  
-<img src="./_archive/screenshots/screenshot-6-cart-1.jpg" width=200>
-<img src="./_archive/screenshots/screenshot-7-cart-2.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-6-fav-1.png" width=200>  
+<img src="./_archive/screenshots/screenshot-7-fav-2.jpg" width=200>
 </p>
 
 <p align="center"> 
@@ -104,9 +68,9 @@ Implement all required UI and functionality for the `CartScreen`.
 
 <p align="center">  
 <img src="./_archive/screenshots/screenshot-1-home.png" width=150>  
-<img src="./_archive/screenshots/screenshot-2-category.png" width=150>
-<img src="./_archive/screenshots/screenshot-3-coffee.jpg" width=150>  
-<img src="./_archive/screenshots/screenshot-4-bean.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-3-coffee.jpg" width=150>
+<img src="./_archive/screenshots/screenshot-4-cart-1.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-5-cart-2.jpg" width=150>  
 </p>  
 
 <br/>
