@@ -4,10 +4,10 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 10: Implement Detail Screen  
-**Log:** January 22, 2025  
+## Stage 11: Implement Cart Screen  
+**Log:** January 23, 2025  
 
-This stage focuses on creating and integrating the `DetailScreen` with required UI components and navigation parameters.  
+This stage focuses on adding cart functionality and implementing the `CartScreen`. 
 
 
 <p align="center">  
@@ -18,49 +18,54 @@ This stage focuses on creating and integrating the `DetailScreen` with required 
 
 ## Step by Step Process
 
-### Task 1: Initial Implementation of `DetailScreen` 
-Set up the basic structure for the detail screen file.  
-- **Path:** [DetailScreen.tsx](./src/screens/DetailScreen.tsx)  
+### Task 1: Add "Add to Cart" Functionality  
+Implement logic for adding items to the cart via buttons in `HomeScreen`.  
+- **Path:** [HomeScreen.tsx](./src/screens/HomeScreen.tsx)  
 
 #
-### Task 2: Add Navigation Log  
-Add a log to verify route parameters are received correctly when navigating to the screen.  
-Note:  
-add a log to check screen retrieves params correctly:  
+### Task 2: Log Cart Parameters  
+Log cart parameters to verify that items are correctly added to the cart.  
+
 ```ts
-navigation.push("Details", {  
-  index: item.index,  
-  id: item.id,  
-  type: item.type,  
+addToCart({  
+  id,  
+  index,  
+  name,  
+  type,  
+  roasted,  
+  imageLinkSquare,  
+  specialIngredient,  
+  prices: [{ ...price, quantity: 1 }],  
 });  
+calculateCartPrice();  
+navigation.navigate("Tab", { screen: "Cart" });  
 ``` 
 
-Log Example:  
-```ts
-const DetailScreen = ({ navigation, route }: any) => {  
-  console.log("route params : ", route.params);  
+Log Example in `CartScreen`:  
+
+```tsx
+const CartScreen = () => {  
+  const cartList = useStore((state: any) => state.cartList);  
+  console.log("CartList size: ", cartList.length);  
+  console.log("CartList >>>>", cartList);  
   ...
-}  
+};  
 ```  
 
 #
-### Task 3: Create `ImageBackdropInfo` Component  
-Create a reusable component for displaying an image and info in the header.
-- **Path:** [ImageBackdropInfo.tsx](./src/components/ImageBackdropInfo.tsx)  
+### Task 3: Update `useStore` with Cart Actions  
+Add cart action functions to `cartActions` and integrate them into the `useStore` hook.  
+- **Path (cart actions):** [cartActions.ts](./src/store/util/cartActions.ts)  
+- **Path (store hook):** [useStore.ts](./src/store/useStore.ts)  
 
 #
-### Task 4: Create `PaymentFooter` Component  
-Develop a reusable footer component to show prices and navigation buttons.
-- **Path:** [PaymentFooter.tsx](./src/components/PaymentFooter.tsx)  
+### Task 4: Apply Components to `CartScreen`  
+Integrate reusable components like `CartItem` and `PaymentFooter` into `CartScreen`.  
 
 #
-### Task 5: Integrate Components into `DetailScreen`  
-- Add `ImageBackdropInfo` for the header view and `PaymentFooter` for footer navigation.  
-
-#
-### Task 6: Finalize UI and Functional Components  
-- Implement all remaining UI elements and logic within `DetailScreen`.  
-- **Path:** [DetailScreen.tsx](./src/screens/DetailScreen.tsx)  
+### Task 5: Finalize UI and Functional Components  
+Implement all required UI and functionality for the `CartScreen`.  
+- **Path:** [CartScreen.tsx](./src/screens/CartScreen.tsx)  
 
 
 <br/>
@@ -88,9 +93,9 @@ Develop a reusable footer component to show prices and navigation buttons.
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-5-coffee.jpg" width=200>  
-<img src="./_archive/screenshots/screenshot-6-bean.jpg" width=200>
-<img src="./_archive/screenshots/screenshot-7-coffee-like.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-5-cart-empty.png" width=200>  
+<img src="./_archive/screenshots/screenshot-6-cart-1.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-7-cart-2.jpg" width=200>
 </p>
 
 <p align="center"> 
@@ -99,9 +104,9 @@ Develop a reusable footer component to show prices and navigation buttons.
 
 <p align="center">  
 <img src="./_archive/screenshots/screenshot-1-home.png" width=150>  
-<img src="./_archive/screenshots/screenshot-2-items.png" width=150>
-<img src="./_archive/screenshots/screenshot-3-search.png" width=150>  
-<img src="./_archive/screenshots/screenshot-4-category.png" width=150>  
+<img src="./_archive/screenshots/screenshot-2-category.png" width=150>
+<img src="./_archive/screenshots/screenshot-3-coffee.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-4-bean.jpg" width=150>  
 </p>  
 
 <br/>
