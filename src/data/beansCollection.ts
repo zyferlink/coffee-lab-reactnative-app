@@ -1,4 +1,4 @@
-const BeansData = [
+const BEANS_COLLECTION = [
     {
       id: 'B1',
       name: 'Robusta Beans',
@@ -15,7 +15,7 @@ const BeansData = [
       ],
       average_rating: 4.7,
       ratings_count: '6,879',
-      favourite: false,
+      favorite: false,
       type: 'Bean',
       index: 0,
     },
@@ -35,7 +35,7 @@ const BeansData = [
       ],
       average_rating: 4.7,
       ratings_count: '6,879',
-      favourite: false,
+      favorite: false,
       type: 'Bean',
       index: 1,
     },
@@ -55,7 +55,7 @@ const BeansData = [
       ],
       average_rating: 4.7,
       ratings_count: '6,879',
-      favourite: false,
+      favorite: false,
       type: 'Bean',
       index: 2,
     },
@@ -75,9 +75,9 @@ const BeansData = [
       ],
       average_rating: 4.7,
       ratings_count: '6,879',
-      favourite: false,
+      favorite: false,
       type: 'Bean',
       index: 3,
     },
   ];
-  export default BeansData;
+  export default BEANS_COLLECTION;
