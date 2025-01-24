@@ -104,15 +104,27 @@ useEffect(() => {
 
 ### Final Steps  
 
-**Clean and Build the Project: ♨ ♨** <br/>
+**♨ Clean and Build the Project: ♨ ♨** <br/>
  Cleaning and rebuilding ensures that any cached or stale data is removed, providing a clean state for the build process. 
- Follow these commands:
+
+<br/>
+
+ Note:  <br/>
+Main command for `Release build install`:
+```bash
+./gradlew installRelease
+```
+<br/>
+
+Full command:
 ```bash
 cd android
 ./gradlew clean
 ./gradlew installRelease
 cd ..
 ```
+
+
 
 <br/>
 
