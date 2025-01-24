@@ -1,29 +1,40 @@
-import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../store/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { COLORS, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PopUpAnimation from '../components/PopUpAnimation';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 
-const OrderHistoryScreen = () => {
+const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
 
   const orderHistoryList = useStore((state: any) => state.orderHistoryList);
 
-  const [showSuccessAnimation, setShowSuccessAnimation] = useState(false)
+  const [showAnimation, setShowAnimation] = useState(false)
+
+  const navigationHandler = ({ index, id, type }: any) => {
+    navigation.push("Details", { index, id, type });
+  }
+
+  const downloadActionHandler = () => {
+    setShowAnimation(true);
+    setTimeout(() => {
+      setShowAnimation(false);
+    }, 2000);
+  }
 
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
       <StatusBar backgroundColor={COLORS.primaryBlack} />
       {/* Success Animation */}
-      {showSuccessAnimation ?
+      {showAnimation ?
         <PopUpAnimation
           style={styles.lottieAnimation}
-          source={require("../lottie/successful.json")}
+          source={require("../lottie/download.json")}
         />
         : <></>}
       {/* Scrollable Content */}
@@ -45,7 +56,7 @@ const OrderHistoryScreen = () => {
                 {orderHistoryList.map((orderItem: any, index: any) => (
                   <OrderHistoryCard
                     key={index.toString()}
-                    navigationHandler={() => { }}
+                    navigationHandler={navigationHandler}
                     orderDate={orderItem.orderDate}
                     orderPrice={orderItem.cartListPrice}
                     orderItemList={orderItem.cartList}
@@ -54,6 +65,17 @@ const OrderHistoryScreen = () => {
               </View>
               )}
           </View>
+          {orderHistoryList.length > 0 ?
+            <TouchableOpacity
+              style={styles.downloadButton}
+              onPress={() => { downloadActionHandler(); }}>
+              <Text style={styles.downloadButtonText}>
+                Download
+              </Text>
+            </TouchableOpacity>
+            :
+            <></>
+          }
         </View>
       </ScrollView>
     </View>
@@ -81,6 +103,19 @@ const styles = StyleSheet.create({
   listItemContainer: {
     paddingHorizontal: SPACING.space20,
     gap: SPACING.space20,
+  },
+  downloadButton: {
+    height: 64,
+    borderRadius: BORDER_RADIUS.radius20,
+    margin: SPACING.space20,
+    backgroundColor: COLORS.primaryOrange,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  downloadButtonText: {
+    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontSize: FONT_SIZE.size18,
+    color: COLORS.primaryWhite,
   },
 })
 
