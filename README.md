@@ -4,10 +4,10 @@ CoffeeLab by Nova <br>
 </h1>
 
 
-## Stage 14: Implement Order History Screen 
+## Stage 15: Implement Splash Screen  
 **Log:** January 24, 2025  
 
-This stage involves creating the `OrderHistoryScreen` to display past orders, along with its components.  
+This stage focuses on adding a splash screen for Android, configuring it with a custom layout, and ensuring the app transitions seamlessly.  
 
 <p align="center">  
 · • —–—–—– ٠ ✦ ٠ —–—–—– • ·
@@ -17,39 +17,136 @@ This stage involves creating the `OrderHistoryScreen` to display past orders, al
 
 ## Step by Step Process
 
-### Task 1: Initialize `OrderHistoryScreen`  
-Set up the initial UI and functionality for the `OrderHistoryScreen`.  
-- **Path:** [OrderHistoryScreen.tsx](./src/screens/OrderHistoryScreen.tsx) 
+### Task 1: Install Splash Screen Plugin  
+Install the `react-native-splash-screen` package to handle the splash screen functionality.  
+```
+https://www.npmjs.com/package/react-native-splash-screen
+```
+
+- Command:  
+``` 
+npm i react-native-splash-screen --save  
+``` 
  
 #
-### Task 2: Implement `OrderHistoryCard` Component  
-Develop the `OrderHistoryCard` component to display summarized information about each order.  
-- **Path:** [OrderHistoryCard.tsx](./src/components/OrderHistoryCard.tsx)  
+### Task 2: Configure `MainActivity.kt`  
+Add splash screen initialization in the `MainActivity.kt` file.  
+
+[MainActivity.kt](./android/app/src/main/java/com/coffeelab/MainActivity.kt)  
+- **Snippet:**  
+```kotlin 
+import android.os.Bundle;  //here
+import org.devio.rn.splashscreen.SplashScreen;  //here
+
+override fun onCreate(savedInstanceState: Bundle?) {  
+    SplashScreen.show(this);  //here
+    super.onCreate(null);  
+}  
+``` 
 
 #
-### Task 3: Implement `OrderItemCard` Component  
-Create the `OrderItemCard` component to show detailed information for items within an order.  
-- **Path:** [OrderItemCard.tsx](./src/components/OrderItemCard.tsx)  
+### Task 3: Create Splash Screen Layout  
+Set up a `launch_screen.xml` file in `app/src/main/res/layout` for the splash screen UI.  
+
+- **Content:**  
+[launch_screen.xml](./android/app/src/main/res/layout/launch_screen.xml) 
+```xml  
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    android:background="@color/primary_dark">  
+
+    <ImageView  
+        android:layout_width="170dp"  
+        android:layout_height="170dp"  
+        android:src="@drawable/launch_screen"  
+        android:layout_centerInParent="true" />  
+
+</RelativeLayout>  
+``` 
+
+- **Add to Colors Resource File:**  
+[color.xml](./android/app/src/main/res/values/color.xml) 
+```xml 
+<resources>  
+    <color name="primary_dark">#0C0F14</color>  
+</resources>  
+```  
 
 #
-### Task 4: Finalize `OrderHistoryScreen`  
-Integrate all components and implement full functionality for the `OrderHistoryScreen`.  
-- **Path:** [OrderHistoryScreen.tsx](./src/screens/OrderHistoryScreen.tsx)   
+### Task 4: Hide Splash Screen After Load  
+Modify `App.tsx` to hide the splash screen once the app has loaded.  
+- **Snippet:**  
+```tsx  
+import SplashScreen from 'react-native-splash-screen'; 
+
+...
+
+useEffect(() => {  
+    SplashScreen.hide();  
+}, []);  
+```  
+
+#
+### Task 5: Generate and Apply App Icons  
+1. **Create App Icons:**  
+   - Upload your logo with background color `#0C0F14` to [App Icon Generator](https://www.appicon.co/#image-sets)  
+   - Download the generated Android icons (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi) and copy them to `android/app/src/main/res`  
+
+2. **Create Launcher Icons:**  
+   - Use [Icon Kitchen](https://icon.kitchen/) to generate launcher icons.  
+   - Rename a copy of `ic_launcher.png` to `ic_launcher_round.png` in each drawable folder  
+
 
 <br/>
 
 ---
 
-#### Final Steps  
+### Final Steps  
 
-1. Ensure the app works correctly by cleaning and rebuilding the project:
+**Clean and Build the Project: ♨ ♨** <br/>
+ Cleaning and rebuilding ensures that any cached or stale data is removed, providing a clean state for the build process. 
+ Follow these commands:
+```bash
+cd android
+./gradlew clean
+./gradlew installRelease
+cd ..
+```
 
-   ```bash
-   cd android
-   ./gradlew clean
-   cd ..
-   npx react-native run-android
-   ```
+<br/>
+
+1. **Debugging Commands:**
+   - **View stacktrace for build issues:**
+     Use this command to identify the root cause of build failures with detailed logs:
+     ```bash
+     ./gradlew installRelease --stacktrace
+     ```
+   
+   - **Check dependencies:**
+     Generate a dependency tree to identify conflicts or duplicates in your project:
+     ```bash
+     ./gradlew app:dependencies
+     ```
+   
+   - **Configure `gradle.properties`:**
+     Ensure the following settings are included in your `gradle.properties` file to migrate and use AndroidX libraries:
+     ```properties
+     android.useAndroidX=true
+     android.enableJetifier=true
+     ```
+
+2. **Test on Metro if Needed:**
+   - For debugging and testing the app using React Native's Metro bundler, use these commands:
+     ```bash
+     cd android
+     ./gradlew clean
+     cd ..
+     npx react-native run-android
+     ```
+   - This approach is useful for checking runtime behavior and ensuring the app works as expected during development.
+
+
 
 <br/>
 
@@ -61,9 +158,8 @@ Integrate all components and implement full functionality for the `OrderHistoryS
 </h2> 
 
 <p align="center">  
-<img src="./_archive/screenshots/screenshot-7.png" width=200>  
-<img src="./_archive/screenshots/screenshot-8.jpg" width=200>  
-<img src="./_archive/screenshots/screenshot-9.jpg" width=200>
+<img src="./_archive/screenshots/screenshot-10.jpg" width=200>  
+<img src="./_archive/screenshots/screenshot-11.png" width=200>
 </p>
 
 <p align="center"> 
@@ -75,6 +171,13 @@ Integrate all components and implement full functionality for the `OrderHistoryS
 <img src="./_archive/screenshots/screenshot-2.jpg" width=150>
 <img src="./_archive/screenshots/screenshot-3.jpg" width=150>  
 <img src="./_archive/screenshots/screenshot-4.jpg" width=150>  
+</p>  
+
+<p align="center">  
+<img src="./_archive/screenshots/screenshot-5.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-7.png" width=150>
+<img src="./_archive/screenshots/screenshot-8.jpg" width=150>  
+<img src="./_archive/screenshots/screenshot-9.jpg" width=150>  
 </p>  
 
 <br/>
