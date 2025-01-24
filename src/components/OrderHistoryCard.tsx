@@ -42,7 +42,14 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
             <View style={styles.listContainer}>
                 {orderItemList.map((orderItem: any, index: any) => (
                     <TouchableOpacity
-                        key={index.toString() + orderItem.id}>
+                        key={index.toString() + orderItem.id}
+                        onPress={() => {
+                            navigationHandler({
+                                index: orderItem.index,
+                                id: orderItem.id,
+                                type: orderItem.type,
+                            });
+                        }}>
                         <OrderItemCard
                             type={orderItem.type}
                             name={orderItem.name}
