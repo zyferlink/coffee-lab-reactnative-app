@@ -1,7 +1,7 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { COLORS } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
 
 interface OrderItemCardProps {
     type: string;
@@ -26,27 +26,171 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
             end={{ x: 1, y: 1 }}
             colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
             style={styles.cardLinearGradientContainer}>
-            <View>
-                <View>
+            {/* Header Info Section */}
+            <View
+                style={styles.cardInfoContainer}>
+                <View
+                    style={styles.cardInfoImageContainer}>
+                    {/* Header Image */}
                     <Image
-                        source={imageLink} />
+                        source={imageLink}
+                        style={styles.cardImage}
+                    />
                     <View>
-                        <Text>{name}</Text>
-                        <Text>{specialIngredient}</Text>
+                        {/* Item Name */}
+                        <Text style={styles.cardTitle}>
+                            {name}
+                        </Text>
+                        {/* Special Ingredient */}
+                        <Text style={styles.cardSubtitle}>
+                            {specialIngredient}
+                        </Text>
                     </View>
                 </View>
                 <View>
-                    <Text>$ <Text>{itemPrice}</Text></Text>
+                    {/* Item Price */}
+                    <Text style={styles.cardCurrency}>
+                        {"$ "}
+                        <Text style={styles.cardPrice}>
+                            {itemPrice}
+                        </Text>
+                    </Text>
                 </View>
-
             </View>
-
+            {/* Detail Section */}
+            {prices.map((priceItem: any, index: any) => (
+                <View
+                    key={index.toString()}
+                    style={styles.cardTableRow}>
+                    <View style={styles.cardTableRow}>
+                        {/* PriceItems's Size */}
+                        <View style={styles.cardBoxLeft}>
+                            <Text style={[styles.itemPriceSize, {
+                                fontSize: type == "Bean" ?
+                                    FONT_SIZE.size14 : FONT_SIZE.size16
+                            }]}>
+                                {priceItem.size}
+                            </Text>
+                        </View>
+                        {/* PriceItems's Price */}
+                        <View style={styles.cardBoxRight}>
+                            <Text style={styles.itemPriceCurrency}>
+                                {`${priceItem.currency} `}
+                                <Text style={styles.itemPrice}>
+                                    {priceItem.price}
+                                </Text>
+                            </Text>
+                        </View>
+                    </View>
+                    {/* PriceItems's Quantity */}
+                    <View style={styles.cardTableRow}>
+                        <Text style={styles.quantityTextItem}>
+                            {`X `}
+                            <Text style={styles.quantityText}>
+                                {priceItem.quantity}
+                            </Text>
+                        </Text>
+                        {/* PriceItems's Total Price */}
+                        <Text style={styles.quantityTextItem}>
+                            $ {(priceItem.quantity * priceItem.price).toFixed(2).toString()}
+                        </Text>
+                    </View>
+                </View>
+            ))
+            }
         </LinearGradient>
     )
 }
 
 const styles = StyleSheet.create({
-    cardLinearGradientContainer: {},
+    cardLinearGradientContainer: {
+        gap: SPACING.space20,
+        padding: SPACING.space20,
+        borderRadius: BORDER_RADIUS.radius25,
+    },
+    cardInfoContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    cardInfoImageContainer: {
+        flexDirection: "row",
+        gap: SPACING.space20,
+        alignItems: "center",
+    },
+    cardImage: {
+        height: 90,
+        width: 90,
+        borderRadius: BORDER_RADIUS.radius15,
+    },
+    cardTitle: {
+        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontSize: FONT_SIZE.size18,
+        color: COLORS.primaryWhite,
+    },
+    cardSubtitle: {
+        fontFamily: FONT_FAMILY.poppinsRegular,
+        fontSize: FONT_SIZE.size12,
+        color: COLORS.secondaryLightGrey,
+    },
+    cardCurrency: {
+        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontSize: FONT_SIZE.size20,
+        color: COLORS.primaryOrange,
+    },
+    cardPrice: {
+        color: COLORS.primaryWhite,
+    },
+    cardTableRow: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    cardBoxLeft: {
+        flex: 1,
+        height: 45,
+        backgroundColor: COLORS.primaryBlack,
+        borderTopLeftRadius: BORDER_RADIUS.radius10,
+        borderBottomLeftRadius: BORDER_RADIUS.radius10,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRightWidth: 1,
+        borderRightColor: COLORS.primaryGrey,
+    },
+    cardBoxRight: {
+        flex: 1,
+        height: 45,
+        backgroundColor: COLORS.primaryBlack,
+        borderTopRightRadius: BORDER_RADIUS.radius10,
+        borderBottomRightRadius: BORDER_RADIUS.radius10,
+        alignItems: "center",
+        justifyContent: "center",
+        borderLeftWidth: 1,
+        borderLeftColor: COLORS.primaryGrey,
+    },
+    itemPriceSize: {
+        fontFamily: FONT_FAMILY.poppinsMedium,
+        color: COLORS.secondaryLightGrey,
+    },
+    itemPriceCurrency: {
+        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontSize: FONT_SIZE.size18,
+        color: COLORS.primaryOrange,
+    },
+    itemPrice: {
+        color: COLORS.primaryWhite,
+    },
+    quantityTextItem: {
+        flex: 1,
+        textAlign: "center",
+        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontSize: FONT_SIZE.size18,
+        color: COLORS.primaryOrange,
+    },
+    quantityText: {
+        color: COLORS.primaryWhite,
+    },
 })
 
 export default OrderItemCard;
