@@ -72,6 +72,10 @@
 		65628016142D422DA6F0406E /* macchiato_pic_3_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 828EA090178045A2AB384F52 /* macchiato_pic_3_square.png */; };
 		4D61B70E5F0544A2A762DC1D /* robusta_coffee_beans_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB8C7CC234B4E7A96DF58DD /* robusta_coffee_beans_portrait.png */; };
 		79B7CF45E1864566B81443C3 /* robusta_coffee_beans_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1525039DFA56499F9191F323 /* robusta_coffee_beans_square.png */; };
+		DA1FF89C26C64A848DF91A7F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = E045FBB048A24E529435B9E9 /* ic_launcher.png */; };
+		13EB4258489A42588CFA419E /* coffeecup.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FEC868772A24102947E3145 /* coffeecup.json */; };
+		B625B85F0BFB480C86762D83 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = FEBDB67367FF407E87FA95BD /* download.json */; };
+		203C0FCA5A8F4740ADCA85DD /* successful.json in Resources */ = {isa = PBXBuildFile; fileRef = B53FFBB20A8F42FAACB4B4BE /* successful.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +165,10 @@
 		828EA090178045A2AB384F52 /* macchiato_pic_3_square.png */ = {isa = PBXFileReference; name = "macchiato_pic_3_square.png"; path = "../src/assets/coffee_assets/macchiato/square/macchiato_pic_3_square.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FDB8C7CC234B4E7A96DF58DD /* robusta_coffee_beans_portrait.png */ = {isa = PBXFileReference; name = "robusta_coffee_beans_portrait.png"; path = "../src/assets/coffee_assets/robusta_coffee_beans/robusta_coffee_beans_portrait.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1525039DFA56499F9191F323 /* robusta_coffee_beans_square.png */ = {isa = PBXFileReference; name = "robusta_coffee_beans_square.png"; path = "../src/assets/coffee_assets/robusta_coffee_beans/robusta_coffee_beans_square.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E045FBB048A24E529435B9E9 /* ic_launcher.png */ = {isa = PBXFileReference; name = "ic_launcher.png"; path = "../src/assets/icons/ic_launcher.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1FEC868772A24102947E3145 /* coffeecup.json */ = {isa = PBXFileReference; name = "coffeecup.json"; path = "../src/assets/lottie/coffeecup.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FEBDB67367FF407E87FA95BD /* download.json */ = {isa = PBXFileReference; name = "download.json"; path = "../src/assets/lottie/download.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B53FFBB20A8F42FAACB4B4BE /* successful.json */ = {isa = PBXFileReference; name = "successful.json"; path = "../src/assets/lottie/successful.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +336,10 @@
 				828EA090178045A2AB384F52 /* macchiato_pic_3_square.png */,
 				FDB8C7CC234B4E7A96DF58DD /* robusta_coffee_beans_portrait.png */,
 				1525039DFA56499F9191F323 /* robusta_coffee_beans_square.png */,
+				E045FBB048A24E529435B9E9 /* ic_launcher.png */,
+				1FEC868772A24102947E3145 /* coffeecup.json */,
+				FEBDB67367FF407E87FA95BD /* download.json */,
+				B53FFBB20A8F42FAACB4B4BE /* successful.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -486,6 +498,10 @@
 				65628016142D422DA6F0406E /* macchiato_pic_3_square.png in Resources */,
 				4D61B70E5F0544A2A762DC1D /* robusta_coffee_beans_portrait.png in Resources */,
 				79B7CF45E1864566B81443C3 /* robusta_coffee_beans_square.png in Resources */,
+				DA1FF89C26C64A848DF91A7F /* ic_launcher.png in Resources */,
+				13EB4258489A42588CFA419E /* coffeecup.json in Resources */,
+				B625B85F0BFB480C86762D83 /* download.json in Resources */,
+				203C0FCA5A8F4740ADCA85DD /* successful.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

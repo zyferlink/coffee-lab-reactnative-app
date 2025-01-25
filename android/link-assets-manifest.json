@@ -2,22 +2,6 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/images/amazonpay.png",
-      "sha1": "4ec7050dda251f228cb2b9a5220cc986099dd3c7"
-    },
-    {
-      "path": "src/assets/images/applepay.png",
-      "sha1": "0b06e72fa97134cda893f1688ab8852fef316f1f"
-    },
-    {
-      "path": "src/assets/images/avatar.png",
-      "sha1": "08dab6d2f1f8c9da5b5c0dab8cfaa61e818439ee"
-    },
-    {
-      "path": "src/assets/images/gpay.png",
-      "sha1": "039fbff59306d5e4300ef7614d796844345575af"
-    },
-    {
       "path": "src/assets/coffee_assets/americano/portrait/americano_pic_1_portrait.png",
       "sha1": "685f99c5602e8692061e11137b4b0c94b6f92c0c"
     },
@@ -232,6 +216,38 @@
     {
       "path": "src/assets/fonts/Poppins-Thin.ttf",
       "sha1": "09ba4dcd5509c8085bf88c665dcc51cbdfced27b"
+    },
+    {
+      "path": "src/assets/icons/ic_launcher.png",
+      "sha1": "a7228dcd1b8436ca1e952d5e75573fc4aba499a3"
+    },
+    {
+      "path": "src/assets/images/amazonpay.png",
+      "sha1": "4ec7050dda251f228cb2b9a5220cc986099dd3c7"
+    },
+    {
+      "path": "src/assets/images/applepay.png",
+      "sha1": "0b06e72fa97134cda893f1688ab8852fef316f1f"
+    },
+    {
+      "path": "src/assets/images/avatar.png",
+      "sha1": "08dab6d2f1f8c9da5b5c0dab8cfaa61e818439ee"
+    },
+    {
+      "path": "src/assets/images/gpay.png",
+      "sha1": "039fbff59306d5e4300ef7614d796844345575af"
+    },
+    {
+      "path": "src/assets/lottie/coffeecup.json",
+      "sha1": "c15a4a1174384a24928ba628b9f2a8f13ce5d798"
+    },
+    {
+      "path": "src/assets/lottie/download.json",
+      "sha1": "f2112ea52f271d13ba555bf6fb8b58cc6dc7e28b"
+    },
+    {
+      "path": "src/assets/lottie/successful.json",
+      "sha1": "946b3f607c68ddaaac8b57212760c6e45dd3250c"
     }
   ]
 }
