@@ -2,13 +2,13 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PopUpAnimation from '../components/PopUpAnimation';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 import { lottieAnimations } from '../config/assets';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   downloadButtonText: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size18,
+    fontSize: fontSizes.size18,
     color: colors.primary.white,
   },
 })

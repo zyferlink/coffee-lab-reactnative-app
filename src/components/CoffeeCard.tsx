@@ -1,10 +1,10 @@
 import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from './BackgroundIcon';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 const CARD_WIDTH = Dimensions.get("window").width * 0.32;
@@ -52,7 +52,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                     <CustomIcon
                         name={"star"}
                         color={colors.primary.orange}
-                        size={FONT_SIZE.size14} />
+                        size={fontSizes.size14} />
                     {/* Rating Text */}
                     <Text
                         style={styles.cardRatingText}>
@@ -95,7 +95,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                         name={"add"}
                         color={colors.primary.white}
                         backgroundColor={colors.primary.orange}
-                        size={FONT_SIZE.size16}
+                        size={fontSizes.size16}
                     />
                 </TouchableOpacity>
             </View>
@@ -130,18 +130,18 @@ const styles = StyleSheet.create({
     },
     cardRatingText: {
         fontFamily: fonts.poppins.medium,
-        fontSize: FONT_SIZE.size14,
+        fontSize: fontSizes.size14,
         color: colors.primary.white,
         lineHeight: 24,
     },
     cardTitle: {
         fontFamily: fonts.poppins.medium,
-        fontSize: FONT_SIZE.size16,
+        fontSize: fontSizes.size16,
         color: colors.primary.white,
     },
     cardSubtitle: {
         fontFamily: fonts.poppins.light,
-        fontSize: FONT_SIZE.size10,
+        fontSize: fontSizes.size10,
         color: colors.primary.white,
     },
     cardFooterRow: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     },
     cardPriceCurrency: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.orange,
     },
     cardPrice: {

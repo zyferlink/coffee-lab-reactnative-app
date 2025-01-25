@@ -2,8 +2,8 @@ import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ImageBackdropInfo from './ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
-import { fonts } from '../config/fonts';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 interface FavoriteItemCardProps {
@@ -81,13 +81,13 @@ const styles = StyleSheet.create({
   },
   descriptionTitle: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size16,
+    fontSize: fontSizes.size16,
     color: colors.primary.white,
     marginBottom: SPACING.space4,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
-    fontSize: FONT_SIZE.size14,
+    fontSize: fontSizes.size14,
     color: colors.primary.white,
     letterSpacing: 0.5,
   },

@@ -1,6 +1,6 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -9,7 +9,7 @@ import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
 import { images, lottieAnimations } from '../config/assets';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 const paymentList = [
@@ -80,7 +80,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
             <GradientBackgroundIcon
               name={"left"}
               color={colors.primary.lightGrey}
-              size={FONT_SIZE.size16}
+              size={fontSizes.size16}
             />
           </TouchableOpacity>
           {/* Header Text */}
@@ -115,13 +115,13 @@ const PaymentScreen = ({ navigation, route }: any) => {
                     {/* Credit Card Chip Icon */}
                     <CustomIcon
                       name={"chip"}
-                      size={FONT_SIZE.size20 * 2}
+                      size={fontSizes.size20 * 2}
                       color={colors.primary.orange}
                     />
                     {/* Credit Card Type Icon */}
                     <CustomIcon
                       name={"visa"}
-                      size={FONT_SIZE.size30 * 2}
+                      size={fontSizes.size30 * 2}
                       color={colors.primary.white}
                     />
                   </View>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size20,
+    fontSize: fontSizes.size20,
     color: colors.primary.white,
   },
   emptyView: {
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   },
   creditCardTitle: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size14,
+    fontSize: fontSizes.size14,
     color: colors.primary.white,
     marginLeft: SPACING.space10,
   },
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
   },
   creditCardNumber: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size20,
+    fontSize: fontSizes.size20,
     color: colors.primary.white,
     letterSpacing: 6,
   },
@@ -265,12 +265,12 @@ const styles = StyleSheet.create({
   },
   creditCardNameTitle: {
     fontFamily: fonts.poppins.regular,
-    fontSize: FONT_SIZE.size14,
+    fontSize: fontSizes.size14,
     color: colors.secondary.lightGrey,
   },
   creditCardName: {
     fontFamily: fonts.poppins.medium,
-    fontSize: FONT_SIZE.size18,
+    fontSize: fontSizes.size18,
     color: colors.primary.white,
   },
 })

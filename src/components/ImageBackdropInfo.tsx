@@ -1,9 +1,9 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 interface ImageBackdropInfoProps {
@@ -51,7 +51,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               <GradientBackgroundIcon
                 name="left"
                 color={colors.primary.lightGrey}
-                size={FONT_SIZE.size16} />
+                size={fontSizes.size16} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -59,7 +59,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               <GradientBackgroundIcon
                 name="like"
                 color={favorite ? colors.primary.red : colors.primary.lightGrey}
-                size={FONT_SIZE.size16} />
+                size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
         ) : (
@@ -69,7 +69,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               <GradientBackgroundIcon
                 name="like"
                 color={favorite ? colors.primary.red : colors.primary.lightGrey}
-                size={FONT_SIZE.size16} />
+                size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
         )}
@@ -93,7 +93,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                 <View style={styles.propertyFirst}>
                   <CustomIcon
                     name={type == "Bean" ? "bean" : "beans"}
-                    size={type == "Bean" ? FONT_SIZE.size18 : FONT_SIZE.size24}
+                    size={type == "Bean" ? fontSizes.size18 : fontSizes.size24}
                     color={colors.primary.orange}
                   />
                   <Text
@@ -105,7 +105,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                 <View style={styles.propertyFirst}>
                   <CustomIcon
                     name={type == "Bean" ? "location" : "drop"}
-                    size={FONT_SIZE.size16}
+                    size={fontSizes.size16}
                     color={colors.primary.orange}
                   />
                   <Text style={styles.propertyLastText}>
@@ -119,7 +119,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               <View style={styles.ratingContainer}>
                 <CustomIcon
                   name={"star"}
-                  size={FONT_SIZE.size20}
+                  size={fontSizes.size20}
                   color={colors.primary.orange}
                 />
                 <Text style={styles.ratingText}>
@@ -179,12 +179,12 @@ const styles = StyleSheet.create({
   },
   itemTitleText: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size24,
+    fontSize: fontSizes.size24,
     color: colors.primary.white,
   },
   itemSubtitleText: {
     fontFamily: fonts.poppins.medium,
-    fontSize: FONT_SIZE.size12,
+    fontSize: fontSizes.size12,
     color: colors.primary.white,
   },
   itemPropertiesContainer: {
@@ -202,12 +202,12 @@ const styles = StyleSheet.create({
   },
   propertyFirstText: {
     fontFamily: fonts.poppins.medium,
-    fontSize: FONT_SIZE.size12,
+    fontSize: fontSizes.size12,
     color: colors.primary.white,
   },
   propertyLastText: {
     fontFamily: fonts.poppins.medium,
-    fontSize: FONT_SIZE.size12,
+    fontSize: fontSizes.size12,
     color: colors.primary.white,
     marginTop: SPACING.space4,
   },
@@ -218,12 +218,12 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size18,
+    fontSize: fontSizes.size18,
     color: colors.primary.white,
   },
   ratingCountText: {
     fontFamily: fonts.poppins.regular,
-    fontSize: FONT_SIZE.size12,
+    fontSize: fontSizes.size12,
     color: colors.primary.white,
   },
   roastedContainer: {
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   },
   roastedText: {
     fontFamily: fonts.poppins.regular,
-    fontSize: FONT_SIZE.size12,
+    fontSize: fontSizes.size12,
     color: colors.primary.white,
   },
 })

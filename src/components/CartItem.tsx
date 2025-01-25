@@ -1,9 +1,9 @@
 import { Image, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 interface CartItemProps {
@@ -79,7 +79,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                         style={[styles.sizeText,
                                         {
                                             fontSize: type == "Bean" ?
-                                                FONT_SIZE.size14 : FONT_SIZE.size16
+                                                fontSizes.size14 : fontSizes.size16
                                         }]}>
                                         {priceItem.size}
                                     </Text>
@@ -104,7 +104,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                     <CustomIcon
                                         name="minus"
                                         color={colors.primary.white}
-                                        size={FONT_SIZE.size10}
+                                        size={fontSizes.size10}
                                     />
                                 </TouchableOpacity>
                                 {/* Qantity Text */}
@@ -122,7 +122,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                     <CustomIcon
                                         name="add"
                                         color={colors.primary.white}
-                                        size={FONT_SIZE.size10}
+                                        size={fontSizes.size10}
                                     />
                                 </TouchableOpacity>
                             </View>
@@ -163,7 +163,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                     <Text style={[styles.sizeText,
                                     {
                                         fontSize: type == "Bean" ?
-                                            FONT_SIZE.size14 : FONT_SIZE.size16
+                                            fontSizes.size14 : fontSizes.size16
                                     }]}>
                                         {prices[0].size}
                                     </Text>
@@ -190,7 +190,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                         <CustomIcon
                                             name="minus"
                                             color={colors.primary.white}
-                                            size={FONT_SIZE.size10}
+                                            size={fontSizes.size10}
                                         />
                                     </TouchableOpacity>
                                     {/* Qantity Text */}
@@ -208,7 +208,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                         <CustomIcon
                                             name="add"
                                             color={colors.primary.white}
-                                            size={FONT_SIZE.size10}
+                                            size={fontSizes.size10}
                                         />
                                     </TouchableOpacity>
                                 </View>
@@ -247,12 +247,12 @@ const styles = StyleSheet.create({
     },
     cartItemTitle: {
         fontFamily: fonts.poppins.medium,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.white,
     },
     cartItemSubtitle: {
         fontFamily: fonts.poppins.regular,
-        fontSize: FONT_SIZE.size14,
+        fontSize: fontSizes.size14,
         color: colors.secondary.lightGrey,
     },
     cardItemRoastedContainer: {
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     },
     cardItemRoastedText: {
         fontFamily: fonts.poppins.regular,
-        fontSize: FONT_SIZE.size12,
+        fontSize: fontSizes.size12,
         color: colors.primary.white,
     },
     cartItemSizeRowContainer: {
@@ -295,12 +295,12 @@ const styles = StyleSheet.create({
     },
     sizeCurrency: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.orange,
     },
     sizePrice: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.white,
     },
     cartItemIcon: {
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     },
     cartItemQuantityText: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size16,
+        fontSize: fontSizes.size16,
         color: colors.primary.white,
     },
     cartItemSingleView: {

@@ -4,9 +4,9 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../state/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -304,7 +304,7 @@ const SearchInput = (
         onPress={() => onSearchCoffee(searchText)}>
         <CustomIcon
           name="search"
-          size={FONT_SIZE.size18}
+          size={fontSizes.size18}
           color={
             searchText.length > 0
               ? colors.primary.orange
@@ -330,7 +330,7 @@ const SearchInput = (
             <CustomIcon
               style={styles.inputIcon}
               name="close"
-              size={FONT_SIZE.size16}
+              size={fontSizes.size16}
               color={colors.primary.lightGrey} />
 
           </TouchableOpacity>)
@@ -391,7 +391,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   titleText: {
-    fontSize: FONT_SIZE.size28,
+    fontSize: fontSizes.size28,
     fontFamily: fonts.poppins.semiBold,
     color: colors.primary.white,
     paddingStart: SPACING.space24,
@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: SPACING.space20 * 3,
     fontFamily: fonts.poppins.medium,
-    fontSize: FONT_SIZE.size14,
+    fontSize: fontSizes.size14,
     color: colors.primary.white,
   },
   categoryScrollViewContentContainer: {
@@ -426,7 +426,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   categoryText: {
-    fontSize: FONT_SIZE.size16,
+    fontSize: fontSizes.size16,
     fontFamily: fonts.poppins.semiBold,
     color: colors.primary.lightGrey,
     marginBottom: SPACING.space4,
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.space30,
   },
   coffeeBeansTitle: {
-    fontSize: FONT_SIZE.size20,
+    fontSize: fontSizes.size20,
     marginLeft: SPACING.space30,
     marginTop: SPACING.space8,
     fontFamily: fonts.poppins.medium,

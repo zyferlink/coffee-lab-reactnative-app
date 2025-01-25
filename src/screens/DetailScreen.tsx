@@ -1,10 +1,10 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore'
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 import PaymentFooter from '../components/PaymentFooter';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 const DetailScreen = ({ navigation, route }: any) => {
@@ -127,7 +127,7 @@ const DetailScreen = ({ navigation, route }: any) => {
                     {
                       fontSize:
                         selectedItem.type == "Bean"
-                          ? FONT_SIZE.size14 : FONT_SIZE.size16,
+                          ? fontSizes.size14 : fontSizes.size16,
                       color:
                         priceItem.size == price.size
                           ? colors.primary.orange : colors.primary.white
@@ -176,13 +176,13 @@ const styles = StyleSheet.create({
   },
   infoTitle: {
     fontFamily: fonts.poppins.semiBold,
-    fontSize: FONT_SIZE.size18,
+    fontSize: fontSizes.size18,
     color: colors.primary.white,
     marginBottom: SPACING.space10,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
-    fontSize: FONT_SIZE.size14,
+    fontSize: fontSizes.size14,
     color: colors.primary.white,
     letterSpacing: 0.5,
     marginBottom: SPACING.space30,

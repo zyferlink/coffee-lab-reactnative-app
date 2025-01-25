@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
-import { fonts } from '../config/fonts';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 interface PaymentMethodProps {
@@ -36,7 +36,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                         <CustomIcon
                             name={"wallet"}
                             color={colors.primary.orange}
-                            size={FONT_SIZE.size30} />
+                            size={fontSizes.size30} />
                         <Text style={styles.paymentTitle}>{name}</Text>
                     </View>
                     <Text style={styles.paymentPrice}>$ 100.50</Text>
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     },
     paymentTitle: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size16,
+        fontSize: fontSizes.size16,
         color: colors.primary.white,
     },
     paymentPrice: {
           fontFamily: fonts.poppins.regular,
-        fontSize: FONT_SIZE.size20,
+        fontSize: fontSizes.size20,
         color: colors.secondary.lightGrey,
     },
     paymentImage: {

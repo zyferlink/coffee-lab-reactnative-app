@@ -1,8 +1,8 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
-import { fonts } from '../config/fonts';
+import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 
 interface OrderItemCardProps {
@@ -69,7 +69,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                         <View style={styles.cardBoxLeft}>
                             <Text style={[styles.itemPriceSize, {
                                 fontSize: type == "Bean" ?
-                                    FONT_SIZE.size14 : FONT_SIZE.size16
+                                    fontSizes.size14 : fontSizes.size16
                             }]}>
                                 {priceItem.size}
                             </Text>
@@ -127,17 +127,17 @@ const styles = StyleSheet.create({
     },
     cardTitle: {
         fontFamily: fonts.poppins.medium,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.white,
     },
     cardSubtitle: {
         fontFamily: fonts.poppins.regular,
-        fontSize: FONT_SIZE.size12,
+        fontSize: fontSizes.size12,
         color: colors.secondary.lightGrey,
     },
     cardCurrency: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size20,
+        fontSize: fontSizes.size20,
         color: colors.primary.orange,
     },
     cardPrice: {
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     },
     itemPriceCurrency: {
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.orange,
     },
     itemPrice: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: "center",
         fontFamily: fonts.poppins.semiBold,
-        fontSize: FONT_SIZE.size18,
+        fontSize: fontSizes.size18,
         color: colors.primary.orange,
     },
     quantityText: {
