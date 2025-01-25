@@ -1,12 +1,11 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore'
-import { SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 import PaymentFooter from '../components/PaymentFooter';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
@@ -173,26 +172,26 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   footerInfoArea: {
-    padding: SPACING.space20,
+    padding: spacing.space20,
   },
   infoTitle: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: fontSizes.size18,
     color: colors.primary.white,
-    marginBottom: SPACING.space10,
+    marginBottom: spacing.space10,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
     fontSize: fontSizes.size14,
     color: colors.primary.white,
     letterSpacing: 0.5,
-    marginBottom: SPACING.space30,
+    marginBottom: spacing.space30,
   },
   sizeOuterContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: SPACING.space10,
+    gap: spacing.space10,
   },
   sizeBox: {
     flex: 1,

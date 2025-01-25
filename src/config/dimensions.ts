@@ -1,4 +1,4 @@
-interface Spacing {
+interface spacing {
     space2: number;
     space4: number;
     space6: number;
@@ -9,6 +9,7 @@ interface Spacing {
     space20: number;
     space24: number;
     space28: number;
+    space30: number;
     space32: number;
     space36: number;
     space40: number;
@@ -32,7 +33,7 @@ interface Spacing {
     space100: number;
 }
 
-export const spacing: Spacing = {
+export const spacing: spacing = {
     space2: 2,
     space4: 4,
     space6: 6,
@@ -43,6 +44,7 @@ export const spacing: Spacing = {
     space20: 20,
     space24: 24,
     space28: 28,
+    space30: 30,
     space32: 32,
     space36: 36,
     space40: 40,

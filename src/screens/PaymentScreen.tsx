@@ -1,6 +1,5 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { SPACING } from '../theme/theme';
 import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -11,7 +10,7 @@ import PopUpAnimation from '../components/PopUpAnimation';
 import { images, lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 const paymentList = [
   {
@@ -202,8 +201,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   headerContainer: {
-    paddingHorizontal: SPACING.space24,
-    paddingVertical: SPACING.space15,
+    paddingHorizontal: spacing.space24,
+    paddingVertical: spacing.space16,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -214,15 +213,15 @@ const styles = StyleSheet.create({
     color: colors.primary.white,
   },
   emptyView: {
-    width: SPACING.space36,
+    width: spacing.space36,
   },
   paymentOptionContainer: {
-    padding: SPACING.space15,
-    gap: SPACING.space15,
+    padding: spacing.space16,
+    gap: spacing.space16,
   },
   paymentCardContainer: {
-    padding: SPACING.space10,
-    gap: SPACING.space10,
+    padding: spacing.space10,
+    gap: spacing.space10,
     borderRadius: borderRadius.radius16,
     borderWidth: 3,
   },
@@ -230,7 +229,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppins.semiBold,
     fontSize: fontSizes.size14,
     color: colors.primary.white,
-    marginLeft: SPACING.space10,
+    marginLeft: spacing.space10,
   },
   creditCardBackground: {
     backgroundColor: colors.primary.grey,
@@ -238,9 +237,9 @@ const styles = StyleSheet.create({
   },
   linearGradientCreditCard: {
     borderRadius: borderRadius.radius20,
-    gap: SPACING.space30,
-    paddingHorizontal: SPACING.space15,
-    paddingVertical: SPACING.space10,
+    gap: spacing.space30,
+    paddingHorizontal: spacing.space16,
+    paddingVertical: spacing.space10,
   },
   creditCardRow: {
     flexDirection: "row",
@@ -249,7 +248,7 @@ const styles = StyleSheet.create({
   },
   creditCardNumberContainer: {
     flexDirection: "row",
-    gap: SPACING.space10,
+    gap: spacing.space10,
     alignItems: "center",
   },
   creditCardNumber: {

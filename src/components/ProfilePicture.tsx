@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { SPACING } from '../theme/theme'
 import { images } from '../config/assets'
 import { colors } from '../config/colors'
+import { spacing } from '../config/dimensions'
 
 const ProfilePicture = () => {
     return (
@@ -16,9 +16,9 @@ const ProfilePicture = () => {
 }
 const styles = StyleSheet.create({
     imageContainer: {
-        height: SPACING.space36,
-        width: SPACING.space36,
-        borderRadius: SPACING.space12,
+        height: spacing.space36,
+        width: spacing.space36,
+        borderRadius: spacing.space12,
         borderWidth: 2,
         borderColor: colors.secondary.darkGrey,
         alignItems: "center",
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         overflow: "hidden",
     },
     image: {
-        height: SPACING.space36,
-        width: SPACING.space36,
+        height: spacing.space36,
+        width: spacing.space36,
     }
 })
 

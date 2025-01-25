@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { SPACING } from '../theme/theme';
 import OrderItemCard from './OrderItemCard';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { spacing } from '../config/dimensions';
 
 interface OrderHistoryCardProps {
     orderDate: string;
@@ -71,13 +71,13 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
 
 const styles = StyleSheet.create({
     cardContainer: {
-        gap: SPACING.space10,
+        gap: spacing.space10,
     },
     cardHeader: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        gap: SPACING.space20,
+        gap: spacing.space20,
     },
     headerTitle: {
         fontFamily: fonts.poppins.semiBold,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
     },
     listContainer: {
-        gap: SPACING.space20,
+        gap: spacing.space20,
     },
 })
 

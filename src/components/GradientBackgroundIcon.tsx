@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
-import { SPACING } from '../theme/theme'
 import CustomIcon from './CustomIcon'
 import { colors } from '../config/colors'
+import { spacing } from '../config/dimensions'
 
 interface GradientBackgroundIconProps {
     name: string,
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     container: {
         borderWidth: 2,
         borderColor: colors.secondary.darkGrey,
-        borderRadius: SPACING.space12,
+        borderRadius: spacing.space12,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.secondary.darkGrey,
         overflow: "hidden"
     },
     linearGradientBackgroud: {
-        height: SPACING.space36,
-        width: SPACING.space36,
+        height: spacing.space36,
+        width: spacing.space36,
         alignItems: "center",
         justifyContent: "center"
     }

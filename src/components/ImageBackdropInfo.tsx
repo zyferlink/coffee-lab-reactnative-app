@@ -1,11 +1,10 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface ImageBackdropInfoProps {
   id: string;
@@ -99,7 +98,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   />
                   <Text
                     style={[styles.propertyFirstText,
-                    { marginTop: type == "Bean" ? SPACING.space8 : 0 }]}>
+                    { marginTop: type == "Bean" ? spacing.space8 : 0 }]}>
                     {type}
                   </Text>
                 </View>
@@ -151,27 +150,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   headerBarContainerWithBack: {
-    padding: SPACING.space30,
+    padding: spacing.space30,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
   headerBarContainerWithoutBack: {
-    padding: SPACING.space30,
+    padding: spacing.space30,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
   },
   infoHeaderOuterContainer: {
-    paddingVertical: SPACING.space24,
-    paddingHorizontal: SPACING.space30,
+    paddingVertical: spacing.space24,
+    paddingHorizontal: spacing.space30,
     backgroundColor: colors.primary.blackTransparent,
     borderTopLeftRadius: borderRadius.radius40,
     borderTopRightRadius: borderRadius.radius40,
   },
   infoHeaderInnerContainer: {
     justifyContent: "space-between",
-    gap: SPACING.space15,
+    gap: spacing.space16,
   },
   infoHeaderContainerRow: {
     flexDirection: "row",
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
   itemPropertiesContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: SPACING.space20,
+    gap: spacing.space20,
   },
   propertyFirst: {
     height: 55,
@@ -210,11 +209,11 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppins.medium,
     fontSize: fontSizes.size12,
     color: colors.primary.white,
-    marginTop: SPACING.space4,
+    marginTop: spacing.space4,
   },
   ratingContainer: {
     flexDirection: "row",
-    gap: SPACING.space10,
+    gap: spacing.space10,
     alignItems: "center",
   },
   ratingText: {

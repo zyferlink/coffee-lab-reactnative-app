@@ -1,8 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface BackgroundIconProps {
     name: string;
@@ -34,8 +33,8 @@ const BackgroundIcon: React.FC<BackgroundIconProps> = ({
 
 const styles = StyleSheet.create({
     iconBackground: {
-        height: SPACING.space30,
-        width: SPACING.space30,
+        height: spacing.space30,
+        width: spacing.space30,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: borderRadius.radius8

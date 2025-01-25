@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { SPACING } from '../theme/theme';
 import GradientBackgroundIcon from './GradientBackgroundIcon';
 import ProfilePicture from './ProfilePicture';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { spacing } from '../config/dimensions';
 
 interface HeaderBarProps {
     title?: string;
@@ -31,8 +31,8 @@ const HeaderBar: React.FC<HeaderBarProps> =
 
 const styles = StyleSheet.create({
     headerContainer: {
-        paddingHorizontal: SPACING.space24,
-        paddingVertical: SPACING.space16,
+        paddingHorizontal: spacing.space24,
+        paddingVertical: spacing.space16,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",

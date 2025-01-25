@@ -1,11 +1,10 @@
 import { Image, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface CartItemProps {
     id: string;
@@ -227,14 +226,14 @@ const CartItem: React.FC<CartItemProps> = ({
 const styles = StyleSheet.create({
     cardItemlinearGradient: {
         flex: 1,
-        gap: SPACING.space12,
-        padding: SPACING.space12,
+        gap: spacing.space12,
+        padding: spacing.space12,
         borderRadius: borderRadius.radius28,
     },
     cartItemRow: {
         flex: 1,
         flexDirection: "row",
-        gap: SPACING.space12,
+        gap: spacing.space12,
     },
     cartItemImage: {
         height: 130,
@@ -243,7 +242,7 @@ const styles = StyleSheet.create({
     },
     cartItemInfo: {
         flex: 1,
-        paddingVertical: SPACING.space4,
+        paddingVertical: spacing.space4,
         justifyContent: "space-between",
     },
     cartItemTitle: {
@@ -273,7 +272,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        gap: SPACING.space20,
+        gap: spacing.space20,
         flexDirection: "row",
     },
     cartItemSizeValueContainer: {
@@ -306,7 +305,7 @@ const styles = StyleSheet.create({
     },
     cartItemIcon: {
         backgroundColor: colors.primary.orange,
-        padding: SPACING.space12,
+        padding: spacing.space12,
         borderRadius: borderRadius.radius10,
     },
     cartItemQuantityContainer: {
@@ -316,8 +315,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: colors.primary.orange,
         alignItems: "center",
-        paddingVertical: SPACING.space4,
-        marginHorizontal: SPACING.space4,
+        paddingVertical: spacing.space4,
+        marginHorizontal: spacing.space4,
     },
     cartItemQuantityText: {
         fontFamily: fonts.poppins.semiBold,
@@ -328,8 +327,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         borderRadius: borderRadius.radius28,
-        padding: SPACING.space2,
-        gap: SPACING.space12,
+        padding: spacing.space2,
+        gap: spacing.space12,
     },
     cartItemSingleImage: {
         height: 150,

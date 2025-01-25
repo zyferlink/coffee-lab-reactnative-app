@@ -1,11 +1,10 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -70,23 +69,23 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: SPACING.space12,
-        paddingHorizontal: SPACING.space24,
-        gap: SPACING.space24,
+        padding: spacing.space12,
+        paddingHorizontal: spacing.space24,
+        gap: spacing.space24,
         borderRadius: borderRadius.radius16 * 2,
     },
     linearGradientRegular: {
         flexDirection: "row",
         alignItems: "center",
-        padding: SPACING.space12,
-        paddingHorizontal: SPACING.space24,
-        gap: SPACING.space24,
+        padding: spacing.space12,
+        paddingHorizontal: spacing.space24,
+        gap: spacing.space24,
         borderRadius: borderRadius.radius16 * 2,
     },
     walletRow: {
         flexDirection: "row",
         alignItems: "center",
-        gap: SPACING.space24,
+        gap: spacing.space24,
     },
     paymentTitle: {
         fontFamily: fonts.poppins.semiBold,

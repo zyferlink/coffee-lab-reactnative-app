@@ -2,11 +2,11 @@ import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react
 import React from 'react'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useStore } from '../state/useStore';
-import { SPACING } from '../theme/theme';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import HeaderBar from '../components/HeaderBar';
 import FavoriteItemCard from '../components/FavoriteItemCard';
 import { colors } from '../config/colors';
+import { spacing } from '../config/dimensions';
 
 const FavoriteScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   listItemContainer: {
-    paddingHorizontal: SPACING.space20,
-    gap: SPACING.space20,
+    paddingHorizontal: spacing.space20,
+    gap: spacing.space20,
   },
 })
 

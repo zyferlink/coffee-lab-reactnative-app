@@ -1,9 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface PriceProps {
     price: string;
@@ -52,8 +51,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        gap: SPACING.space20,
-        padding: SPACING.space20,
+        gap: spacing.space20,
+        padding: spacing.space20,
     },
     priceContainer: {
         alignItems: "center",

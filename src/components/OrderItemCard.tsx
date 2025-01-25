@@ -1,10 +1,9 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface OrderItemCardProps {
     type: string;
@@ -107,8 +106,8 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
 
 const styles = StyleSheet.create({
     cardLinearGradientContainer: {
-        gap: SPACING.space20,
-        padding: SPACING.space20,
+        gap: spacing.space20,
+        padding: spacing.space20,
         borderRadius: borderRadius.radius28,
     },
     cardInfoContainer: {
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     },
     cardInfoImageContainer: {
         flexDirection: "row",
-        gap: SPACING.space20,
+        gap: spacing.space20,
         alignItems: "center",
     },
     cardImage: {

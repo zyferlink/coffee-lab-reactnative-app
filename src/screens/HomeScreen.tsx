@@ -4,11 +4,10 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../state/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import { SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -395,33 +394,33 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.size28,
     fontFamily: fonts.poppins.semiBold,
     color: colors.primary.white,
-    paddingStart: SPACING.space24,
+    paddingStart: spacing.space24,
   },
   inputContainer: {
     flexDirection: "row",
-    marginHorizontal: SPACING.space24,
-    marginVertical: SPACING.space16,
+    marginHorizontal: spacing.space24,
+    marginVertical: spacing.space16,
     borderRadius: borderRadius.radius20,
     backgroundColor: colors.primary.darkGrey,
     alignItems: "center",
   },
   inputIcon: {
-    marginHorizontal: SPACING.space20,
+    marginHorizontal: spacing.space20,
   },
   textInputContainer: {
     flex: 1,
-    height: SPACING.space20 * 3,
+    height: spacing.space20 * 3,
     fontFamily: fonts.poppins.medium,
     fontSize: fontSizes.size14,
     color: colors.primary.white,
   },
   categoryScrollViewContentContainer: {
-    paddingHorizontal: SPACING.space20,
-    marginBottom: SPACING.space2,
-    marginTop: SPACING.space10,
+    paddingHorizontal: spacing.space20,
+    marginBottom: spacing.space2,
+    marginTop: spacing.space10,
   },
   categoryScrollViewContainer: {
-    paddingHorizontal: SPACING.space10,
+    paddingHorizontal: spacing.space10,
   },
   categoryScrollViewItem: {
     alignItems: "center",
@@ -430,31 +429,31 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.size16,
     fontFamily: fonts.poppins.semiBold,
     color: colors.primary.lightGrey,
-    marginBottom: SPACING.space4,
+    marginBottom: spacing.space4,
   },
   activeCategory: {
-    height: SPACING.space4,
-    width: SPACING.space16,
+    height: spacing.space4,
+    width: spacing.space16,
     borderRadius: borderRadius.radius10,
     backgroundColor: colors.primary.orange,
   },
   flatListContainer: {
-    gap: SPACING.space20,
-    paddingVertical: SPACING.space20,
-    paddingHorizontal: SPACING.space30,
+    gap: spacing.space20,
+    paddingVertical: spacing.space20,
+    paddingHorizontal: spacing.space30,
   },
   coffeeBeansTitle: {
     fontSize: fontSizes.size20,
-    marginLeft: SPACING.space30,
-    marginTop: SPACING.space8,
+    marginLeft: spacing.space30,
+    marginTop: spacing.space8,
     fontFamily: fonts.poppins.medium,
     color: colors.primary.lightGrey,
   },
   emptyListContainer: {
-    width: SCREEN_WIDTH - SPACING.space30 * 2,
+    width: SCREEN_WIDTH - spacing.space30 * 2,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: SPACING.space36 * 3,
+    paddingVertical: spacing.space36 * 3,
   },
 })
 

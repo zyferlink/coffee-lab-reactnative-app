@@ -2,10 +2,9 @@ import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ImageBackdropInfo from './ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
-import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
-import { borderRadius } from '../config/dimensions';
+import { borderRadius, spacing } from '../config/dimensions';
 
 interface FavoriteItemCardProps {
   id: string;
@@ -77,14 +76,14 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.radius28,
   },
   linearGradientContainer: {
-    gap: SPACING.space10,
-    padding: SPACING.space10,
+    gap: spacing.space10,
+    padding: spacing.space10,
   },
   descriptionTitle: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: fontSizes.size16,
     color: colors.primary.white,
-    marginBottom: SPACING.space4,
+    marginBottom: spacing.space4,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
