@@ -8,6 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
+import { lottieAnimations } from '../config/assets';
 
 const paymentList = [
   {
@@ -62,7 +63,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
       {showSuccessAnimation ?
         <PopUpAnimation
         style={styles.lottieAnimation}
-        source={require("../assets/lottie/successful.json")}
+        source={lottieAnimations.successful}
         />
         : <></>}
       {/* Scrollable Content */}

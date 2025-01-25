@@ -7,6 +7,7 @@ import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PopUpAnimation from '../components/PopUpAnimation';
 import OrderHistoryCard from '../components/OrderHistoryCard';
+import { lottieAnimations } from '../config/assets';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -34,7 +35,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
       {showAnimation ?
         <PopUpAnimation
           style={styles.lottieAnimation}
-          source={require("../assets/lottie/download.json")}
+          source={lottieAnimations.download}
         />
         : <></>}
       {/* Scrollable Content */}

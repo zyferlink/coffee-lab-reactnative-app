@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LottieView from 'lottie-react-native';
 import { COLORS, FONT_FAMILY, FONT_SIZE } from '../theme/theme';
+import { lottieAnimations } from '../config/assets';
 
 interface EmptyListAnimationProps {
     title: string;
@@ -11,7 +12,7 @@ const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({ title }) => {
     return (
         <View style={styles.emptyCartContainer}>
             <LottieView
-                source={require("../assets/lottie/coffeecup.json")}
+                source={lottieAnimations.coffeecup}
                 style={styles.lottieStyle}
                 autoPlay
                 loop
