@@ -8,6 +8,7 @@ import CoffeeCard from '../components/CoffeeCard';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
+import { SCREENS } from '../navigation/routes';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -137,7 +138,7 @@ const HomeScreen = ({ navigation }: any) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.push("Details", {
+                  navigation.push(SCREENS.DETAIL, {
                     index: item.index,
                     id: item.id,
                     type: item.type,
@@ -197,7 +198,7 @@ const HomeScreen = ({ navigation }: any) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.push("Details", {
+                  navigation.push(SCREENS.DETAIL, {
                     index: item.index,
                     id: item.id,
                     type: item.type,

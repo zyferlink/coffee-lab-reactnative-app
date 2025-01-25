@@ -6,6 +6,7 @@ import PaymentFooter from '../components/PaymentFooter';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
+import { NAVIGATORS, SCREENS } from '../navigation/routes';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
@@ -49,7 +50,7 @@ const DetailScreen = ({ navigation, route }: any) => {
       prices: [{ ...price, quantity: 1 }],
     });
     calculateCartPrice();
-    navigation.navigate("Tab", { screen: "Cart" });
+    navigation.navigate(NAVIGATORS.TAB, { screen: SCREENS.CART });
   };  
   
 

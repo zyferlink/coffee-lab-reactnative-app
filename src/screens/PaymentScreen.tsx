@@ -12,6 +12,7 @@ import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
 import { PAYMENT_OPTIONS } from '../data/paymentOptions';
+import { NAVIGATORS, SCREENS } from '../navigation/routes';
 
 
 const PaymentScreen = ({ navigation, route }: any) => {
@@ -32,7 +33,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
     calculateCartPrice();
     setTimeout(() => {
       setShowSuccessAnimation(false);
-      navigation.navigate("Tab", { screen: "History" });
+      navigation.navigate(NAVIGATORS.TAB, { screen: SCREENS.HISTORY });
     }, 2000);
   };
 

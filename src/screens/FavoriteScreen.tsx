@@ -7,6 +7,7 @@ import HeaderBar from '../components/HeaderBar';
 import FavoriteItemCard from '../components/FavoriteItemCard';
 import { colors } from '../config/colors';
 import { spacing } from '../config/dimensions';
+import { SCREENS } from '../navigation/routes';
 
 const FavoriteScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -42,7 +43,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
                   <TouchableOpacity
                     key={item.id}
                     onPress={() => {
-                      navigation.push("Details",
+                      navigation.push(SCREENS.DETAIL,
                         {
                           index: item.index,
                           id: item.id,

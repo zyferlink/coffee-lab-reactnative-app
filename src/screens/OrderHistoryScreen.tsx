@@ -10,6 +10,7 @@ import { lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
+import { SCREENS } from '../navigation/routes';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -19,7 +20,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
   const [showAnimation, setShowAnimation] = useState(false)
 
   const navigationHandler = ({ index, id, type }: any) => {
-    navigation.push("Details", { index, id, type });
+    navigation.push(SCREENS.DETAIL, { index, id, type });
   }
 
   const downloadActionHandler = () => {

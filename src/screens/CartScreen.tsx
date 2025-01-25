@@ -8,6 +8,7 @@ import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
 import { colors } from '../config/colors';
 import { spacing } from '../config/dimensions';
+import { SCREENS } from '../navigation/routes';
 
 const CartScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -28,7 +29,7 @@ const CartScreen = ({ navigation, route }: any) => {
   );
 
   const buttonPressHandler = () => {
-    navigation.push("Payments", {amount: cartPrice});
+    navigation.push(SCREENS.PAYMENT, {amount: cartPrice});
   };
 
   const incrementItemQuantiyHandler = (id: string, size: string) => {
@@ -55,7 +56,7 @@ const CartScreen = ({ navigation, route }: any) => {
           <View
             style={styles.itemContainer}>
             {/* Header Bar */}
-            <HeaderBar title={"Cart"} />
+            <HeaderBar title={SCREENS.CART} />
             {/* Cart Items */}
             {cartList.length == 0 ?
               (<EmptyListAnimation title={"Cart is Empty!"} />)
@@ -65,7 +66,7 @@ const CartScreen = ({ navigation, route }: any) => {
                   <TouchableOpacity
                     key={item.id}
                     onPress={() => {
-                      navigation.push("Details",
+                      navigation.push(SCREENS.DETAIL,
                         {
                           index: item.index,
                           id: item.id,
