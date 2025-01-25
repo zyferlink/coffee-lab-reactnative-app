@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { fonts } from '../config/fonts';
 
 interface PriceProps {
     price: string;
@@ -57,12 +58,12 @@ const styles = StyleSheet.create({
         width: 100,
     },
     priceTitle: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
         color: COLORS.secondaryLightGrey,
     },
     priceText: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size24,
         color: COLORS.primaryOrange,
     },
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     buttonText: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
         color: COLORS.primaryWhite,
     },

@@ -1,8 +1,9 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
+import { fonts } from '../config/fonts';
 
 interface ImageBackdropInfoProps {
   id: string;
@@ -176,12 +177,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   itemTitleText: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size24,
     color: COLORS.primaryWhite,
   },
   itemSubtitleText: {
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
   },
@@ -199,12 +200,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primaryBlack,
   },
   propertyFirstText: {
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
   },
   propertyLastText: {
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
     marginTop: SPACING.space4,
@@ -215,12 +216,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ratingText: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size18,
     color: COLORS.primaryWhite,
   },
   ratingCountText: {
-    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
   },
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primaryBlack,
   },
   roastedText: {
-    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size12,
     color: COLORS.primaryWhite,
   },

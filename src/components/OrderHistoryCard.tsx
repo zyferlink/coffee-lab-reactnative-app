@@ -1,7 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import OrderItemCard from './OrderItemCard';
+import { fonts } from '../config/fonts';
 
 interface OrderHistoryCardProps {
     orderDate: string;
@@ -78,17 +79,17 @@ const styles = StyleSheet.create({
         gap: SPACING.space20,
     },
     headerTitle: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
         color: COLORS.primaryWhite,
     },
     headerSubtitle: {
-        fontFamily: FONT_FAMILY.poppinsRegular,
+        fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size16,
         color: COLORS.primaryWhite,
     },
     headerPrice: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size16,
         color: COLORS.primaryOrange,
     },

@@ -1,6 +1,6 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -9,6 +9,7 @@ import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
 import { images, lottieAnimations } from '../config/assets';
+import { fonts } from '../config/fonts';
 
 const paymentList = [
   {
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   headerText: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size20,
     color: COLORS.primaryWhite,
   },
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   creditCardTitle: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size14,
     color: COLORS.primaryWhite,
     marginLeft: SPACING.space10,
@@ -250,7 +251,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   creditCardNumber: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size20,
     color: COLORS.primaryWhite,
     letterSpacing: 6,
@@ -262,12 +263,12 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   creditCardNameTitle: {
-    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size14,
     color: COLORS.secondaryLightGrey,
   },
   creditCardName: {
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size18,
     color: COLORS.primaryWhite,
   },

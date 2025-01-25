@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useStore } from '../state/useStore';

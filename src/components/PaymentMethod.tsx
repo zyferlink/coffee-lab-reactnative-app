@@ -1,8 +1,9 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
+import { fonts } from '../config/fonts';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -86,12 +87,12 @@ const styles = StyleSheet.create({
         gap: SPACING.space24,
     },
     paymentTitle: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
         color: COLORS.primaryWhite,
     },
     paymentPrice: {
-        fontFamily: FONT_FAMILY.poppinsRegular,
+          fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size20,
         color: COLORS.secondaryLightGrey,
     },

@@ -1,9 +1,10 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore'
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 import PaymentFooter from '../components/PaymentFooter';
+import { fonts } from '../config/fonts';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
@@ -173,13 +174,13 @@ const styles = StyleSheet.create({
     padding: SPACING.space20,
   },
   infoTitle: {
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size18,
     color: COLORS.primaryWhite,
     marginBottom: SPACING.space10,
   },
   descriptionText: {
-    fontFamily: FONT_FAMILY.poppinsRegular,
+    fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size14,
     color: COLORS.primaryWhite,
     letterSpacing: 0.5,
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   sizeText: {
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
   },
 })
 

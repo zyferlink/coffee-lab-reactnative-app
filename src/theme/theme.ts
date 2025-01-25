@@ -62,29 +62,29 @@ interface Spacing {
     secondaryBlackTransparent: 'rgba(0,0,0,0.7)',
   };
   
-  interface FontFamily {
-    poppinsBlack: string;
-    poppinsBold: string;
-    poppinsExtraBold: string;
-    poppinsExtraLight: string;
-    poppinsLight: string;
-    poppinsMedium: string;
-    poppinsRegular: string;
-    poppinsSemiBold: string;
-    poppinsThin: string;
-  }
+  // interface FontFamily {
+  //   poppinsBlack: string;
+  //   poppinsBold: string;
+  //   poppinsExtraBold: string;
+  //   poppinsExtraLight: string;
+  //   poppinsLight: string;
+  //   poppinsMedium: string;
+  //   poppinsRegular: string;
+  //   poppinsSemiBold: string;
+  //   poppinsThin: string;
+  // }
   
-  export const FONT_FAMILY: FontFamily = {
-    poppinsBlack: 'Poppins-Black',
-    poppinsBold: 'Poppins-Bold',
-    poppinsExtraBold: 'Poppins-ExtraBold',
-    poppinsExtraLight: 'Poppins-ExtraLight',
-    poppinsLight: 'Poppins-Light',
-    poppinsMedium: 'Poppins-Medium',
-    poppinsRegular: 'Poppins-Regular',
-    poppinsSemiBold: 'Poppins-SemiBold',
-    poppinsThin: 'Poppins-Thin',
-  };
+  // export const FONT_FAMILY: FontFamily = {
+  //   poppinsBlack: 'Poppins-Black',
+  //   poppinsBold: 'Poppins-Bold',
+  //   poppinsExtraBold: 'Poppins-ExtraBold',
+  //   poppinsExtraLight: 'Poppins-ExtraLight',
+  //   poppinsLight: 'Poppins-Light',
+  //   poppinsMedium: 'Poppins-Medium',
+  //   poppinsRegular: 'Poppins-Regular',
+  //   poppinsSemiBold: 'Poppins-SemiBold',
+  //   poppinsThin: 'Poppins-Thin',
+  // };
   
   interface FontSize {
     size8: number;

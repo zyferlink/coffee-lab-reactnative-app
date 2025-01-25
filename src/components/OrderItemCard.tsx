@@ -1,7 +1,8 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { fonts } from '../config/fonts';
 
 interface OrderItemCardProps {
     type: string;
@@ -124,17 +125,17 @@ const styles = StyleSheet.create({
         borderRadius: BORDER_RADIUS.radius15,
     },
     cardTitle: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size18,
         color: COLORS.primaryWhite,
     },
     cardSubtitle: {
-        fontFamily: FONT_FAMILY.poppinsRegular,
+        fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size12,
         color: COLORS.secondaryLightGrey,
     },
     cardCurrency: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size20,
         color: COLORS.primaryOrange,
     },
@@ -170,11 +171,11 @@ const styles = StyleSheet.create({
         borderLeftColor: COLORS.primaryGrey,
     },
     itemPriceSize: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.medium,
         color: COLORS.secondaryLightGrey,
     },
     itemPriceCurrency: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
         color: COLORS.primaryOrange,
     },
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
     quantityTextItem: {
         flex: 1,
         textAlign: "center",
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
         color: COLORS.primaryOrange,
     },

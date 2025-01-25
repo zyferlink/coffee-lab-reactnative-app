@@ -4,8 +4,9 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../state/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
+import { fonts } from '../config/fonts';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -390,7 +391,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: FONT_SIZE.size28,
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     color: COLORS.primaryWhite,
     paddingStart: SPACING.space24,
   },
@@ -408,7 +409,7 @@ const styles = StyleSheet.create({
   textInputContainer: {
     flex: 1,
     height: SPACING.space20 * 3,
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size14,
     color: COLORS.primaryWhite,
   },
@@ -425,7 +426,7 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: FONT_SIZE.size16,
-    fontFamily: FONT_FAMILY.poppinsSemiBold,
+    fontFamily: fonts.poppins.semiBold,
     color: COLORS.primaryLightGrey,
     marginBottom: SPACING.space4,
   },
@@ -444,7 +445,7 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.size20,
     marginLeft: SPACING.space30,
     marginTop: SPACING.space8,
-    fontFamily: FONT_FAMILY.poppinsMedium,
+    fontFamily: fonts.poppins.medium,
     color: COLORS.primaryLightGrey,
   },
   emptyListContainer: {

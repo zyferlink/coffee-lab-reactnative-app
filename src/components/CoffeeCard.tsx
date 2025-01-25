@@ -1,9 +1,10 @@
 import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_FAMILY, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from './BackgroundIcon';
+import { fonts } from '../config/fonts';
 
 const CARD_WIDTH = Dimensions.get("window").width * 0.32;
 
@@ -127,18 +128,18 @@ const styles = StyleSheet.create({
         right: 0,
     },
     cardRatingText: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size14,
         color: COLORS.primaryWhite,
         lineHeight: 24,
     },
     cardTitle: {
-        fontFamily: FONT_FAMILY.poppinsMedium,
+        fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size16,
         color: COLORS.primaryWhite,
     },
     cardSubtitle: {
-        fontFamily: FONT_FAMILY.poppinsLight,
+        fontFamily: fonts.poppins.light,
         fontSize: FONT_SIZE.size10,
         color: COLORS.primaryWhite,
     },
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         marginTop: SPACING.space15,
     },
     cardPriceCurrency: {
-        fontFamily: FONT_FAMILY.poppinsSemiBold,
+        fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
         color: COLORS.primaryOrange,
     },
