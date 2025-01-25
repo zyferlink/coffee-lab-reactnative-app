@@ -9,10 +9,31 @@ const icons = {
   search: require('../assets/icons/ic_launcher.png'),
 };
 
+const iconSet = {
+  add: 'add',
+  close: 'close',
+  bean: 'bean',
+  bean_group: 'bean_group',
+  bell: 'bell',
+  cart: 'cart',
+  chip: 'chip',
+  drop: 'drop',
+  home: 'home',
+  left: 'left',
+  like: 'like',
+  location: 'location',
+  menu: 'menu',
+  minus: 'minus',
+  search: 'search',
+  star: 'star',
+  visa: 'visa',
+  wallet: 'wallet',
+};
+
 const lottieAnimations = {
   coffeecup: require('../assets/lottie/coffeecup.json'),
   download: require('../assets/lottie/download.json'),
   successful: require('../assets/lottie/successful.json'),
 };
 
-export { images, icons, lottieAnimations };
+export { images, icons, iconSet, lottieAnimations };
