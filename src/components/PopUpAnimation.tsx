@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { COLORS } from '../theme/theme';
 import LottieView from 'lottie-react-native';
+import { colors } from '../config/colors';
 
 interface PopUpAnimationProps {
     style: any;
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         zIndex: 10,
-        backgroundColor: COLORS.secondaryBlackTransparent,
+        backgroundColor: colors.secondary.blackTransparent,
         justifyContent: "center",
     },
 })

@@ -2,8 +2,9 @@ import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ImageBackdropInfo from './ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface FavoriteItemCardProps {
   id: string;
@@ -55,7 +56,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
       <LinearGradient
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+        colors={[colors.primary.grey, colors.primary.black]}
         style={styles.linearGradientContainer}>
         {/* Description Area */}
         <Text style={styles.descriptionTitle}>
@@ -81,13 +82,13 @@ const styles = StyleSheet.create({
   descriptionTitle: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size16,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     marginBottom: SPACING.space4,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size14,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     letterSpacing: 0.5,
   },
 })

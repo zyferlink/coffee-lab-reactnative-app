@@ -4,9 +4,10 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../state/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -98,7 +99,7 @@ const HomeScreen = ({ navigation }: any) => {
     <View
       style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -306,8 +307,8 @@ const SearchInput = (
           size={FONT_SIZE.size18}
           color={
             searchText.length > 0
-              ? COLORS.primaryOrange
-              : COLORS.primaryLightGrey
+              ? colors.primary.orange
+              : colors.primary.lightGrey
           }
           style={styles.inputIcon}
         />
@@ -319,7 +320,7 @@ const SearchInput = (
           setSearchText(text);
           onSearchCoffee(searchText);
         }}
-        placeholderTextColor={COLORS.primaryLightGrey}
+        placeholderTextColor={colors.primary.lightGrey}
         style={styles.textInputContainer}
       />
       {
@@ -330,7 +331,7 @@ const SearchInput = (
               style={styles.inputIcon}
               name="close"
               size={FONT_SIZE.size16}
-              color={COLORS.primaryLightGrey} />
+              color={colors.primary.lightGrey} />
 
           </TouchableOpacity>)
           : (<></>)
@@ -363,7 +364,7 @@ const CategoryScroller = (
               <Text
                 style={[
                   styles.categoryText,
-                  categoryIndex == index ? { color: COLORS.primaryOrange } : {},
+                  categoryIndex == index ? { color: colors.primary.orange } : {},
                 ]}>
                 {category}
               </Text>
@@ -384,7 +385,7 @@ const CategoryScroller = (
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   scrollViewFlex: {
     flexGrow: 1,
@@ -392,7 +393,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: FONT_SIZE.size28,
     fontFamily: fonts.poppins.semiBold,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     paddingStart: SPACING.space24,
   },
   inputContainer: {
@@ -400,7 +401,7 @@ const styles = StyleSheet.create({
     marginHorizontal: SPACING.space24,
     marginVertical: SPACING.space16,
     borderRadius: BORDER_RADIUS.radius20,
-    backgroundColor: COLORS.primaryDarkGrey,
+    backgroundColor: colors.primary.darkGrey,
     alignItems: "center",
   },
   inputIcon: {
@@ -411,7 +412,7 @@ const styles = StyleSheet.create({
     height: SPACING.space20 * 3,
     fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size14,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   categoryScrollViewContentContainer: {
     paddingHorizontal: SPACING.space20,
@@ -427,14 +428,14 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: FONT_SIZE.size16,
     fontFamily: fonts.poppins.semiBold,
-    color: COLORS.primaryLightGrey,
+    color: colors.primary.lightGrey,
     marginBottom: SPACING.space4,
   },
   activeCategory: {
     height: SPACING.space4,
     width: SPACING.space16,
     borderRadius: BORDER_RADIUS.radius10,
-    backgroundColor: COLORS.primaryOrange,
+    backgroundColor: colors.primary.orange,
   },
   flatListContainer: {
     gap: SPACING.space20,
@@ -446,7 +447,7 @@ const styles = StyleSheet.create({
     marginLeft: SPACING.space30,
     marginTop: SPACING.space8,
     fontFamily: fonts.poppins.medium,
-    color: COLORS.primaryLightGrey,
+    color: colors.primary.lightGrey,
   },
   emptyListContainer: {
     width: SCREEN_WIDTH - SPACING.space30 * 2,

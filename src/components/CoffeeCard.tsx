@@ -1,10 +1,11 @@
 import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from './BackgroundIcon';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 const CARD_WIDTH = Dimensions.get("window").width * 0.32;
 
@@ -35,7 +36,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
 }) => {
     return (
         <LinearGradient
-            colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+            colors={[colors.primary.grey, colors.primary.black]}
             style={styles.cardLinearGradientContainer}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}>
@@ -50,7 +51,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                     {/* Rating Icon */}
                     <CustomIcon
                         name={"star"}
-                        color={COLORS.primaryOrange}
+                        color={colors.primary.orange}
                         size={FONT_SIZE.size14} />
                     {/* Rating Text */}
                     <Text
@@ -92,8 +93,8 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                     }}>
                     <BackgroundIcon
                         name={"add"}
-                        color={COLORS.primaryWhite}
-                        backgroundColor={COLORS.primaryOrange}
+                        color={colors.primary.white}
+                        backgroundColor={colors.primary.orange}
                         size={FONT_SIZE.size16}
                     />
                 </TouchableOpacity>
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     },
     cardRatingContainer: {
         flexDirection: "row",
-        backgroundColor: COLORS.primaryBlackTransparent,
+        backgroundColor: colors.primary.blackTransparent,
         alignItems: "center",
         justifyContent: "center",
         gap: SPACING.space10,
@@ -130,18 +131,18 @@ const styles = StyleSheet.create({
     cardRatingText: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size14,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
         lineHeight: 24,
     },
     cardTitle: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cardSubtitle: {
         fontFamily: fonts.poppins.light,
         fontSize: FONT_SIZE.size10,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cardFooterRow: {
         flexDirection: "row",
@@ -152,10 +153,10 @@ const styles = StyleSheet.create({
     cardPriceCurrency: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     cardPrice: {
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     }
 })
 

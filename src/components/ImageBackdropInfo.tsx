@@ -1,9 +1,10 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface ImageBackdropInfoProps {
   id: string;
@@ -49,7 +50,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               onPress={() => backHandler()}>
               <GradientBackgroundIcon
                 name="left"
-                color={COLORS.primaryLightGrey}
+                color={colors.primary.lightGrey}
                 size={FONT_SIZE.size16} />
             </TouchableOpacity>
 
@@ -57,7 +58,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               onPress={() => toggleFavorite(favorite, id, type)}>
               <GradientBackgroundIcon
                 name="like"
-                color={favorite ? COLORS.primaryRed : COLORS.primaryLightGrey}
+                color={favorite ? colors.primary.red : colors.primary.lightGrey}
                 size={FONT_SIZE.size16} />
             </TouchableOpacity>
           </View>
@@ -67,7 +68,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
               onPress={() => toggleFavorite(favorite, id, type)}>
               <GradientBackgroundIcon
                 name="like"
-                color={favorite ? COLORS.primaryRed : COLORS.primaryLightGrey}
+                color={favorite ? colors.primary.red : colors.primary.lightGrey}
                 size={FONT_SIZE.size16} />
             </TouchableOpacity>
           </View>
@@ -93,7 +94,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   <CustomIcon
                     name={type == "Bean" ? "bean" : "beans"}
                     size={type == "Bean" ? FONT_SIZE.size18 : FONT_SIZE.size24}
-                    color={COLORS.primaryOrange}
+                    color={colors.primary.orange}
                   />
                   <Text
                     style={[styles.propertyFirstText,
@@ -105,7 +106,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   <CustomIcon
                     name={type == "Bean" ? "location" : "drop"}
                     size={FONT_SIZE.size16}
-                    color={COLORS.primaryOrange}
+                    color={colors.primary.orange}
                   />
                   <Text style={styles.propertyLastText}>
                     {ingredients}
@@ -119,7 +120,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                 <CustomIcon
                   name={"star"}
                   size={FONT_SIZE.size20}
-                  color={COLORS.primaryOrange}
+                  color={colors.primary.orange}
                 />
                 <Text style={styles.ratingText}>
                   {averageRating}
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
   infoHeaderOuterContainer: {
     paddingVertical: SPACING.space24,
     paddingHorizontal: SPACING.space30,
-    backgroundColor: COLORS.primaryBlackTransparent,
+    backgroundColor: colors.primary.blackTransparent,
     borderTopLeftRadius: BORDER_RADIUS.radius20 * 2,
     borderTopRightRadius: BORDER_RADIUS.radius20 * 2,
   },
@@ -179,12 +180,12 @@ const styles = StyleSheet.create({
   itemTitleText: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size24,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   itemSubtitleText: {
     fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   itemPropertiesContainer: {
     flexDirection: "row",
@@ -197,17 +198,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: BORDER_RADIUS.radius15,
     alignItems: "center",
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   propertyFirstText: {
     fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   propertyLastText: {
     fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size12,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     marginTop: SPACING.space4,
   },
   ratingContainer: {
@@ -218,12 +219,12 @@ const styles = StyleSheet.create({
   ratingText: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size18,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   ratingCountText: {
     fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size12,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   roastedContainer: {
     height: 55,
@@ -231,12 +232,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: BORDER_RADIUS.radius15,
     alignItems: "center",
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   roastedText: {
     fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size12,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
 })
 

@@ -1,8 +1,9 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface OrderItemCardProps {
     type: string;
@@ -25,7 +26,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
         <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
-            colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+            colors={[colors.primary.grey, colors.primary.black]}
             style={styles.cardLinearGradientContainer}>
             {/* Header Info Section */}
             <View
@@ -127,20 +128,20 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cardSubtitle: {
         fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size12,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     },
     cardCurrency: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size20,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     cardPrice: {
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cardTableRow: {
         flex: 1,
@@ -151,46 +152,46 @@ const styles = StyleSheet.create({
     cardBoxLeft: {
         flex: 1,
         height: 45,
-        backgroundColor: COLORS.primaryBlack,
+        backgroundColor: colors.primary.black,
         borderTopLeftRadius: BORDER_RADIUS.radius10,
         borderBottomLeftRadius: BORDER_RADIUS.radius10,
         alignItems: "center",
         justifyContent: "center",
         borderRightWidth: 1,
-        borderRightColor: COLORS.primaryGrey,
+        borderRightColor: colors.primary.grey,
     },
     cardBoxRight: {
         flex: 1,
         height: 45,
-        backgroundColor: COLORS.primaryBlack,
+        backgroundColor: colors.primary.black,
         borderTopRightRadius: BORDER_RADIUS.radius10,
         borderBottomRightRadius: BORDER_RADIUS.radius10,
         alignItems: "center",
         justifyContent: "center",
         borderLeftWidth: 1,
-        borderLeftColor: COLORS.primaryGrey,
+        borderLeftColor: colors.primary.grey,
     },
     itemPriceSize: {
         fontFamily: fonts.poppins.medium,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     },
     itemPriceCurrency: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     itemPrice: {
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     quantityTextItem: {
         flex: 1,
         textAlign: "center",
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     quantityText: {
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
 })
 

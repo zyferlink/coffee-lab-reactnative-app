@@ -2,11 +2,12 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React from 'react'
 import { useStore } from '../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { COLORS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
+import { colors } from '../config/colors';
 
 const CartScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -44,7 +45,7 @@ const CartScreen = ({ navigation, route }: any) => {
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -112,7 +113,7 @@ const CartScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   scrollViewFlex: {
     flexGrow: 1,

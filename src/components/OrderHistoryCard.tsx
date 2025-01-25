@@ -1,8 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { FONT_SIZE, SPACING } from '../theme/theme';
 import OrderItemCard from './OrderItemCard';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface OrderHistoryCardProps {
     orderDate: string;
@@ -81,17 +82,17 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     headerSubtitle: {
         fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     headerPrice: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     priceContainer: {
         alignItems: "flex-end",

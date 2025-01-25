@@ -2,10 +2,11 @@ import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react
 import React from 'react'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useStore } from '../state/useStore';
-import { COLORS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import HeaderBar from '../components/HeaderBar';
 import FavoriteItemCard from '../components/FavoriteItemCard';
+import { colors } from '../config/colors';
 
 const FavoriteScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -21,7 +22,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -78,7 +79,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   scrollViewFlex: {
     flexGrow: 1,

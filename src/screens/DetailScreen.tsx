@@ -1,10 +1,11 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore'
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 import PaymentFooter from '../components/PaymentFooter';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
@@ -55,7 +56,7 @@ const DetailScreen = ({ navigation, route }: any) => {
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -119,7 +120,7 @@ const DetailScreen = ({ navigation, route }: any) => {
                   style={[styles.sizeBox,
                   {
                     borderColor: priceItem.size == price.size
-                      ? COLORS.primaryOrange : COLORS.primaryLightGrey
+                      ? colors.primary.orange : colors.primary.lightGrey
                   }]}>
                   <Text
                     style={[styles.sizeText,
@@ -129,7 +130,7 @@ const DetailScreen = ({ navigation, route }: any) => {
                           ? FONT_SIZE.size14 : FONT_SIZE.size16,
                       color:
                         priceItem.size == price.size
-                          ? COLORS.primaryOrange : COLORS.primaryWhite
+                          ? colors.primary.orange : colors.primary.white
                     }]}>
                     {priceItem.size}
                   </Text>
@@ -164,7 +165,7 @@ const DetailScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   scrollViewFlex: {
     flexGrow: 1,
@@ -176,13 +177,13 @@ const styles = StyleSheet.create({
   infoTitle: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size18,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     marginBottom: SPACING.space10,
   },
   descriptionText: {
     fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size14,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     letterSpacing: 0.5,
     marginBottom: SPACING.space30,
   },
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
   sizeBox: {
     flex: 1,
     height: 48,
-    backgroundColor: COLORS.primaryDarkGrey,
+    backgroundColor: colors.primary.darkGrey,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: BORDER_RADIUS.radius10,

@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { FONT_SIZE, SPACING } from '../theme/theme';
 import GradientBackgroundIcon from './GradientBackgroundIcon';
 import ProfilePicture from './ProfilePicture';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface HeaderBarProps {
     title?: string;
@@ -16,7 +17,7 @@ const HeaderBar: React.FC<HeaderBarProps> =
                 style={styles.headerContainer}>
                 <GradientBackgroundIcon
                     name="menu"
-                    color={COLORS.primaryLightGrey}
+                    color={colors.primary.lightGrey}
                     size={FONT_SIZE.size12}
                 />
                 <Text
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontFamily: fonts.poppins.light,
         fontSize: FONT_SIZE.size24,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     }
 })
 

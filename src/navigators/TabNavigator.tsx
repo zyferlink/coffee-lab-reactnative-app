@@ -7,8 +7,9 @@ import FavoriteScreen from '../screens/FavoriteScreen'
 import CartScreen from '../screens/CartScreen'
 import OrderHistoryScreen from '../screens/OrderHistoryScreen'
 import CustomIcon from '../components/CustomIcon'
-import { COLORS } from '../theme/theme'
+
 import { BlurView } from '@react-native-community/blur'
+import { colors } from '../config/colors'
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ function getTabIcon(iconName: string, focused: boolean, size: number) {
         name={iconName}
         size={size}
         color={focused ?
-            COLORS.primaryOrange : COLORS.primaryLightGrey
+            colors.primary.orange : colors.primary.lightGrey
         }
     />);
 }
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     tabBarStyles: {
         height: 70,
         position: "absolute",
-        backgroundColor: COLORS.primaryBlackTransparent,
+        backgroundColor: colors.primary.blackTransparent,
         borderTopWidth: 0,
         elevation: 0,
         borderTopColor: 'transparent',

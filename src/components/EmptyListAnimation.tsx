@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LottieView from 'lottie-react-native';
-import { COLORS, FONT_SIZE } from '../theme/theme';
+import { FONT_SIZE } from '../theme/theme';
 import { lottieAnimations } from '../config/assets';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface EmptyListAnimationProps {
     title: string;
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     lottieText: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
         textAlign:"center",
     },
 })

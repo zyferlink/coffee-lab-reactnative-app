@@ -32,35 +32,35 @@ interface Spacing {
     space36: 36,
   };
   
-  interface Color {
-    primaryRed: string;
-    primaryOrange: string;
-    primaryBlack: string;
-    primaryDarkGrey: string;
-    secondaryDarkGrey: string;
-    primaryGrey: string;
-    secondaryGrey: string;
-    primaryLightGrey: string;
-    secondaryLightGrey: string;
-    primaryWhite: string;
-    primaryBlackTransparent: string;
-    secondaryBlackTransparent: string;
-  }
+  // interface Color {
+  //   primaryRed: string;
+  //   primaryOrange: string;
+  //   primaryBlack: string;
+  //   primaryDarkGrey: string;
+  //   secondaryDarkGrey: string;
+  //   primaryGrey: string;
+  //   secondaryGrey: string;
+  //   primaryLightGrey: string;
+  //   secondaryLightGrey: string;
+  //   primaryWhite: string;
+  //   primaryBlackTransparent: string;
+  //   secondaryBlackTransparent: string;
+  // }
   
-  export const COLORS: Color = {
-    primaryRed: '#DC3535',
-    primaryOrange: '#D17842',
-    primaryBlack: '#0C0F14',
-    primaryDarkGrey: '#141921',
-    secondaryDarkGrey: '#21262E',
-    primaryGrey: '#252A32',
-    secondaryGrey: '#252A32',
-    primaryLightGrey: '#52555A',
-    secondaryLightGrey: '#AEAEAE',
-    primaryWhite: '#FFFFFF',
-    primaryBlackTransparent: 'rgba(12,15,20,0.5)',
-    secondaryBlackTransparent: 'rgba(0,0,0,0.7)',
-  };
+  // export const COLORS: Color = {
+  //   primaryRed: '#DC3535',
+  //   primaryOrange: '#D17842',
+  //   primaryBlack: '#0C0F14',
+  //   primaryDarkGrey: '#141921',
+  //   secondaryDarkGrey: '#21262E',
+  //   primaryGrey: '#252A32',
+  //   secondaryGrey: '#252A32',
+  //   primaryLightGrey: '#52555A',
+  //   secondaryLightGrey: '#AEAEAE',
+  //   primaryWhite: '#FFFFFF',
+  //   primaryBlackTransparent: 'rgba(12,15,20,0.5)',
+  //   secondaryBlackTransparent: 'rgba(0,0,0,0.7)',
+  // };
   
   // interface FontFamily {
   //   poppinsBlack: string;

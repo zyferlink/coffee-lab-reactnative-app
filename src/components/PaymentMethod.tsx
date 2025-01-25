@@ -1,9 +1,10 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -23,18 +24,18 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
             style={[styles.paymentCardContainer, {
                 borderColor:
                     paymentMode == name ?
-                        COLORS.primaryOrange : COLORS.primaryGrey
+                        colors.primary.orange : colors.primary.grey
             }]}>
             {isIcon ?
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+                    colors={[colors.primary.grey, colors.primary.black]}
                     style={styles.linearGradientWallet}>
                     <View style={styles.walletRow}>
                         <CustomIcon
                             name={"wallet"}
-                            color={COLORS.primaryOrange}
+                            color={colors.primary.orange}
                             size={FONT_SIZE.size30} />
                         <Text style={styles.paymentTitle}>{name}</Text>
                     </View>
@@ -44,7 +45,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+                    colors={[colors.primary.grey, colors.primary.black]}
                     style={styles.linearGradientRegular}>
 
                     <Image
@@ -61,7 +62,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
 const styles = StyleSheet.create({
     paymentCardContainer: {
         borderRadius: BORDER_RADIUS.radius15 * 2,
-        backgroundColor: COLORS.primaryGrey,
+        backgroundColor: colors.primary.grey,
         borderWidth: 3,
     },
     linearGradientWallet: {
@@ -89,12 +90,12 @@ const styles = StyleSheet.create({
     paymentTitle: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     paymentPrice: {
           fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size20,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     },
     paymentImage: {
         height: 30,

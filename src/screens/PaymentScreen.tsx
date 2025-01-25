@@ -1,6 +1,6 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -10,6 +10,7 @@ import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
 import { images, lottieAnimations } from '../config/assets';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 const paymentList = [
   {
@@ -59,7 +60,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Success Animation */}
       {showSuccessAnimation ?
         <PopUpAnimation
@@ -78,7 +79,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
             onPress={() => navigation.pop()}>
             <GradientBackgroundIcon
               name={"left"}
-              color={COLORS.primaryLightGrey}
+              color={colors.primary.lightGrey}
               size={FONT_SIZE.size16}
             />
           </TouchableOpacity>
@@ -97,7 +98,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
               style={[styles.paymentCardContainer, {
                 borderColor:
                   paymentMode == "Credit Card" ?
-                    COLORS.primaryOrange : COLORS.primaryGrey
+                  colors.primary.orange : colors.primary.grey
               }]}>
               {/* Credit Card Title */}
               <Text style={styles.creditCardTitle}>
@@ -108,20 +109,20 @@ const PaymentScreen = ({ navigation, route }: any) => {
                 <LinearGradient
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
-                  colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+                  colors={[colors.primary.grey, colors.primary.black]}
                   style={styles.linearGradientCreditCard}>
                   <View style={styles.creditCardRow}>
                     {/* Credit Card Chip Icon */}
                     <CustomIcon
                       name={"chip"}
                       size={FONT_SIZE.size20 * 2}
-                      color={COLORS.primaryOrange}
+                      color={colors.primary.orange}
                     />
                     {/* Credit Card Type Icon */}
                     <CustomIcon
                       name={"visa"}
                       size={FONT_SIZE.size30 * 2}
-                      color={COLORS.primaryWhite}
+                      color={colors.primary.white}
                     />
                   </View>
                   {/* Credit Card Number */}
@@ -191,7 +192,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   lottieAnimation:{
     flex: 1,
@@ -209,7 +210,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size20,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
   emptyView: {
     width: SPACING.space36,
@@ -227,11 +228,11 @@ const styles = StyleSheet.create({
   creditCardTitle: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size14,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     marginLeft: SPACING.space10,
   },
   creditCardBackground: {
-    backgroundColor: COLORS.primaryGrey,
+    backgroundColor: colors.primary.grey,
     borderRadius: BORDER_RADIUS.radius25,
   },
   linearGradientCreditCard: {
@@ -253,7 +254,7 @@ const styles = StyleSheet.create({
   creditCardNumber: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size20,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
     letterSpacing: 6,
   },
   creditCardNameContainer: {
@@ -265,12 +266,12 @@ const styles = StyleSheet.create({
   creditCardNameTitle: {
     fontFamily: fonts.poppins.regular,
     fontSize: FONT_SIZE.size14,
-    color: COLORS.secondaryLightGrey,
+    color: colors.secondary.lightGrey,
   },
   creditCardName: {
     fontFamily: fonts.poppins.medium,
     fontSize: FONT_SIZE.size18,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
 })
 

@@ -1,9 +1,10 @@
 import { Image, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 interface CartItemProps {
     id: string;
@@ -37,7 +38,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+                    colors={[colors.primary.grey, colors.primary.black]}
                     style={styles.cardItemlinearGradient}>
                     {/* Header Row */}
                     <View style={styles.cartItemRow}>
@@ -102,7 +103,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                     }}>
                                     <CustomIcon
                                         name="minus"
-                                        color={COLORS.primaryWhite}
+                                        color={colors.primary.white}
                                         size={FONT_SIZE.size10}
                                     />
                                 </TouchableOpacity>
@@ -120,7 +121,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                     }}>
                                     <CustomIcon
                                         name="add"
-                                        color={COLORS.primaryWhite}
+                                        color={colors.primary.white}
                                         size={FONT_SIZE.size10}
                                     />
                                 </TouchableOpacity>
@@ -135,7 +136,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    colors={[COLORS.primaryGrey, COLORS.primaryBlack]}
+                    colors={[colors.primary.grey, colors.primary.black]}
                     style={styles.cardItemlinearGradient}>
                     {/* Header Row */}
                     <View style={styles.cartItemSingleView}>
@@ -188,7 +189,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                         }}>
                                         <CustomIcon
                                             name="minus"
-                                            color={COLORS.primaryWhite}
+                                            color={colors.primary.white}
                                             size={FONT_SIZE.size10}
                                         />
                                     </TouchableOpacity>
@@ -206,7 +207,7 @@ const CartItem: React.FC<CartItemProps> = ({
                                         }}>
                                         <CustomIcon
                                             name="add"
-                                            color={COLORS.primaryWhite}
+                                            color={colors.primary.white}
                                             size={FONT_SIZE.size10}
                                         />
                                     </TouchableOpacity>
@@ -247,12 +248,12 @@ const styles = StyleSheet.create({
     cartItemTitle: {
         fontFamily: fonts.poppins.medium,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cartItemSubtitle: {
         fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size14,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     },
     cardItemRoastedContainer: {
         height: 50,
@@ -260,12 +261,12 @@ const styles = StyleSheet.create({
         borderRadius: BORDER_RADIUS.radius15,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: COLORS.primaryDarkGrey,
+        backgroundColor: colors.primary.darkGrey,
     },
     cardItemRoastedText: {
         fontFamily: fonts.poppins.regular,
         fontSize: FONT_SIZE.size12,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cartItemSizeRowContainer: {
         flex: 1,
@@ -283,36 +284,36 @@ const styles = StyleSheet.create({
     sizeBox: {
         height: 40,
         width: 100,
-        backgroundColor: COLORS.primaryBlack,
+        backgroundColor: colors.primary.black,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: BORDER_RADIUS.radius10,
     },
     sizeText: {
         fontFamily: fonts.poppins.medium,
-        color: COLORS.secondaryLightGrey,
+        color: colors.secondary.lightGrey,
     },
     sizeCurrency: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryOrange,
+        color: colors.primary.orange,
     },
     sizePrice: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size18,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cartItemIcon: {
-        backgroundColor: COLORS.primaryOrange,
+        backgroundColor: colors.primary.orange,
         padding: SPACING.space12,
         borderRadius: BORDER_RADIUS.radius10,
     },
     cartItemQuantityContainer: {
-        backgroundColor: COLORS.primaryBlack,
+        backgroundColor: colors.primary.black,
         width: 60,
         borderRadius: BORDER_RADIUS.radius10,
         borderWidth: 2,
-        borderColor: COLORS.primaryOrange,
+        borderColor: colors.primary.orange,
         alignItems: "center",
         paddingVertical: SPACING.space4,
         marginHorizontal: SPACING.space4,
@@ -320,7 +321,7 @@ const styles = StyleSheet.create({
     cartItemQuantityText: {
         fontFamily: fonts.poppins.semiBold,
         fontSize: FONT_SIZE.size16,
-        color: COLORS.primaryWhite,
+        color: colors.primary.white,
     },
     cartItemSingleView: {
         flexDirection: "row",

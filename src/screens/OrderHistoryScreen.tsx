@@ -2,13 +2,14 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { BORDER_RADIUS, COLORS, FONT_SIZE, SPACING } from '../theme/theme';
+import { BORDER_RADIUS, FONT_SIZE, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PopUpAnimation from '../components/PopUpAnimation';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 import { lottieAnimations } from '../config/assets';
 import { fonts } from '../config/fonts';
+import { colors } from '../config/colors';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -31,7 +32,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
-      <StatusBar backgroundColor={COLORS.primaryBlack} />
+      <StatusBar backgroundColor={colors.primary.black} />
       {/* Success Animation */}
       {showAnimation ?
         <PopUpAnimation
@@ -87,7 +88,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: COLORS.primaryBlack,
+    backgroundColor: colors.primary.black,
   },
   lottieAnimation: {
     height: 250,
@@ -110,14 +111,14 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: BORDER_RADIUS.radius20,
     margin: SPACING.space20,
-    backgroundColor: COLORS.primaryOrange,
+    backgroundColor: colors.primary.orange,
     alignItems: "center",
     justifyContent: "center",
   },
   downloadButtonText: {
     fontFamily: fonts.poppins.semiBold,
     fontSize: FONT_SIZE.size18,
-    color: COLORS.primaryWhite,
+    color: colors.primary.white,
   },
 })
 
