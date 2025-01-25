@@ -90,28 +90,27 @@ interface BorderRadius {
     radius52: number;
     radius56: number;
     radius60: number;
-  }
-  
-  export const BORDER_RADIUS: BorderRadius = {
+}
+
+export const borderRadius: BorderRadius = {
     radius2: 2,
-  radius4: 4,
-  radius6: 6,
-  radius8: 8,
-  radius10: 10,
-  radius12: 12,
-  radius16: 16,
-  radius20: 20,
-  radius24: 24,
-  radius28: 28,
-  radius30: 30,
-  radius32: 32,
-  radius36: 36,
-  radius40: 40,
-  radius44: 44,
-  radius48: 48,
-  radius50: 50,
-  radius52: 52,
-  radius56: 56,
-  radius60: 60,
-  };
-  
+    radius4: 4,
+    radius6: 6,
+    radius8: 8,
+    radius10: 10,
+    radius12: 12,
+    radius16: 16,
+    radius20: 20,
+    radius24: 24,
+    radius28: 28,
+    radius30: 30,
+    radius32: 32,
+    radius36: 36,
+    radius40: 40,
+    radius44: 44,
+    radius48: 48,
+    radius50: 50,
+    radius52: 52,
+    radius56: 56,
+    radius60: 60,
+};
