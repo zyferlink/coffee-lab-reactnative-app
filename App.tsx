@@ -1,45 +1,8 @@
-import React, { useEffect } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-
-import TabNavigator from './src/navigators/TabNavigator'
-import DetailScreen from './src/screens/DetailScreen'
-import PaymentScreen from './src/screens/PaymentScreen'
-import SplashScreen from 'react-native-splash-screen'
-
-const Stack = createNativeStackNavigator();
+import React from 'react';
+import RootStackNavigator from './src/navigation/RootStackNavigator';
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, [])
-  
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}>
+  return <RootStackNavigator />;
+};
 
-        <Stack.Screen
-          name="Tab"
-          component={TabNavigator}
-          options={{ animation: "slide_from_bottom" }}>
-        </Stack.Screen>
-
-        <Stack.Screen
-          name="Details"
-          component={DetailScreen}
-          options={{ animation: "slide_from_bottom" }}>
-        </Stack.Screen>
-
-        <Stack.Screen
-          name="Payments"
-          component={PaymentScreen}
-          options={{ animation: "slide_from_bottom" }}>
-        </Stack.Screen>
-        
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
-
-export default App
+export default App;
