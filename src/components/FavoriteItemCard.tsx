@@ -12,11 +12,11 @@ interface FavoriteItemCardProps {
   type: string;
   ingredients: string;
   specialIngredient: string;
-  averageRating: number;
+  average_rating: number;
   ratingCount: string;
   description: string;
   roasted: string;
-  favorite: boolean;
+  isFavorite: boolean;
   toggleFavorite: any;
   imageLink: ImageProps;
 }
@@ -27,11 +27,11 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
   type,
   ingredients,
   specialIngredient,
-  averageRating,
+  average_rating,
   ratingCount,
   description,
   roasted,
-  favorite,
+  isFavorite,
   toggleFavorite,
   imageLink,
 }) => {
@@ -43,11 +43,11 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
         type={type}
         ingredients={ingredients}
         specialIngredient={specialIngredient}
-        averageRating={averageRating}
+        average_rating={average_rating}
         ratingCount={ratingCount}
         roasted={roasted}
         imageLinkPortrait={imageLink}
-        favorite={favorite}
+        isFavorite={isFavorite}
         toggleFavorite={toggleFavorite}
         enableBackHandler={false}
         backHandler={() => { }}

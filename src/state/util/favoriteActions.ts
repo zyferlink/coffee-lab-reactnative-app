@@ -7,8 +7,8 @@ export const addToFavoriteList = (state: any, type: string, id: string) => {
   if (index !== -1) {
       const item = list[index];
 
-      if (!item.favorite) {
-          item.favorite = true;
+      if (!item.isFavorite) {
+          item.isFavorite = true;
           state.favoriteList.unshift(item);
       }
   }
@@ -20,8 +20,8 @@ export const deleteFromFavoriteList = (state: any, type: string, id: string) => 
 
     if (indexInList !== -1) {
         const item = list[indexInList];
-        if (item.favorite) {
-            item.favorite = false;
+        if (item.isFavorite) {
+            item.isFavorite = false;
         }
     }
 

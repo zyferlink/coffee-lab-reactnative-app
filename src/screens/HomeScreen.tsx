@@ -150,9 +150,9 @@ const HomeScreen = ({ navigation }: any) => {
                   name={item.name}
                   type={item.type}
                   roasted={item.roasted}
-                  imageLinkSquare={item.imagelink_square}
-                  specialIngredient={item.special_ingredient}
-                  averageRating={item.average_rating}
+                  imageLinkSquare={item.imageLinkSquare}
+                  specialIngredient={item.specialIngredient}
+                  average_rating={item.average_rating}
                   price={item.prices[2]}
                   onPressHandler={(
                     id: string,
@@ -210,9 +210,9 @@ const HomeScreen = ({ navigation }: any) => {
                   name={item.name}
                   type={item.type}
                   roasted={item.roasted}
-                  imageLinkSquare={item.imagelink_square}
-                  specialIngredient={item.special_ingredient}
-                  averageRating={item.average_rating}
+                  imageLinkSquare={item.imageLinkSquare}
+                  specialIngredient={item.specialIngredient}
+                  average_rating={item.average_rating}
                   price={item.prices[2]}
                   onPressHandler={(
                     id: string,

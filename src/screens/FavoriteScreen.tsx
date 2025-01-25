@@ -16,8 +16,8 @@ const FavoriteScreen = ({ navigation, route }: any) => {
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
-  const toggleFavorite = (favorite: boolean, id: string, type: string) => {
-    favorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
+  const toggleFavorite = (isFavorite: boolean, id: string, type: string) => {
+    isFavorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
 
   return (
@@ -56,14 +56,14 @@ const FavoriteScreen = ({ navigation, route }: any) => {
                       name={item.name}
                       type={item.type}
                       ingredients={item.ingredients}
-                      specialIngredient={item.special_ingredient}
-                      averageRating={item.average_rating}
-                      ratingCount={item.ratings_count}
+                      specialIngredient={item.specialIngredient}
+                      average_rating={item.average_rating}
+                      ratingCount={item.ratingsCount}
                       description={item.description}
                       roasted={item.roasted}
-                      favorite={item.favorite}
+                      isFavorite={item.isFavorite}
                       toggleFavorite={toggleFavorite}
-                      imageLink={item.imagelink_portrait}
+                      imageLink={item.imageLinkPortrait}
                     />
                   </TouchableOpacity>
                 ))}

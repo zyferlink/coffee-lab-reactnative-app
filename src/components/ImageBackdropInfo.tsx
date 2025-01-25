@@ -12,10 +12,10 @@ interface ImageBackdropInfoProps {
   type: string;
   ingredients: string;
   specialIngredient: string;
-  averageRating: number;
+  average_rating: number;
   ratingCount: string;
   roasted: string;
-  favorite: boolean;
+  isFavorite: boolean;
   toggleFavorite: any;
   imageLinkPortrait: ImageProps;
   enableBackHandler: boolean;
@@ -28,10 +28,10 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
   type,
   ingredients,
   specialIngredient,
-  averageRating,
+  average_rating,
   ratingCount,
   roasted,
-  favorite,
+  isFavorite,
   toggleFavorite,
   imageLinkPortrait,
   enableBackHandler,
@@ -55,20 +55,20 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => toggleFavorite(favorite, id, type)}>
+              onPress={() => toggleFavorite(isFavorite, id, type)}>
               <GradientBackgroundIcon
                 name="like"
-                color={favorite ? colors.primary.red : colors.primary.lightGrey}
+                color={isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
         ) : (
           <View style={styles.headerBarContainerWithoutBack}>
             <TouchableOpacity
-              onPress={() => toggleFavorite(favorite, id, type)}>
+              onPress={() => toggleFavorite(isFavorite, id, type)}>
               <GradientBackgroundIcon
                 name="like"
-                color={favorite ? colors.primary.red : colors.primary.lightGrey}
+                color={isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
@@ -123,7 +123,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   color={colors.primary.orange}
                 />
                 <Text style={styles.ratingText}>
-                  {averageRating}
+                  {average_rating}
                 </Text>
                 <Text style={styles.ratingCountText}>
                   ({ratingCount})

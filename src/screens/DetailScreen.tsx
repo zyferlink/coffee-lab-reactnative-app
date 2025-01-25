@@ -25,8 +25,8 @@ const DetailScreen = ({ navigation, route }: any) => {
     navigation.pop();
   };
 
-  const toggleFavorite = (favorite: boolean, id: string, type: string) => {
-    favorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
+  const toggleFavorite = (isFavorite: boolean, id: string, type: string) => {
+    isFavorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
 
   const addToCartHandler = (
@@ -68,12 +68,12 @@ const DetailScreen = ({ navigation, route }: any) => {
           name={selectedItem.name}
           type={selectedItem.type}
           ingredients={selectedItem.ingredients}
-          specialIngredient={selectedItem.special_ingredient}
-          averageRating={selectedItem.average_rating}
-          ratingCount={selectedItem.ratings_count}
+          specialIngredient={selectedItem.specialIngredient}
+          average_rating={selectedItem.average_rating}
+          ratingCount={selectedItem.ratingsCount}
           roasted={selectedItem.roasted}
-          imageLinkPortrait={selectedItem.imagelink_portrait}
-          favorite={selectedItem.favorite}
+          imageLinkPortrait={selectedItem.imageLinkPortrait}
+          isFavorite={selectedItem.isFavorite}
           toggleFavorite={toggleFavorite}
           enableBackHandler={true}
           backHandler={backHandler}
@@ -151,8 +151,8 @@ const DetailScreen = ({ navigation, route }: any) => {
               selectedItem.name,
               selectedItem.type,
               selectedItem.roasted,
-              selectedItem.imagelink_square,
-              selectedItem.special_ingredient,
+              selectedItem.imageLinkSquare,
+              selectedItem.specialIngredient,
               price,
             );
           }}

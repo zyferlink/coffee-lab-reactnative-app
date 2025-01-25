@@ -17,7 +17,7 @@ interface CoffeeCardProps {
     roasted: string;
     imageLinkSquare: ImageProps;
     specialIngredient: string;
-    averageRating: number;
+    average_rating: number;
     price: any;
     onPressHandler: any;
 }
@@ -30,7 +30,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
     roasted,
     imageLinkSquare,
     specialIngredient,
-    averageRating,
+    average_rating,
     price,
     onPressHandler,
 }) => {
@@ -56,7 +56,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                     {/* Rating Text */}
                     <Text
                         style={styles.cardRatingText}>
-                        {averageRating}
+                        {average_rating}
                     </Text>
                 </View>
             </ImageBackground>
