@@ -2,19 +2,19 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/app_images/amazonpay.png",
+      "path": "src/assets/images/amazonpay.png",
       "sha1": "4ec7050dda251f228cb2b9a5220cc986099dd3c7"
     },
     {
-      "path": "src/assets/app_images/applepay.png",
+      "path": "src/assets/images/applepay.png",
       "sha1": "0b06e72fa97134cda893f1688ab8852fef316f1f"
     },
     {
-      "path": "src/assets/app_images/avatar.png",
+      "path": "src/assets/images/avatar.png",
       "sha1": "08dab6d2f1f8c9da5b5c0dab8cfaa61e818439ee"
     },
     {
-      "path": "src/assets/app_images/gpay.png",
+      "path": "src/assets/images/gpay.png",
       "sha1": "039fbff59306d5e4300ef7614d796844345575af"
     },
     {

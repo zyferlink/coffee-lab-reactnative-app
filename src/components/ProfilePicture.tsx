@@ -1,13 +1,14 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { COLORS, SPACING } from '../theme/theme'
+import { images } from '../config/assets'
 
 const ProfilePicture = () => {
     return (
         <View
             style={styles.imageContainer}>
             <Image
-                source={require("../assets/app_images/avatar.png")}
+                source={images.avatarDefault}
                 style={styles.image} />
         </View>
     )

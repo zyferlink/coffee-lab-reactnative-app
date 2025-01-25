@@ -8,7 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
-import { lottieAnimations } from '../config/assets';
+import { images, lottieAnimations } from '../config/assets';
 
 const paymentList = [
   {
@@ -18,17 +18,17 @@ const paymentList = [
   },
   {
     name: "Google Pay",
-    icon: require("../assets/app_images/gpay.png"),
+    icon: images.logoGooglePay,
     isIcon: false,
   },
   {
     name: "Apple Pay",
-    icon: require("../assets/app_images/applepay.png"),
+    icon: images.logoApplePay,
     isIcon: false,
   },
   {
     name: "Amazon Pay",
-    icon: require("../assets/app_images/amazonpay.png"),
+    icon: images.logoAmazonPay,
     isIcon: false,
   },
 ];
