@@ -62,7 +62,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
       {showSuccessAnimation ?
         <PopUpAnimation
         style={styles.lottieAnimation}
-        source={require("../lottie/successful.json")}
+        source={require("../assets/lottie/successful.json")}
         />
         : <></>}
       {/* Scrollable Content */}

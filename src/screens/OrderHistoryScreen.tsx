@@ -34,7 +34,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
       {showAnimation ?
         <PopUpAnimation
           style={styles.lottieAnimation}
-          source={require("../lottie/download.json")}
+          source={require("../assets/lottie/download.json")}
         />
         : <></>}
       {/* Scrollable Content */}
