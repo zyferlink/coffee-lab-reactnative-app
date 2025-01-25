@@ -7,33 +7,12 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../components/CustomIcon';
 import { useStore } from '../state/useStore';
 import PopUpAnimation from '../components/PopUpAnimation';
-import { images, lottieAnimations } from '../config/assets';
+import { lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
+import { PAYMENT_OPTIONS } from '../data/paymentOptions';
 
-const paymentList = [
-  {
-    name: "Wallet",
-    icon: "icon",
-    isIcon: true,
-  },
-  {
-    name: "Google Pay",
-    icon: images.logoGooglePay,
-    isIcon: false,
-  },
-  {
-    name: "Apple Pay",
-    icon: images.logoApplePay,
-    isIcon: false,
-  },
-  {
-    name: "Amazon Pay",
-    icon: images.logoAmazonPay,
-    isIcon: false,
-  },
-];
 
 const PaymentScreen = ({ navigation, route }: any) => {
 
@@ -166,7 +145,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
             </View>
           </TouchableOpacity>
           {/* Payment Option List */}
-          {paymentList.map((option: any) => (
+          {PAYMENT_OPTIONS.map((option: any) => (
             <TouchableOpacity
               key={option.name}
               onPress={() => setPaymentMode(option.name)}>
