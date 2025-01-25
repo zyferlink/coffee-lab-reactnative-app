@@ -1,8 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface PriceProps {
     price: string;
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary.orange,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
         borderWidth: 1,
     },
     buttonText: {

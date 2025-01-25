@@ -1,10 +1,11 @@
 import { Image, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface CartItemProps {
     id: string;
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
         flex: 1,
         gap: SPACING.space12,
         padding: SPACING.space12,
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
     },
     cartItemRow: {
         flex: 1,
@@ -238,7 +239,7 @@ const styles = StyleSheet.create({
     cartItemImage: {
         height: 130,
         width: 130,
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
     },
     cartItemInfo: {
         flex: 1,
@@ -258,7 +259,7 @@ const styles = StyleSheet.create({
     cardItemRoastedContainer: {
         height: 50,
         width: 120,
-        borderRadius: BORDER_RADIUS.radius15,
+        borderRadius: borderRadius.radius16,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.primary.darkGrey,
@@ -287,7 +288,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary.black,
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: BORDER_RADIUS.radius10,
+        borderRadius: borderRadius.radius10,
     },
     sizeText: {
         fontFamily: fonts.poppins.medium,
@@ -306,12 +307,12 @@ const styles = StyleSheet.create({
     cartItemIcon: {
         backgroundColor: colors.primary.orange,
         padding: SPACING.space12,
-        borderRadius: BORDER_RADIUS.radius10,
+        borderRadius: borderRadius.radius10,
     },
     cartItemQuantityContainer: {
         backgroundColor: colors.primary.black,
         width: 60,
-        borderRadius: BORDER_RADIUS.radius10,
+        borderRadius: borderRadius.radius10,
         borderWidth: 2,
         borderColor: colors.primary.orange,
         alignItems: "center",
@@ -326,14 +327,14 @@ const styles = StyleSheet.create({
     cartItemSingleView: {
         flexDirection: "row",
         alignItems: "center",
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
         padding: SPACING.space2,
         gap: SPACING.space12,
     },
     cartItemSingleImage: {
         height: 150,
         width: 140,
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
     },
     cartItemInfoSingle: {
         flex: 1,

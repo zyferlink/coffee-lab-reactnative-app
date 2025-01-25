@@ -1,9 +1,10 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface OrderItemCardProps {
     type: string;
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     cardLinearGradientContainer: {
         gap: SPACING.space20,
         padding: SPACING.space20,
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
     },
     cardInfoContainer: {
         flexDirection: "row",
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     cardImage: {
         height: 90,
         width: 90,
-        borderRadius: BORDER_RADIUS.radius15,
+        borderRadius: borderRadius.radius16,
     },
     cardTitle: {
         fontFamily: fonts.poppins.medium,
@@ -153,8 +154,8 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 45,
         backgroundColor: colors.primary.black,
-        borderTopLeftRadius: BORDER_RADIUS.radius10,
-        borderBottomLeftRadius: BORDER_RADIUS.radius10,
+        borderTopLeftRadius: borderRadius.radius10,
+        borderBottomLeftRadius: borderRadius.radius10,
         alignItems: "center",
         justifyContent: "center",
         borderRightWidth: 1,
@@ -164,8 +165,8 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 45,
         backgroundColor: colors.primary.black,
-        borderTopRightRadius: BORDER_RADIUS.radius10,
-        borderBottomRightRadius: BORDER_RADIUS.radius10,
+        borderTopRightRadius: borderRadius.radius10,
+        borderBottomRightRadius: borderRadius.radius10,
         alignItems: "center",
         justifyContent: "center",
         borderLeftWidth: 1,

@@ -2,7 +2,7 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PopUpAnimation from '../components/PopUpAnimation';
@@ -10,6 +10,7 @@ import OrderHistoryCard from '../components/OrderHistoryCard';
 import { lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
   downloadButton: {
     height: 64,
-    borderRadius: BORDER_RADIUS.radius20,
+    borderRadius: borderRadius.radius20,
     margin: SPACING.space20,
     backgroundColor: colors.primary.orange,
     alignItems: "center",

@@ -1,10 +1,11 @@
 import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface ImageBackdropInfoProps {
   id: string;
@@ -165,8 +166,8 @@ const styles = StyleSheet.create({
     paddingVertical: SPACING.space24,
     paddingHorizontal: SPACING.space30,
     backgroundColor: colors.primary.blackTransparent,
-    borderTopLeftRadius: BORDER_RADIUS.radius20 * 2,
-    borderTopRightRadius: BORDER_RADIUS.radius20 * 2,
+    borderTopLeftRadius: borderRadius.radius40,
+    borderTopRightRadius: borderRadius.radius40,
   },
   infoHeaderInnerContainer: {
     justifyContent: "space-between",
@@ -196,7 +197,7 @@ const styles = StyleSheet.create({
     height: 55,
     width: 55,
     justifyContent: "center",
-    borderRadius: BORDER_RADIUS.radius15,
+    borderRadius: borderRadius.radius16,
     alignItems: "center",
     backgroundColor: colors.primary.black,
   },
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
     height: 55,
     width: 130,
     justifyContent: "center",
-    borderRadius: BORDER_RADIUS.radius15,
+    borderRadius: borderRadius.radius16,
     alignItems: "center",
     backgroundColor: colors.primary.black,
   },

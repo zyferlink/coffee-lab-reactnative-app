@@ -4,10 +4,11 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../state/useStore'
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CoffeeCard from '../components/CoffeeCard';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -400,7 +401,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: SPACING.space24,
     marginVertical: SPACING.space16,
-    borderRadius: BORDER_RADIUS.radius20,
+    borderRadius: borderRadius.radius20,
     backgroundColor: colors.primary.darkGrey,
     alignItems: "center",
   },
@@ -434,7 +435,7 @@ const styles = StyleSheet.create({
   activeCategory: {
     height: SPACING.space4,
     width: SPACING.space16,
-    borderRadius: BORDER_RADIUS.radius10,
+    borderRadius: borderRadius.radius10,
     backgroundColor: colors.primary.orange,
   },
   flatListContainer: {

@@ -1,10 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -61,7 +62,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
 
 const styles = StyleSheet.create({
     paymentCardContainer: {
-        borderRadius: BORDER_RADIUS.radius15 * 2,
+        borderRadius: borderRadius.radius16 * 2,
         backgroundColor: colors.primary.grey,
         borderWidth: 3,
     },
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
         padding: SPACING.space12,
         paddingHorizontal: SPACING.space24,
         gap: SPACING.space24,
-        borderRadius: BORDER_RADIUS.radius15 * 2,
+        borderRadius: borderRadius.radius16 * 2,
     },
     linearGradientRegular: {
         flexDirection: "row",
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
         padding: SPACING.space12,
         paddingHorizontal: SPACING.space24,
         gap: SPACING.space24,
-        borderRadius: BORDER_RADIUS.radius15 * 2,
+        borderRadius: borderRadius.radius16 * 2,
     },
     walletRow: {
         flexDirection: "row",

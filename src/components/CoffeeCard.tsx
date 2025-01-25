@@ -1,11 +1,12 @@
 import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from './BackgroundIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 const CARD_WIDTH = Dimensions.get("window").width * 0.32;
 
@@ -106,12 +107,12 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
 const styles = StyleSheet.create({
     cardLinearGradientContainer: {
         padding: SPACING.space16,
-        borderRadius: BORDER_RADIUS.radius25,
+        borderRadius: borderRadius.radius28,
     },
     cardImageBackground: {
         width: CARD_WIDTH,
         height: CARD_WIDTH,
-        borderRadius: BORDER_RADIUS.radius20,
+        borderRadius: borderRadius.radius20,
         marginBottom: SPACING.space15,
         overflow: "hidden",
     },
@@ -123,8 +124,8 @@ const styles = StyleSheet.create({
         gap: SPACING.space10,
         paddingHorizontal: SPACING.space15,
         position: "absolute",
-        borderBottomLeftRadius: BORDER_RADIUS.radius20,
-        borderTopRightRadius: BORDER_RADIUS.radius20,
+        borderBottomLeftRadius: borderRadius.radius20,
+        borderTopRightRadius: borderRadius.radius20,
         top: 0,
         right: 0,
     },

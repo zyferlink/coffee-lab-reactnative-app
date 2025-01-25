@@ -1,11 +1,12 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../state/useStore'
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import ImageBackdropInfo from '../components/ImageBackdropInfo';
 import PaymentFooter from '../components/PaymentFooter';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary.darkGrey,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: BORDER_RADIUS.radius10,
+    borderRadius: borderRadius.radius10,
     borderWidth: 2,
   },
   sizeText: {

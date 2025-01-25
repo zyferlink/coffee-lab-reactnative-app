@@ -1,7 +1,8 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
+import { borderRadius } from '../config/dimensions';
 
 interface BackgroundIconProps {
     name: string;
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
         width: SPACING.space30,
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: BORDER_RADIUS.radius8
+        borderRadius: borderRadius.radius8
     }
 })
 

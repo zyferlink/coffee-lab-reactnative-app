@@ -1,6 +1,6 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -11,6 +11,7 @@ import PopUpAnimation from '../components/PopUpAnimation';
 import { images, lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 const paymentList = [
   {
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
   paymentCardContainer: {
     padding: SPACING.space10,
     gap: SPACING.space10,
-    borderRadius: BORDER_RADIUS.radius15,
+    borderRadius: borderRadius.radius16,
     borderWidth: 3,
   },
   creditCardTitle: {
@@ -233,10 +234,10 @@ const styles = StyleSheet.create({
   },
   creditCardBackground: {
     backgroundColor: colors.primary.grey,
-    borderRadius: BORDER_RADIUS.radius25,
+    borderRadius: borderRadius.radius28,
   },
   linearGradientCreditCard: {
-    borderRadius: BORDER_RADIUS.radius20,
+    borderRadius: borderRadius.radius20,
     gap: SPACING.space30,
     paddingHorizontal: SPACING.space15,
     paddingVertical: SPACING.space10,

@@ -112,20 +112,20 @@ interface Spacing {
   //   size30: 30,
   // };
   
-  interface BorderRadius {
-    radius4: number;
-    radius8: number;
-    radius10: number;
-    radius15: number;
-    radius20: number;
-    radius25: number;
-  }
+  // interface BorderRadius {
+  //   radius4: number;
+  //   radius8: number;
+  //   radius10: number;
+  //   radius15: number;
+  //   radius20: number;
+  //   radius25: number;
+  // }
   
-  export const BORDER_RADIUS: BorderRadius = {
-    radius4: 4,
-    radius8: 8,
-    radius10: 10,
-    radius15: 15,
-    radius20: 20,
-    radius25: 25,
-  };
+  // export const BORDER_RADIUS: BorderRadius = {
+  //   radius4: 4,
+  //   radius8: 8,
+  //   radius10: 10,
+  //   radius15: 15,
+  //   radius20: 20,
+  //   radius25: 25,
+  // };

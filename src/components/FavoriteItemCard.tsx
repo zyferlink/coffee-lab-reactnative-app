@@ -2,9 +2,10 @@ import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ImageBackdropInfo from './ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
-import { BORDER_RADIUS, SPACING } from '../theme/theme';
+import { SPACING } from '../theme/theme';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
+import { borderRadius } from '../config/dimensions';
 
 interface FavoriteItemCardProps {
   id: string;
@@ -73,7 +74,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
 const styles = StyleSheet.create({
   cardContainer:{
     overflow: "hidden",
-    borderRadius: BORDER_RADIUS.radius25,
+    borderRadius: borderRadius.radius28,
   },
   linearGradientContainer: {
     gap: SPACING.space10,
