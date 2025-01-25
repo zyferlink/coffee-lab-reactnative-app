@@ -389,21 +389,21 @@ Main command for `Release build install`:
 
 Full command:
 1. Navigate to the `android` directory:
-    ```bash 
+    `
     cd android
-    ```
+    `
 2. Clean the build:
-    ```bash 
+    ` 
     ./gradlew clean
-    ```
+    `
 3. Install the release build:
-    ```bash 
+    ` 
     ./gradlew installRelease
-    ```
+    `
 4. Return to the root directory:
-    ```bash 
+    `
     cd ..
-    ```
+    `
 Full Command:
   ```bash 
   cd android
@@ -417,24 +417,24 @@ Full Command:
 #
 #### Run with Metro
 1. Navigate to the `android` directory:
-   ```bash 
+   `
    cd android
-   ```
+   `
 
 2. Clean the build:
-   ```bash 
+   ` 
    ./gradlew clean
-   ```
+   `
 
 3. Return to the root directory:
-   ```bash 
+   ` 
    cd ..
-   ```
+   `
    
 4. Run the app on Android:
-   ```bash 
+   `
    npx react-native run-android
-   ```
+   `
 
 
 Full Command:
