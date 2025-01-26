@@ -9,7 +9,7 @@ import { iconSet } from '../../config/assets';
 import { fonts, fontSizes } from '../../config/fonts';
 import { borderRadius, spacing } from '../../config/dimensions';
 // Relative
-import CustomIcon from '../CustomIcon';
+import CustomIcon from './CustomIcon';
 import BackgroundIcon from '../BackgroundIcon';
 import DimensionsUtil from '../../utils/dimensionsUtil';
 import { BrewItem, Product, ProductPrice } from '../../types/productTypes';

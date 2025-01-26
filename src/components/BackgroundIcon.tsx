@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import CustomIcon from './CustomIcon';
+import CustomIcon from './common/CustomIcon';
 import { borderRadius, spacing } from '../config/dimensions';
 
 interface BackgroundIconProps {

@@ -1,7 +1,7 @@
 import { Image, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from './CustomIcon';
+import CustomIcon from './common/CustomIcon';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';

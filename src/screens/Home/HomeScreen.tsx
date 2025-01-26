@@ -6,7 +6,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
 import { useStore } from '../../state/useStore'
 import HeaderBar from '../../components/HeaderBar';
-import CustomIcon from '../../components/CustomIcon';
+import CustomIcon from '../../components/common/CustomIcon';
 import ProductCard from '../../components/common/ProductCard';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';

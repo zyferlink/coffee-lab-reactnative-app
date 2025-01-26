@@ -4,7 +4,7 @@ import GradientBackgroundIcon from '../../components/GradientBackgroundIcon';
 import PaymentMethod from '../../components/PaymentMethod';
 import PaymentFooter from '../../components/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from '../../components/CustomIcon';
+import CustomIcon from '../../components/common/CustomIcon';
 import { useStore } from '../../state/useStore';
 import PopUpAnimation from '../../components/PopUpAnimation';
 import { lottieAnimations } from '../../config/assets';

@@ -5,7 +5,7 @@ import { BlurView } from '@react-native-community/blur';
 import { colors } from '../config/colors';
 import { iconSet } from '../config/assets';
 import { SCREENS } from '../config/screenNames';
-import CustomIcon from '../components/CustomIcon';
+import CustomIcon from '../components/common/CustomIcon';
 
 // Screens
 import HomeScreen from '../screens/Home/HomeScreen';
