@@ -12,7 +12,7 @@ interface ImageBackdropInfoProps {
   type: string;
   ingredients: string;
   specialIngredient: string;
-  average_rating: number;
+  averageRating: number;
   ratingCount: string;
   roasted: string;
   isFavorite: boolean;
@@ -28,7 +28,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
   type,
   ingredients,
   specialIngredient,
-  average_rating,
+  averageRating,
   ratingCount,
   roasted,
   isFavorite,
@@ -123,7 +123,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
                   color={colors.primary.orange}
                 />
                 <Text style={styles.ratingText}>
-                  {average_rating}
+                  {averageRating}
                 </Text>
                 <Text style={styles.ratingCountText}>
                   ({ratingCount})

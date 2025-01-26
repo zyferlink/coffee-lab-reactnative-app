@@ -12,7 +12,7 @@ interface FavoriteItemCardProps {
   type: string;
   ingredients: string;
   specialIngredient: string;
-  average_rating: number;
+  averageRating: number;
   ratingCount: string;
   description: string;
   roasted: string;
@@ -27,7 +27,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
   type,
   ingredients,
   specialIngredient,
-  average_rating,
+  averageRating,
   ratingCount,
   description,
   roasted,
@@ -43,7 +43,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
         type={type}
         ingredients={ingredients}
         specialIngredient={specialIngredient}
-        average_rating={average_rating}
+        averageRating={averageRating}
         ratingCount={ratingCount}
         roasted={roasted}
         imageLinkPortrait={imageLink}

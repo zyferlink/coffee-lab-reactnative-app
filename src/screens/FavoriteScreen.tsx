@@ -57,7 +57,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
                       type={item.type}
                       ingredients={item.ingredients}
                       specialIngredient={item.specialIngredient}
-                      average_rating={item.average_rating}
+                      averageRating={item.averageRating}
                       ratingCount={item.ratingsCount}
                       description={item.description}
                       roasted={item.roasted}

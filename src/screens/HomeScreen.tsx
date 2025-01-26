@@ -9,11 +9,17 @@ import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
 import { SCREENS } from '../navigation/routes';
+import { Product } from '../types/productTypes';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-const HomeScreen = ({ navigation }: any) => {
-  const listRef: any = useRef<FlatList>();
+interface HomeScreenProps {
+  navigation: any; 
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
+
+  const listRef = useRef<FlatList<Product>>(null);
   const tabBarHeight = useBottomTabBarHeight();
 
   const beanList = useStore((state: any) => state.beanList);
@@ -152,7 +158,7 @@ const HomeScreen = ({ navigation }: any) => {
                   roasted={item.roasted}
                   imageLinkSquare={item.imageLinkSquare}
                   specialIngredient={item.specialIngredient}
-                  average_rating={item.average_rating}
+                  averageRating={item.averageRating}
                   price={item.prices[2]}
                   onPressHandler={(
                     id: string,
@@ -212,7 +218,7 @@ const HomeScreen = ({ navigation }: any) => {
                   roasted={item.roasted}
                   imageLinkSquare={item.imageLinkSquare}
                   specialIngredient={item.specialIngredient}
-                  average_rating={item.average_rating}
+                  averageRating={item.averageRating}
                   price={item.prices[2]}
                   onPressHandler={(
                     id: string,

@@ -16,7 +16,7 @@ export interface ProductPrice {
     ingredients: string;
     specialIngredient: string;
     prices: ProductPrice[];
-    average_rating: number;
+    averageRating: number;
     ratingsCount: string;
     isFavorite: boolean;
     type: 'Coffee' | 'Bean';
