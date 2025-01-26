@@ -1,4 +1,4 @@
-import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../CustomIcon';
@@ -7,8 +7,10 @@ import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { BrewItem, Product, ProductPrice } from '../../types/productTypes';
+import DimensionsUtil from '../../utils/dimensionsUtil';
+import { iconSet } from '../../config/assets';
 
-const CARD_WIDTH = Dimensions.get("window").width * 0.32;
+const CARD_WIDTH = DimensionsUtil.widthPercentage(32);
 
 interface ProductCardProps {
     product: Product;
@@ -36,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     style={styles.cardRatingContainer}>
                     {/* Rating Icon */}
                     <CustomIcon
-                        name={"star"}
+                        name={iconSet.star}
                         color={colors.primary.orange}
                         size={fontSizes.size14} />
                     {/* Rating Text */}
@@ -58,7 +60,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <View style={styles.cardFooterRow}>
                 {/* Item Price */}
                 <Text style={styles.cardPriceCurrency}>
-                    ${" "}
+                    {`${selectedPrice.currency} `}
                     <Text style={styles.cardPrice}>
                         {selectedPrice.price}
                     </Text>
@@ -73,7 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         onPressHandler(brewItem);
                     }}>
                     <BackgroundIcon
-                        name={"add"}
+                        name={iconSet.add}
                         color={colors.primary.white}
                         backgroundColor={colors.primary.orange}
                         size={fontSizes.size16}
@@ -85,7 +87,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }
 
 const getPrice = (prices: ProductPrice[]): ProductPrice => {
-    //TODO if(prices.length == 0) return {};
+    if (prices.length === 0) {
+        // TODO: Handle the empty prices case, | throw an error
+        return { currency: 'USD', price: '0.00', size: '' }; 
+    }
     const index = prices.length - 1;
     return prices[index];
 }
