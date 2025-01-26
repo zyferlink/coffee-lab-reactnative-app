@@ -1,4 +1,7 @@
-import { Animated, Dimensions, FlatList, ImageProps, ScrollView, StatusBar, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import {
+  Animated, FlatList, ImageProps, ScrollView, StatusBar, StyleSheet,
+  Text, TextInput, ToastAndroid, TouchableOpacity, View
+} from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
 import { useStore } from '../../state/useStore'
@@ -10,18 +13,18 @@ import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
 import { Product } from '../../types/productTypes';
+import DimensionsUtil from '../../utils/dimensionsUtil';
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
+const SCREEN_WIDTH = DimensionsUtil.getScreenWidth();
 
 interface HomeScreenProps {
-  navigation: any; 
+  navigation: any;
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
   const listRef = useRef<FlatList<Product>>(null);
   const tabBarHeight = useBottomTabBarHeight();
-
   const beanList = useStore((state: any) => state.beanList);
   const addToCart = useStore((state: any) => state.addToCart);
   const coffeeList = useStore((state: any) => state.coffeeList);
