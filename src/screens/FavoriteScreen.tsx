@@ -7,7 +7,7 @@ import HeaderBar from '../components/HeaderBar';
 import FavoriteItemCard from '../components/FavoriteItemCard';
 import { colors } from '../config/colors';
 import { spacing } from '../config/dimensions';
-import { SCREENS } from '../navigation/routes';
+import { SCREENS } from '../config/screenNames';
 
 const FavoriteScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();

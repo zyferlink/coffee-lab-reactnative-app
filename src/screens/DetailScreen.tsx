@@ -6,7 +6,7 @@ import PaymentFooter from '../components/PaymentFooter';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
-import { NAVIGATORS, SCREENS } from '../navigation/routes';
+import { NAVIGATORS, SCREENS } from '../config/screenNames';
 
 const DetailScreen = ({ navigation, route }: any) => {
   const addToCart = useStore((state: any) => state.addToCart);

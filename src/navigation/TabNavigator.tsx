@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BlurView } from '@react-native-community/blur';
 import { colors } from '../config/colors';
 import { iconSet } from '../config/assets';
-import { SCREENS } from './routes';
+import { SCREENS } from '../config/screenNames';
 import CustomIcon from '../components/CustomIcon';
 
 // Screens

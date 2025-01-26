@@ -8,7 +8,7 @@ import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
 import { colors } from '../config/colors';
 import { spacing } from '../config/dimensions';
-import { SCREENS } from '../navigation/routes';
+import { SCREENS } from '../config/screenNames';
 
 const CartScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();

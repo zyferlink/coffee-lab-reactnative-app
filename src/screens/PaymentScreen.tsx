@@ -12,7 +12,7 @@ import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
 import { PAYMENT_OPTIONS } from '../data/paymentOptions';
-import { NAVIGATORS, SCREENS } from '../navigation/routes';
+import { NAVIGATORS, SCREENS } from '../config/screenNames';
 
 
 const PaymentScreen = ({ navigation, route }: any) => {

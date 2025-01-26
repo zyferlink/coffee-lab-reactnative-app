@@ -8,7 +8,7 @@ import CoffeeCard from '../components/CoffeeCard';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
-import { SCREENS } from '../navigation/routes';
+import { SCREENS } from '../config/screenNames';
 import { Product } from '../types/productTypes';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;

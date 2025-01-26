@@ -10,7 +10,7 @@ import { lottieAnimations } from '../config/assets';
 import { fonts, fontSizes } from '../config/fonts';
 import { colors } from '../config/colors';
 import { borderRadius, spacing } from '../config/dimensions';
-import { SCREENS } from '../navigation/routes';
+import { SCREENS } from '../config/screenNames';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
