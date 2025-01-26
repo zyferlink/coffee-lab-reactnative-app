@@ -1,7 +1,10 @@
-import { StyleSheet, View } from 'react-native'
-import React from 'react'
-import CustomIcon from './common/CustomIcon';
-import { borderRadius, spacing } from '../config/dimensions';
+// React and React Native
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+// Absolute
+import { borderRadius, spacing } from '../../config/dimensions';
+// Relative
+import CustomIcon from '../common/CustomIcon';
 
 interface BackgroundIconProps {
     name: string;
@@ -17,11 +20,10 @@ const BackgroundIcon: React.FC<BackgroundIconProps> = ({
     backgroundColor,
 }) => {
     return (
-        <View
-            style={[
-                styles.iconBackground,
-                { backgroundColor: backgroundColor }
-            ]}>
+        <View style={[
+            styles.iconBackground,
+            { backgroundColor: backgroundColor }
+        ]}>
             <CustomIcon
                 name={name}
                 color={color}
