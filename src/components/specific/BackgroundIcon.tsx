@@ -1,9 +1,8 @@
 // React and React Native
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-// Absolute
+// Configuration and components
 import { borderRadius, spacing } from '../../config/dimensions';
-// Relative
 import CustomIcon from '../common/CustomIcon';
 
 interface BackgroundIconProps {

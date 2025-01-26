@@ -3,12 +3,11 @@ import React from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // Third-party
 import LinearGradient from 'react-native-linear-gradient';
-// Absolute
+// Configuration and components
 import { colors } from '../../config/colors';
 import { iconSet } from '../../config/assets';
 import { fonts, fontSizes } from '../../config/fonts';
 import { borderRadius, spacing } from '../../config/dimensions';
-// Relative
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from '../specific/BackgroundIcon';
 import DimensionsUtil from '../../utils/dimensionsUtil';
