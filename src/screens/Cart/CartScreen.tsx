@@ -1,14 +1,14 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { useStore } from '../state/useStore';
+import { useStore } from '../../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import HeaderBar from '../components/HeaderBar';
-import EmptyListAnimation from '../components/EmptyListAnimation';
-import PaymentFooter from '../components/PaymentFooter';
-import CartItem from '../components/CartItem';
-import { colors } from '../config/colors';
-import { spacing } from '../config/dimensions';
-import { SCREENS } from '../config/screenNames';
+import HeaderBar from '../../components/HeaderBar';
+import EmptyListAnimation from '../../components/EmptyListAnimation';
+import PaymentFooter from '../../components/PaymentFooter';
+import CartItem from '../../components/CartItem';
+import { colors } from '../../config/colors';
+import { spacing } from '../../config/dimensions';
+import { SCREENS } from '../../config/screenNames';
 
 const CartScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();

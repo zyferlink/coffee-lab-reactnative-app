@@ -8,8 +8,8 @@ import { NAVIGATORS, SCREENS } from '../config/screenNames';
 import TabNavigator from './TabNavigator';
 
 // Screens
-import DetailScreen from '../screens/DetailScreen';
-import PaymentScreen from '../screens/PaymentScreen';
+import DetailScreen from '../screens/Detail/DetailScreen';
+import PaymentScreen from '../screens/Payment/PaymentScreen';
 
 const Stack = createNativeStackNavigator();
 

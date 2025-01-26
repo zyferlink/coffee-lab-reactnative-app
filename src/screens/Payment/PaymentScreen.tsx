@@ -1,18 +1,18 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import GradientBackgroundIcon from '../components/GradientBackgroundIcon';
-import PaymentMethod from '../components/PaymentMethod';
-import PaymentFooter from '../components/PaymentFooter';
+import GradientBackgroundIcon from '../../components/GradientBackgroundIcon';
+import PaymentMethod from '../../components/PaymentMethod';
+import PaymentFooter from '../../components/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from '../components/CustomIcon';
-import { useStore } from '../state/useStore';
-import PopUpAnimation from '../components/PopUpAnimation';
-import { lottieAnimations } from '../config/assets';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
-import { PAYMENT_OPTIONS } from '../data/paymentOptions';
-import { NAVIGATORS, SCREENS } from '../config/screenNames';
+import CustomIcon from '../../components/CustomIcon';
+import { useStore } from '../../state/useStore';
+import PopUpAnimation from '../../components/PopUpAnimation';
+import { lottieAnimations } from '../../config/assets';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
+import { borderRadius, spacing } from '../../config/dimensions';
+import { PAYMENT_OPTIONS } from '../../data/paymentOptions';
+import { NAVIGATORS, SCREENS } from '../../config/screenNames';
 
 
 const PaymentScreen = ({ navigation, route }: any) => {

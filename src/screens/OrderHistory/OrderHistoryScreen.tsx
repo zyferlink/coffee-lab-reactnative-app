@@ -1,16 +1,16 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { useStore } from '../state/useStore';
+import { useStore } from '../../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import HeaderBar from '../components/HeaderBar';
-import EmptyListAnimation from '../components/EmptyListAnimation';
-import PopUpAnimation from '../components/PopUpAnimation';
-import OrderHistoryCard from '../components/OrderHistoryCard';
-import { lottieAnimations } from '../config/assets';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
-import { SCREENS } from '../config/screenNames';
+import HeaderBar from '../../components/HeaderBar';
+import EmptyListAnimation from '../../components/EmptyListAnimation';
+import PopUpAnimation from '../../components/PopUpAnimation';
+import OrderHistoryCard from '../../components/OrderHistoryCard';
+import { lottieAnimations } from '../../config/assets';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
+import { borderRadius, spacing } from '../../config/dimensions';
+import { SCREENS } from '../../config/screenNames';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();

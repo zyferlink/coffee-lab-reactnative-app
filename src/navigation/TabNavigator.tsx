@@ -8,10 +8,10 @@ import { SCREENS } from '../config/screenNames';
 import CustomIcon from '../components/CustomIcon';
 
 // Screens
-import HomeScreen from '../screens/HomeScreen';
-import FavoriteScreen from '../screens/FavoriteScreen';
-import CartScreen from '../screens/CartScreen';
-import OrderHistoryScreen from '../screens/OrderHistoryScreen';
+import HomeScreen from '../screens/Home/HomeScreen';
+import FavoriteScreen from '../screens/Favorite/FavoriteScreen';
+import CartScreen from '../screens/Cart/CartScreen';
+import OrderHistoryScreen from '../screens/OrderHistory/OrderHistoryScreen';
 
 
 const Tab = createBottomTabNavigator();

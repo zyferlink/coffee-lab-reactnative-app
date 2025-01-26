@@ -1,15 +1,15 @@
 import { Animated, Dimensions, FlatList, ImageProps, ScrollView, StatusBar, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import React, { useRef, useState } from 'react'
-import { useStore } from '../state/useStore'
-import HeaderBar from '../components/HeaderBar';
-import CustomIcon from '../components/CustomIcon';
-import CoffeeCard from '../components/CoffeeCard';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
-import { SCREENS } from '../config/screenNames';
-import { Product } from '../types/productTypes';
+import { useStore } from '../../state/useStore'
+import HeaderBar from '../../components/HeaderBar';
+import CustomIcon from '../../components/CustomIcon';
+import CoffeeCard from '../../components/CoffeeCard';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
+import { borderRadius, spacing } from '../../config/dimensions';
+import { SCREENS } from '../../config/screenNames';
+import { Product } from '../../types/productTypes';
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
