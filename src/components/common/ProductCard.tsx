@@ -1,14 +1,18 @@
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+// React and React Native
+import React from 'react';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+// Third-party
 import LinearGradient from 'react-native-linear-gradient';
+// Absolute
+import { colors } from '../../config/colors';
+import { iconSet } from '../../config/assets';
+import { fonts, fontSizes } from '../../config/fonts';
+import { borderRadius, spacing } from '../../config/dimensions';
+// Relative
 import CustomIcon from '../CustomIcon';
 import BackgroundIcon from '../BackgroundIcon';
-import { fonts, fontSizes } from '../../config/fonts';
-import { colors } from '../../config/colors';
-import { borderRadius, spacing } from '../../config/dimensions';
-import { BrewItem, Product, ProductPrice } from '../../types/productTypes';
 import DimensionsUtil from '../../utils/dimensionsUtil';
-import { iconSet } from '../../config/assets';
+import { BrewItem, Product, ProductPrice } from '../../types/productTypes';
 
 const CARD_WIDTH = DimensionsUtil.widthPercentage(32);
 
