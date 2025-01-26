@@ -11,13 +11,14 @@ import { borderRadius, spacing } from '../../config/dimensions';
 import CustomIcon from './CustomIcon';
 import BackgroundIcon from '../specific/BackgroundIcon';
 import DimensionsUtil from '../../utils/dimensionsUtil';
-import { BrewItem, Product, ProductPrice } from '../../types/productTypes';
+import { Product, ProductPrice } from '../../types/common/product';
+import { CartItem } from '../../types/common/cartItem';
 
 const CARD_WIDTH = DimensionsUtil.widthPercentage(32);
 
 interface ProductCardProps {
     product: Product;
-    onPressHandler: (brewItem: BrewItem) => void;
+    onPressHandler: (cartItem: CartItem) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -74,11 +75,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 {/* Add Button */}
                 <TouchableOpacity
                     onPress={() => {
-                        const brewItem: BrewItem = {
+                        const cartItem: CartItem = {
                             ...product,
                             prices: [{ ...selectedPrice, quantity: 1 }]
                         };
-                        onPressHandler(brewItem);
+                        onPressHandler(cartItem);
                     }}>
                     <BackgroundIcon
                         name={iconSet.add}

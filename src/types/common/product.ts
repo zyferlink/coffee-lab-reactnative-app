@@ -23,15 +23,3 @@ export interface Product {
   type: 'Coffee' | 'Bean';
   index: number;
 }
-
-// - Brew Item
-export interface BrewItemPrice {
-  size: string;
-  price: string;
-  currency: string;
-  quantity: number;
-}
-
-export interface BrewItem extends Product {
-  prices: BrewItemPrice[];
-}

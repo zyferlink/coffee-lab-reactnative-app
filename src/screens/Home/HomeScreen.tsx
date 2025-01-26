@@ -1,19 +1,23 @@
+// React and React Native
+import React, { useRef, useState } from 'react'
 import {
   Animated, FlatList, ScrollView, StatusBar, StyleSheet,
   Text, TextInput, ToastAndroid, TouchableOpacity, View
 } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import React, { useRef, useState } from 'react'
+// Configuration and components
+import { colors } from '../../config/colors';
+import { SCREENS } from '../../config/screenNames';
 import { useStore } from '../../state/useStore'
+import { fonts, fontSizes } from '../../config/fonts';
+import { Product } from '../../types/common/product';
+import { CartItem } from '../../types/common/cartItem';
+import { borderRadius, spacing } from '../../config/dimensions';
 import HeaderBar from '../../components/common/HeaderBar';
 import CustomIcon from '../../components/common/CustomIcon';
 import ProductCard from '../../components/common/ProductCard';
-import { fonts, fontSizes } from '../../config/fonts';
-import { colors } from '../../config/colors';
-import { borderRadius, spacing } from '../../config/dimensions';
-import { SCREENS } from '../../config/screenNames';
-import { BrewItem, Product } from '../../types/productTypes';
 import DimensionsUtil from '../../utils/dimensionsUtil';
+
 
 const SCREEN_WIDTH = DimensionsUtil.getScreenWidth();
 
@@ -22,7 +26,6 @@ interface HomeScreenProps {
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
-
   const listRef = useRef<FlatList<Product>>(null);
   const tabBarHeight = useBottomTabBarHeight();
   const beanList = useStore((state: any) => state.beanList);
@@ -78,12 +81,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
 
   const addToCartHandler = (
-    brewItem: BrewItem,
+    cartItem: CartItem,
   ) => {
-    addToCart(brewItem);
+    addToCart(cartItem);
     calculateCartPrice();
     ToastAndroid.showWithGravity(
-      `${brewItem.name} is Added to Cart`,
+      `${cartItem.name} is Added to Cart`,
       ToastAndroid.SHORT,
       ToastAndroid.CENTER
     );

@@ -8,33 +8,34 @@ import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
 import CustomIcon from '../../../components/common/CustomIcon';
-import { BrewItem } from '../../../types/productTypes';
+import { Product } from '../../../types/common/product';
+import { CartItem } from '../../../types/common/cartItem';
 import { iconSet } from '../../../config/assets';
 
-interface CartItemProps {
-    brewItem: BrewItem,
+interface CartItemViewProps {
+    cartItem: CartItem,
     incrementQuantityHandler: (id: string, size: string) => void;
     decrementQuantityHandler: (id: string, size: string) => void;
 }
 
-const CartItem: React.FC<CartItemProps> = ({
-    brewItem,
+const CartItemView: React.FC<CartItemViewProps> = ({
+    cartItem,
     incrementQuantityHandler,
     decrementQuantityHandler,
 }) => {
-    const hasMultiplePrices = brewItem.prices.length !== 1;
+    const hasMultiplePrices = cartItem.prices.length !== 1;
     return (
         <View>
             {/* Multiple and Single Item Views */}
             {hasMultiplePrices ? (
                 <MultipleBrewItemView
-                    brewItem={brewItem}
+                    cartItem={cartItem}
                     decrementQuantityHandler={decrementQuantityHandler}
                     incrementQuantityHandler={incrementQuantityHandler}
                 />
             ) : (
                 <SingleBrewItemView
-                    brewItem={brewItem}
+                    cartItem={cartItem}
                     decrementQuantityHandler={decrementQuantityHandler}
                     incrementQuantityHandler={incrementQuantityHandler}
                 />
@@ -44,11 +45,11 @@ const CartItem: React.FC<CartItemProps> = ({
 };
 
 const MultipleBrewItemView = ({
-    brewItem,
+    cartItem,
     decrementQuantityHandler,
     incrementQuantityHandler,
 }: {
-    brewItem: any;
+    cartItem: any;
     decrementQuantityHandler: (id: string, size: string) => void;
     incrementQuantityHandler: (id: string, size: string) => void;
 }) => (
@@ -59,14 +60,14 @@ const MultipleBrewItemView = ({
         style={styles.cardItemlinearGradient}
     >
         {/* Header Row */}
-        <BrewItemHeader brewItem={brewItem} />
+        <BrewItemHeader cartItem={cartItem} />
 
         {/* Price Rows */}
-        {brewItem.prices.map((priceItem: any, index: any) => (
+        {cartItem.prices.map((priceItem: any, index: any) => (
             <PriceRow
                 key={index.toString()}
                 priceItem={priceItem}
-                brewItem={brewItem}
+                cartItem={cartItem}
                 decrementQuantityHandler={decrementQuantityHandler}
                 incrementQuantityHandler={incrementQuantityHandler}
             />
@@ -75,11 +76,11 @@ const MultipleBrewItemView = ({
 );
 
 const SingleBrewItemView = ({
-    brewItem,
+    cartItem,
     decrementQuantityHandler,
     incrementQuantityHandler,
 }: {
-    brewItem: any;
+    cartItem: any;
     decrementQuantityHandler: (id: string, size: string) => void;
     incrementQuantityHandler: (id: string, size: string) => void;
 }) => (
@@ -92,7 +93,7 @@ const SingleBrewItemView = ({
         <View style={styles.cartItemSingleView}>
             {/* Image */}
             <Image
-                source={brewItem.imageLinkSquare}
+                source={cartItem.imageLinkSquare}
                 style={styles.cartItemSingleImage}
             />
 
@@ -101,10 +102,10 @@ const SingleBrewItemView = ({
                 {/* Title Views */}
                 <View>
                     <Text style={styles.cartItemTitle}>
-                        {brewItem.name}
+                        {cartItem.name}
                     </Text>
                     <Text style={styles.cartItemSubtitle}>
-                        {brewItem.specialIngredient}
+                        {cartItem.specialIngredient}
                     </Text>
                 </View>
 
@@ -115,18 +116,18 @@ const SingleBrewItemView = ({
                             style={[
                                 styles.sizeText,
                                 {
-                                    fontSize: brewItem.type === "Bean"
+                                    fontSize: cartItem.type === "Bean"
                                         ? fontSizes.size14 : fontSizes.size16,
                                 },
                             ]}
                         >
-                            {brewItem.prices[0].size}
+                            {cartItem.prices[0].size}
                         </Text>
                     </View>
                     <Text style={styles.sizeCurrency}>
-                        {`${brewItem.prices[0].currency} `}
+                        {`${cartItem.prices[0].currency} `}
                         <Text style={styles.sizePrice}>
-                            {brewItem.prices[0].price}
+                            {cartItem.prices[0].price}
                         </Text>
                     </Text>
                 </View>
@@ -136,7 +137,7 @@ const SingleBrewItemView = ({
                     <TouchableOpacity
                         style={styles.cartItemIcon}
                         onPress={() =>
-                            decrementQuantityHandler(brewItem.id, brewItem.prices[0].size)
+                            decrementQuantityHandler(cartItem.id, cartItem.prices[0].size)
                         }
                     >
                         <CustomIcon
@@ -147,13 +148,13 @@ const SingleBrewItemView = ({
                     </TouchableOpacity>
                     <View style={styles.cartItemQuantityContainer}>
                         <Text style={styles.cartItemQuantityText}>
-                            {brewItem.prices[0].quantity}
+                            {cartItem.prices[0].quantity}
                         </Text>
                     </View>
                     <TouchableOpacity
                         style={styles.cartItemIcon}
                         onPress={() =>
-                            incrementQuantityHandler(brewItem.id, brewItem.prices[0].size)
+                            incrementQuantityHandler(cartItem.id, cartItem.prices[0].size)
                         }
                     >
                         <CustomIcon
@@ -168,11 +169,11 @@ const SingleBrewItemView = ({
     </LinearGradient>
 );
 
-const BrewItemHeader = ({ brewItem }: { brewItem: BrewItem }) => (
+const BrewItemHeader = ({ cartItem }: { cartItem: CartItem }) => (
     <View style={styles.cartItemRow}>
         {/* Item Image */}
         <Image
-            source={brewItem.imageLinkSquare}
+            source={cartItem.imageLinkSquare}
             style={styles.cartItemImage}
         />
         {/* Main Property Views */}
@@ -180,16 +181,16 @@ const BrewItemHeader = ({ brewItem }: { brewItem: BrewItem }) => (
             {/* Title Views */}
             <View>
                 <Text style={styles.cartItemTitle}>
-                    {brewItem.name}
+                    {cartItem.name}
                 </Text>
                 <Text style={styles.cartItemSubtitle}>
-                    {brewItem.specialIngredient}
+                    {cartItem.specialIngredient}
                 </Text>
             </View>
             {/* Roasted Level Text */}
             <View style={styles.cardItemRoastedContainer}>
                 <Text style={styles.cardItemRoastedText}>
-                    {brewItem.roasted}
+                    {cartItem.roasted}
                 </Text>
             </View>
         </View>
@@ -198,12 +199,12 @@ const BrewItemHeader = ({ brewItem }: { brewItem: BrewItem }) => (
 
 const PriceRow = ({
     priceItem,
-    brewItem,
+    cartItem,
     decrementQuantityHandler,
     incrementQuantityHandler,
 }: {
     priceItem: any;
-    brewItem: any;
+    cartItem: any;
     decrementQuantityHandler: (id: string, size: string) => void;
     incrementQuantityHandler: (id: string, size: string) => void;
 }) => (
@@ -217,7 +218,7 @@ const PriceRow = ({
                     style={[
                         styles.sizeText,
                         {
-                            fontSize: brewItem.type === "Bean"
+                            fontSize: cartItem.type === "Bean"
                                 ? fontSizes.size14 : fontSizes.size16,
                         },
                     ]}
@@ -239,7 +240,7 @@ const PriceRow = ({
             {/* Minus Button */}
             <TouchableOpacity
                 style={styles.cartItemIcon}
-                onPress={() => decrementQuantityHandler(brewItem.id, priceItem.size)}
+                onPress={() => decrementQuantityHandler(cartItem.id, priceItem.size)}
             >
                 <CustomIcon
                     name={iconSet.minus}
@@ -256,7 +257,7 @@ const PriceRow = ({
             {/* Add Button */}
             <TouchableOpacity
                 style={styles.cartItemIcon}
-                onPress={() => incrementQuantityHandler(brewItem.id, priceItem.size)}
+                onPress={() => incrementQuantityHandler(cartItem.id, priceItem.size)}
             >
                 <CustomIcon
                     name={iconSet.add}
@@ -398,4 +399,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default CartItem;
+export default CartItemView;

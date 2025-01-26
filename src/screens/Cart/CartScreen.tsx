@@ -5,7 +5,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import HeaderBar from '../../components/common/HeaderBar';
 import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import PaymentFooter from '../../components/common/PaymentFooter';
-import CartItem from './components/CartItem';
+import CartItemView from './components/CartItemView';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
@@ -74,8 +74,8 @@ const CartScreen = ({ navigation, route }: any) => {
                         }
                       );
                     }}>
-                    <CartItem
-                      brewItem={item}
+                    <CartItemView
+                      cartItem={item}
                       incrementQuantityHandler={incrementItemQuantiyHandler}
                       decrementQuantityHandler={decrementItemQuantiyHandler}
                     />
