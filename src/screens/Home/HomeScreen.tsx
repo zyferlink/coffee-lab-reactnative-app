@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import {
   Animated, FlatList, ScrollView, StatusBar, StyleSheet,
-  Text, TextInput, ToastAndroid, TouchableOpacity, View
+  Text, ToastAndroid, TouchableOpacity, View
 } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 // Configuration and components
@@ -12,12 +12,12 @@ import { useStore } from '../../state/useStore'
 import { fonts, fontSizes } from '../../config/fonts';
 import { Product } from '../../types/common/product';
 import { CartItem } from '../../types/common/cartItem';
-import { borderRadius, spacing } from '../../config/dimensions';
+import { spacing } from '../../config/dimensions';
 import HeaderBar from '../../components/common/HeaderBar';
-import CustomIcon from '../../components/common/CustomIcon';
 import ProductCard from '../../components/common/ProductCard';
 import DimensionsUtil from '../../utils/dimensionsUtil';
-
+import SearchInput from './components/SearchInput';
+import CategoryScroller from './components/CategoryScroller';
 
 const SCREEN_WIDTH = DimensionsUtil.getScreenWidth();
 
@@ -34,9 +34,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
 
   const [searchText, setSearchText] = useState("");
-  const [categories, setCategories] = useState(
-    getCategoriesFromList(coffeeList)
-  );
+  const [categories, setCategories] = useState(getCategoriesFromList(coffeeList));
   const [categoryIndex, setCategoryIndex] = useState({
     index: 0,
     category: categories[0],
@@ -46,7 +44,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   );
 
   const handleCategoryChange = (index: number) => {
-    scrollToTopWithAnimation(listRef);
+    scrollToTop(listRef);
     setCategoryIndex({
       index: index,
       category: categories[index]
@@ -57,9 +55,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   }
 
   const searchCoffee = (search: string) => {
-    if (search != "") {
-      scrollToTopWithAnimation(listRef);
-    }
+    scrollToTop(listRef);
     setCategoryIndex({
       index: 0, category: categories[0]
     });
@@ -71,14 +67,13 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   };
 
   const resetSearchCoffee = () => {
-    scrollToTopWithAnimation(listRef);
+    scrollToTop(listRef);
     setCategoryIndex({
       index: 0, category: categories[0]
     });
     setSortedCoffee([...coffeeList]);
     setSearchText("");
   };
-
 
   const addToCartHandler = (
     cartItem: CartItem,
@@ -97,18 +92,22 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       style={styles.screenContainer}>
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
+      
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
+
         {/* Header Bar */}
         <HeaderBar title={"CoffeeLab"} />
+
         {/* Title Text */}
         <Text style={styles.titleText}>
           Find the best
           {"\n"}
           coffee for you
         </Text>
+
         {/* Search Input */}
         <SearchInput
           searchText={searchText}
@@ -116,12 +115,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           onSearchCoffee={search => searchCoffee(search)}
           onResetSearch={resetSearchCoffee}
         />
+
         {/* Category Scroller */}
         <CategoryScroller
           categories={categories}
           categoryIndex={categoryIndex.index}
           onCategoryChange={index => handleCategoryChange(index)}
         />
+
         {/* Coffee Flatlist */}
         <FlatList
           horizontal
@@ -153,10 +154,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             </View>
           }
         />
+
         {/* Title Text */}
         <Text style={styles.coffeeBeansTitle}>
           Coffee Beans
         </Text>
+
         {/* Beans Flatlist */}
         <FlatList
           horizontal
@@ -213,7 +216,7 @@ const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
   return sortedList;
 }
 
-const scrollToTopWithAnimation = (listRef: React.RefObject<any>) => {
+const scrollToTop = (listRef: React.RefObject<any>) => {
   if (listRef?.current) {
     const scrollValue = new Animated.Value(0);
 
@@ -231,100 +234,6 @@ const scrollToTopWithAnimation = (listRef: React.RefObject<any>) => {
 };
 
 
-// COMPONENTS
-// ->
-const SearchInput = (
-  { searchText, setSearchText, onSearchCoffee, onResetSearch }:
-    {
-      searchText: string;
-      setSearchText: (text: string) => void;
-      onSearchCoffee: (text: string) => void;
-      onResetSearch: () => void;
-    }
-) => {
-  return (
-    <View
-      style={styles.inputContainer}>
-      <TouchableOpacity
-        onPress={() => onSearchCoffee(searchText)}>
-        <CustomIcon
-          name="search"
-          size={fontSizes.size18}
-          color={
-            searchText.length > 0
-              ? colors.primary.orange
-              : colors.primary.lightGrey
-          }
-          style={styles.inputIcon}
-        />
-      </TouchableOpacity>
-      <TextInput
-        placeholder={"Find your Coffee..."}
-        value={searchText}
-        onChangeText={text => {
-          setSearchText(text);
-          onSearchCoffee(searchText);
-        }}
-        placeholderTextColor={colors.primary.lightGrey}
-        style={styles.textInputContainer}
-      />
-      {
-        searchText.length > 0
-          ? (<TouchableOpacity
-            onPress={() => onResetSearch()}>
-            <CustomIcon
-              style={styles.inputIcon}
-              name="close"
-              size={fontSizes.size16}
-              color={colors.primary.lightGrey} />
-
-          </TouchableOpacity>)
-          : (<></>)
-      }
-    </View>
-  );
-};
-
-const CategoryScroller = (
-  { categories, categoryIndex, onCategoryChange }:
-    {
-      categories: any[];
-      categoryIndex: number;
-      onCategoryChange: (index: number) => void;
-    }
-) => {
-  return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.categoryScrollViewContentContainer}>
-      {
-        categories.map((category, index) => (
-          <View
-            key={index.toString()}
-            style={styles.categoryScrollViewContainer}>
-            <TouchableOpacity
-              onPress={() => onCategoryChange(index)}
-              style={styles.categoryScrollViewItem}>
-              <Text
-                style={[
-                  styles.categoryText,
-                  categoryIndex == index ? { color: colors.primary.orange } : {},
-                ]}>
-                {category}
-              </Text>
-              {categoryIndex == index
-                ? <View style={styles.activeCategory} />
-                : <></>
-              }
-            </TouchableOpacity>
-          </View>
-        ))
-      }
-    </ScrollView>
-  );
-};
-
 // STYLES
 // ->
 const styles = StyleSheet.create({
@@ -341,46 +250,11 @@ const styles = StyleSheet.create({
     color: colors.primary.white,
     paddingStart: spacing.space24,
   },
-  inputContainer: {
-    flexDirection: "row",
-    marginHorizontal: spacing.space24,
-    marginVertical: spacing.space16,
-    borderRadius: borderRadius.radius20,
-    backgroundColor: colors.primary.darkGrey,
-    alignItems: "center",
-  },
-  inputIcon: {
-    marginHorizontal: spacing.space20,
-  },
-  textInputContainer: {
-    flex: 1,
-    height: spacing.space20 * 3,
-    fontFamily: fonts.poppins.medium,
-    fontSize: fontSizes.size14,
-    color: colors.primary.white,
-  },
-  categoryScrollViewContentContainer: {
-    paddingHorizontal: spacing.space20,
-    marginBottom: spacing.space2,
-    marginTop: spacing.space10,
-  },
-  categoryScrollViewContainer: {
-    paddingHorizontal: spacing.space10,
-  },
-  categoryScrollViewItem: {
-    alignItems: "center",
-  },
   categoryText: {
     fontSize: fontSizes.size16,
     fontFamily: fonts.poppins.semiBold,
     color: colors.primary.lightGrey,
     marginBottom: spacing.space4,
-  },
-  activeCategory: {
-    height: spacing.space4,
-    width: spacing.space16,
-    borderRadius: borderRadius.radius10,
-    backgroundColor: colors.primary.orange,
   },
   flatListContainer: {
     gap: spacing.space20,
@@ -402,4 +276,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
+export default HomeScreen;

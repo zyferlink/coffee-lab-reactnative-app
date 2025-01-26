@@ -3,13 +3,17 @@ import { produce } from "immer";
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage, { AsyncStorageStatic } from '@react-native-async-storage/async-storage';
 
+import { CartItem } from "../types/common/cartItem";
 import COFFEE_COLLECTION from "../data/coffeeCollection";
 import BEANS_COLLECTION from "../data/beansCollection";
+import {
+    addToFavoriteList, deleteFromFavoriteList
+} from "./util/favoriteActions";
 import {
     addToCart, addToOrderHistoryFromCart, calculateCartPrice,
     decrementCartItemQuantiy, incrementCartItemQuantiy
 } from "./util/cartActions";
-import { addToFavoriteList, deleteFromFavoriteList } from "./util/favoriteActions";
+
 
 export const useStore = create(
     persist(
@@ -20,7 +24,7 @@ export const useStore = create(
             favoriteList: [],
             cartList: [],
             orderHistoryList: [],
-            addToCart: (cartItem: any) =>
+            addToCart: (cartItem: CartItem) =>
                 set(produce((state) => addToCart(state, cartItem))),
 
             calculateCartPrice: () =>

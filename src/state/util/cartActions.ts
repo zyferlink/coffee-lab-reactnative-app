@@ -1,5 +1,6 @@
 import produce from "immer";
-import { CartItem } from "../../types/common/product";
+import { CartItem } from "../../types/common/cartItem";
+
 
 export const addToCart = (state: any, cartItem: CartItem) => {
   let found = false;
