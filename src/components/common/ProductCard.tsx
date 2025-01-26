@@ -28,34 +28,37 @@ const ProductCard: React.FC<ProductCardProps> = ({
             style={styles.cardLinearGradientContainer}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}>
+
             {/* Image Background */}
             <ImageBackground
                 source={product.imageLinkSquare}
                 resizeMode="cover"
                 style={styles.cardImageBackground}>
                 {/* Rating Container */}
-                <View
-                    style={styles.cardRatingContainer}>
+                <View style={styles.cardRatingContainer}>
                     {/* Rating Icon */}
                     <CustomIcon
                         name={iconSet.star}
                         color={colors.primary.orange}
-                        size={fontSizes.size14} />
+                        size={fontSizes.size14}
+                    />
                     {/* Rating Text */}
-                    <Text
-                        style={styles.cardRatingText}>
+                    <Text style={styles.cardRatingText}>
                         {product.averageRating}
                     </Text>
                 </View>
             </ImageBackground>
+
             {/* Coffee Name */}
             <Text style={styles.cardTitle}>
                 {product.name}
             </Text>
+
             {/* Special Ingredient */}
             <Text style={styles.cardSubtitle}>
                 {product.specialIngredient}
             </Text>
+
             {/* Card Footer */}
             <View style={styles.cardFooterRow}>
                 {/* Item Price */}
@@ -89,7 +92,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 const getPrice = (prices: ProductPrice[]): ProductPrice => {
     if (prices.length === 0) {
         // TODO: Handle the empty prices case, | throw an error
-        return { currency: 'USD', price: '0.00', size: '' }; 
+        return { currency: 'USD', price: '0.00', size: '' };
     }
     const index = prices.length - 1;
     return prices[index];
