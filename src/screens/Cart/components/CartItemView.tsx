@@ -8,7 +8,6 @@ import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
 import CustomIcon from '../../../components/common/CustomIcon';
-import { Product } from '../../../types/common/product';
 import { CartItem } from '../../../types/common/cartItem';
 import { iconSet } from '../../../config/assets';
 

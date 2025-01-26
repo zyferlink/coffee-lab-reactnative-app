@@ -144,6 +144,7 @@ const DetailScreen = ({ navigation, route }: any) => {
         <PaymentFooter
           price={price}
           buttonTitle={"Add to Cart"}
+           priceContainerStyle={{paddingVertical: spacing.space20}}
           buttonPressHandler={() => {
             addToCartHandler(
               selectedItem.id,

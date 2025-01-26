@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
@@ -13,27 +13,32 @@ interface PaymentFooterProps {
     price: PriceProps;
     buttonTitle: string;
     buttonPressHandler: any;
+    priceContainerStyle: StyleProp<ViewStyle>;
 }
 
 const PaymentFooter: React.FC<PaymentFooterProps> = ({
     price,
     buttonTitle,
     buttonPressHandler,
+    priceContainerStyle,
 }) => {
     return (
         <View style={styles.priceFooter}>
-            <View style={styles.priceContainer}>
+            {/* Price View */}
+            <View style={StyleSheet.flatten(
+                [styles.priceContainer, priceContainerStyle]
+            )}>
                 <Text style={styles.priceTitle}>
                     Price
                 </Text>
                 <Text style={styles.priceText}>
-                    {price.currency}
-                    {" "}
+                    {`${price.currency} `}
                     <Text style={styles.price}>
                         {price.price}
                     </Text>
                 </Text>
             </View>
+            {/* Action Button */}
             <TouchableOpacity
                 style={styles.payButton}
                 onPress={() => buttonPressHandler()}>
@@ -41,10 +46,9 @@ const PaymentFooter: React.FC<PaymentFooterProps> = ({
                     {buttonTitle}
                 </Text>
             </TouchableOpacity>
-
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     priceFooter: {
@@ -52,7 +56,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         gap: spacing.space20,
-        padding: spacing.space20,
+        paddingHorizontal: spacing.space20,
+        backgroundColor: colors.primary.blackTransparent,
     },
     priceContainer: {
         alignItems: "center",
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
     },
     payButton: {
         flex: 1,
-        height: 68,
+        height: 56,
         backgroundColor: colors.primary.orange,
         alignItems: "center",
         justifyContent: "center",
@@ -87,4 +92,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default PaymentFooter
+export default PaymentFooter;
