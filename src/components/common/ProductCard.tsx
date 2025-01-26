@@ -1,39 +1,25 @@
 import { Dimensions, ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from './CustomIcon';
-import BackgroundIcon from './BackgroundIcon';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
+import CustomIcon from '../CustomIcon';
+import BackgroundIcon from '../BackgroundIcon';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
+import { borderRadius, spacing } from '../../config/dimensions';
+import { BrewItem, Product, ProductPrice } from '../../types/productTypes';
 
 const CARD_WIDTH = Dimensions.get("window").width * 0.32;
 
-interface CoffeeCardProps {
-    id: string;
-    index: number;
-    name: string;
-    type: string;
-    roasted: string;
-    imageLinkSquare: ImageProps;
-    specialIngredient: string;
-    averageRating: number;
-    price: any;
-    onPressHandler: any;
+interface ProductCardProps {
+    product: Product;
+    onPressHandler: (brewItem: BrewItem) => void;
 }
 
-const CoffeeCard: React.FC<CoffeeCardProps> = ({
-    id,
-    index,
-    name,
-    type,
-    roasted,
-    imageLinkSquare,
-    specialIngredient,
-    averageRating,
-    price,
+const ProductCard: React.FC<ProductCardProps> = ({
+    product,
     onPressHandler,
 }) => {
+    const selectedPrice = getPrice(product.prices);
     return (
         <LinearGradient
             colors={[colors.primary.grey, colors.primary.black]}
@@ -42,7 +28,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
             end={{ x: 1, y: 1 }}>
             {/* Image Background */}
             <ImageBackground
-                source={imageLinkSquare}
+                source={product.imageLinkSquare}
                 resizeMode="cover"
                 style={styles.cardImageBackground}>
                 {/* Rating Container */}
@@ -56,17 +42,17 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                     {/* Rating Text */}
                     <Text
                         style={styles.cardRatingText}>
-                        {averageRating}
+                        {product.averageRating}
                     </Text>
                 </View>
             </ImageBackground>
             {/* Coffee Name */}
             <Text style={styles.cardTitle}>
-                {name}
+                {product.name}
             </Text>
             {/* Special Ingredient */}
             <Text style={styles.cardSubtitle}>
-                {specialIngredient}
+                {product.specialIngredient}
             </Text>
             {/* Card Footer */}
             <View style={styles.cardFooterRow}>
@@ -74,22 +60,17 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
                 <Text style={styles.cardPriceCurrency}>
                     ${" "}
                     <Text style={styles.cardPrice}>
-                        {price.price}
+                        {selectedPrice.price}
                     </Text>
                 </Text>
                 {/* Add Button */}
                 <TouchableOpacity
                     onPress={() => {
-                        onPressHandler(
-                            id,
-                            index,
-                            name,
-                            type,
-                            roasted,
-                            imageLinkSquare,
-                            specialIngredient,
-                            price,
-                        );
+                        const brewItem: BrewItem = {
+                            ...product,
+                            prices: [{ ...selectedPrice, quantity: 1 }]
+                        };
+                        onPressHandler(brewItem);
                     }}>
                     <BackgroundIcon
                         name={"add"}
@@ -101,6 +82,12 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
             </View>
         </LinearGradient>
     )
+}
+
+const getPrice = (prices: ProductPrice[]): ProductPrice => {
+    //TODO if(prices.length == 0) return {};
+    const index = prices.length - 1;
+    return prices[index];
 }
 
 const styles = StyleSheet.create({
@@ -160,4 +147,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CoffeeCard;
+export default ProductCard;

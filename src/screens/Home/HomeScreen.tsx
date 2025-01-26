@@ -1,5 +1,5 @@
 import {
-  Animated, FlatList, ImageProps, ScrollView, StatusBar, StyleSheet,
+  Animated, FlatList, ScrollView, StatusBar, StyleSheet,
   Text, TextInput, ToastAndroid, TouchableOpacity, View
 } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -7,12 +7,12 @@ import React, { useRef, useState } from 'react'
 import { useStore } from '../../state/useStore'
 import HeaderBar from '../../components/HeaderBar';
 import CustomIcon from '../../components/CustomIcon';
-import CoffeeCard from '../../components/CoffeeCard';
+import ProductCard from '../../components/common/ProductCard';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
-import { Product } from '../../types/productTypes';
+import { BrewItem, Product } from '../../types/productTypes';
 import DimensionsUtil from '../../utils/dimensionsUtil';
 
 const SCREEN_WIDTH = DimensionsUtil.getScreenWidth();
@@ -77,29 +77,13 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   };
 
 
-  const coffeeCardAddToCartHandler = (
-    id: string,
-    index: any,
-    name: string,
-    type: string,
-    roasted: string,
-    imageLinkSquare: ImageProps,
-    specialIngredient: string,
-    price: any,
+  const addToCartHandler = (
+    brewItem: BrewItem,
   ) => {
-    addToCart({
-      id,
-      index,
-      name,
-      type,
-      roasted,
-      imageLinkSquare,
-      specialIngredient,
-      prices: [{ ...price, quantity: 1 }],
-    });
+    addToCart(brewItem);
     calculateCartPrice();
     ToastAndroid.showWithGravity(
-      `${name} is Added to Cart`,
+      `${brewItem.name} is Added to Cart`,
       ToastAndroid.SHORT,
       ToastAndroid.CENTER
     );
@@ -153,35 +137,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                     type: item.type,
                   });
                 }}>
-                <CoffeeCard
-                  id={item.id}
-                  index={item.index}
-                  name={item.name}
-                  type={item.type}
-                  roasted={item.roasted}
-                  imageLinkSquare={item.imageLinkSquare}
-                  specialIngredient={item.specialIngredient}
-                  averageRating={item.averageRating}
-                  price={item.prices[2]}
-                  onPressHandler={(
-                    id: string,
-                    index: any,
-                    name: string,
-                    type: string,
-                    roasted: string,
-                    imageLinkSquare: ImageProps,
-                    specialIngredient: string,
-                    price: any,
-                  ) => coffeeCardAddToCartHandler(
-                    id,
-                    index,
-                    name,
-                    type,
-                    roasted,
-                    imageLinkSquare,
-                    specialIngredient,
-                    price,
-                  )}
+                <ProductCard
+                  product={item}
+                  onPressHandler={addToCartHandler}
                 />
               </TouchableOpacity>
             );
@@ -213,35 +171,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                     type: item.type,
                   });
                 }}>
-                <CoffeeCard
-                  id={item.id}
-                  index={item.index}
-                  name={item.name}
-                  type={item.type}
-                  roasted={item.roasted}
-                  imageLinkSquare={item.imageLinkSquare}
-                  specialIngredient={item.specialIngredient}
-                  averageRating={item.averageRating}
-                  price={item.prices[2]}
-                  onPressHandler={(
-                    id: string,
-                    index: any,
-                    name: string,
-                    type: string,
-                    roasted: string,
-                    imageLinkSquare: ImageProps,
-                    specialIngredient: string,
-                    price: any,
-                  ) => coffeeCardAddToCartHandler(
-                    id,
-                    index,
-                    name,
-                    type,
-                    roasted,
-                    imageLinkSquare,
-                    specialIngredient,
-                    price,
-                  )}
+                <ProductCard
+                  product={item}
+                  onPressHandler={addToCartHandler}
                 />
               </TouchableOpacity>
             );

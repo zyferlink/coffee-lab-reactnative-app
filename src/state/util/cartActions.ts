@@ -1,6 +1,7 @@
 import produce from "immer";
+import { BrewItem } from "../../types/productTypes";
 
-export const addToCart = (state: any, cartItem: any) => {
+export const addToCart = (state: any, cartItem: BrewItem) => {
   let found = false;
   for (let index = 0; index < state.cartList.length; index++) {
     if (state.cartList[index].id === cartItem.id) {
