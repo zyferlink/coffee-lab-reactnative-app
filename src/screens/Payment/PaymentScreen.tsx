@@ -1,12 +1,12 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import GradientBackgroundIcon from '../../components/GradientBackgroundIcon';
-import PaymentMethod from '../../components/PaymentMethod';
-import PaymentFooter from '../../components/PaymentFooter';
+import GradientBackgroundIcon from '../../components/common/GradientBackgroundIcon';
+import PaymentMethod from './components/PaymentMethod';
+import PaymentFooter from '../../components/common/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../../components/common/CustomIcon';
 import { useStore } from '../../state/useStore';
-import PopUpAnimation from '../../components/PopUpAnimation';
+import PopUpAnimation from '../../components/common/PopUpAnimation';
 import { lottieAnimations } from '../../config/assets';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';

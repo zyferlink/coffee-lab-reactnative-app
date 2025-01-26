@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
-import ProfilePicture from './ProfilePicture';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { spacing } from '../config/dimensions';
+import ProfilePicture from '../specific/ProfilePicture';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
+import { spacing } from '../../config/dimensions';
 
 interface HeaderBarProps {
     title?: string;

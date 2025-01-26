@@ -1,10 +1,10 @@
 import { ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ImageBackdropInfo from './ImageBackdropInfo';
+import ImageBackdropInfo from '../../../components/common/ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
+import { fonts, fontSizes } from '../../../config/fonts';
+import { colors } from '../../../config/colors';
+import { borderRadius, spacing } from '../../../config/dimensions';
 
 interface FavoriteItemCardProps {
   id: string;

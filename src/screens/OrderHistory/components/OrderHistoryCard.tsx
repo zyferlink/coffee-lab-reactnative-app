@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import OrderItemCard from './OrderItemCard';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { spacing } from '../config/dimensions';
+import { fonts, fontSizes } from '../../../config/fonts';
+import { colors } from '../../../config/colors';
+import { spacing } from '../../../config/dimensions';
 
 interface OrderHistoryCardProps {
     orderDate: string;

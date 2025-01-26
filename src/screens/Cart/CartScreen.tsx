@@ -2,9 +2,9 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React from 'react'
 import { useStore } from '../../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import HeaderBar from '../../components/HeaderBar';
-import EmptyListAnimation from '../../components/EmptyListAnimation';
-import PaymentFooter from '../../components/PaymentFooter';
+import HeaderBar from '../../components/common/HeaderBar';
+import EmptyListAnimation from '../../components/common/EmptyListAnimation';
+import PaymentFooter from '../../components/common/PaymentFooter';
 import CartItem from './components/CartItem';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';

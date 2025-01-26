@@ -2,9 +2,9 @@ import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react
 import React from 'react'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useStore } from '../../state/useStore';
-import EmptyListAnimation from '../../components/EmptyListAnimation';
-import HeaderBar from '../../components/HeaderBar';
-import FavoriteItemCard from '../../components/FavoriteItemCard';
+import EmptyListAnimation from '../../components/common/EmptyListAnimation';
+import HeaderBar from '../../components/common/HeaderBar';
+import FavoriteItemCard from './components/FavoriteItemCard';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';

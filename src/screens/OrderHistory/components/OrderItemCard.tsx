@@ -1,9 +1,9 @@
 import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
+import { fonts, fontSizes } from '../../../config/fonts';
+import { colors } from '../../../config/colors';
+import { borderRadius, spacing } from '../../../config/dimensions';
 
 interface OrderItemCardProps {
     type: string;

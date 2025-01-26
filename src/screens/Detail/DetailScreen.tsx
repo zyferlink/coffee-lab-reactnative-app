@@ -1,8 +1,8 @@
 import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
 import { useStore } from '../../state/useStore'
-import ImageBackdropInfo from '../../components/ImageBackdropInfo';
-import PaymentFooter from '../../components/PaymentFooter';
+import ImageBackdropInfo from '../../components/common/ImageBackdropInfo';
+import PaymentFooter from '../../components/common/PaymentFooter';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';

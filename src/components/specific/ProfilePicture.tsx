@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { images } from '../config/assets'
-import { colors } from '../config/colors'
-import { spacing } from '../config/dimensions'
+import { images } from '../../config/assets'
+import { colors } from '../../config/colors'
+import { spacing } from '../../config/dimensions'
 
 const ProfilePicture = () => {
     return (

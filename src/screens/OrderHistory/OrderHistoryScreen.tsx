@@ -2,10 +2,10 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import React, { useState } from 'react'
 import { useStore } from '../../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import HeaderBar from '../../components/HeaderBar';
-import EmptyListAnimation from '../../components/EmptyListAnimation';
-import PopUpAnimation from '../../components/PopUpAnimation';
-import OrderHistoryCard from '../../components/OrderHistoryCard';
+import HeaderBar from '../../components/common/HeaderBar';
+import EmptyListAnimation from '../../components/common/EmptyListAnimation';
+import PopUpAnimation from '../../components/common/PopUpAnimation';
+import OrderHistoryCard from './components/OrderHistoryCard';
 import { lottieAnimations } from '../../config/assets';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';

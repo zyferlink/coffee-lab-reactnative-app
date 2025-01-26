@@ -1,10 +1,10 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from './common/CustomIcon';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
-import { borderRadius, spacing } from '../config/dimensions';
+import CustomIcon from '../../../components/common/CustomIcon';
+import { fonts, fontSizes } from '../../../config/fonts';
+import { colors } from '../../../config/colors';
+import { borderRadius, spacing } from '../../../config/dimensions';
 
 interface PaymentMethodProps {
     paymentMode: string

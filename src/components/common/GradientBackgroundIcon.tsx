@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
-import CustomIcon from './common/CustomIcon'
-import { colors } from '../config/colors'
-import { spacing } from '../config/dimensions'
+import CustomIcon from './CustomIcon'
+import { colors } from '../../config/colors'
+import { spacing } from '../../config/dimensions'
 
 interface GradientBackgroundIconProps {
     name: string,

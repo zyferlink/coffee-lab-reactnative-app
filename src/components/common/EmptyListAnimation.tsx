@@ -1,23 +1,29 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+// Third-party
 import LottieView from 'lottie-react-native';
-import { lottieAnimations } from '../config/assets';
-import { fonts, fontSizes } from '../config/fonts';
-import { colors } from '../config/colors';
+// Configuration and components
+import { lottieAnimations } from '../../config/assets';
+import { fonts, fontSizes } from '../../config/fonts';
+import { colors } from '../../config/colors';
 
 interface EmptyListAnimationProps {
     title: string;
 }
 
-const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({ title }) => {
+const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({
+    title
+}) => {
     return (
         <View style={styles.emptyCartContainer}>
+            {/* Animation View */}
             <LottieView
                 source={lottieAnimations.coffeecup}
                 style={styles.lottieStyle}
                 autoPlay
                 loop
             />
+            {/* Title Text */}
             <Text style={styles.lottieText}>
                 {title}
             </Text>
@@ -37,7 +43,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.poppins.medium,
         fontSize: fontSizes.size18,
         color: colors.primary.orange,
-        textAlign:"center",
+        textAlign: "center",
     },
 })
 
