@@ -1,15 +1,15 @@
-import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useStore } from '../../state/useStore';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import HeaderBar from '../../components/common/HeaderBar';
-import EmptyListAnimation from '../../components/common/EmptyListAnimation';
-import PaymentFooter from '../../components/common/PaymentFooter';
-import CartItemView from './components/CartItemView';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
 import { CURRENCY } from '../../config/constants';
+import HeaderBar from '../../components/common/HeaderBar';
+import EmptyListAnimation from '../../components/common/EmptyListAnimation';
+import PaymentFooter from '../../components/common/PaymentFooter';
+import CartItemView from './components/CartItemView';
 
 interface CartScreenProps {
   navigation: any;
@@ -48,7 +48,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}
       >
-        <View style={[styles.innerScrollView, { marginBottom: tabBarHeight }]}>
+        <View style={styles.innerScrollView}>
           {/* Header Bar */}
           <HeaderBar title={SCREENS.CART} />
 
@@ -87,7 +87,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
             buttonTitle="Pay"
             price={{ price: cartPrice, currency: CURRENCY.USD.symbol }}
             buttonPressHandler={handleButtonPress}
-            priceContainerStyle={{paddingVertical: spacing.space10}}
+            priceContainerStyle={{ paddingVertical: spacing.space10 }}
           />
         </View>
       )}
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   innerScrollView: {
     flex: 1,
-    justifyContent: "space-between",
+    paddingBottom: spacing.space48,
   },
   itemContainer: {
     flex: 1,
@@ -116,4 +116,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default CartScreen
+export default CartScreen;

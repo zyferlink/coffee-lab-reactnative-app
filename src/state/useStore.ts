@@ -11,7 +11,7 @@ import {
 } from "./util/favoriteActions";
 import {
     addToCart, addToOrderHistoryFromCart, calculateCartPrice,
-    decrementCartItemQuantiy, incrementCartItemQuantiy
+    decrementCartItemQuantity, incrementCartItemQuantity
 } from "./util/cartActions";
 
 
@@ -30,11 +30,11 @@ export const useStore = create(
             calculateCartPrice: () =>
                 set(produce((state) => calculateCartPrice(state))),
 
-            incrementCartItemQuantiy: (id: string, size: string) =>
-                set(produce((state) => incrementCartItemQuantiy(state, id, size))),
+            incrementCartItemQuantity: (id: string, size: string) =>
+                set(produce((state) => incrementCartItemQuantity(state, id, size))),
 
-            decrementCartItemQuantiy: (id: string, size: string) =>
-                set(produce((state) => decrementCartItemQuantiy(state, id, size))),
+            decrementCartItemQuantity: (id: string, size: string) =>
+                set(produce((state) => decrementCartItemQuantity(state, id, size))),
 
             addToOrderHistoryFromCart: () =>
                 set(produce((state) => addToOrderHistoryFromCart(state))),

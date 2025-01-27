@@ -1,20 +1,30 @@
-import { ImageProps, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
-import React, { useState } from 'react'
-import { useStore } from '../../state/useStore'
-import ImageBackdropInfo from '../../components/common/ImageBackdropInfo';
-import PaymentFooter from '../../components/common/PaymentFooter';
+import React, { useState } from 'react';
+import {
+  ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity,
+  TouchableWithoutFeedback, View
+} from 'react-native';
+import { useStore } from '../../state/useStore';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
+import { CartItem } from '../../types/common/cartItem';
+import { Product } from '../../types/common/product';
+import ImageBackdropInfo from '../../components/common/ImageBackdropInfo';
+import PaymentFooter from '../../components/common/PaymentFooter';
 
-const DetailScreen = ({ navigation, route }: any) => {
+interface DetailScreenProps {
+  navigation: any;
+  route: any;
+}
+
+const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
   const addToCart = useStore((state: any) => state.addToCart);
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
-  const selectedItem = useStore((state: any) =>
+  const selectedItem: Product = useStore((state: any) =>
     route.params.type == "Coffee" ? state.coffeeList : state.beanList,
   )[route.params.index];
 
@@ -30,29 +40,13 @@ const DetailScreen = ({ navigation, route }: any) => {
   };
 
   const addToCartHandler = (
-    id: string,
-    index: any,
-    name: string,
-    type: string,
-    roasted: string,
-    imageLinkSquare: ImageProps,
-    specialIngredient: string,
-    price:any,
+    cartItem: CartItem,
   ) => {
-    addToCart({
-      id,
-      index,
-      name,
-      type,
-      roasted,
-      imageLinkSquare,
-      specialIngredient,
-      prices: [{ ...price, quantity: 1 }],
-    });
+    addToCart(cartItem);
     calculateCartPrice();
     navigation.navigate(NAVIGATORS.TAB, { screen: SCREENS.CART });
-  };  
-  
+  };
+
 
   return (
     <View style={styles.screenContainer}>
@@ -144,21 +138,15 @@ const DetailScreen = ({ navigation, route }: any) => {
         <PaymentFooter
           price={price}
           buttonTitle={"Add to Cart"}
-           priceContainerStyle={{paddingVertical: spacing.space20}}
+          priceContainerStyle={{ paddingVertical: spacing.space20 }}
           buttonPressHandler={() => {
-            addToCartHandler(
-              selectedItem.id,
-              selectedItem.index,
-              selectedItem.name,
-              selectedItem.type,
-              selectedItem.roasted,
-              selectedItem.imageLinkSquare,
-              selectedItem.specialIngredient,
-              price,
-            );
+            const cartItem: CartItem = {
+              ...selectedItem,
+              prices: [{ ...price, quantity: 1 }]
+            };
+            addToCartHandler(cartItem);
           }}
         />
-
       </ScrollView>
     </View>
   )
@@ -209,4 +197,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default DetailScreen
+export default DetailScreen;

@@ -45,7 +45,7 @@ export const calculateCartPrice = (state: any) => {
   state.cartPrice = totalPrice.toFixed(2).toString();
 };
 
-export const incrementCartItemQuantiy = (state: any, id: string, size: string) => {
+export const incrementCartItemQuantity = (state: any, id: string, size: string) => {
   for (let index = 0; index < state.cartList.length; index++) {
     if (state.cartList[index].id == id) {
 
@@ -61,7 +61,7 @@ export const incrementCartItemQuantiy = (state: any, id: string, size: string) =
   }
 };
 
-export const decrementCartItemQuantiy = (state: any, id: string, size: string) => {
+export const decrementCartItemQuantity = (state: any, id: string, size: string) => {
   for (let index = 0; index < state.cartList.length; index++) {
     if (state.cartList[index].id == id) {
 
