@@ -13,7 +13,7 @@ const iconSet = {
   add: 'add',
   close: 'close',
   bean: 'bean',
-  bean_group: 'bean_group',
+  beans: 'beans',
   bell: 'bell',
   cart: 'cart',
   chip: 'chip',
