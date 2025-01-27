@@ -8,6 +8,7 @@ import FavoriteItemCard from './components/FavoriteItemCard';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
+import { MESSAGES } from '../../config/messages';
 
 const FavoriteScreen = ({ navigation, route }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -36,7 +37,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
             <HeaderBar title={SCREENS.FAVORITE} />
             {/* Favorite Items */}
             {favoriteList.length == 0 ?
-              (<EmptyListAnimation title={"No Favorites"} />)
+              (<EmptyListAnimation title={MESSAGES.DEFAULTS.NO_FAVORITES} />)
               :
               (<View style={styles.listItemContainer}>
                 {favoriteList.map((item: any) => (

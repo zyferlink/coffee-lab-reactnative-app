@@ -5,6 +5,7 @@ import CustomIcon from '../../../components/common/CustomIcon';
 import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
+import { iconSet } from '../../../config/assets';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -34,7 +35,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                     style={styles.linearGradientWallet}>
                     <View style={styles.walletRow}>
                         <CustomIcon
-                            name={"wallet"}
+                            name={iconSet.wallet}
                             color={colors.primary.orange}
                             size={fontSizes.size30} />
                         <Text style={styles.paymentTitle}>{name}</Text>

@@ -4,6 +4,8 @@ import CustomIcon from '../../../components/common/CustomIcon';
 import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
+import { iconSet } from '../../../config/assets';
+import { CONSTANTS } from '../../../config/constants';
 
 type SearchInputProps = {
   searchText: string;
@@ -24,7 +26,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       <TouchableOpacity 
         onPress={() => onSearchCoffee(searchText)}>
         <CustomIcon
-          name="search"
+          name={iconSet.search}
           size={fontSizes.size18}
           color={
             searchText.length > 0
@@ -37,7 +39,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
       {/* Text Input */}
       <TextInput
-        placeholder="Find your Coffee..."
+        placeholder={CONSTANTS.PLACEHOLDER.FIND_YOUR_COFFEE}
         value={searchText}
         onChangeText={text => {
             setSearchText(text);
@@ -52,7 +54,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
         <TouchableOpacity 
         onPress={() => onResetSearch()}>
           <CustomIcon
-            name="close"
+            name={iconSet.close}
             size={fontSizes.size16}
             color={colors.primary.lightGrey}
             style={styles.inputIcon}

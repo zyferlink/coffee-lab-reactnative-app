@@ -1,10 +1,11 @@
-export const APP_MESSAGES = {
+export const MESSAGES = {
   DEFAULTS: {
     CART_IS_EMPTY: "Cart is Empty!",
     NO_FAVORITES: "No Favorites",
     NO_ORDER_HISTORY:"No Order History!",
   },
   SUCCESS: {
+    ITEM_ADDED_TO_CART: (itemName: string) => `${itemName} is Added to Cart`,
     ITEM_ADDED: "Item has been added to your cart successfully.",
     PAYMENT_COMPLETED: "Payment was completed successfully.",
   },

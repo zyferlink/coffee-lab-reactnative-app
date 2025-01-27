@@ -8,7 +8,7 @@ import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
-import { BUTTON_TITLES, PRODUCT_TYPES } from '../../config/constants';
+import { BUTTON_TITLES, PRODUCT_TYPES } from '../../config/specialTypes';
 import { CartItem } from '../../types/common/cartItem';
 import { Product } from '../../types/common/product';
 import ImageBackdropInfo from '../../components/common/ImageBackdropInfo';

@@ -11,6 +11,8 @@ import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
+import { CONSTANTS } from '../../config/constants';
+import { MESSAGES } from '../../config/messages';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -51,10 +53,10 @@ const OrderHistoryScreen = ({ navigation }: any) => {
           <View
             style={styles.itemContainer}>
             {/* Header Bar */}
-            <HeaderBar title={"Order History"} />
+            <HeaderBar title={CONSTANTS.TITLES.ORDER_HISTORY} />
             {/* Order History Items */}
             {orderHistoryList.length == 0 ?
-              (<EmptyListAnimation title={"No Order History!"} />)
+              (<EmptyListAnimation title={MESSAGES.DEFAULTS.NO_ORDER_HISTORY} />)
               :
               (<View style={styles.listItemContainer}>
                 {orderHistoryList.map((orderItem: any, index: any) => (

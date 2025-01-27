@@ -5,11 +5,12 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
-import { BUTTON_TITLES, CURRENCY } from '../../config/constants';
+import { BUTTON_TITLES, CURRENCY } from '../../config/specialTypes';
 import HeaderBar from '../../components/common/HeaderBar';
 import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import PaymentFooter from '../../components/common/PaymentFooter';
 import CartItemView from './components/CartItemView';
+import { MESSAGES } from '../../config/messages';
 
 interface CartScreenProps {
   navigation: any;
@@ -54,7 +55,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
           {/* Cart Items */}
           {cartList.length === 0 ? (
-            <EmptyListAnimation title="Cart is Empty!" />
+            <EmptyListAnimation title={MESSAGES.DEFAULTS.CART_IS_EMPTY} />
           ) : (
             <View style={styles.listItemContainer}>
               {cartList.map((item: any) => (

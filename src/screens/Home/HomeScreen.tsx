@@ -18,6 +18,8 @@ import ProductCard from '../../components/common/ProductCard';
 import DimensionsUtil from '../../utils/dimensionsUtil';
 import SearchInput from './components/SearchInput';
 import CategoryScroller from './components/CategoryScroller';
+import { MESSAGES } from '../../config/messages';
+import { CONSTANTS } from '../../config/constants';
 
 const SCREEN_WIDTH = DimensionsUtil.getScreenWidth();
 
@@ -81,7 +83,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     addToCart(cartItem);
     calculateCartPrice();
     ToastAndroid.showWithGravity(
-      `${cartItem.name} is Added to Cart`,
+      MESSAGES.SUCCESS.ITEM_ADDED_TO_CART(cartItem.name),
       ToastAndroid.SHORT,
       ToastAndroid.CENTER
     );
@@ -99,7 +101,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         contentContainerStyle={styles.scrollViewFlex}>
 
         {/* Header Bar */}
-        <HeaderBar title={"CoffeeLab"} />
+        <HeaderBar title={CONSTANTS.APP_NAME} />
 
         {/* Title Text */}
         <Text style={styles.titleText}>
@@ -203,12 +205,12 @@ const getCategoriesFromList = (coffeeList: any[]) => {
     }
   });
   // Create categories list with "All" at the start
-  const categories = ["All", ...Object.keys(categoryCounts)];
+  const categories = [CONSTANTS.GENERAL.CATEGORY_ALL, ...Object.keys(categoryCounts)];
   return categories;
 };
 
 const getSortedCoffeeList = (seletedCategory: string, coffeeList: any[]) => {
-  if (seletedCategory == "All") return coffeeList;
+  if (seletedCategory == CONSTANTS.GENERAL.CATEGORY_ALL) return coffeeList;
 
   const sortedList = coffeeList.filter(
     (coffeeCategory: any) => coffeeCategory.name == seletedCategory

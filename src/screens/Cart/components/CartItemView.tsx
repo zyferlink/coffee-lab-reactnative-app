@@ -10,7 +10,7 @@ import { borderRadius, spacing } from '../../../config/dimensions';
 import CustomIcon from '../../../components/common/CustomIcon';
 import { CartItem } from '../../../types/common/cartItem';
 import { iconSet } from '../../../config/assets';
-import { PRODUCT_TYPES } from '../../../config/constants';
+import { PRODUCT_TYPES } from '../../../config/specialTypes';
 
 interface CartItemViewProps {
     cartItem: CartItem,

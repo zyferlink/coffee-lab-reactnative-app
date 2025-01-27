@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
+import { CURRENCY, PRODUCT_TYPES } from '../../../config/specialTypes';
 
 interface OrderItemCardProps {
     type: string;
@@ -52,7 +53,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                 <View>
                     {/* Item Price */}
                     <Text style={styles.cardCurrency}>
-                        {"$ "}
+                        {`${CURRENCY.USD.symbol} `}
                         <Text style={styles.cardPrice}>
                             {itemPrice}
                         </Text>
@@ -68,7 +69,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                         {/* PriceItems's Size */}
                         <View style={styles.cardBoxLeft}>
                             <Text style={[styles.itemPriceSize, {
-                                fontSize: type == "Bean" ?
+                                fontSize: type == PRODUCT_TYPES.BEAN ?
                                     fontSizes.size14 : fontSizes.size16
                             }]}>
                                 {priceItem.size}

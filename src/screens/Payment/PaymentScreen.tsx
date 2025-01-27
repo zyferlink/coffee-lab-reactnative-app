@@ -7,13 +7,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../../components/common/CustomIcon';
 import { useStore } from '../../state/useStore';
 import PopUpAnimation from '../../components/common/PopUpAnimation';
-import { lottieAnimations } from '../../config/assets';
+import { iconSet, lottieAnimations } from '../../config/assets';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { PAYMENT_OPTIONS } from '../../data/paymentOptions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
-import { BUTTON_TITLES } from '../../config/constants';
+import { BUTTON_TITLES, CURRENCY, PAYMENT_METHODS } from '../../config/specialTypes';
 
 
 const PaymentScreen = ({ navigation, route }: any) => {
@@ -25,7 +25,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
     state.addToOrderHistoryFromCart
   );
 
-  const [paymentMode, setPaymentMode] = useState("Credit Card");
+  const [paymentMode, setPaymentMode] = useState(PAYMENT_METHODS.CREDIT_CARD);
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false)
 
   const buttonPressHandler = () => {
@@ -59,7 +59,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
           <TouchableOpacity
             onPress={() => navigation.pop()}>
             <GradientBackgroundIcon
-              name={"left"}
+              name={iconSet.left}
               color={colors.primary.lightGrey}
               size={fontSizes.size16}
             />
@@ -74,11 +74,11 @@ const PaymentScreen = ({ navigation, route }: any) => {
         <View style={styles.paymentOptionContainer}>
           {/* Credit Card View */}
           <TouchableOpacity
-            onPress={() => setPaymentMode("Credit Card")}>
+            onPress={() => setPaymentMode(PAYMENT_METHODS.CREDIT_CARD)}>
             <View
               style={[styles.paymentCardContainer, {
                 borderColor:
-                  paymentMode == "Credit Card" ?
+                  paymentMode == PAYMENT_METHODS.CREDIT_CARD ?
                   colors.primary.orange : colors.primary.grey
               }]}>
               {/* Credit Card Title */}
@@ -95,13 +95,13 @@ const PaymentScreen = ({ navigation, route }: any) => {
                   <View style={styles.creditCardRow}>
                     {/* Credit Card Chip Icon */}
                     <CustomIcon
-                      name={"chip"}
+                      name={iconSet.visa}
                       size={fontSizes.size20 * 2}
                       color={colors.primary.orange}
                     />
                     {/* Credit Card Type Icon */}
                     <CustomIcon
-                      name={"visa"}
+                      name={iconSet.visa}
                       size={fontSizes.size30 * 2}
                       color={colors.primary.white}
                     />
@@ -164,7 +164,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
       {/* Payment Footer */}
       <PaymentFooter
         buttonTitle={BUTTON_TITLES.PAY_WITH(paymentMode)} 
-        price={{ price: route.params.amount, currency: "$" }}
+        price={{ price: route.params.amount, currency: CURRENCY.USD.symbol }}
          priceContainerStyle={{paddingVertical: spacing.space20}}
         buttonPressHandler={buttonPressHandler} />
     </View>
