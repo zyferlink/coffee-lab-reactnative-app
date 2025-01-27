@@ -1,3 +1,8 @@
+// Product type related constants
+export const PRODUCT_TYPES = {
+    COFFEE: "Coffee",
+    BEAN: "Bean",
+};
 
 // Payment related constants
 export const PAYMENT_METHODS = {
@@ -21,4 +26,4 @@ export const CURRENCY = {
     CNY: { code: "CNY", symbol: "¥" },
     CHF: { code: "CHF", symbol: "Fr" },
     SEK: { code: "SEK", symbol: "kr" },
-  };
+};
