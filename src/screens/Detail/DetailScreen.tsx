@@ -8,6 +8,7 @@ import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
+import { BUTTON_TITLES, PRODUCT_TYPES } from '../../config/constants';
 import { CartItem } from '../../types/common/cartItem';
 import { Product } from '../../types/common/product';
 import ImageBackdropInfo from '../../components/common/ImageBackdropInfo';
@@ -25,10 +26,10 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
   const selectedItem: Product = useStore((state: any) =>
-    route.params.type == "Coffee" ? state.coffeeList : state.beanList,
+    route.params.type == PRODUCT_TYPES.COFFEE ? state.coffeeList : state.beanList,
   )[route.params.index];
 
-  const [fullDescription, setFullDescription] = useState(true);
+  const [fullDescription, setFullDescription] = useState(false);
   const [price, setPrice] = useState(selectedItem.prices[0])
 
   const backHandler = () => {
@@ -47,7 +48,6 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
     navigation.navigate(NAVIGATORS.TAB, { screen: SCREENS.CART });
   };
 
-
   return (
     <View style={styles.screenContainer}>
       {/* Status Bar */}
@@ -56,6 +56,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewFlex}>
+
         {/* Background Image & Header */}
         <ImageBackdropInfo
           product={selectedItem}
@@ -63,6 +64,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
           enableBackHandler={true}
           backHandler={backHandler}
         />
+
         {/* Footer Area */}
         <View style={styles.footerInfoArea}>
           {/* Description Area */}
@@ -85,16 +87,25 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
                 onPress={() => {
                   setFullDescription(previousValue => !previousValue)
                 }}>
-                <Text style={styles.descriptionText} numberOfLines={3}>
-                  {selectedItem.description}
-                </Text>
+                <View>
+                  <Text style={styles.descriptionText} numberOfLines={3}>
+                    {selectedItem.description}
+                  </Text>
+                  <Text style={[styles.infoTitle,
+                  { marginTop: -30, marginBottom: 30 }]}>
+                    ...
+                  </Text>
+                </View>
               </TouchableWithoutFeedback>
               )
           }
-          {/* Sizes Area */}
+
+          {/* Sizes Area Title */}
           <Text style={styles.infoTitle}>
             Size
           </Text>
+
+          {/* Sizes Area */}
           <View style={styles.sizeOuterContainer}>
             {
               selectedItem.prices.map((priceItem: any) => (
@@ -112,7 +123,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
                     style={[styles.sizeText,
                     {
                       fontSize:
-                        selectedItem.type == "Bean"
+                        selectedItem.type == PRODUCT_TYPES.BEAN
                           ? fontSizes.size14 : fontSizes.size16,
                       color:
                         priceItem.size == price.size
@@ -125,20 +136,21 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
             }
           </View>
         </View>
-
-        <PaymentFooter
-          price={price}
-          buttonTitle={"Add to Cart"}
-          priceContainerStyle={{ paddingVertical: spacing.space20 }}
-          buttonPressHandler={() => {
-            const cartItem: CartItem = {
-              ...selectedItem,
-              prices: [{ ...price, quantity: 1 }]
-            };
-            addToCartHandler(cartItem);
-          }}
-        />
       </ScrollView>
+
+      {/* Payment Footer */}
+      <PaymentFooter
+        price={price}
+        buttonTitle={BUTTON_TITLES.ADD_TO_CART}
+        priceContainerStyle={{ paddingVertical: spacing.space20 }}
+        buttonPressHandler={() => {
+          const cartItem: CartItem = {
+            ...selectedItem,
+            prices: [{ ...price, quantity: 1 }]
+          };
+          addToCartHandler(cartItem);
+        }}
+      />
     </View>
   )
 }

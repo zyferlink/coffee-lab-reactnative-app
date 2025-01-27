@@ -10,6 +10,7 @@ import { borderRadius, spacing } from '../../../config/dimensions';
 import CustomIcon from '../../../components/common/CustomIcon';
 import { CartItem } from '../../../types/common/cartItem';
 import { iconSet } from '../../../config/assets';
+import { PRODUCT_TYPES } from '../../../config/constants';
 
 interface CartItemViewProps {
     cartItem: CartItem,
@@ -115,7 +116,7 @@ const SingleBrewItemView = ({
                             style={[
                                 styles.sizeText,
                                 {
-                                    fontSize: cartItem.type === "Bean"
+                                    fontSize: cartItem.type === PRODUCT_TYPES.BEAN
                                         ? fontSizes.size14 : fontSizes.size16,
                                 },
                             ]}
@@ -217,7 +218,7 @@ const PriceRow = ({
                     style={[
                         styles.sizeText,
                         {
-                            fontSize: cartItem.type === "Bean"
+                            fontSize: cartItem.type === PRODUCT_TYPES.BEAN
                                 ? fontSizes.size14 : fontSizes.size16,
                         },
                     ]}

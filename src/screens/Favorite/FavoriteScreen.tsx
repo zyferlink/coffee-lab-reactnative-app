@@ -33,7 +33,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
           <View
             style={styles.itemContainer}>
             {/* Header Bar */}
-            <HeaderBar title={"Favorites"} />
+            <HeaderBar title={SCREENS.FAVORITE} />
             {/* Favorite Items */}
             {favoriteList.length == 0 ?
               (<EmptyListAnimation title={"No Favorites"} />)

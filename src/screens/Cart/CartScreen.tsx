@@ -5,7 +5,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { colors } from '../../config/colors';
 import { spacing } from '../../config/dimensions';
 import { SCREENS } from '../../config/screenNames';
-import { CURRENCY } from '../../config/constants';
+import { BUTTON_TITLES, CURRENCY } from '../../config/constants';
 import HeaderBar from '../../components/common/HeaderBar';
 import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import PaymentFooter from '../../components/common/PaymentFooter';
@@ -84,7 +84,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
       {cartList.length > 0 && (
         <View style={{ marginBottom: tabBarHeight }}>
           <PaymentFooter
-            buttonTitle="Pay"
+            buttonTitle={BUTTON_TITLES.PAY}
             price={{ price: cartPrice, currency: CURRENCY.USD.symbol }}
             buttonPressHandler={handleButtonPress}
             priceContainerStyle={{ paddingVertical: spacing.space10 }}

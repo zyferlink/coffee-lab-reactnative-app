@@ -13,6 +13,7 @@ import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { PAYMENT_OPTIONS } from '../../data/paymentOptions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
+import { BUTTON_TITLES } from '../../config/constants';
 
 
 const PaymentScreen = ({ navigation, route }: any) => {
@@ -162,7 +163,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
       </ScrollView>
       {/* Payment Footer */}
       <PaymentFooter
-        buttonTitle={`Pay with ${paymentMode}`}
+        buttonTitle={BUTTON_TITLES.PAY_WITH(paymentMode)} 
         price={{ price: route.params.amount, currency: "$" }}
          priceContainerStyle={{paddingVertical: spacing.space20}}
         buttonPressHandler={buttonPressHandler} />
