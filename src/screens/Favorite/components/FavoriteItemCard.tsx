@@ -1,53 +1,25 @@
-import { ImageProps, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ImageBackdropInfo from '../../../components/common/ImageBackdropInfo';
 import LinearGradient from 'react-native-linear-gradient';
 import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
+import { Product } from '../../../types/common/product';
 
 interface FavoriteItemCardProps {
-  id: string;
-  name: string;
-  type: string;
-  ingredients: string;
-  specialIngredient: string;
-  averageRating: number;
-  ratingCount: string;
-  description: string;
-  roasted: string;
-  isFavorite: boolean;
-  toggleFavorite: any;
-  imageLink: ImageProps;
+  product: Product;
+  toggleFavorite: (id: string, type: string, isFavorite: boolean) => void;
 }
 
 const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
-  id,
-  name,
-  type,
-  ingredients,
-  specialIngredient,
-  averageRating,
-  ratingCount,
-  description,
-  roasted,
-  isFavorite,
+  product,
   toggleFavorite,
-  imageLink,
 }) => {
   return (
     <View style={styles.cardContainer}>
       <ImageBackdropInfo
-        id={id}
-        name={name}
-        type={type}
-        ingredients={ingredients}
-        specialIngredient={specialIngredient}
-        averageRating={averageRating}
-        ratingCount={ratingCount}
-        roasted={roasted}
-        imageLinkPortrait={imageLink}
-        isFavorite={isFavorite}
+        product={product}
         toggleFavorite={toggleFavorite}
         enableBackHandler={false}
         backHandler={() => { }}
@@ -63,7 +35,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
           Description
         </Text>
         <Text style={styles.descriptionText}>
-          {description}
+          {product.description}
         </Text>
       </LinearGradient>
     </View>
@@ -71,7 +43,7 @@ const FavoriteItemCard: React.FC<FavoriteItemCardProps> = ({
 }
 
 const styles = StyleSheet.create({
-  cardContainer:{
+  cardContainer: {
     overflow: "hidden",
     borderRadius: borderRadius.radius28,
   },

@@ -1,137 +1,129 @@
-import { ImageBackground, ImageProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import GradientBackgroundIcon from './GradientBackgroundIcon';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
+import { Product } from '../../types/common/product';
+import { iconSet } from '../../config/assets';
+import { PRODUCT_TYPES } from '../../config/constants';
 
 interface ImageBackdropInfoProps {
-  id: string;
-  name: string;
-  type: string;
-  ingredients: string;
-  specialIngredient: string;
-  averageRating: number;
-  ratingCount: string;
-  roasted: string;
-  isFavorite: boolean;
-  toggleFavorite: any;
-  imageLinkPortrait: ImageProps;
+  product: Product;
   enableBackHandler: boolean;
+  toggleFavorite: (id: string, type: string, isFavorite: boolean) => void;
   backHandler?: any;
 }
 
 const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
-  id,
-  name,
-  type,
-  ingredients,
-  specialIngredient,
-  averageRating,
-  ratingCount,
-  roasted,
-  isFavorite,
-  toggleFavorite,
-  imageLinkPortrait,
+  product,
   enableBackHandler,
+  toggleFavorite,
   backHandler,
 }) => {
   return (
     <View>
       {/* Background Image */}
       <ImageBackground
-        source={imageLinkPortrait}
+        source={product.imageLinkPortrait}
         style={styles.itemBackgroundImage}>
+
         {/* Top App Bar */}
         {enableBackHandler ? (
           <View style={styles.headerBarContainerWithBack}>
             <TouchableOpacity
               onPress={() => backHandler()}>
               <GradientBackgroundIcon
-                name="left"
+                name={iconSet.left}
                 color={colors.primary.lightGrey}
                 size={fontSizes.size16} />
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => toggleFavorite(isFavorite, id, type)}>
+              onPress={() => toggleFavorite(product.id, product.type, product.isFavorite)}>
               <GradientBackgroundIcon
-                name="like"
-                color={isFavorite ? colors.primary.red : colors.primary.lightGrey}
+                name={iconSet.like}
+                color={product.isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
         ) : (
           <View style={styles.headerBarContainerWithoutBack}>
             <TouchableOpacity
-              onPress={() => toggleFavorite(isFavorite, id, type)}>
+              onPress={() => toggleFavorite(product.id, product.type, product.isFavorite)}>
               <GradientBackgroundIcon
-                name="like"
-                color={isFavorite ? colors.primary.red : colors.primary.lightGrey}
+                name={iconSet.like}
+                color={product.isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
             </TouchableOpacity>
           </View>
         )}
+
         {/* Header Container */}
         <View
           style={styles.infoHeaderOuterContainer}>
           <View style={styles.infoHeaderInnerContainer}>
+
             {/* Header Container Row 1 */}
             <View style={styles.infoHeaderContainerRow}>
               {/* Header Title */}
               <View>
                 <Text style={styles.itemTitleText}>
-                  {name}
+                  {product.name}
                 </Text>
                 <Text style={styles.itemSubtitleText}>
-                  {specialIngredient}
+                  {product.specialIngredient}
                 </Text>
               </View>
+
               {/* Header Property Container */}
               <View style={styles.itemPropertiesContainer}>
+                {/* Property Views */}
                 <View style={styles.propertyFirst}>
                   <CustomIcon
-                    name={type == "Bean" ? "bean" : "beans"}
-                    size={type == "Bean" ? fontSizes.size18 : fontSizes.size24}
+                    name={product.type == PRODUCT_TYPES.BEAN ? iconSet.bean : iconSet.beans}
+                    size={product.type == PRODUCT_TYPES.BEAN ? fontSizes.size18 : fontSizes.size24}
                     color={colors.primary.orange}
                   />
                   <Text
                     style={[styles.propertyFirstText,
-                    { marginTop: type == "Bean" ? spacing.space8 : 0 }]}>
-                    {type}
+                    { marginTop: product.type == PRODUCT_TYPES.BEAN ? spacing.space8 : 0 }]}>
+                    {product.type}
                   </Text>
                 </View>
                 <View style={styles.propertyFirst}>
                   <CustomIcon
-                    name={type == "Bean" ? "location" : "drop"}
+                    name={product.type == PRODUCT_TYPES.BEAN ? iconSet.location : iconSet.drop}
                     size={fontSizes.size16}
                     color={colors.primary.orange}
                   />
                   <Text style={styles.propertyLastText}>
-                    {ingredients}
+                    {product.ingredients}
                   </Text>
                 </View>
               </View>
             </View>
+
             {/* Header Container Row 2 */}
             <View style={styles.infoHeaderContainerRow}>
               <View style={styles.ratingContainer}>
+                {/* Rating Views */}
                 <CustomIcon
-                  name={"star"}
+                  name={iconSet.star}
                   size={fontSizes.size20}
                   color={colors.primary.orange}
                 />
                 <Text style={styles.ratingText}>
-                  {averageRating}
+                  {product.averageRating}
                 </Text>
                 <Text style={styles.ratingCountText}>
-                  ({ratingCount})
+                  ({product.ratingsCount})
                 </Text>
               </View>
               <View style={styles.roastedContainer}>
                 <Text style={styles.roastedText}>
-                  {roasted}
+                  {product.roasted}
                 </Text>
               </View>
             </View>

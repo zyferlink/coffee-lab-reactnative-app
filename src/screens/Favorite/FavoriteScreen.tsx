@@ -16,7 +16,7 @@ const FavoriteScreen = ({ navigation, route }: any) => {
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
   const deleteFromFavoriteList = useStore((state: any) => state.deleteFromFavoriteList);
 
-  const toggleFavorite = (isFavorite: boolean, id: string, type: string) => {
+  const toggleFavorite = (id: string, type: string, isFavorite: boolean) => {
     isFavorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
 
@@ -52,18 +52,8 @@ const FavoriteScreen = ({ navigation, route }: any) => {
                       );
                     }}>
                     <FavoriteItemCard
-                      id={item.id}
-                      name={item.name}
-                      type={item.type}
-                      ingredients={item.ingredients}
-                      specialIngredient={item.specialIngredient}
-                      averageRating={item.averageRating}
-                      ratingCount={item.ratingsCount}
-                      description={item.description}
-                      roasted={item.roasted}
-                      isFavorite={item.isFavorite}
+                      product={item}
                       toggleFavorite={toggleFavorite}
-                      imageLink={item.imageLinkPortrait}
                     />
                   </TouchableOpacity>
                 ))}

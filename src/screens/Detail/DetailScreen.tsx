@@ -35,7 +35,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
     navigation.pop();
   };
 
-  const toggleFavorite = (isFavorite: boolean, id: string, type: string) => {
+  const toggleFavorite = (id: string, type: string, isFavorite: boolean) => {
     isFavorite ? deleteFromFavoriteList(id, type) : addToFavoriteList(id, type);
   };
 
@@ -58,16 +58,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
         contentContainerStyle={styles.scrollViewFlex}>
         {/* Background Image & Header */}
         <ImageBackdropInfo
-          id={selectedItem.id}
-          name={selectedItem.name}
-          type={selectedItem.type}
-          ingredients={selectedItem.ingredients}
-          specialIngredient={selectedItem.specialIngredient}
-          averageRating={selectedItem.averageRating}
-          ratingCount={selectedItem.ratingsCount}
-          roasted={selectedItem.roasted}
-          imageLinkPortrait={selectedItem.imageLinkPortrait}
-          isFavorite={selectedItem.isFavorite}
+          product={selectedItem}
           toggleFavorite={toggleFavorite}
           enableBackHandler={true}
           backHandler={backHandler}
