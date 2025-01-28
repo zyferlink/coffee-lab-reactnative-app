@@ -1,34 +1,17 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Image, View } from 'react-native'
 import { images } from '../../config/assets'
-import { colors } from '../../config/colors'
-import { spacing } from '../../config/dimensions'
 
 const ProfilePicture = () => {
     return (
         <View
-            style={styles.imageContainer}>
+            className="h-9 w-9 rounded-xl border-2 border-secondary-darkGrey 
+            items-center justify-center overflow-hidden">
             <Image
                 source={images.avatarDefault}
-                style={styles.image} />
+                className="h-full w-full" />
         </View>
     )
 }
-const styles = StyleSheet.create({
-    imageContainer: {
-        height: spacing.space36,
-        width: spacing.space36,
-        borderRadius: spacing.space12,
-        borderWidth: 2,
-        borderColor: colors.secondary.darkGrey,
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-    },
-    image: {
-        height: spacing.space36,
-        width: spacing.space36,
-    }
-})
 
-export default ProfilePicture
+export default ProfilePicture;
