@@ -7,7 +7,7 @@ import { colors } from '../../config/colors';
 import { borderRadius, spacing } from '../../config/dimensions';
 import { Product } from '../../types/common/product';
 import { iconSet } from '../../config/assets';
-import { PRODUCT_TYPES } from '../../config/constants';
+import { PRODUCT_TYPES } from '../../config/specialTypes';
 
 interface ImageBackdropInfoProps {
   product: Product;

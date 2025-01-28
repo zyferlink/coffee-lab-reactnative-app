@@ -125,7 +125,7 @@ const SingleBrewItemView = ({
                         </Text>
                     </View>
                     <Text style={styles.sizeCurrency}>
-                        {`${cartItem.prices[0].currency} `}
+                        {` ${cartItem.prices[0].currency} `}
                         <Text style={styles.sizePrice}>
                             {cartItem.prices[0].price}
                         </Text>
@@ -228,7 +228,7 @@ const PriceRow = ({
             </View>
             {/* Price Text */}
             <Text style={styles.sizeCurrency}>
-                {`${priceItem.currency} `}
+                {` ${priceItem.currency} `}
                 <Text style={styles.sizePrice}>
                     {priceItem.price}
                 </Text>
@@ -343,6 +343,8 @@ const styles = StyleSheet.create({
         fontFamily: fonts.poppins.semiBold,
         fontSize: fontSizes.size18,
         color: colors.primary.orange,
+        alignItems: "center",
+        justifyContent: "center",
     },
     sizePrice: {
         fontFamily: fonts.poppins.semiBold,
