@@ -1,6 +1,6 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import GradientBackgroundIcon from '../../components/common/GradientBackgroundIcon';
+import GradientIconBG from '../../components/common/GradientIconBG';
 import PaymentMethod from './components/PaymentMethod';
 import PaymentFooter from '../../components/common/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
@@ -58,7 +58,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
           {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.pop()}>
-            <GradientBackgroundIcon
+            <GradientIconBG
               name={iconSet.left}
               color={colors.primary.lightGrey}
               size={fontSizes.size16}

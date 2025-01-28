@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import GradientBackgroundIcon from './GradientBackgroundIcon';
+import GradientIconBG from './GradientIconBG';
 import ProfilePicture from '../specific/ProfilePicture';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
@@ -15,7 +15,7 @@ const HeaderBar: React.FC<HeaderBarProps> =
         return (
             <View
                 style={styles.headerContainer}>
-                <GradientBackgroundIcon
+                <GradientIconBG
                     name="menu"
                     color={colors.primary.lightGrey}
                     size={fontSizes.size12}

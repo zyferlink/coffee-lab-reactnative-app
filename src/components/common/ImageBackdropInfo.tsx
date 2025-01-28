@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import GradientBackgroundIcon from './GradientBackgroundIcon';
+import GradientIconBG from './GradientIconBG';
 import CustomIcon from './CustomIcon';
 import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
@@ -34,7 +34,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
           <View style={styles.headerBarContainerWithBack}>
             <TouchableOpacity
               onPress={() => backHandler()}>
-              <GradientBackgroundIcon
+              <GradientIconBG
                 name={iconSet.left}
                 color={colors.primary.lightGrey}
                 size={fontSizes.size16} />
@@ -42,7 +42,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
 
             <TouchableOpacity
               onPress={() => toggleFavorite(product.id, product.type, product.isFavorite)}>
-              <GradientBackgroundIcon
+              <GradientIconBG
                 name={iconSet.like}
                 color={product.isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
@@ -52,7 +52,7 @@ const ImageBackdropInfo: React.FC<ImageBackdropInfoProps> = ({
           <View style={styles.headerBarContainerWithoutBack}>
             <TouchableOpacity
               onPress={() => toggleFavorite(product.id, product.type, product.isFavorite)}>
-              <GradientBackgroundIcon
+              <GradientIconBG
                 name={iconSet.like}
                 color={product.isFavorite ? colors.primary.red : colors.primary.lightGrey}
                 size={fontSizes.size16} />
