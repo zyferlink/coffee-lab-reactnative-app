@@ -1,12 +1,12 @@
 import React from 'react'
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
-import GradientIconBG from './GradientIconBG';
-import CustomIcon from './CustomIcon';
 import { fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
 import { Product } from '../../types/common/product';
 import { iconSet } from '../../config/assets';
 import { PRODUCT_TYPES } from '../../config/specialTypes';
+import GradientIconBG from './GradientIconBG';
+import CustomIcon from './CustomIcon';
 
 interface ImageBackdropInfoProps {
   product: Product;
