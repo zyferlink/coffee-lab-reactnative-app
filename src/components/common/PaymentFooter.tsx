@@ -1,8 +1,5 @@
 import React from 'react'
-import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
-import { fonts, fontSizes } from '../../config/fonts';
-import { colors } from '../../config/colors';
-import { borderRadius, spacing } from '../../config/dimensions';
+import { Text, TouchableOpacity, View } from 'react-native'
 
 interface PriceProps {
     price: string;
@@ -13,7 +10,7 @@ interface PaymentFooterProps {
     price: PriceProps;
     buttonTitle: string;
     buttonPressHandler: any;
-    priceContainerStyle: StyleProp<ViewStyle>;
+    priceContainerStyle: string;
 }
 
 const PaymentFooter: React.FC<PaymentFooterProps> = ({
@@ -23,73 +20,31 @@ const PaymentFooter: React.FC<PaymentFooterProps> = ({
     priceContainerStyle,
 }) => {
     return (
-        <View style={styles.priceFooter}>
+        <View className="flex-row items-center justify-between gap-[20px] px-[20px] bg-primary-blackTransparent">
             {/* Price View */}
-            <View style={StyleSheet.flatten(
-                [styles.priceContainer, priceContainerStyle]
-            )}>
-                <Text style={styles.priceTitle}>
+            <View className={`items-center w-[100px] ${priceContainerStyle}`}>
+                <Text className="font-poppinsMedium text-[16px] text-secondary-lightGrey">
                     Price
                 </Text>
-                <Text style={styles.priceText}>
+                <Text className="font-poppinsSemiBold text-[24px] text-primary-orange">
                     {`${price.currency} `}
-                    <Text style={styles.price}>
+                    <Text className="text-primary-white">
                         {price.price}
                     </Text>
                 </Text>
             </View>
+
             {/* Action Button */}
             <TouchableOpacity
-                style={styles.payButton}
+                className="flex-1 h-[56px] bg-primary-orange items-center justify-center 
+                rounded-[28px] border border-0.5 border-secondary-lightGrey"
                 onPress={() => buttonPressHandler()}>
-                <Text style={styles.buttonText}>
+                <Text className="font-poppinsSemiBold text-[18px] text-primary-white">
                     {buttonTitle}
                 </Text>
             </TouchableOpacity>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    priceFooter: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: spacing.space20,
-        paddingHorizontal: spacing.space20,
-        backgroundColor: colors.primary.blackTransparent,
-    },
-    priceContainer: {
-        alignItems: "center",
-        width: 100,
-    },
-    priceTitle: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size16,
-        color: colors.secondary.lightGrey,
-    },
-    priceText: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size24,
-        color: colors.primary.orange,
-    },
-    price: {
-        color: colors.primary.white,
-    },
-    payButton: {
-        flex: 1,
-        height: 56,
-        backgroundColor: colors.primary.orange,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: borderRadius.radius28,
-        borderWidth: 1,
-    },
-    buttonText: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size18,
-        color: colors.primary.white,
-    },
-})
 
 export default PaymentFooter;

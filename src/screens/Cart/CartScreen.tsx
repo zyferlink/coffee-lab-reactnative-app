@@ -88,7 +88,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
             buttonTitle={BUTTON_TITLES.PAY}
             price={{ price: cartPrice, currency: CURRENCY.USD.symbol }}
             buttonPressHandler={handleButtonPress}
-            priceContainerStyle={{ paddingVertical: spacing.space10 }}
+            priceContainerStyle={"py-2"}
           />
         </View>
       )}
