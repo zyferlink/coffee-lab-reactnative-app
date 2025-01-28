@@ -12,7 +12,7 @@ CoffeeLab by Nova <br>
 
 CoffeeLab: Coffee Shop App. A React Native app powered by Zustand for managing coffee orders. Browse coffees and beans, view details, search, favorite items, and place orders easily.
 
-**Last Update:** January 25, 2025 
+**Updated on** January 28, 2025 
 
 <br>
 
@@ -388,22 +388,13 @@ Main command for `Release build install`:
   ```
 
 Full command:
-1. Navigate to the `android` directory:
-    ```bash 
-    cd android
-    ```
-2. Clean the build:
-    ```bash 
-    ./gradlew clean
-    ```
-3. Install the release build:
-    ```bash 
-    ./gradlew installRelease
-    ```
-4. Return to the root directory:
-    ```bash 
-    cd ..
-    ```
+1. Navigate to the **android** directory:`cd android`
+2. Clean the build: `./gradlew clean`
+3. Install the release build: `./gradlew installRelease`
+4. Return to the root directory: `cd ..`
+
+<br/>
+
 Full Command:
   ```bash 
   cd android
@@ -416,25 +407,13 @@ Full Command:
 
 #
 #### Run with Metro
-1. Navigate to the `android` directory:
-   ```bash 
-   cd android
-   ```
+1. Navigate to the **android** directory: `cd android`
 
-2. Clean the build:
-   ```bash 
-   ./gradlew clean
-   ```
+2. Clean the build: `./gradlew clean`
 
-3. Return to the root directory:
-   ```bash 
-   cd ..
-   ```
+3. Return to the root directory: `cd ..`
    
-4. Run the app on Android:
-   ```bash 
-   npx react-native run-android
-   ```
+4. Run the app on Android: `npx react-native run-android`
 
 
 Full Command:

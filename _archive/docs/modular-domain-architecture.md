@@ -14,44 +14,53 @@ Here’s the recommended folder structure:
 ```plainText
 root
 ├── 📂 src
-│   ├── 📂 api               // Network-related code (API calls, clients)
+│   ├── 📂 api               # Network-related code (API calls, clients)
 │   │   ├── 📄 services.ts   // REST or GraphQL services
 │   │   ├── 📄 interceptors.ts // Axios interceptors or request middleware
 │   │   └── 📄 types.ts      // API response/request types
 │   │
-│   ├── 🗂️ assets            // Static assets (images, fonts, etc.)
+│   ├── 🗂️ assets            # Static assets (images, fonts, etc.)
 │   │   ├── 📂 images        // Image assets
 │   │   ├── 📂 fonts         // Font assets
-│   │   └── 📂 icons         // Icon assets
+│   │   ├── 📂 icons         // Icon assets
+│   │   └── 📂 lottie        // Lottie animations
 │   │
-│   ├── 📂 components        // Reusable UI components
+│   ├── 📂 components        # Reusable UI components
 │   │   ├── 📂 common        // Shared components like buttons, headers, etc.
 │   │   ├── 📂 layout        // Layout-specific components
 │   │   └── 📂 specific      // Non-reusable or screen-specific components
 │   │       ├── 📄 CustomCard.tsx
 │   │       └── 📄 CustomCard.styles.ts
 │   │
-│   ├── 📂 config            // App configuration (themes, constants)
+│   ├── 📂 config            # App configuration (themes, constants)
+│   │   ├── 📄 assets.ts     // Assets configuration
 │   │   ├── 📄 colors.ts     // Colors configuration
+│   │   ├── 📄 constants.ts  // App constants
 │   │   ├── 📄 fonts.ts      // Fonts configuration
+│   │   ├── 📄 dimensions.ts // Dimens configuration
 │   │   ├── 📄 apiConfig.ts  // API configuration (base URLs, keys)
 │   │   └── 📄 env.ts        // Environment variables
 │   │
-│   ├── 📂 hooks             // Custom React hooks
+│   ├── 📂 data               # Data (mock, local)
+│   │   ├── 📄 mockData.json    // Mock data for testing
+│   │   └── 📄 localData.ts     // Static data for dropdowns, etc.
+│   │
+│   ├── 📂 hooks             # Custom React hooks
 │   │   ├── 📄 useCustomHook.ts
 │   │   ├── 📄 useAuth.ts
 │   │   └── 📄 useTheme.ts
 │   │
-│   ├── 📂 navigation        // Navigation setup
-│   │   ├── 📄 AppNavigator.tsx
-│   │   └── 📄 types.ts      // Navigation-related type definitions
+│   ├── 📂 navigation        # Navigation setup 
+│   │   ├── 📄 TabNavigator.tsx       // Bottom Tab Navigator setup
+│   │   ├── 📄 RootStackNavigator.tsx // Stack Navigator setup
+│   │   └── 📄 routes.ts               // Navigation screen name constants
 │   │
-│   ├── 📂 screens           // Screen-specific logic and views
+│   ├── 📂 screens           # Screen-specific logic and views
 │   │   ├── 📂 Home
 │   │   │   ├── 📄 HomeScreen.tsx
 │   │   │   ├── 📄 HomeViewModel.ts
 │   │   │   ├── 📄 Home.styles.ts
-│   │   │   └── 📂 components // Screen-specific components
+│   │   │   └── 📂 components # Screen-specific components
 │   │   ├── 📂 Profile
 │   │   │   ├── 📄 ProfileScreen.tsx
 │   │   │   ├── 📄 ProfileViewModel.ts
@@ -63,34 +72,34 @@ root
 │   │       ├── 📄 Splash.styles.ts
 │   │       └── 📂 components
 │   │
-│   ├── 📂 state             // App state management (Redux, Zustand, MobX, etc.)
+│   ├── 📂 state             # App state management (Redux, Zustand, MobX, etc.)
 │   │   ├── 📂 slices        // Reducers or slices
 │   │   ├── 📄 store.ts      // Redux store or equivalent
 │   │   ├── 📄 selectors.ts  // State selectors
 │   │   └── 📄 types.ts      // State-related type definitions
 │   │
-│   ├── 📂 styles            // Global styling or shared styles
+│   ├── 📂 styles            # Global styling or shared styles
 │   │   ├── 📄 typography.ts
 │   │   ├── 📄 spacing.ts
 │   │   └── 📄 global.ts     // Global style configuration
 │   │
-│   ├── 📂 types             // Shared types and interfaces
+│   ├── 📂 types             # Shared types and interfaces
 │   │   ├── 📄 common.ts     // Commonly used interfaces and types
 │   │   └── 📄 theme.ts      // Theme-related types
 │   │
-│   ├── 📂 utils             // Utility functions or helpers
-│   │   ├── 📄 dateUtils.ts
-│   │   ├── 📄 validation.ts
-│   │   └── 📄 logger.ts     // Logging utilities
-│   │
-│   └── 📄 index.tsx         // Entry point for the app
+│   └── 📂 utils             # Utility functions or helpers
+│       ├── 📄 dateUtils.ts
+│       ├── 📄 validation.ts
+│       └── 📄 logger.ts     // Logging utilities
 │   
 ├── 📄 .env                  // Environment variables
-├── 📄 App.tsx               // Main App component
+├── 📄 App.tsx               // Entry point for the app
 ├── 📄 tsconfig.json         // TypeScript configuration
+├── 📄 index.ts  
 ├── 📄 package.json
 ├── 📄 babel.config.js
 └── 📄 README.md
+
 ```
 
 <br/>
