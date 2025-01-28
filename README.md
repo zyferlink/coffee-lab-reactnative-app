@@ -134,7 +134,7 @@ module.exports = {
 ### 7. Refactor Home Screen
 Integrate NativeWind into your `HomeScreen` component.
 
-- File: [HomeScreen.tsx](./src/screens/HomeScreen.tsx)
+- File: [HomeScreen.tsx](./src/screens/Home/HomeScreen.tsx)
 #
 #### Final Steps  
 
