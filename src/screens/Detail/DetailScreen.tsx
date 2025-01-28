@@ -142,7 +142,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
       <PaymentFooter
         price={price}
         buttonTitle={BUTTON_TITLES.ADD_TO_CART}
-        priceContainerStyle={"py-7"}
+        priceContainerStyle={"pb-7 pt-2"}
         buttonPressHandler={() => {
           const cartItem: CartItem = {
             ...selectedItem,

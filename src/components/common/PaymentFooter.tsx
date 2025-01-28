@@ -20,7 +20,7 @@ const PaymentFooter: React.FC<PaymentFooterProps> = ({
     priceContainerStyle,
 }) => {
     return (
-        <View className="flex-row items-center justify-between gap-[20px] px-[20px] bg-primary-blackTransparent">
+        <View className="flex-row items-center justify-between gap-[10px] px-[20px] bg-primary-black">
             {/* Price View */}
             <View className={`items-center w-[100px] ${priceContainerStyle}`}>
                 <Text className="font-poppinsMedium text-[16px] text-secondary-lightGrey">
