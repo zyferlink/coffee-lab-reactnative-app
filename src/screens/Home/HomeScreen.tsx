@@ -109,69 +109,73 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
   return (
     <SafeAreaView className="flex-1 bg-primary-black">
-      {/* Status Bar for setting background color */}
+
+      {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
 
-      <ScrollView
-        contentContainerStyle={tw`flex-grow-1`}
-        showsVerticalScrollIndicator={false}>
+      {/*Vertical Scrollable Content */}
+      <FlatList
+        data={[]}
+        keyExtractor={(_, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        renderItem={() => null}
+        ListHeaderComponent={
+          <>
+            {/* App Header */}
+            <HeaderBar title={CONSTANTS.APP_NAME} />
 
-        {/* App Header */}
-        <HeaderBar title={CONSTANTS.APP_NAME} />
+            {/* Welcome Message */}
+            <Text className="text-3xl font-poppinsSemiBold color-primary-white pl-6 mt-2">
+              Find the best{"\n"}coffee for you
+            </Text>
 
-        {/* Welcome Message */}
-        <Text className="text-3xl font-poppinsSemiBold color-primary-white pl-6 mt-2">
-          Find the best{"\n"}coffee for you
-        </Text>
+            {/* Search Bar */}
+            <SearchInput
+              searchText={searchText}
+              setSearchText={setSearchText}
+              onSearchCoffee={searchCoffee}
+              onResetSearch={resetSearchCoffee}
+            />
 
-        {/* Search Bar */}
-        <SearchInput
-          searchText={searchText}
-          setSearchText={setSearchText}
-          onSearchCoffee={searchCoffee}
-          onResetSearch={resetSearchCoffee}
-        />
+            {/* Coffee Categories */}
+            <CategoryScroller
+              categories={categories}
+              categoryIndex={categoryIndex.index}
+              onCategoryChange={handleCategoryChange}
+            />
 
-        {/* Coffee Categories */}
-        <CategoryScroller
-          categories={categories}
-          categoryIndex={categoryIndex.index}
-          onCategoryChange={handleCategoryChange}
-        />
+            {/* Coffee Products */}
+            <FlatList
+              horizontal
+              data={sortedCoffee}
+              ref={listRef}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={tw`gap-5 py-5 px-7`}
+              keyExtractor={item => item.id}
+              renderItem={(item) => renderCoffeeItem(item)}
+              ListEmptyComponent={renderEmptyCoffeeList()}
+            />
+          </>
+        }
+        ListFooterComponent={
+          <>
+            {/* Section Title for Coffee Beans */}
+            <Text className="text-2xl font-poppinsMedium color-primary-lightGrey pl-7 mt-2">
+              Coffee Beans
+            </Text>
 
-        {/* Coffee Products */}
-        <FlatList
-          horizontal
-          data={sortedCoffee}
-          ref={listRef}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={tw`gap-5 py-5 px-7`}
-          keyExtractor={item => item.id}
-          renderItem={(item) =>
-            renderCoffeeItem(item)
-          }
-          ListEmptyComponent={
-            renderEmptyCoffeeList()
-          }
-        />
-
-        {/* Section Title for Coffee Beans */}
-        <Text className="text-2xl font-poppinsMedium color-primary-lightGrey pl-7 mt-2">
-          Coffee Beans
-        </Text>
-
-        {/* Coffee Beans List */}
-        <FlatList
-          horizontal
-          data={beanList}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={[tw`gap-5 py-5 px-7`, { marginBottom: tabBarHeight }]}
-          keyExtractor={item => item.id}
-          renderItem={(item) =>
-            renderCoffeeItem(item)
-          }
-        />
-      </ScrollView>
+            {/* Coffee Beans List */}
+            <FlatList
+              horizontal
+              data={beanList}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={[tw`gap-5 py-5 px-7`, { marginBottom: tabBarHeight }]}
+              keyExtractor={item => item.id}
+              renderItem={(item) => renderCoffeeItem(item)}
+            />
+          </>
+        }
+      />
     </SafeAreaView>
   );
 }
