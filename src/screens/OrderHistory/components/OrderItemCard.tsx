@@ -1,9 +1,7 @@
-import { Image, ImageProps, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Image, Text, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
-import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
-import { borderRadius, spacing } from '../../../config/dimensions';
 import { CURRENCY, PRODUCT_TYPES } from '../../../config/specialTypes';
 import { CartItem } from '../../../types/common/cartItem';
 
@@ -21,33 +19,33 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
             colors={[colors.primary.grey, colors.primary.black]}
-            style={styles.cardLinearGradientContainer}>
+            className="gap-3 m-0.5 pl-1 pt-1 pr-1 pb-5 rounded-3xl">
             {/* Header Info Section */}
             <View
-                style={styles.cardInfoContainer}>
+                className="flex-row items-center justify-between">
                 <View
-                    style={styles.cardInfoImageContainer}>
+                    className="flex-row items-center gap-3">
                     {/* Header Image */}
                     <Image
                         source={cartItem.imageLinkSquare}
-                        style={styles.cardImage}
+                        className="h-24 w-24 rounded-xl"
                     />
                     <View>
                         {/* Item Name */}
-                        <Text style={styles.cardTitle}>
+                        <Text className="font-poppinsMedium text-lg text-primary-white">
                             {cartItem.name}
                         </Text>
                         {/* Special Ingredient */}
-                        <Text style={styles.cardSubtitle}>
+                        <Text className="font-poppinsRegular text-sm text-secondary-lightGrey">
                             {cartItem.specialIngredient}
                         </Text>
                     </View>
                 </View>
                 <View>
                     {/* Item Price */}
-                    <Text style={styles.cardCurrency}>
+                    <Text className="font-poppinsSemiBold text-xl text-primary-orange">
                         {`${CURRENCY.USD.symbol} `}
-                        <Text style={styles.cardPrice}>
+                        <Text className="text-primary-white">
                             {itemPrice}
                         </Text>
                     </Text>
@@ -57,37 +55,40 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
             {cartItem.prices.map((priceItem: any, index: any) => (
                 <View
                     key={index.toString()}
-                    style={styles.cardTableRow}>
-                    <View style={styles.cardTableRow}>
+                    className="flex-row items-center justify-between">
+                    <View className="flex-1 flex-row items-center justify-between">
                         {/* PriceItems's Size */}
-                        <View style={styles.cardBoxLeft}>
-                            <Text style={[styles.itemPriceSize, {
-                                fontSize: cartItem.type == PRODUCT_TYPES.BEAN ?
-                                    fontSizes.size14 : fontSizes.size16
-                            }]}>
+                        <View
+                            className="flex-1 h-11 bg-primary-black rounded-l-lg 
+                            border-r border-primary-grey items-center justify-center">
+                            <Text
+                                className={`font-poppinsMedium text-secondary-lightGrey 
+                                text-${cartItem.type == PRODUCT_TYPES.BEAN ? 'sm' : 'base'}`}>
                                 {priceItem.size}
                             </Text>
                         </View>
                         {/* PriceItems's Price */}
-                        <View style={styles.cardBoxRight}>
-                            <Text style={styles.itemPriceCurrency}>
+                        <View
+                            className="flex-1 h-11 bg-primary-black rounded-r-lg border-l 
+                            border-primary-grey items-center justify-center">
+                            <Text className="font-poppinsSemiBold text-lg text-primary-orange">
                                 {`${priceItem.currency} `}
-                                <Text style={styles.itemPrice}>
+                                <Text className="text-primary-white">
                                     {priceItem.price}
                                 </Text>
                             </Text>
                         </View>
                     </View>
                     {/* PriceItems's Quantity */}
-                    <View style={styles.cardTableRow}>
-                        <Text style={styles.quantityTextItem}>
+                    <View className="flex-1 flex-row items-center justify-between">
+                        <Text className="text-center font-poppinsSemiBold text-lg text-primary-orange  pl-6">
                             {`X `}
-                            <Text style={styles.quantityText}>
+                            <Text className="text-primary-white">
                                 {priceItem.quantity}
                             </Text>
                         </Text>
                         {/* PriceItems's Total Price */}
-                        <Text style={styles.quantityTextItem}>
+                        <Text className="text-center font-poppinsSemiBold text-lg text-primary-orange pr-2">
                             $ {(priceItem.quantity * priceItem.price).toFixed(2).toString()}
                         </Text>
                     </View>
@@ -95,98 +96,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
             ))
             }
         </LinearGradient>
-    )
-}
-
-const styles = StyleSheet.create({
-    cardLinearGradientContainer: {
-        gap: spacing.space20,
-        padding: spacing.space20,
-        borderRadius: borderRadius.radius28,
-    },
-    cardInfoContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-    cardInfoImageContainer: {
-        flexDirection: "row",
-        gap: spacing.space20,
-        alignItems: "center",
-    },
-    cardImage: {
-        height: 90,
-        width: 90,
-        borderRadius: borderRadius.radius16,
-    },
-    cardTitle: {
-        fontFamily: fonts.poppins.medium,
-        fontSize: fontSizes.size18,
-        color: colors.primary.white,
-    },
-    cardSubtitle: {
-        fontFamily: fonts.poppins.regular,
-        fontSize: fontSizes.size12,
-        color: colors.secondary.lightGrey,
-    },
-    cardCurrency: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size20,
-        color: colors.primary.orange,
-    },
-    cardPrice: {
-        color: colors.primary.white,
-    },
-    cardTableRow: {
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-    cardBoxLeft: {
-        flex: 1,
-        height: 45,
-        backgroundColor: colors.primary.black,
-        borderTopLeftRadius: borderRadius.radius10,
-        borderBottomLeftRadius: borderRadius.radius10,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRightWidth: 1,
-        borderRightColor: colors.primary.grey,
-    },
-    cardBoxRight: {
-        flex: 1,
-        height: 45,
-        backgroundColor: colors.primary.black,
-        borderTopRightRadius: borderRadius.radius10,
-        borderBottomRightRadius: borderRadius.radius10,
-        alignItems: "center",
-        justifyContent: "center",
-        borderLeftWidth: 1,
-        borderLeftColor: colors.primary.grey,
-    },
-    itemPriceSize: {
-        fontFamily: fonts.poppins.medium,
-        color: colors.secondary.lightGrey,
-    },
-    itemPriceCurrency: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size18,
-        color: colors.primary.orange,
-    },
-    itemPrice: {
-        color: colors.primary.white,
-    },
-    quantityTextItem: {
-        flex: 1,
-        textAlign: "center",
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size18,
-        color: colors.primary.orange,
-    },
-    quantityText: {
-        color: colors.primary.white,
-    },
-})
+    );
+};
 
 export default OrderItemCard;
