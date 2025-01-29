@@ -45,43 +45,49 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
 
-      {/* Scrollable Content */}
-      <ScrollView
+      <FlatList
+        data={[]} // Empty data since we're rendering everything in ListHeaderComponent
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={null} // No need to render items
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`flex-grow pb-12`}>
-        <View className="flex-1">
-          {/* Header Bar */}
-          <HeaderBar title={SCREENS.CART} />
+        contentContainerStyle={tw`flex-grow pb-6`}
+        ListHeaderComponent={
+          <>
+            {/* Header Bar */}
+            <HeaderBar title={SCREENS.CART} />
 
-          {/* Cart Items */}
-          {cartList.length === 0 ? (
-            <EmptyListAnimation title={MESSAGES.DEFAULTS.CART_IS_EMPTY} />
-          ) : (
-            <FlatList
-              data={cartList}
-              keyExtractor={(item) => item.id}
-              contentContainerStyle={tw`gap-5 px-5 py-5`}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.push(SCREENS.DETAIL, {
-                      index: item.index,
-                      id: item.id,
-                      type: item.type,
-                    })
-                  }
-                >
-                  <CartItemView
-                    cartItem={item}
-                    incrementQuantityHandler={handleIncrementQuantity}
-                    decrementQuantityHandler={handleDecrementQuantity}
-                  />
-                </TouchableOpacity>
-              )}
-            />
-          )}
-        </View>
-      </ScrollView>
+            {/* Cart Items */}
+            {cartList.length === 0 ? (
+              <EmptyListAnimation title={MESSAGES.DEFAULTS.CART_IS_EMPTY} />
+            ) : (
+              <FlatList
+                data={cartList}
+                keyExtractor={(item) => item.id}
+                contentContainerStyle={tw`gap-5 px-5 py-5`}
+                renderItem={({ item }) => (
+                  <View className="px-5 py-2">
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.push(SCREENS.DETAIL, {
+                          index: item.index,
+                          id: item.id,
+                          type: item.type,
+                        })
+                      }
+                    >
+                      <CartItemView
+                        cartItem={item}
+                        incrementQuantityHandler={handleIncrementQuantity}
+                        decrementQuantityHandler={handleDecrementQuantity}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                )}
+              />
+            )}
+          </>
+        }
+      />
 
       {/* Payment Footer */}
       {cartList.length > 0 && (
@@ -94,8 +100,11 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
           />
         </View>
       )}
+
     </SafeAreaView>
   );
+
+
 };
 
 export default CartScreen;
