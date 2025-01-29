@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView, StatusBar, TouchableOpacity, View, FlatList } from 'react-native';
+import { StatusBar, TouchableOpacity, View, FlatList } from 'react-native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import tw from 'twrnc';
-import { useStore } from '../../state/useStore';
+import { useCartViewModel } from './CartViewModel';
+import { CartItem } from '../../types/common/cartItem';
 import { SCREENS } from '../../config/screenNames';
 import { BUTTON_TITLES, CURRENCY } from '../../config/specialTypes';
 import { MESSAGES } from '../../config/messages';
@@ -20,25 +21,33 @@ interface CartScreenProps {
 
 const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
   const tabBarHeight = useBottomTabBarHeight();
-  const cartList = useStore((state: any) => state.cartList);
-  const cartPrice = useStore((state: any) => state.cartPrice);
-  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
-  const incrementCartItemQuantity = useStore((state: any) => state.incrementCartItemQuantity);
-  const decrementCartItemQuantity = useStore((state: any) => state.decrementCartItemQuantity);
+  const { cartList, cartPrice,
+    handleIncrementQuantity, handleDecrementQuantity,
+  } = useCartViewModel();
 
   const handleButtonPress = () => {
     navigation.push(SCREENS.PAYMENT, { amount: cartPrice });
   };
 
-  const handleIncrementQuantity = (id: string, size: string) => {
-    incrementCartItemQuantity(id, size);
-    calculateCartPrice();
-  };
-
-  const handleDecrementQuantity = (id: string, size: string) => {
-    decrementCartItemQuantity(id, size);
-    calculateCartPrice();
-  };
+  const renderCartItem = ({ item }: { item: CartItem }) => (
+    <View className="px-5 py-2">
+      <TouchableOpacity
+        onPress={() =>
+          navigation.push(SCREENS.DETAIL, {
+            index: item.index,
+            id: item.id,
+            type: item.type,
+          })
+        }
+      >
+        <CartItemView
+          cartItem={item}
+          incrementQuantityHandler={handleIncrementQuantity}
+          decrementQuantityHandler={handleDecrementQuantity}
+        />
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
     <SafeAreaView className="flex-1 bg-primary-black">
@@ -46,7 +55,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
       <StatusBar backgroundColor={colors.primary.black} />
 
       <FlatList
-        data={[]} // Empty data since we're rendering everything in ListHeaderComponent
+        data={[]}
         keyExtractor={(_, index) => index.toString()}
         renderItem={null} // No need to render items
         showsVerticalScrollIndicator={false}
@@ -64,25 +73,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
                 data={cartList}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={tw`gap-5 px-5 py-5`}
-                renderItem={({ item }) => (
-                  <View className="px-5 py-2">
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.push(SCREENS.DETAIL, {
-                          index: item.index,
-                          id: item.id,
-                          type: item.type,
-                        })
-                      }
-                    >
-                      <CartItemView
-                        cartItem={item}
-                        incrementQuantityHandler={handleIncrementQuantity}
-                        decrementQuantityHandler={handleDecrementQuantity}
-                      />
-                    </TouchableOpacity>
-                  </View>
-                )}
+                renderItem={(item) => renderCartItem(item)}
               />
             )}
           </>
@@ -103,8 +94,6 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
     </SafeAreaView>
   );
-
-
 };
 
 export default CartScreen;
