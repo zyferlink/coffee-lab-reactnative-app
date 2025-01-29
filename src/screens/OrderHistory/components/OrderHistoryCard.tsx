@@ -1,9 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { Text, TouchableOpacity, View } from 'react-native'
 import OrderItemCard from './OrderItemCard';
-import { fonts, fontSizes } from '../../../config/fonts';
-import { colors } from '../../../config/colors';
-import { spacing } from '../../../config/dimensions';
 
 interface OrderHistoryCardProps {
     orderDate: string;
@@ -19,29 +16,29 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
     navigationHandler,
 }) => {
     return (
-        <View style={styles.cardContainer}>
-            <View style={styles.cardHeader}>
+        <View className="gap-2.5">
+            <View className="flex-row items-center justify-between gap-5">
                 {/* Order Date Time*/}
                 <View>
-                    <Text style={styles.headerTitle}>
+                    <Text className="font-poppinsSemiBold text-lg text-primary-white">
                         Order Time
                     </Text>
-                    <Text style={styles.headerSubtitle}>
+                    <Text className="font-poppinsRegular text-md text-primary-white">
                         {orderDate}
                     </Text>
                 </View>
                 {/* Order Payment Info*/}
-                <View style={styles.priceContainer}>
-                    <Text style={styles.headerTitle}>
+                <View className="items-end">
+                    <Text className="font-poppinsSemiBold text-lg text-primary-white">
                         Total Amount
                     </Text>
-                    <Text style={styles.headerPrice}>
+                    <Text className="font-poppinsMedium text-lg text-primary-orange">
                         ${orderPrice}
                     </Text>
                 </View>
             </View>
             {/* Order Items */}
-            <View style={styles.listContainer}>
+            <View className="gap-3">
                 {orderItemList.map((orderItem: any, index: any) => (
                     <TouchableOpacity
                         key={index.toString() + orderItem.id}
@@ -65,41 +62,7 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
             </View>
 
         </View>
-    )
-}
-
-
-const styles = StyleSheet.create({
-    cardContainer: {
-        gap: spacing.space10,
-    },
-    cardHeader: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: spacing.space20,
-    },
-    headerTitle: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size16,
-        color: colors.primary.white,
-    },
-    headerSubtitle: {
-        fontFamily: fonts.poppins.regular,
-        fontSize: fontSizes.size16,
-        color: colors.primary.white,
-    },
-    headerPrice: {
-        fontFamily: fonts.poppins.medium,
-        fontSize: fontSizes.size16,
-        color: colors.primary.orange,
-    },
-    priceContainer: {
-        alignItems: "flex-end",
-    },
-    listContainer: {
-        gap: spacing.space20,
-    },
-})
+    );
+};
 
 export default OrderHistoryCard;
