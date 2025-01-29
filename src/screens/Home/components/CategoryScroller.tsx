@@ -31,7 +31,7 @@ const CategoryScroller: React.FC<CategoryScrollerProps> = ({
                             onPress={() => onCategoryChange(index)}
                         >
                             <Text
-                                className={`text-lg font-poppinsSemiBold 
+                                className={`text-[16px] font-poppinsSemiBold 
                                 ${isActive ? 'text-primary-orange' : 'text-primary-lightGrey'}`}
                             >
                                 {category}
