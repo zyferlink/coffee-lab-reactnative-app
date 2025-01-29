@@ -1,5 +1,6 @@
 import produce from "immer";
 import { CartItem } from "../../types/common/cartItem";
+import { OrderItem } from "../../types/common/orderItem";
 
 
 export const addToCart = (state: any, cartItem: CartItem) => {
@@ -90,31 +91,25 @@ export const decrementCartItemQuantity = (state: any, id: string, size: string) 
   }
 };
 
-export const addToOrderHistoryFromCart = (state: any) => {
+export const addToOrderHistoryFromCart = (state: any, paymentMethod: string) => {
   let totalPrice = state.cartList.reduce(
     (accumulator: number, currentValue: any) =>
       accumulator + parseFloat(currentValue.itemPrice),
     0,
   );
 
+  const dateTime = new Date().toDateString() + " " + new Date().toLocaleTimeString();
+  const order: OrderItem = {
+    orderDate: dateTime,
+    paymentMethod: paymentMethod,
+    totalPrice: totalPrice.toFixed(2).toString(),
+    itemList: state.cartList,
+  }
+
   if (state.orderHistoryList.length > 0) {
-    state.orderHistoryList.unshift({
-      orderDate:
-        new Date().toDateString() +
-        " " +
-        new Date().toLocaleTimeString(),
-      cartList: state.cartList,
-      cartListPrice: totalPrice.toFixed(2).toString(),
-    })
+    state.orderHistoryList.unshift(order)
   } else {
-    state.orderHistoryList.push({
-      orderDate:
-        new Date().toDateString() +
-        " " +
-        new Date().toLocaleTimeString(),
-      cartList: state.cartList,
-      cartListPrice: totalPrice.toFixed(2).toString(),
-    })
+    state.orderHistoryList.push(order)
   }
   state.cartList = [];
 

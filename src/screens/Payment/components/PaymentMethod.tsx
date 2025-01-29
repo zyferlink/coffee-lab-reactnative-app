@@ -1,11 +1,10 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Image, Text, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
-import CustomIcon from '../../../components/common/CustomIcon';
-import { fonts, fontSizes } from '../../../config/fonts';
+import { fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
-import { borderRadius, spacing } from '../../../config/dimensions';
 import { iconSet } from '../../../config/assets';
+import CustomIcon from '../../../components/common/CustomIcon';
 
 interface PaymentMethodProps {
     paymentMode: string
@@ -22,86 +21,45 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
 }) => {
     return (
         <View
-            style={[styles.paymentCardContainer, {
-                borderColor:
-                    paymentMode == name ?
-                        colors.primary.orange : colors.primary.grey
-            }]}>
-            {isIcon ?
+            className={`bg-primary-grey border border-2 rounded-full 
+            ${paymentMode == name ? 'border-primary-orange' : 'border-primary-lightGrey'}`}>
+            {isIcon ? (
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
                     colors={[colors.primary.grey, colors.primary.black]}
-                    style={styles.linearGradientWallet}>
-                    <View style={styles.walletRow}>
+                    className="flex-row items-center justify-between py-3 px-5 rounded-full">
+                    <View className="flex-row items-center gap-5">
                         <CustomIcon
                             name={iconSet.wallet}
                             color={colors.primary.orange}
                             size={fontSizes.size30} />
-                        <Text style={styles.paymentTitle}>{name}</Text>
+                        <Text className="font-poppinsSemiBold text-primary-white text-[16px]">
+                            {name}
+                        </Text>
                     </View>
-                    <Text style={styles.paymentPrice}>$ 100.50</Text>
-                </LinearGradient>
+                    <Text className="font-poppinsRegular text-primary-lightGrey text-xl">
+                        $ 100.50
+                    </Text>
+                </LinearGradient>)
                 :
-                <LinearGradient
+                (<LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
                     colors={[colors.primary.grey, colors.primary.black]}
-                    style={styles.linearGradientRegular}>
+                    className="flex-row items-center py-3 px-5 rounded-full">
 
                     <Image
                         source={icon}
-                        style={styles.paymentImage}
+                        className="w-[30px] h-[30px]"
                     />
-                    <Text style={styles.paymentTitle}>{name}</Text>
+                    <Text className="font-poppinsSemiBold text-primary-white text-[16px] px-5">
+                        {name}
+                    </Text>
                 </LinearGradient>
-            }
+                )}
         </View>
-    )
-}
-
-const styles = StyleSheet.create({
-    paymentCardContainer: {
-        borderRadius: borderRadius.radius16 * 2,
-        backgroundColor: colors.primary.grey,
-        borderWidth: 3,
-    },
-    linearGradientWallet: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: spacing.space12,
-        paddingHorizontal: spacing.space24,
-        gap: spacing.space24,
-        borderRadius: borderRadius.radius16 * 2,
-    },
-    linearGradientRegular: {
-        flexDirection: "row",
-        alignItems: "center",
-        padding: spacing.space12,
-        paddingHorizontal: spacing.space24,
-        gap: spacing.space24,
-        borderRadius: borderRadius.radius16 * 2,
-    },
-    walletRow: {
-        flexDirection: "row",
-        alignItems: "center",
-        gap: spacing.space24,
-    },
-    paymentTitle: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size16,
-        color: colors.primary.white,
-    },
-    paymentPrice: {
-          fontFamily: fonts.poppins.regular,
-        fontSize: fontSizes.size20,
-        color: colors.secondary.lightGrey,
-    },
-    paymentImage: {
-        height: 30,
-        width: 30,
-    },
-})
+    );
+};
 
 export default PaymentMethod;

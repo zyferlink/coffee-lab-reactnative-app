@@ -1,47 +1,29 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import GradientBackgroundIcon from './GradientBackgroundIcon';
-import ProfilePicture from '../specific/ProfilePicture';
-import { fonts, fontSizes } from '../../config/fonts';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
-import { spacing } from '../../config/dimensions';
+import { iconSet } from '../../config/assets';
+import GradientIconBG from './GradientIconBG';
+import ProfilePicture from '../specific/ProfilePicture';
 
 interface HeaderBarProps {
     title?: string;
 }
 
-const HeaderBar: React.FC<HeaderBarProps> =
-    ({ title }) => {
-        return (
-            <View
-                style={styles.headerContainer}>
-                <GradientBackgroundIcon
-                    name="menu"
-                    color={colors.primary.lightGrey}
-                    size={fontSizes.size12}
-                />
-                <Text
-                    style={styles.headerText}>
-                    {title}
-                </Text>
-                <ProfilePicture />
-            </View>
-        )
-    }
+const HeaderBar: React.FC<HeaderBarProps> = ({ title }) => {
+    return (
+        <View className="px-6 py-4 flex-row items-center justify-between">
+            <GradientIconBG
+                name={iconSet.menu}
+                color={colors.primary.lightGrey}
+                size={fontSizes.size12}
+            />
+            <Text className="text-2xl font-poppinsLight text-secondary-lightGrey">
+                {title}
+            </Text>
+            <ProfilePicture />
+        </View>
+    );
+};
 
-const styles = StyleSheet.create({
-    headerContainer: {
-        paddingHorizontal: spacing.space24,
-        paddingVertical: spacing.space16,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-    headerText: {
-        fontFamily: fonts.poppins.light,
-        fontSize: fontSizes.size24,
-        color: colors.secondary.lightGrey,
-    }
-})
-
-export default HeaderBar
+export default HeaderBar;
