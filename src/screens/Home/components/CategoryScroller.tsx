@@ -1,11 +1,9 @@
 import React from 'react';
-import { ScrollView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { colors } from '../../../config/colors';
-import { borderRadius, spacing } from '../../../config/dimensions';
-import { fonts, fontSizes } from '../../../config/fonts';
+import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
+import tw from 'twrnc';
 
 type CategoryScrollerProps = {
-    categories: string[]; 
+    categories: string[];
     categoryIndex: number;
     onCategoryChange: (index: number) => void;
 };
@@ -19,26 +17,26 @@ const CategoryScroller: React.FC<CategoryScrollerProps> = ({
         <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.categoryScrollViewContentContainer}
+            contentContainerStyle={tw`px-5 mb-2 mt-2`}
         >
             {categories.map((category, index) => {
                 const isActive = categoryIndex === index;
 
                 return (
-                    <View key={index.toString()} style={styles.categoryScrollViewContainer}>
+                    <View
+                        key={index.toString()}
+                        className="px-2.5">
                         <TouchableOpacity
+                            className="items-center"
                             onPress={() => onCategoryChange(index)}
-                            style={styles.categoryScrollViewItem}
                         >
                             <Text
-                                style={[
-                                    styles.categoryText,
-                                    isActive ? { color: colors.primary.orange } : {},
-                                ]}
+                                className={`text-lg font-poppinsSemiBold 
+                                ${isActive ? 'text-primary-orange' : 'text-primary-lightGrey'}`}
                             >
                                 {category}
                             </Text>
-                            {isActive && <View style={styles.activeCategory} />}
+                            {isActive && <View className="h-1 w-4 rounded-lg bg-primary-orange mt-1" />}
                         </TouchableOpacity>
                     </View>
                 );
@@ -46,31 +44,5 @@ const CategoryScroller: React.FC<CategoryScrollerProps> = ({
         </ScrollView>
     );
 };
-
-const styles = StyleSheet.create({
-    categoryScrollViewContentContainer: {
-        paddingHorizontal: spacing.space20,
-        marginBottom: spacing.space2,
-        marginTop: spacing.space10,
-    },
-    categoryScrollViewContainer: {
-        paddingHorizontal: spacing.space10,
-    },
-    categoryScrollViewItem: {
-        alignItems: "center",
-    },
-    categoryText: {
-        fontSize: fontSizes.size16,
-        fontFamily: fonts.poppins.semiBold,
-        color: colors.primary.lightGrey,
-        marginBottom: spacing.space4,
-    },
-    activeCategory: {
-        height: spacing.space4,
-        width: spacing.space16,
-        borderRadius: borderRadius.radius10,
-        backgroundColor: colors.primary.orange,
-    },
-})
 
 export default CategoryScroller;
