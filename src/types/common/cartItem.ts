@@ -1,6 +1,6 @@
 import { Product } from "./product";
 
-// - Brew Item
+// - CartItem Item
 export interface CartItemPrice {
   size: string;
   price: string;

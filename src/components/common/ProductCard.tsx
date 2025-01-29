@@ -1,20 +1,17 @@
 // React and React Native
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 // Third-party
 import LinearGradient from 'react-native-linear-gradient';
 // Configuration and components
 import { colors } from '../../config/colors';
 import { iconSet } from '../../config/assets';
-import { fonts, fontSizes } from '../../config/fonts';
-import { borderRadius, spacing } from '../../config/dimensions';
-import CustomIcon from './CustomIcon';
-import BackgroundIcon from '../specific/BackgroundIcon';
-import DimensionsUtil from '../../utils/dimensionsUtil';
+import { fontSizes } from '../../config/fonts';
 import { Product, ProductPrice } from '../../types/common/product';
 import { CartItem } from '../../types/common/cartItem';
+import CustomIcon from './CustomIcon';
+import BackgroundIcon from '../specific/BackgroundIcon';
 
-const CARD_WIDTH = DimensionsUtil.widthPercentage(32);
 
 interface ProductCardProps {
     product: Product;
@@ -23,23 +20,27 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({
     product,
-    onPressHandler,
+    onPressHandler
 }) => {
     const selectedPrice = getPrice(product.prices);
+
     return (
         <LinearGradient
             colors={[colors.primary.grey, colors.primary.black]}
-            style={styles.cardLinearGradientContainer}
             start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}>
-
+            end={{ x: 1, y: 1 }}
+            className="p-3 rounded-2xl"
+        >
             {/* Image Background */}
             <ImageBackground
                 source={product.imageLinkSquare}
                 resizeMode="cover"
-                style={styles.cardImageBackground}>
+                className="w-[34vw] h-[34vw] aspect-square rounded-xl mb-4 overflow-hidden"
+            >
                 {/* Rating Container */}
-                <View style={styles.cardRatingContainer}>
+                <View
+                    className="absolute top-0 right-0 flex-row items-center justify-center 
+                    bg-primary-blackTransparent gap-x-2 px-4 rounded-bl-xl rounded-tr-xl">
                     {/* Rating Icon */}
                     <CustomIcon
                         name={iconSet.star}
@@ -47,28 +48,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         size={fontSizes.size14}
                     />
                     {/* Rating Text */}
-                    <Text style={styles.cardRatingText}>
+                    <Text className="text-primary-white font-poppinsMedium text-sm leading-6">
                         {product.averageRating}
                     </Text>
                 </View>
             </ImageBackground>
 
             {/* Coffee Name */}
-            <Text style={styles.cardTitle}>
+            <Text className="text-primary-white text-lg font-poppinsSemiBold">
                 {product.name}
             </Text>
 
             {/* Special Ingredient */}
-            <Text style={styles.cardSubtitle}>
+            <Text className="text-primary-white font-poppinsLight text-xs">
                 {product.specialIngredient}
             </Text>
 
             {/* Card Footer */}
-            <View style={styles.cardFooterRow}>
+            <View className="flex-row items-center justify-between mt-4">
                 {/* Item Price */}
-                <Text style={styles.cardPriceCurrency}>
+                <Text className="text-primary-orange font-poppinsSemiBold text-lg">
                     {`${selectedPrice.currency} `}
-                    <Text style={styles.cardPrice}>
+                    <Text className="text-primary-white">
                         {selectedPrice.price}
                     </Text>
                 </Text>
@@ -77,10 +78,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     onPress={() => {
                         const cartItem: CartItem = {
                             ...product,
-                            prices: [{ ...selectedPrice, quantity: 1 }]
+                            prices: [{ ...selectedPrice, quantity: 1 }],
                         };
                         onPressHandler(cartItem);
-                    }}>
+                    }}
+                >
                     <BackgroundIcon
                         name={iconSet.add}
                         color={colors.primary.white}
@@ -90,73 +92,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </TouchableOpacity>
             </View>
         </LinearGradient>
-    )
-}
+    );
+};
 
 const getPrice = (prices: ProductPrice[]): ProductPrice => {
     if (prices.length === 0) {
-        // TODO: Handle the empty prices case, | throw an error
-        return { currency: 'USD', price: '0.00', size: '' };
+        // TODO: Handle the empty prices case
+        return { currency: '$', price: '0.00', size: '' };
     }
-    const index = prices.length - 1;
-    return prices[index];
-}
-
-const styles = StyleSheet.create({
-    cardLinearGradientContainer: {
-        padding: spacing.space16,
-        borderRadius: borderRadius.radius28,
-    },
-    cardImageBackground: {
-        width: CARD_WIDTH,
-        height: CARD_WIDTH,
-        borderRadius: borderRadius.radius20,
-        marginBottom: spacing.space16,
-        overflow: "hidden",
-    },
-    cardRatingContainer: {
-        flexDirection: "row",
-        backgroundColor: colors.primary.blackTransparent,
-        alignItems: "center",
-        justifyContent: "center",
-        gap: spacing.space10,
-        paddingHorizontal: spacing.space16,
-        position: "absolute",
-        borderBottomLeftRadius: borderRadius.radius20,
-        borderTopRightRadius: borderRadius.radius20,
-        top: 0,
-        right: 0,
-    },
-    cardRatingText: {
-        fontFamily: fonts.poppins.medium,
-        fontSize: fontSizes.size14,
-        color: colors.primary.white,
-        lineHeight: 24,
-    },
-    cardTitle: {
-        fontFamily: fonts.poppins.medium,
-        fontSize: fontSizes.size16,
-        color: colors.primary.white,
-    },
-    cardSubtitle: {
-        fontFamily: fonts.poppins.light,
-        fontSize: fontSizes.size10,
-        color: colors.primary.white,
-    },
-    cardFooterRow: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginTop: spacing.space16,
-    },
-    cardPriceCurrency: {
-        fontFamily: fonts.poppins.semiBold,
-        fontSize: fontSizes.size18,
-        color: colors.primary.orange,
-    },
-    cardPrice: {
-        color: colors.primary.white,
-    }
-})
+    return prices[prices.length - 1];
+};
 
 export default ProductCard;

@@ -1,16 +1,22 @@
-import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { ScrollView, StatusBar, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import tw from 'twrnc';
 import { useStore } from '../../state/useStore';
+import { colors } from '../../config/colors';
+import { SCREENS } from '../../config/screenNames';
+import { MESSAGES } from '../../config/messages';
 import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import HeaderBar from '../../components/common/HeaderBar';
 import FavoriteItemCard from './components/FavoriteItemCard';
-import { colors } from '../../config/colors';
-import { spacing } from '../../config/dimensions';
-import { SCREENS } from '../../config/screenNames';
-import { MESSAGES } from '../../config/messages';
 
-const FavoriteScreen = ({ navigation, route }: any) => {
+interface FavoriteScreenProps {
+  navigation: any;
+  route: any;
+}
+
+const FavoriteScreen: React.FC<FavoriteScreenProps> = ({ navigation, route }) => {
   const tabBarHeight = useBottomTabBarHeight();
 
   const favoriteList = useStore((state: any) => state.favoriteList);
@@ -22,24 +28,26 @@ const FavoriteScreen = ({ navigation, route }: any) => {
   };
 
   return (
-    <View style={styles.screenContainer}>
+    <SafeAreaView className="flex-1 bg-primary-black">
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollViewFlex}>
+        contentContainerStyle={tw`flex-grow`}>
         <View
-          style={[styles.innerScrollView, { marginBottom: tabBarHeight }]}>
-          <View
-            style={styles.itemContainer}>
+          className="flex-1"
+          style={{ marginBottom: tabBarHeight }}>
+          <View className="flex-1">
+
             {/* Header Bar */}
             <HeaderBar title={SCREENS.FAVORITE} />
+
             {/* Favorite Items */}
             {favoriteList.length == 0 ?
               (<EmptyListAnimation title={MESSAGES.DEFAULTS.NO_FAVORITES} />)
               :
-              (<View style={styles.listItemContainer}>
+              (<View className="px-5 gap-5">
                 {favoriteList.map((item: any) => (
                   <TouchableOpacity
                     key={item.id}
@@ -64,29 +72,8 @@ const FavoriteScreen = ({ navigation, route }: any) => {
         </View>
 
       </ScrollView>
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    backgroundColor: colors.primary.black,
-  },
-  scrollViewFlex: {
-    flexGrow: 1,
-  },
-  innerScrollView: {
-    flex: 1,
-    justifyContent: "space-between",
-  },
-  itemContainer: {
-    flex: 1,
-  },
-  listItemContainer: {
-    paddingHorizontal: spacing.space20,
-    gap: spacing.space20,
-  },
-})
+    </SafeAreaView>
+  );
+};
 
 export default FavoriteScreen;

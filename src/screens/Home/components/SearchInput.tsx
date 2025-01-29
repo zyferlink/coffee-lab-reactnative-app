@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import CustomIcon from '../../../components/common/CustomIcon';
-import { fonts, fontSizes } from '../../../config/fonts';
+import { View, TextInput, TouchableOpacity } from 'react-native';
+import { fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
-import { borderRadius, spacing } from '../../../config/dimensions';
 import { iconSet } from '../../../config/assets';
 import { CONSTANTS } from '../../../config/constants';
+import CustomIcon from '../../../components/common/CustomIcon';
 
 type SearchInputProps = {
   searchText: string;
@@ -21,9 +20,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
   onResetSearch,
 }) => {
   return (
-    <View style={styles.inputContainer}>
+    <View className="flex-row mx-6 my-4 rounded-3xl bg-primary-darkGrey items-center">
       {/* Search Icon */}
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={() => onSearchCoffee(searchText)}>
         <CustomIcon
           name={iconSet.search}
@@ -33,57 +32,36 @@ const SearchInput: React.FC<SearchInputProps> = ({
               ? colors.primary.orange
               : colors.primary.lightGrey
           }
-          style={styles.inputIcon}
+          className="mx-5"
         />
       </TouchableOpacity>
 
       {/* Text Input */}
       <TextInput
+        className="flex-1 h-15 font-poppinsMedium text-base text-primary-white"
         placeholder={CONSTANTS.PLACEHOLDER.FIND_YOUR_COFFEE}
         value={searchText}
         onChangeText={text => {
-            setSearchText(text);
-            onSearchCoffee(searchText);
-          }}
+          setSearchText(text);
+          onSearchCoffee(searchText);
+        }}
         placeholderTextColor={colors.primary.lightGrey}
-        style={styles.textInputContainer}
       />
 
       {/* Reset Icon */}
       {searchText.length > 0 && (
-        <TouchableOpacity 
-        onPress={() => onResetSearch()}>
+        <TouchableOpacity
+          onPress={() => onResetSearch()}>
           <CustomIcon
             name={iconSet.close}
             size={fontSizes.size16}
             color={colors.primary.lightGrey}
-            style={styles.inputIcon}
+            className="mx-5"
           />
         </TouchableOpacity>
       )}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-   inputContainer: {
-     flexDirection: "row",
-     marginHorizontal: spacing.space24,
-     marginVertical: spacing.space16,
-     borderRadius: borderRadius.radius20,
-     backgroundColor: colors.primary.darkGrey,
-     alignItems: "center",
-   },
-   inputIcon: {
-    marginHorizontal: spacing.space20,
-  },
-    textInputContainer: {
-      flex: 1,
-      height: spacing.space60,
-      fontFamily: fonts.poppins.medium,
-      fontSize: fontSizes.size14,
-      color: colors.primary.white,
-    },
-})
 
 export default SearchInput;
