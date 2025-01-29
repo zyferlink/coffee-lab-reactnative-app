@@ -40,8 +40,8 @@ CoffeeLab: Coffee Shop App. A React Native app powered by Zustand for managing c
 <br>
 <br>
 
-<img src="./_archive/screenshots/screenshot-1-home.png" width="160" height="340">
-<img src="./_archive/screenshots/screenshot-2.jpg" width="160" height="340">
+<img src="./_archive/screenshots/screenshot-1-home.png" width="180" height="400">
+<img src="./_archive/screenshots/screenshot-2.jpg" width="180" height="400">
 
 </div>
 
