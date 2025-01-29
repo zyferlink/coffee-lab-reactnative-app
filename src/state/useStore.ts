@@ -36,8 +36,8 @@ export const useStore = create(
             decrementCartItemQuantity: (id: string, size: string) =>
                 set(produce((state) => decrementCartItemQuantity(state, id, size))),
 
-            addToOrderHistoryFromCart: () =>
-                set(produce((state) => addToOrderHistoryFromCart(state))),
+            addToOrderHistoryFromCart: (paymentMethod: string) =>
+                set(produce((state) => addToOrderHistoryFromCart(state, paymentMethod))),
 
             addToFavoriteList: (id: string, type: string) =>
                 set(produce((state) => addToFavoriteList(state, type, id))),
