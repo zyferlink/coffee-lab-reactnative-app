@@ -14,7 +14,11 @@ import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import PopUpAnimation from '../../components/common/PopUpAnimation';
 import OrderHistoryCard from './components/OrderHistoryCard';
 
-const OrderHistoryScreen = ({ navigation }: any) => {
+interface OrderHistoryScreenProps {
+  navigation: any;
+}
+
+const OrderHistoryScreen : React.FC<OrderHistoryScreenProps> = ({ navigation }) => {
   const tabBarHeight = useBottomTabBarHeight();
 
   const orderHistoryList = useStore((state: any) => state.orderHistoryList);
@@ -29,7 +33,7 @@ const OrderHistoryScreen = ({ navigation }: any) => {
     setShowAnimation(true);
     setTimeout(() => {
       setShowAnimation(false);
-    }, 2000);
+    }, 1500);
   }
 
   return (
@@ -37,12 +41,12 @@ const OrderHistoryScreen = ({ navigation }: any) => {
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
       {/* Success Animation */}
-      {showAnimation ?
+      {showAnimation &&
         <PopUpAnimation
           style={{ height: 250 }}
           source={lottieAnimations.download}
         />
-        : <></>}
+      }
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -83,6 +87,5 @@ const OrderHistoryScreen = ({ navigation }: any) => {
     </SafeAreaView>
   );
 };
-
 
 export default OrderHistoryScreen;
