@@ -12,7 +12,7 @@ CoffeeLab by Nova <br>
 
 CoffeeLab: Coffee Shop App. A React Native app powered by Zustand for managing coffee orders. Browse coffees and beans, view details, search, favorite items, and place orders easily.
 
-**Updated on** January 28, 2025 
+**Updated on** January 30, 2025 
 
 <br>
 
@@ -191,6 +191,14 @@ Explore the branches: Stage 1–15
 
 
 </details>
+
+<br/>
+
+#### Others
+- **Integrate Nativewind** : [**branch :: integrate-nativewind**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/feature/integrate-nativewind)  
+
+- **MVVM Migration** : [**branch :: mvvm-architecture**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/feature/mvvm-architecture)  
+
 
 <br/>
 
