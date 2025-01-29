@@ -6,7 +6,7 @@ CoffeeLab by Nova <br>
 
 ## Integrate NativeWind
 
-**Log:** January 28, 2025  
+**Log:** January 29, 2025  
 NativeWind integration provides a seamless way to use TailwindCSS in React Native applications. This guide walks through the steps to install, configure, and use NativeWind effectively.
 
 <p align="center">  
@@ -131,10 +131,10 @@ module.exports = {
 
 ---
 
-### 7. Refactor Home Screen
-Integrate NativeWind into your `HomeScreen` component.
+### 7. Refactor All Screens
+Integrate NativeWind into every component.
 
-- File: [HomeScreen.tsx](./src/screens/Home/HomeScreen.tsx)
+- Ex: [HomeScreen.tsx](./src/screens/Home/HomeScreen.tsx)
 #
 #### Final Steps  
 
