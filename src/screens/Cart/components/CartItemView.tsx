@@ -88,7 +88,7 @@ const SingleBrewItemView = ({
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         colors={[colors.primary.grey, colors.primary.black]}
-        className="p-4 rounded-2xl flex-row items-center space-x-3"
+        className="p-3 rounded-3xl flex-row items-center space-x-3"
     >
         {/* Image */}
         <Image source={cartItem.imageLinkSquare} className="h-36 w-36 rounded-2xl" />
@@ -100,14 +100,14 @@ const SingleBrewItemView = ({
                 <Text className="font-poppinsMedium text-lg text-primary-white">
                     {cartItem.name}
                 </Text>
-                <Text className="font-poppinsRegular text-base text-secondary-lightGrey">
+                <Text className="font-poppinsRegular text-sm text-secondary-lightGrey">
                     {cartItem.specialIngredient}
                 </Text>
             </View>
 
             {/* Size and Price */}
-            <View className="flex-row justify-evenly items-center py-2">
-                <View className="bg-primary-black w-24 h-10 rounded-lg justify-center items-center">
+            <View className="flex-row justify-between items-center py-2.5 pr-2">
+                <View className="bg-primary-black w-24 h-10 rounded-xl justify-center items-center">
                     <Text
                         className={`${cartItem.type === PRODUCT_TYPES.BEAN ? 'text-sm' : 'text-base'
                             } font-poppinsMedium text-secondary-lightGrey`}
@@ -138,8 +138,8 @@ const SingleBrewItemView = ({
                     />
                 </TouchableOpacity>
                 <View
-                    className="bg-primary-black w-16 h-10 rounded-md border-2 border-primary-orange 
-                    justify-center items-center mx-1">
+                    className="bg-primary-black w-16 h-9 rounded-md border border-1 border-primary-orange 
+                    justify-center items-center mx-2">
                     <Text className="text-base font-poppinsSemiBold text-primary-white">
                         {cartItem.prices[0].quantity}
                     </Text>
@@ -169,10 +169,10 @@ const BrewItemHeader = ({ cartItem }: { cartItem: CartItem }) => (
         <View className="flex-1 justify-between">
             {/* Title Views */}
             <View>
-                <Text className="font-poppinsSemiBold text-lg text-primary-white">
+                <Text className="font-poppinsSemiBold text-xl text-primary-white mb-0.5">
                     {cartItem.name}
                 </Text>
-                <Text className="font-poppinsRegular text-s text-secondary-lightGrey">
+                <Text className="font-poppinsRegular text-xs text-secondary-lightGrey mb-1">
                     {cartItem.specialIngredient}
                 </Text>
             </View>
@@ -198,16 +198,18 @@ const PriceRow = ({
     incrementQuantityHandler: (id: string, size: string) => void;
 }) => (
     <View className="flex-row items-center justify-between">
-        {/* Size List */}
-        <View className="flex-row items-center py-1">
-            <View className="bg-primary-black w-24 h-10 rounded-lg justify-center items-center">
+        {/* Size & Price List */}
+        <View className="flex-row items-center pt-1 pb-0.5">
+            {/* Sizes */}
+            <View className="bg-primary-black w-24 h-10 rounded-xl justify-center items-center">
                 <Text
-                    className={`${cartItem.type === PRODUCT_TYPES.BEAN ? 'text-sm' : 'text-base'
-                        } font-medium text-secondary-lightGrey`}
+                    className={`${cartItem.type === PRODUCT_TYPES.BEAN ? 'text-sm' : 'text-base'} 
+                    font-medium text-secondary-lightGrey`}
                 >
                     {priceItem.size}
                 </Text>
             </View>
+            {/* Prices */}
             <Text className="text-lg font-poppinsSemiBold text-primary-orange ml-2">
                 {` ${priceItem.currency} `}
                 <Text className="text-lg font-poppinsSemiBold text-primary-white">
@@ -228,7 +230,7 @@ const PriceRow = ({
                     size={fontSizes.size10}
                 />
             </TouchableOpacity>
-            <View className="bg-primary-black w-12 h-10 rounded-md border-2 border-primary-orange justify-center items-center">
+            <View className="bg-primary-black w-14 h-9 rounded-md border-2 border-primary-orange justify-center items-center">
                 <Text className="text-base font-poppinsSemiBold text-primary-white">
                     {priceItem.quantity}
                 </Text>

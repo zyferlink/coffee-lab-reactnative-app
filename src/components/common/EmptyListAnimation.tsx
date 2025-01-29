@@ -11,11 +11,11 @@ const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({
     title
 }) => {
     return (
-        <View className="flex-1 justify-center items-center">
+        <View className="h-[95%] justify-center items-center">
             {/* Animation View */}
             <LottieView
                 source={lottieAnimations.coffeecup}
-                style={{  height: 300, width:300,}}
+                style={{ height: 300, width:300}}
                 autoPlay
                 loop
             />
