@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
-  ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity,
+  ScrollView, StatusBar, Text, TouchableOpacity,
   TouchableWithoutFeedback, View
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import tw from 'twrnc';
 import { useStore } from '../../state/useStore';
-import { fonts, fontSizes } from '../../config/fonts';
 import { colors } from '../../config/colors';
-import { borderRadius, spacing } from '../../config/dimensions';
 import { NAVIGATORS, SCREENS } from '../../config/screenNames';
 import { BUTTON_TITLES, PRODUCT_TYPES } from '../../config/specialTypes';
 import { CartItem } from '../../types/common/cartItem';
@@ -49,13 +49,13 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
   };
 
   return (
-    <View style={styles.screenContainer}>
+    <SafeAreaView className="flex-1 bg-primary-black">
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollViewFlex}>
+        contentContainerStyle={tw`flex-grow justify-between`}>
 
         {/* Background Image & Header */}
         <ImageBackdropInfo
@@ -66,9 +66,9 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
         />
 
         {/* Footer Area */}
-        <View style={styles.footerInfoArea}>
+        <View className="p-5">
           {/* Description Area */}
-          <Text style={styles.infoTitle}>
+          <Text className="font-poppinsSemiBold text-lg text-primary-white mt-2 mb-2">
             Description
           </Text>
           {
@@ -77,7 +77,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
                 onPress={() => {
                   setFullDescription(previousValue => !previousValue)
                 }}>
-                <Text style={styles.descriptionText}>
+                <Text className="font-poppinsRegular text-sm text-primary-white tracking-wide mb-6">
                   {selectedItem.description}
                 </Text>
               </TouchableWithoutFeedback>
@@ -88,11 +88,12 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
                   setFullDescription(previousValue => !previousValue)
                 }}>
                 <View>
-                  <Text style={styles.descriptionText} numberOfLines={3}>
+                  <Text
+                    className="font-poppinsRegular text-sm text-primary-white tracking-wide mb-6"
+                    numberOfLines={3}>
                     {selectedItem.description}
                   </Text>
-                  <Text style={[styles.infoTitle,
-                  { marginTop: -30, marginBottom: 30 }]}>
+                  <Text className="font-poppinsSemiBold text-lg text-primary-white -mt-6 mb-6">
                     ...
                   </Text>
                 </View>
@@ -101,12 +102,12 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
           }
 
           {/* Sizes Area Title */}
-          <Text style={styles.infoTitle}>
+          <Text className="font-poppinsSemiBold text-lg text-white mb-3">
             Size
           </Text>
 
           {/* Sizes Area */}
-          <View style={styles.sizeOuterContainer}>
+          <View className="flex-row justify-between gap-3">
             {
               selectedItem.prices.map((priceItem: any) => (
                 <TouchableOpacity
@@ -114,21 +115,14 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
                   onPress={() => {
                     setPrice(priceItem)
                   }}
-                  style={[styles.sizeBox,
-                  {
-                    borderColor: priceItem.size == price.size
-                      ? colors.primary.orange : colors.primary.lightGrey
-                  }]}>
+                  className={`flex-1 h-12 bg-primary-darkGrey items-center justify-center rounded-xl border-2 
+                    ${priceItem.size == price.size ? 'border-primary-orange' : 'border-primary-lightGrey'}`
+                  }>
                   <Text
-                    style={[styles.sizeText,
-                    {
-                      fontSize:
-                        selectedItem.type == PRODUCT_TYPES.BEAN
-                          ? fontSizes.size14 : fontSizes.size16,
-                      color:
-                        priceItem.size == price.size
-                          ? colors.primary.orange : colors.primary.white
-                    }]}>
+                    className={`font-poppinsMedium text-primary-white 
+                    ${priceItem.size == price.size ? 'text-primary-orange' : 'text-primary-white'} 
+                    ${selectedItem.type == PRODUCT_TYPES.BEAN ? 'text-md' : 'text-lg'}`
+                    }>
                     {priceItem.size}
                   </Text>
                 </TouchableOpacity>
@@ -151,53 +145,8 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ navigation, route }) => {
           addToCartHandler(cartItem);
         }}
       />
-    </View>
+    </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    backgroundColor: colors.primary.black,
-  },
-  scrollViewFlex: {
-    flexGrow: 1,
-    justifyContent: "space-between",
-  },
-  footerInfoArea: {
-    padding: spacing.space20,
-  },
-  infoTitle: {
-    fontFamily: fonts.poppins.semiBold,
-    fontSize: fontSizes.size18,
-    color: colors.primary.white,
-    marginBottom: spacing.space10,
-  },
-  descriptionText: {
-    fontFamily: fonts.poppins.regular,
-    fontSize: fontSizes.size14,
-    color: colors.primary.white,
-    letterSpacing: 0.5,
-    marginBottom: spacing.space30,
-  },
-  sizeOuterContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: spacing.space10,
-  },
-  sizeBox: {
-    flex: 1,
-    height: 48,
-    backgroundColor: colors.primary.darkGrey,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: borderRadius.radius10,
-    borderWidth: 2,
-  },
-  sizeText: {
-    fontFamily: fonts.poppins.medium,
-  },
-})
 
 export default DetailScreen;
