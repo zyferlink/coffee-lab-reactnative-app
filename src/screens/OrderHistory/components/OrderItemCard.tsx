@@ -5,22 +5,15 @@ import { fonts, fontSizes } from '../../../config/fonts';
 import { colors } from '../../../config/colors';
 import { borderRadius, spacing } from '../../../config/dimensions';
 import { CURRENCY, PRODUCT_TYPES } from '../../../config/specialTypes';
+import { CartItem } from '../../../types/common/cartItem';
 
 interface OrderItemCardProps {
-    type: string;
-    name: string;
-    imageLink: ImageProps;
-    specialIngredient: string;
-    prices: any;
+    cartItem: CartItem;
     itemPrice: string;
 }
 
 const OrderItemCard: React.FC<OrderItemCardProps> = ({
-    type,
-    name,
-    imageLink,
-    specialIngredient,
-    prices,
+    cartItem,
     itemPrice,
 }) => {
     return (
@@ -36,17 +29,17 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                     style={styles.cardInfoImageContainer}>
                     {/* Header Image */}
                     <Image
-                        source={imageLink}
+                        source={cartItem.imageLinkSquare}
                         style={styles.cardImage}
                     />
                     <View>
                         {/* Item Name */}
                         <Text style={styles.cardTitle}>
-                            {name}
+                            {cartItem.name}
                         </Text>
                         {/* Special Ingredient */}
                         <Text style={styles.cardSubtitle}>
-                            {specialIngredient}
+                            {cartItem.specialIngredient}
                         </Text>
                     </View>
                 </View>
@@ -61,7 +54,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                 </View>
             </View>
             {/* Detail Section */}
-            {prices.map((priceItem: any, index: any) => (
+            {cartItem.prices.map((priceItem: any, index: any) => (
                 <View
                     key={index.toString()}
                     style={styles.cardTableRow}>
@@ -69,7 +62,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
                         {/* PriceItems's Size */}
                         <View style={styles.cardBoxLeft}>
                             <Text style={[styles.itemPriceSize, {
-                                fontSize: type == PRODUCT_TYPES.BEAN ?
+                                fontSize: cartItem.type == PRODUCT_TYPES.BEAN ?
                                     fontSizes.size14 : fontSizes.size16
                             }]}>
                                 {priceItem.size}

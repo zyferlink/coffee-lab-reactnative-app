@@ -34,7 +34,7 @@ const FavoriteScreen: React.FC<FavoriteScreenProps> = ({ navigation, route }) =>
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`flex-grow-1`}>
+        contentContainerStyle={tw`flex-grow`}>
         <View
           className="flex-1"
           style={{ marginBottom: tabBarHeight }}>

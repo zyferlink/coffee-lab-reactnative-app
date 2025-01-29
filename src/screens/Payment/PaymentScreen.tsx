@@ -30,7 +30,7 @@ const PaymentScreen = ({ navigation, route }: any) => {
 
   const buttonPressHandler = () => {
     setShowSuccessAnimation(true);
-    addToOrderHistoryFromCart();
+    addToOrderHistoryFromCart(paymentMode);
     calculateCartPrice();
     setTimeout(() => {
       setShowSuccessAnimation(false);

@@ -1,18 +1,15 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import OrderItemCard from './OrderItemCard';
+import { OrderItem } from '../../../types/common/orderItem';
 
 interface OrderHistoryCardProps {
-    orderDate: string;
-    orderPrice: string;
-    orderItemList: any;
+    orderItem: OrderItem;
     navigationHandler: any;
 }
 
 const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
-    orderDate,
-    orderPrice,
-    orderItemList,
+    orderItem,
     navigationHandler,
 }) => {
     return (
@@ -24,7 +21,7 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
                         Order Time
                     </Text>
                     <Text className="font-poppinsRegular text-md text-primary-white">
-                        {orderDate}
+                        {orderItem.orderDate}
                     </Text>
                 </View>
                 {/* Order Payment Info*/}
@@ -33,13 +30,13 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
                         Total Amount
                     </Text>
                     <Text className="font-poppinsMedium text-lg text-primary-orange">
-                        ${orderPrice}
+                        ${orderItem.totalPrice}
                     </Text>
                 </View>
             </View>
             {/* Order Items */}
             <View className="gap-3">
-                {orderItemList.map((orderItem: any, index: any) => (
+                {orderItem.itemList.map((orderItem: any, index: any) => (
                     <TouchableOpacity
                         key={index.toString() + orderItem.id}
                         onPress={() => {
@@ -50,11 +47,7 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
                             });
                         }}>
                         <OrderItemCard
-                            type={orderItem.type}
-                            name={orderItem.name}
-                            imageLink={orderItem.imageLinkSquare}
-                            specialIngredient={orderItem.specialIngredient}
-                            prices={orderItem.prices}
+                            cartItem={orderItem}
                             itemPrice={orderItem.itemPrice}
                         />
                     </TouchableOpacity>
