@@ -1,18 +1,18 @@
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { useStore } from '../../state/useStore';
+import { ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import tw from 'twrnc';
+import { useStore } from '../../state/useStore';
+import { lottieAnimations } from '../../config/assets';
+import { colors } from '../../config/colors';
+import { SCREENS } from '../../config/screenNames';
+import { CONSTANTS } from '../../config/constants';
+import { MESSAGES } from '../../config/messages';
 import HeaderBar from '../../components/common/HeaderBar';
 import EmptyListAnimation from '../../components/common/EmptyListAnimation';
 import PopUpAnimation from '../../components/common/PopUpAnimation';
 import OrderHistoryCard from './components/OrderHistoryCard';
-import { lottieAnimations } from '../../config/assets';
-import { fonts, fontSizes } from '../../config/fonts';
-import { colors } from '../../config/colors';
-import { borderRadius, spacing } from '../../config/dimensions';
-import { SCREENS } from '../../config/screenNames';
-import { CONSTANTS } from '../../config/constants';
-import { MESSAGES } from '../../config/messages';
 
 const OrderHistoryScreen = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
@@ -33,32 +33,32 @@ const OrderHistoryScreen = ({ navigation }: any) => {
   }
 
   return (
-    <View style={styles.screenContainer}>
+    <SafeAreaView className="flex-1 bg-primary-black">
       {/* Status Bar */}
       <StatusBar backgroundColor={colors.primary.black} />
       {/* Success Animation */}
       {showAnimation ?
         <PopUpAnimation
-          style={styles.lottieAnimation}
+          style={{ height: 250 }}
           source={lottieAnimations.download}
         />
         : <></>}
       {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollViewFlex}>
+        contentContainerStyle={tw`flex-grow-1`}>
         <View
-          style={[styles.innerScrollView,
-          { marginBottom: tabBarHeight }]}>
+          className="flex-1 justify-between pb-4"
+          style={{ marginBottom: tabBarHeight }}>
           <View
-            style={styles.itemContainer}>
+            className="flex-1">
             {/* Header Bar */}
             <HeaderBar title={CONSTANTS.TITLES.ORDER_HISTORY} />
             {/* Order History Items */}
             {orderHistoryList.length == 0 ?
               (<EmptyListAnimation title={MESSAGES.DEFAULTS.NO_ORDER_HISTORY} />)
               :
-              (<View style={styles.listItemContainer}>
+              (<View className="px-7 gap-5">
                 {orderHistoryList.map((orderItem: any, index: any) => (
                   <OrderHistoryCard
                     key={index.toString()}
@@ -69,58 +69,20 @@ const OrderHistoryScreen = ({ navigation }: any) => {
               </View>
               )}
           </View>
-          {orderHistoryList.length > 0 ?
+          {orderHistoryList.length > 0 && (
             <TouchableOpacity
-              style={styles.downloadButton}
+              className="h-16 rounded-full mt-5 mx-7 bg-primary-orange items-center justify-center"
               onPress={() => { downloadActionHandler(); }}>
-              <Text style={styles.downloadButtonText}>
+              <Text className="font-poppinsSemiBold text-lg text-white">
                 Download
               </Text>
             </TouchableOpacity>
-            :
-            <></>
-          }
+          )}
         </View>
       </ScrollView>
-    </View>
-  )
-}
+    </SafeAreaView>
+  );
+};
 
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    backgroundColor: colors.primary.black,
-  },
-  lottieAnimation: {
-    height: 250,
-  },
-  scrollViewFlex: {
-    flexGrow: 1,
-  },
-  innerScrollView: {
-    flex: 1,
-    justifyContent: "space-between",
-  },
-  itemContainer: {
-    flex: 1,
-  },
-  listItemContainer: {
-    paddingHorizontal: spacing.space20,
-    gap: spacing.space20,
-  },
-  downloadButton: {
-    height: 64,
-    borderRadius: borderRadius.radius20,
-    margin: spacing.space20,
-    backgroundColor: colors.primary.orange,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  downloadButtonText: {
-    fontFamily: fonts.poppins.semiBold,
-    fontSize: fontSizes.size18,
-    color: colors.primary.white,
-  },
-})
 
 export default OrderHistoryScreen;
