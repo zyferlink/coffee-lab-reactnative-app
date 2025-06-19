@@ -130,9 +130,9 @@ CoffeeLab: Coffee Shop App. A React Native app powered by Zustand for managing c
 > ➲ [development][branch-development]
 
 
-[branch-main]:  https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/main
+[branch-main]:  https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/main
 
-[branch-development]:  https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/development-next
+[branch-development]:  https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/development-next
 
 
 #
@@ -144,49 +144,49 @@ Explore the branches: Stage 1–15
 
 #### Branches  
 
-1. **Init React Native Project** : [**stage-01-init-react-native-project**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-01-init-react-native-project)  
+1. **Init React Native Project** : [**stage-01-init-react-native-project**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-01-init-react-native-project)  
    Initial setup of the React Native project.
 
-2. **Project Setup** : [**stage-02-project-setup**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-02-project-setup)  
+2. **Project Setup** : [**stage-02-project-setup**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-02-project-setup)  
    Configuring essential libraries and dependencies.
 
-3. **Asset Allocation** : [**stage-03-asset-allocation**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-03-asset-allocation)  
+3. **Asset Allocation** : [**stage-03-asset-allocation**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-03-asset-allocation)  
    Allocation of images and fonts to the project.
 
-4. **Data, Theme, and Structural Setup** : [**stage-04-data-theme-and-structural-setup**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-04-data-theme-and-structural-setup)  
+4. **Data, Theme, and Structural Setup** : [**stage-04-data-theme-and-structural-setup**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-04-data-theme-and-structural-setup)  
    Setting up data models, theme configuration, and basic project structure.
 
-5. **Custom Icon Setup** : [**stage-05-custom-icon-setup**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-05-custom-icon-setup)  
+5. **Custom Icon Setup** : [**stage-05-custom-icon-setup**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-05-custom-icon-setup)  
    Implementing custom app icons.
 
-6. **Screens, Stack, and Tab Navigators** : [**stage-06-screens-stack-and-tab-navigators**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-06-screens-stack-and-tab-navigators)  
+6. **Screens, Stack, and Tab Navigators** : [**stage-06-screens-stack-and-tab-navigators**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-06-screens-stack-and-tab-navigators)  
    Setting up screens with stack and tab navigators.
 
-7. **Building Zustand Store** : [**stage-07-building-zustand-store**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-07-building-zustand-store)  
+7. **Building Zustand Store** : [**stage-07-building-zustand-store**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-07-building-zustand-store)  
    Implementing the Zustand store for state management.
 
-8. **Implement Home Screen** : [**stage-08-impl-home-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-08-impl-home-screen)  
+8. **Implement Home Screen** : [**stage-08-impl-home-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-08-impl-home-screen)  
    Developing the home screen with dynamic content.
 
-9. **Implement UseStore Hook** : [**stage-09-impl-usestore-hook**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-09-impl-usestore-hook)  
+9. **Implement UseStore Hook** : [**stage-09-impl-usestore-hook**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-09-impl-usestore-hook)  
    Creating and implementing the useStore hook for state management.
 
-10. **Implement Detail Screen** : [**stage-10-Impl-detail-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-10-Impl-detail-screen)  
+10. **Implement Detail Screen** : [**stage-10-Impl-detail-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-10-Impl-detail-screen)  
     Building the product detail screen.
 
-11. **Implement Cart Screen** : [**stage-11-impl-cart-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-11-impl-cart-screen)  
+11. **Implement Cart Screen** : [**stage-11-impl-cart-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-11-impl-cart-screen)  
     Developing the cart screen functionality.
 
-12. **Implement Favorite Screen** : [**stage-12-impl-favorite-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-12-impl-favorite-screen)  
+12. **Implement Favorite Screen** : [**stage-12-impl-favorite-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-12-impl-favorite-screen)  
     Implementing the favorite items screen.
 
-13. **Implement Payment Screen** : [**stage-13-impl-payment-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-13-impl-payment-screen)  
+13. **Implement Payment Screen** : [**stage-13-impl-payment-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-13-impl-payment-screen)  
     Setting up the payment screen with checkout options.
 
-14. **Implement Order History Screen** : [**stage-14-impl-order-history-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-14-impl-order-history-screen)  
+14. **Implement Order History Screen** : [**stage-14-impl-order-history-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-14-impl-order-history-screen)  
     Creating the order history screen for users.
 
-15. **Implement Splash Screen** : [**stage-15-impl-splash-screen**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/stage-15-impl-splash-screen)  
+15. **Implement Splash Screen** : [**stage-15-impl-splash-screen**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/stage-15-impl-splash-screen)  
     Developing the splash screen on app startup.
 
 
@@ -195,9 +195,9 @@ Explore the branches: Stage 1–15
 <br/>
 
 #### Others
-- **Integrate Nativewind** : [**branch :: integrate-nativewind**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/feature/integrate-nativewind)  
+- **Integrate Nativewind** : [**branch :: integrate-nativewind**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/feature/integrate-nativewind)  
 
-- **MVVM Migration** : [**branch :: mvvm-architecture**](https://github.com/NovaLogics/coffee-lab-reactnative-app/tree/feature/mvvm-architecture)  
+- **MVVM Migration** : [**branch :: mvvm-architecture**](https://github.com/ZyferLink/coffee-lab-reactnative-app/tree/feature/mvvm-architecture)  
 
 
 <br/>
@@ -337,7 +337,7 @@ Ensure you have the following installed:
 
 - Clone the repository:
    ```bash
-   git clone https://github.com/NovaLogics/coffee-lab-reactnative-app.git
+   git clone https://github.com/ZyferLink/coffee-lab-reactnative-app.git
    ```
 - Navigate to the project directory:
    ```bash
